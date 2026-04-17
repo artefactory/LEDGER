@@ -1,0 +1,2302 @@
+# Industry peer groups — NASDAQ
+
+## Basic Materials (50 companies)
+
+- **Specialty Chemicals** — 16 companies
+  - `ALTO` (NASDAQ) Alto Ingredients, Inc.
+  - `AMTX` (NASDAQ) Aemetis, Inc.
+  - `BCPC` (NASDAQ) Balchem Corporation
+  - `CLMT` (NASDAQ) Calumet, Inc.
+  - `CRKN` (NASDAQ) Crown Electrokinetics Corp.
+  - `FEAM` (NASDAQ) 5E Advanced Materials, Inc.
+  - `GEVO` (NASDAQ) Gevo, Inc.
+  - `HDSN` (NASDAQ) Hudson Technologies, Inc.
+  - `HWKN` (NASDAQ) Hawkins, Inc.
+  - `IOSP` (NASDAQ) Innospec Inc.
+  - `LOOP` (NASDAQ) Loop Industries, Inc.
+  - `MNTK` (NASDAQ) Montauk Renewables, Inc.
+  - `NTIC` (NASDAQ) Northern Technologies International Corporation
+  - `SNES` (NASDAQ) SenesTech, Inc.
+  - `TORM` (NASDAQ) TOR Minerals International, Inc.
+  - `WDFC` (NASDAQ) WD-40 Company
+- **Other Industrial Metals & Mining** — 8 companies
+  - `ATLX` (NASDAQ) Atlas Lithium Corporation
+  - `CHNR` (NASDAQ) China Natural Resources, Inc.
+  - `CRML` (NASDAQ) Critical Metals Corp.
+  - `GSM` (NASDAQ) Ferroglobe PLC
+  - `IPX` (NASDAQ) IperionX Limited
+  - `OMEX` (NASDAQ) Odyssey Marine Exploration, Inc.
+  - `TMC` (NASDAQ) TMC the metals company Inc.
+  - `WWR` (NASDAQ) Westwater Resources, Inc.
+- **Chemicals** — 6 companies
+  - `ACNT` (NASDAQ) Ascent Industries Co.
+  - `ASPI` (NASDAQ) ASP Isotopes Inc.
+  - `GPRE` (NASDAQ) Green Plains Inc.
+  - `GURE` (NASDAQ) Gulf Resources, Inc.
+  - `MEOH` (NASDAQ) Methanex Corporation
+  - `ORGN` (NASDAQ) Origin Materials, Inc.
+- **Agricultural Inputs** — 3 companies
+  - `BIOX` (NASDAQ) Bioceres Crop Solutions Corp.
+  - `SANW` (NASDAQ) S&W Seed Company
+  - `SEED` (NASDAQ) Origin Agritech Limited
+- **Building Materials** — 3 companies
+  - `SMID` (NASDAQ) Smith-Midland Corporation
+  - `TGLS` (NASDAQ) Tecnoglass Inc.
+  - `USLM` (NASDAQ) United States Lime & Minerals, Inc.
+- **Gold** — 3 companies
+  - `RGLD` (NASDAQ) Royal Gold, Inc.
+  - `SSRM` (NASDAQ) SSR Mining Inc.
+  - `USAU` (NASDAQ) U.S. Gold Corp.
+- **Steel** — 3 companies
+  - `NWPX` (NASDAQ) NWPX Infrastructure, Inc.
+  - `STLD` (NASDAQ) Steel Dynamics, Inc.
+  - `ZKIN` (NASDAQ) ZK International Group Co., Ltd.
+- **Aluminum** — 2 companies
+  - `CENX` (NASDAQ) Century Aluminum Company
+  - `KALU` (NASDAQ) Kaiser Aluminum Corporation
+- **Coking Coal** — 2 companies
+  - `AREC` (NASDAQ) American Resources Corporation
+  - `METC` (NASDAQ) Ramaco Resources, Inc.
+- **Copper** — 1 companies
+  - `SCCO` (NASDAQ) Southern Copper Corporation
+- **Lumber & Wood Production** — 1 companies
+  - `UFPI` (NASDAQ) UFP Industries, Inc.
+- **Other Precious Metals & Mining** — 1 companies
+  - `PPTA` (NASDAQ) Perpetua Resources Corp.
+- **Paper & Paper Products** — 1 companies
+  - `MERC` (NASDAQ) Mercer International Inc.
+
+## Communication Services (105 companies)
+
+- **Internet Content & Information** — 28 companies
+  - `ANGI` (NASDAQ) Angi Inc.
+  - `BIDU` (NASDAQ) Baidu, Inc.
+  - `BILI` (NASDAQ) Bilibili Inc.
+  - `BMBL` (NASDAQ) Bumble Inc.
+  - `BZFD` (NASDAQ) BuzzFeed, Inc.
+  - `DIBS` (NASDAQ) 1stdibs.Com, Inc.
+  - `DJT` (NASDAQ) Trump Media & Technology Group Corp.
+  - `DOYU` (NASDAQ) DouYu International Holdings Limited
+  - `EVER` (NASDAQ) EverQuote, Inc.
+  - `GOOG` (NASDAQ) Alphabet Inc.
+  - `GRPN` (NASDAQ) Groupon, Inc.
+  - `IAC` (NASDAQ) IAC Inc.
+  - `INTH` (NASDAQ) Innotech Corporation
+  - `IZEA` (NASDAQ) IZEA Worldwide, Inc.
+  - `JFIN` (NASDAQ) Jiayin Group Inc.
+  - `MOMO` (NASDAQ) Hello Group Inc.
+  - `MTCH` (NASDAQ) Match Group, Inc.
+  - `OPRA` (NASDAQ) Opera Limited
+  - `PERI` (NASDAQ) Perion Network Ltd.
+  - `RUM` (NASDAQ) Rumble Inc.
+  - `SEAT` (NASDAQ) Vivid Seats Inc.
+  - `TBLA` (NASDAQ) Taboola.com Ltd.
+  - `TRUE` (NASDAQ) TrueCar, Inc.
+  - `TRVG` (NASDAQ) trivago N.V.
+  - `TZOO` (NASDAQ) Travelzoo
+  - `UPWK` (NASDAQ) Upwork Inc.
+  - `UPXI` (NASDAQ) Upexi, Inc.
+  - `Z` (NASDAQ) Zillow Group, Inc.
+- **Advertising Agencies** — 19 companies
+  - `ADV` (NASDAQ) Advantage Solutions Inc.
+  - `APP` (NASDAQ) AppLovin Corporation
+  - `CDLX` (NASDAQ) Cardlytics, Inc.
+  - `CNET` (NASDAQ) ZW Data Action Technologies Inc.
+  - `CRTO` (NASDAQ) Criteo S.A.
+  - `FLNT` (NASDAQ) Fluent, Inc.
+  - `IAS` (NASDAQ) Integral Ad Science Holding Corp.
+  - `KRKR` (NASDAQ) 36Kr Holdings Inc.
+  - `MCHX` (NASDAQ) Marchex, Inc.
+  - `MGNI` (NASDAQ) Magnite, Inc.
+  - `MOBQ` (NASDAQ) Mobiquity Technologies, Inc.
+  - `NCMI` (NASDAQ) National CineMedia, Inc.
+  - `QNST` (NASDAQ) QuinStreet, Inc.
+  - `STGW` (NASDAQ) Stagwell Inc.
+  - `SWAG` (NASDAQ) Stran & Company, Inc.
+  - `TC` (NASDAQ) Token Cat Limited
+  - `TTD` (NASDAQ) The Trade Desk, Inc.
+  - `WIMI` (NASDAQ) WiMi Hologram Cloud Inc.
+  - `ZD` (NASDAQ) Ziff Davis, Inc.
+- **Telecom Services** — 19 companies
+  - `ATEX` (NASDAQ) Anterix Inc.
+  - `ATNI` (NASDAQ) ATN International, Inc.
+  - `CMCSA` (NASDAQ) Comcast Corporation
+  - `CXDO` (NASDAQ) Crexendo, Inc.
+  - `FNGR` (NASDAQ) FingerMotion, Inc.
+  - `GOGO` (NASDAQ) Gogo Inc.
+  - `GSAT` (NASDAQ) Globalstar, Inc.
+  - `KVHI` (NASDAQ) KVH Industries, Inc.
+  - `LBRDA` (NASDAQ) Liberty Broadband Corporation
+  - `LBTYA` (NASDAQ) Liberty Global Ltd.
+  - `LILA` (NASDAQ) Liberty Latin America Ltd.
+  - `SATS` (NASDAQ) EchoStar Corporation
+  - `SHEN` (NASDAQ) Shenandoah Telecommunications Company
+  - `SURG` (NASDAQ) SurgePays, Inc.
+  - `T` (NASDAQ) AT&T Inc.
+  - `TIGO` (NASDAQ) Millicom International Cellular S.A.
+  - `TMUS` (NASDAQ) T-Mobile US, Inc.
+  - `TWER` (NASDAQ) Towerstream Corporation
+  - `VEON` (NASDAQ) VEON Ltd.
+- **Entertainment** — 17 companies
+  - `AENT` (NASDAQ) Alliance Entertainment Holding Corporation
+  - `AGAE` (NASDAQ) Allied Gaming & Entertainment Inc.
+  - `AMCX` (NASDAQ) AMC Networks Inc.
+  - `BATRA` (NASDAQ) Atlanta Braves Holdings, Inc.
+  - `CNVS` (NASDAQ) Cineverse Corp.
+  - `FOX` (NASDAQ) Fox Corporation
+  - `GAIA` (NASDAQ) Gaia, Inc.
+  - `IQ` (NASDAQ) iQIYI, Inc.
+  - `LVO` (NASDAQ) LiveOne, Inc.
+  - `NFLX` (NASDAQ) Netflix, Inc.
+  - `NWS` (NASDAQ) News Corporation
+  - `RDI` (NASDAQ) Reading International, Inc.
+  - `ROKU` (NASDAQ) Roku, Inc.
+  - `RSVR` (NASDAQ) Reservoir Media, Inc.
+  - `SIRI` (NASDAQ) Sirius XM Holdings Inc.
+  - `WBD` (NASDAQ) Warner Bros. Discovery, Inc.
+  - `WMG` (NASDAQ) Warner Music Group Corp.
+- **Electronic Gaming & Multimedia** — 12 companies
+  - `BHAT` (NASDAQ) Blue Hat Interactive Entertainment Technology
+  - `EA` (NASDAQ) Electronic Arts Inc.
+  - `GIGM` (NASDAQ) GigaMedia Limited
+  - `GMGI` (NASDAQ) Golden Matrix Group, Inc.
+  - `MSGM` (NASDAQ) Motorsport Games Inc.
+  - `MYPS` (NASDAQ) PLAYSTUDIOS, Inc.
+  - `NTES` (NASDAQ) NetEase, Inc.
+  - `PLTK` (NASDAQ) Playtika Holding Corp.
+  - `SNAL` (NASDAQ) Snail, Inc.
+  - `SOHU` (NASDAQ) Sohu.com Limited
+  - `TAPM` (NASDAQ) Trade School Go, Inc.
+  - `TTWO` (NASDAQ) Take-Two Interactive Software, Inc.
+- **Broadcasting** — 8 companies
+  - `BBGI` (NASDAQ) Beasley Broadcast Group, Inc.
+  - `CURI` (NASDAQ) CuriosityStream Inc.
+  - `EMMS` (NASDAQ) Emmis Corporation
+  - `IHRT` (NASDAQ) iHeartMedia, Inc.
+  - `NXST` (NASDAQ) Nexstar Media Group, Inc.
+  - `SALM` (NASDAQ) Salem Media Group, Inc.
+  - `SBGI` (NASDAQ) Sinclair, Inc.
+  - `UONE` (NASDAQ) Urban One, Inc.
+- **Publishing** — 2 companies
+  - `EDUC` (NASDAQ) Educational Development Corporation
+  - `SCHL` (NASDAQ) Scholastic Corporation
+
+## Consumer Cyclical (185 companies)
+
+- **Restaurants** — 25 companies
+  - `ARKR` (NASDAQ) Ark Restaurants Corp.
+  - `BJRI` (NASDAQ) BJ's Restaurants, Inc.
+  - `BLMN` (NASDAQ) Bloomin' Brands, Inc.
+  - `CAKE` (NASDAQ) The Cheesecake Factory Incorporated
+  - `CBRL` (NASDAQ) Cracker Barrel Old Country Store, Inc.
+  - `DENN` (NASDAQ) Denny's Corporation
+  - `FAT` (NASDAQ) FAT Brands Inc.
+  - `FWRG` (NASDAQ) First Watch Restaurant Group, Inc.
+  - `GTIM` (NASDAQ) Good Times Restaurants Inc.
+  - `JACK` (NASDAQ) Jack in the Box Inc
+  - `KRUS` (NASDAQ) Kura Sushi USA, Inc.
+  - `LOCO` (NASDAQ) El Pollo Loco Holdings, Inc.
+  - `NATH` (NASDAQ) Nathan's Famous, Inc.
+  - `NDLS` (NASDAQ) Noodles & Company
+  - `PTLO` (NASDAQ) Portillo's Inc.
+  - `PZZA` (NASDAQ) Papa John's International, Inc.
+  - `RAVE` (NASDAQ) Rave Restaurant Group, Inc.
+  - `RICK` (NASDAQ) RCI Hospitality Holdings, Inc.
+  - `RRGB` (NASDAQ) Red Robin Gourmet Burgers, Inc.
+  - `SBUX` (NASDAQ) Starbucks Corporation
+  - `SG` (NASDAQ) Sweetgreen, Inc.
+  - `STKS` (NASDAQ) The ONE Group Hospitality, Inc.
+  - `TXRH` (NASDAQ) Texas Roadhouse, Inc.
+  - `WEN` (NASDAQ) The Wendy's Company
+  - `WING` (NASDAQ) Wingstop Inc.
+- **Specialty Retail** — 18 companies
+  - `ARHS` (NASDAQ) Arhaus, Inc.
+  - `ARKO` (NASDAQ) Arko Corp.
+  - `ASO` (NASDAQ) Academy Sports and Outdoors, Inc.
+  - `CASY` (NASDAQ) Casey's General Stores, Inc.
+  - `EVGO` (NASDAQ) EVgo, Inc.
+  - `EYE` (NASDAQ) National Vision Holdings, Inc.
+  - `FIVE` (NASDAQ) Five Below, Inc.
+  - `FLWS` (NASDAQ) 1-800-FLOWERS.COM, Inc.
+  - `GRWG` (NASDAQ) GrowGeneration Corp.
+  - `LESL` (NASDAQ) Leslie's, Inc.
+  - `OLPX` (NASDAQ) Olaplex Holdings, Inc.
+  - `ONEW` (NASDAQ) OneWater Marine Inc.
+  - `SPWH` (NASDAQ) Sportsman's Warehouse Holdings, Inc.
+  - `TLF` (NASDAQ) Tandy Leather Factory, Inc.
+  - `TSCO` (NASDAQ) Tractor Supply Company
+  - `ULTA` (NASDAQ) Ulta Beauty, Inc.
+  - `WOOF` (NASDAQ) Petco Health and Wellness Company, Inc.
+  - `flws` (NASDAQ) 1-800-FLOWERS.COM, Inc.
+- **Auto Parts** — 17 companies
+  - `CAAS` (NASDAQ) China Automotive Systems, Inc.
+  - `CVGI` (NASDAQ) Commercial Vehicle Group, Inc.
+  - `DORM` (NASDAQ) Dorman Products, Inc.
+  - `FOXF` (NASDAQ) Fox Factory Holding Corp.
+  - `GTEC` (NASDAQ) Greenland Technologies Holding Corporation
+  - `LKQ` (NASDAQ) LKQ Corporation
+  - `MBLY` (NASDAQ) Mobileye Global Inc.
+  - `MNRO` (NASDAQ) Monro, Inc.
+  - `MPAA` (NASDAQ) Motorcar Parts of America, Inc.
+  - `MVST` (NASDAQ) Microvast Holdings, Inc.
+  - `ORLY` (NASDAQ) O'Reilly Automotive, Inc.
+  - `PRTS` (NASDAQ) CarParts.com, Inc.
+  - `SLDP` (NASDAQ) Solid Power, Inc.
+  - `STRT` (NASDAQ) Strattec Security Corporation
+  - `SYPR` (NASDAQ) Sypris Solutions, Inc.
+  - `THRM` (NASDAQ) Gentherm Incorporated
+  - `XPEL` (NASDAQ) XPEL, Inc.
+- **Internet Retail** — 14 companies
+  - `AMZN` (NASDAQ) Amazon.com, Inc.
+  - `BZUN` (NASDAQ) Baozun Inc.
+  - `EBAY` (NASDAQ) eBay Inc.
+  - `ETSY` (NASDAQ) Etsy, Inc.
+  - `HOUR` (NASDAQ) Hour Loop, Inc.
+  - `IPW` (NASDAQ) iPower Inc.
+  - `JD` (NASDAQ) JD.com, Inc.
+  - `LOGC` (NASDAQ) ContextLogic Holdings Inc.
+  - `LQDT` (NASDAQ) Liquidity Services, Inc.
+  - `MELI` (NASDAQ) MercadoLibre, Inc.
+  - `NHTC` (NASDAQ) Natural Health Trends Corp.
+  - `PDD` (NASDAQ) PDD Holdings Inc.
+  - `TDUP` (NASDAQ) ThredUp Inc.
+  - `YJ` (NASDAQ) Yunji Inc.
+- **Furnishings, Fixtures & Appliances** — 13 companies
+  - `AMWD` (NASDAQ) American Woodmark Corporation
+  - `ATER` (NASDAQ) Aterian, Inc.
+  - `BSET` (NASDAQ) Bassett Furniture Industries, Incorporated
+  - `CRWS` (NASDAQ) Crown Crafts, Inc.
+  - `EFOI` (NASDAQ) Energy Focus, Inc.
+  - `HOFT` (NASDAQ) Hooker Furnishings Corporation
+  - `KEQU` (NASDAQ) Kewaunee Scientific Corporation
+  - `LCUT` (NASDAQ) Lifetime Brands, Inc.
+  - `LOVE` (NASDAQ) The Lovesac Company
+  - `PRPL` (NASDAQ) Purple Innovation, Inc.
+  - `SNBR` (NASDAQ) Sleep Number Corporation
+  - `VIOT` (NASDAQ) Viomi Technology Co., Ltd
+  - `VIRC` (NASDAQ) Virco Mfg. Corporation
+- **Apparel Retail** — 12 companies
+  - `BIRD` (NASDAQ) Allbirds, Inc.
+  - `CTRN` (NASDAQ) Citi Trends, Inc.
+  - `DLTH` (NASDAQ) Duluth Holdings Inc.
+  - `DXLG` (NASDAQ) Destination XL Group, Inc.
+  - `LE` (NASDAQ) Lands' End, Inc.
+  - `LULU` (NASDAQ) lululemon athletica inc.
+  - `LVLU` (NASDAQ) Lulu's Fashion Lounge Holdings, Inc.
+  - `RENT` (NASDAQ) Rent the Runway, Inc.
+  - `ROST` (NASDAQ) Ross Stores, Inc.
+  - `SCVL` (NASDAQ) Shoe Carnival, Inc.
+  - `URBN` (NASDAQ) Urban Outfitters, Inc.
+  - `ZUMZ` (NASDAQ) Zumiez Inc.
+- **Leisure** — 11 companies
+  - `AOUT` (NASDAQ) American Outdoor Brands, Inc.
+  - `BBIG` (NASDAQ) Vinco Ventures, Inc.
+  - `CLAR` (NASDAQ) Clarus Corporation
+  - `DOGZ` (NASDAQ) Dogness (International) Corporation
+  - `ESCA` (NASDAQ) Escalade, Incorporated
+  - `FNKO` (NASDAQ) Funko, Inc.
+  - `JAKK` (NASDAQ) JAKKS Pacific, Inc.
+  - `JOUT` (NASDAQ) Johnson Outdoors Inc.
+  - `MAT` (NASDAQ) Mattel, Inc.
+  - `PLBY` (NASDAQ) Playboy, Inc.
+  - `PTON` (NASDAQ) Peloton Interactive, Inc.
+- **Travel Services** — 10 companies
+  - `ABNB` (NASDAQ) Airbnb, Inc.
+  - `BKNG` (NASDAQ) Booking Holdings Inc.
+  - `ISPO` (NASDAQ) Inspirato Incorporated
+  - `LIND` (NASDAQ) Lindblad Expeditions Holdings, Inc.
+  - `MOND` (NASDAQ) Mondee Holdings, Inc.
+  - `NCLH` (NASDAQ) Norwegian Cruise Line Holdings Ltd.
+  - `TCOM` (NASDAQ) Trip.com Group Limited
+  - `TOUR` (NASDAQ) Tuniu Corporation
+  - `TRIP` (NASDAQ) Tripadvisor, Inc.
+  - `YTRA` (NASDAQ) Yatra Online, Inc.
+- **Auto & Truck Dealerships** — 9 companies
+  - `ACVA` (NASDAQ) ACV Auctions Inc.
+  - `CARG` (NASDAQ) CarGurus, Inc.
+  - `CRMT` (NASDAQ) America's Car-Mart, Inc.
+  - `DRVN` (NASDAQ) Driven Brands Holdings Inc.
+  - `KXIN` (NASDAQ) Kaixin Holdings
+  - `LMPX` (NASDAQ) LMP Automotive Holdings, Inc.
+  - `RUSHA` (NASDAQ) Rush Enterprises, Inc.
+  - `SAH` (NASDAQ) Sonic Automotive, Inc.
+  - `UXIN` (NASDAQ) Uxin Limited
+- **Resorts & Casinos** — 9 companies
+  - `CNTY` (NASDAQ) Century Casinos, Inc.
+  - `CPHC` (NASDAQ) Canterbury Park Holding Corporation
+  - `CZR` (NASDAQ) Caesars Entertainment, Inc.
+  - `GDEN` (NASDAQ) Golden Entertainment, Inc.
+  - `MCRI` (NASDAQ) Monarch Casino & Resort, Inc.
+  - `MLCO` (NASDAQ) Melco Resorts & Entertainment Limited
+  - `PENN` (NASDAQ) PENN Entertainment, Inc.
+  - `RRR` (NASDAQ) Red Rock Resorts, Inc.
+  - `WYNN` (NASDAQ) Wynn Resorts, Limited
+- **Apparel Manufacturing** — 7 companies
+  - `COLM` (NASDAQ) Columbia Sportswear Company
+  - `GIII` (NASDAQ) G-III Apparel Group, Ltd.
+  - `JRSH` (NASDAQ) Jerash Holdings (US), Inc.
+  - `LAKE` (NASDAQ) Lakeland Industries, Inc.
+  - `PLCE` (NASDAQ) The Children's Place, Inc.
+  - `SGC` (NASDAQ) Superior Group of Companies, Inc.
+  - `XELB` (NASDAQ) Xcel Brands, Inc.
+- **Auto Manufacturers** — 7 companies
+  - `CENN` (NASDAQ) Cenntro Inc.
+  - `EVTV` (NASDAQ) Envirotech Vehicles, Inc.
+  - `GOEV` (NASDAQ) Canoo Inc.
+  - `LCID` (NASDAQ) Lucid Group, Inc.
+  - `NIU` (NASDAQ) Niu Technologies
+  - `TSLA` (NASDAQ) Tesla, Inc.
+  - `WKHS` (NASDAQ) Workhorse Group, Inc.
+- **Footwear & Accessories** — 6 companies
+  - `CROX` (NASDAQ) Crocs, Inc.
+  - `DECK` (NASDAQ) Deckers Outdoor Corporation
+  - `FOSL` (NASDAQ) Fossil Group, Inc.
+  - `RCKY` (NASDAQ) Rocky Brands, Inc.
+  - `SHOO` (NASDAQ) Steven Madden, Ltd.
+  - `WEYS` (NASDAQ) Weyco Group, Inc.
+- **Recreational Vehicles** — 6 companies
+  - `DOO` (NASDAQ) BRP Inc.
+  - `KNDI` (NASDAQ) Kandi Technologies Group, Inc.
+  - `MBUU` (NASDAQ) Malibu Boats, Inc.
+  - `MCFT` (NASDAQ) MasterCraft Boat Holdings, Inc.
+  - `PATK` (NASDAQ) Patrick Industries, Inc.
+  - `VEEE` (NASDAQ) Twin Vee Powercats Co.
+- **Residential Construction** — 6 companies
+  - `CVCO` (NASDAQ) Cavco Industries, Inc.
+  - `GRBK` (NASDAQ) Green Brick Partners, Inc.
+  - `LEGH` (NASDAQ) Legacy Housing Corporation
+  - `LGIH` (NASDAQ) LGI Homes, Inc.
+  - `NOBH` (NASDAQ) Nobility Homes, Inc.
+  - `UHG` (NASDAQ) United Homes Group, Inc.
+- **Gambling** — 5 companies
+  - `CHDN` (NASDAQ) Churchill Downs Incorporated
+  - `DKNG` (NASDAQ) DraftKings Inc.
+  - `ELYS` (NASDAQ) Elys BMG Group, Inc.
+  - `GAMB` (NASDAQ) Gambling.com Group Limited
+  - `INSE` (NASDAQ) Inspired Entertainment, Inc.
+- **Luxury Goods** — 4 companies
+  - `BRLT` (NASDAQ) Brilliant Earth Group, Inc.
+  - `CTHR` (NASDAQ) Charles & Colvard Ltd
+  - `KGJI` (NASDAQ) Kingold Jewelry, Inc.
+  - `REAL` (NASDAQ) The RealReal, Inc.
+- **Lodging** — 3 companies
+  - `HTHT` (NASDAQ) H World Group Limited
+  - `INTG` (NASDAQ) The InterGroup Corporation
+  - `MAR` (NASDAQ) Marriott International, Inc.
+- **Packaging & Containers** — 2 companies
+  - `KRT` (NASDAQ) Karat Packaging Inc.
+  - `REYN` (NASDAQ) Reynolds Consumer Products Inc.
+- **Home Improvement Retail** — 1 companies
+  - `LIVE` (NASDAQ) Live Ventures Incorporated
+
+## Consumer Defensive (85 companies)
+
+- **Packaged Foods** — 25 companies
+  - `BRID` (NASDAQ) Bridgford Foods Corporation
+  - `BYND` (NASDAQ) Beyond Meat, Inc.
+  - `CENT` (NASDAQ) Central Garden & Pet Company
+  - `CLNN` (NASDAQ) Clene Inc.
+  - `CYAN` (NASDAQ) Cyanotech Corporation
+  - `FAMI` (NASDAQ) Farmmi, Inc.
+  - `FARM` (NASDAQ) Farmer Bros. Co.
+  - `FRPT` (NASDAQ) Freshpet, Inc.
+  - `HAIN` (NASDAQ) The Hain Celestial Group, Inc.
+  - `JBSS` (NASDAQ) John B. Sanfilippo & Son, Inc.
+  - `JJSF` (NASDAQ) J&J Snack Foods Corp.
+  - `JVA` (NASDAQ) Coffee Holding Co., Inc.
+  - `KHC` (NASDAQ) The Kraft Heinz Company
+  - `LFVN` (NASDAQ) LifeVantage Corporation
+  - `LWAY` (NASDAQ) Lifeway Foods, Inc.
+  - `MAMA` (NASDAQ) Mama's Creations, Inc.
+  - `NAII` (NASDAQ) Natural Alternatives International, Inc.
+  - `NATR` (NASDAQ) Nature's Sunshine Products, Inc.
+  - `PPC` (NASDAQ) Pilgrim's Pride Corporation
+  - `RIBT` (NASDAQ) RiceBran Technologies
+  - `RKDA` (NASDAQ) Arcadia Biosciences, Inc.
+  - `SENEA` (NASDAQ) Seneca Foods Corporation
+  - `SMPL` (NASDAQ) The Simply Good Foods Company
+  - `USNA` (NASDAQ) USANA Health Sciences, Inc.
+  - `WEST` (NASDAQ) Westrock Coffee Company
+- **Education & Training Services** — 12 companies
+  - `AACG` (NASDAQ) ATA Creativity Global
+  - `AFYA` (NASDAQ) Afya Limited
+  - `APEI` (NASDAQ) American Public Education, Inc.
+  - `ASPU` (NASDAQ) Aspen Group, Inc.
+  - `LAUR` (NASDAQ) Laureate Education, Inc.
+  - `LGCY` (NASDAQ) Legacy Education Inc.
+  - `LINC` (NASDAQ) Lincoln Educational Services Corporation
+  - `LOPE` (NASDAQ) Grand Canyon Education, Inc.
+  - `LTRE` (NASDAQ) Learning Tree International, Inc.
+  - `PRDO` (NASDAQ) Perdoceo Education Corporation
+  - `STRA` (NASDAQ) Strategic Education, Inc.
+  - `UDMY` (NASDAQ) Udemy, Inc.
+- **Beverages - Non-Alcoholic** — 11 companies
+  - `BRFH` (NASDAQ) Barfresh Food Group, Inc.
+  - `CELH` (NASDAQ) Celsius Holdings, Inc.
+  - `COCO` (NASDAQ) The Vita Coco Company, Inc.
+  - `COKE` (NASDAQ) Coca-Cola Consolidated, Inc.
+  - `FIZZ` (NASDAQ) National Beverage Corp.
+  - `JSDA` (NASDAQ) Jones Soda Co.
+  - `KDP` (NASDAQ) Keurig Dr Pepper Inc.
+  - `MNST` (NASDAQ) Monster Beverage Corporation
+  - `REED` (NASDAQ) Reed's, Inc.
+  - `STKL` (NASDAQ) SunOpta Inc.
+  - `ZVIA` (NASDAQ) Zevia PBC
+- **Farm Products** — 8 companies
+  - `AFRI` (NASDAQ) Forafric Global PLC
+  - `ALCO` (NASDAQ) Alico, Inc.
+  - `AQB` (NASDAQ) AquaBounty Technologies, Inc.
+  - `CALM` (NASDAQ) Cal-Maine Foods, Inc.
+  - `CHSCP` (NASDAQ) CHS Inc.
+  - `EDBL` (NASDAQ) Edible Garden AG Incorporated
+  - `LMNR` (NASDAQ) Limoneira Company
+  - `VITL` (NASDAQ) Vital Farms, Inc.
+- **Household & Personal Products** — 8 companies
+  - `EWCZ` (NASDAQ) European Wax Center, Inc.
+  - `HELE` (NASDAQ) Helen of Troy Limited
+  - `HNST` (NASDAQ) The Honest Company, Inc.
+  - `IPAR` (NASDAQ) Interparfums, Inc.
+  - `SKIN` (NASDAQ) The Beauty Health Company
+  - `TANH` (NASDAQ) Tantech Holdings Ltd
+  - `UG` (NASDAQ) United-Guardian, Inc.
+  - `WALD` (NASDAQ) Waldencast plc
+- **Food Distribution** — 7 companies
+  - `ANDE` (NASDAQ) The Andersons, Inc.
+  - `AVO` (NASDAQ) Mission Produce, Inc.
+  - `CHEF` (NASDAQ) The Chefs' Warehouse, Inc.
+  - `CVGW` (NASDAQ) Calavo Growers, Inc.
+  - `HFFG` (NASDAQ) HF Foods Group Inc.
+  - `MTEX` (NASDAQ) Mannatech, Incorporated
+  - `UNFI` (NASDAQ) United Natural Foods, Inc.
+- **Discount Stores** — 4 companies
+  - `COST` (NASDAQ) Costco Wholesale Corporation
+  - `DLTR` (NASDAQ) Dollar Tree, Inc.
+  - `OLLI` (NASDAQ) Ollie's Bargain Outlet Holdings, Inc.
+  - `PSMT` (NASDAQ) PriceSmart, Inc.
+- **Confectioners** — 3 companies
+  - `MDLZ` (NASDAQ) Mondelez International, Inc.
+  - `RMCF` (NASDAQ) Rocky Mountain Chocolate Factory, Inc.
+  - `mdlz` (NASDAQ) Mondelez International, Inc.
+- **Grocery Stores** — 3 companies
+  - `DNUT` (NASDAQ) Krispy Kreme, Inc.
+  - `GO` (NASDAQ) Grocery Outlet Holding Corp.
+  - `SFM` (NASDAQ) Sprouts Farmers Market, Inc.
+- **Beverages - Wineries & Distilleries** — 2 companies
+  - `MGPI` (NASDAQ) MGP Ingredients, Inc.
+  - `WVVI` (NASDAQ) Willamette Valley Vineyards, Inc.
+- **Tobacco** — 2 companies
+  - `GNLN` (NASDAQ) Greenlane Holdings, Inc.
+  - `KAVL` (NASDAQ) Kaival Brands Innovations Group, Inc.
+
+## Energy (32 companies)
+
+- **Oil & Gas E&P** — 10 companies
+  - `APA` (NASDAQ) APA Corporation
+  - `CHRD` (NASDAQ) Chord Energy Corporation
+  - `DMLP` (NASDAQ) Dorchester Minerals, L.P.
+  - `EPSN` (NASDAQ) Epsilon Energy Ltd.
+  - `FANG` (NASDAQ) Diamondback Energy, Inc.
+  - `GPOR` (NASDAQ) Gulfport Energy Corporation
+  - `HPK` (NASDAQ) HighPeak Energy, Inc.
+  - `PNRG` (NASDAQ) PrimeEnergy Resources Corporation
+  - `PROP` (NASDAQ) Prairie Operating Co., LLC
+  - `USEG` (NASDAQ) U.S. Energy Corp.
+- **Oil & Gas Equipment & Services** — 10 companies
+  - `ACDC` (NASDAQ) ProFrac Holding Corp.
+  - `DTI` (NASDAQ) Drilling Tools International Corporation
+  - `DWSN` (NASDAQ) Dawson Geophysical Company
+  - `GEOS` (NASDAQ) Geospace Technologies Corporation
+  - `KLXE` (NASDAQ) KLX Energy Services Holdings, Inc.
+  - `NCSM` (NASDAQ) NCS Multistage Holdings, Inc.
+  - `NESR` (NASDAQ) National Energy Services Reunited Corp.
+  - `NEXT` (NASDAQ) NextDecade Corporation
+  - `RCON` (NASDAQ) Recon Technology, Ltd.
+  - `SND` (NASDAQ) Smart Sand, Inc.
+- **Oil & Gas Midstream** — 6 companies
+  - `GLNG` (NASDAQ) Golar LNG Limited
+  - `MMLP` (NASDAQ) Martin Midstream Partners L.P.
+  - `NFE` (NASDAQ) New Fortress Energy Inc.
+  - `PXS` (NASDAQ) Pyxis Tankers Inc.
+  - `TOPS` (NASDAQ) Top Ships Inc.
+  - `VNOM` (NASDAQ) Viper Energy, Inc.
+- **Oil & Gas Refining & Marketing** — 3 companies
+  - `BDCO` (NASDAQ) Blue Dolphin Energy Company
+  - `CLNE` (NASDAQ) Clean Energy Fuels Corp.
+  - `IEP` (NASDAQ) Icahn Enterprises L.P.
+- **Thermal Coal** — 2 companies
+  - `ARLP` (NASDAQ) Alliance Resource Partners, L.P.
+  - `HNRG` (NASDAQ) Hallador Energy Company
+- **Oil & Gas Drilling** — 1 companies
+  - `PTEN` (NASDAQ) Patterson-UTI Energy, Inc.
+
+## Financial Services (371 companies)
+
+- **Banks - Regional** — 229 companies
+  - `ABCB` (NASDAQ) Ameris Bancorp
+  - `ACNB` (NASDAQ) ACNB Corporation
+  - `AFBI` (NASDAQ) Affinity Bancshares, Inc.
+  - `ALRS` (NASDAQ) Alerus Financial Corporation
+  - `AMAL` (NASDAQ) Amalgamated Financial Corp.
+  - `AROW` (NASDAQ) Arrow Financial Corporation
+  - `ASRV` (NASDAQ) AmeriServ Financial, Inc.
+  - `ATLO` (NASDAQ) Ames National Corporation
+  - `AUB` (NASDAQ) Atlantic Union Bankshares Corporation
+  - `AUBN` (NASDAQ) Auburn National Bancorporation, Inc.
+  - `BAFN` (NASDAQ) BayFirst Financial Corp.
+  - `BANF` (NASDAQ) BancFirst Corporation
+  - `BANR` (NASDAQ) Banner Corporation
+  - `BCAL` (NASDAQ) California BanCorp
+  - `BCBP` (NASDAQ) BCB Bancorp, Inc.
+  - `BCML` (NASDAQ) BayCom Corp
+  - `BCOW` (NASDAQ) 1895 Bancorp of Wisconsin, Inc.
+  - `BCTF` (NASDAQ) Bancorp 34, Inc.
+  - `BFC` (NASDAQ) Bank First Corporation
+  - `BFIN` (NASDAQ) BankFinancial Corporation
+  - `BFST` (NASDAQ) Business First Bancshares, Inc.
+  - `BHRB` (NASDAQ) Burke & Herbert Financial Services Corp.
+  - `BKSC` (NASDAQ) Bank of South Carolina Corporation
+  - `BLFY` (NASDAQ) Blue Foundry Bancorp
+  - `BMRC` (NASDAQ) Bank of Marin Bancorp
+  - `BOKF` (NASDAQ) BOK Financial Corporation
+  - `BPOP` (NASDAQ) Popular, Inc.
+  - `BSBK` (NASDAQ) Bogota Financial Corp.
+  - `BSRR` (NASDAQ) Sierra Bancorp
+  - `BSVN` (NASDAQ) Bank7 Corp.
+  - `BUSE` (NASDAQ) First Busey Corporation
+  - `BWB` (NASDAQ) Bridgewater Bancshares, Inc.
+  - `BWFG` (NASDAQ) Bankwell Financial Group, Inc.
+  - `CAC` (NASDAQ) Camden National Corporation
+  - `CARE` (NASDAQ) Carter Bankshares, Inc.
+  - `CARV` (NASDAQ) Carver Bancorp, Inc.
+  - `CASH` (NASDAQ) Pathward Financial, Inc.
+  - `CATY` (NASDAQ) Cathay General Bancorp
+  - `CBAN` (NASDAQ) Colony Bankcorp, Inc.
+  - `CBNK` (NASDAQ) Capital Bancorp, Inc.
+  - `CBSH` (NASDAQ) Commerce Bancshares, Inc.
+  - `CCB` (NASDAQ) Coastal Financial Corporation
+  - `CCBG` (NASDAQ) Capital City Bank Group, Inc.
+  - `CFBK` (NASDAQ) CF Bankshares Inc.
+  - `CFFI` (NASDAQ) C&F Financial Corporation
+  - `CFFN` (NASDAQ) Capitol Federal Financial, Inc.
+  - `CHCO` (NASDAQ) City Holding Company
+  - `CHMG` (NASDAQ) Chemung Financial Corporation
+  - `CIVB` (NASDAQ) Civista Bancshares, Inc.
+  - `CIZN` (NASDAQ) Citizens Holding Company
+  - `CLBK` (NASDAQ) Columbia Financial, Inc.
+  - `CLST` (NASDAQ) Catalyst Bancorp, Inc.
+  - `CNOB` (NASDAQ) ConnectOne Bancorp, Inc.
+  - `COLB` (NASDAQ) Columbia Banking System, Inc.
+  - `CTBI` (NASDAQ) Community Trust Bancorp, Inc.
+  - `CVBF` (NASDAQ) CVB Financial Corp.
+  - `CWBC` (NASDAQ) Community West Bancshares
+  - `CZNC` (NASDAQ) Citizens & Northern Corporation
+  - `CZWI` (NASDAQ) Citizens Community Bancorp, Inc.
+  - `DCOM` (NASDAQ) Dime Community Bancshares, Inc.
+  - `EBC` (NASDAQ) Eastern Bankshares, Inc.
+  - `EBMT` (NASDAQ) Eagle Bancorp Montana, Inc.
+  - `ECBK` (NASDAQ) ECB Bancorp, Inc.
+  - `EFSC` (NASDAQ) Enterprise Financial Services Corp
+  - `EGBN` (NASDAQ) Eagle Bancorp, Inc.
+  - `EQBK` (NASDAQ) Equity Bancshares, Inc.
+  - `ESQ` (NASDAQ) Esquire Financial Holdings, Inc.
+  - `EWBC` (NASDAQ) East West Bancorp, Inc.
+  - `FBIZ` (NASDAQ) First Business Financial Services, Inc.
+  - `FCBC` (NASDAQ) First Community Bankshares, Inc.
+  - `FCCO` (NASDAQ) First Community Corporation
+  - `FCNCA` (NASDAQ) First Citizens BancShares, Inc.
+  - `FDBC` (NASDAQ) Fidelity D & D Bancorp, Inc.
+  - `FFBC` (NASDAQ) First Financial Bancorp.
+  - `FFBW` (NASDAQ) FFBW, Inc.
+  - `FFIC` (NASDAQ) Flushing Financial Corporation
+  - `FFIN` (NASDAQ) First Financial Bankshares, Inc.
+  - `FFWM` (NASDAQ) First Foundation Inc.
+  - `FGBI` (NASDAQ) First Guaranty Bancshares, Inc.
+  - `FHB` (NASDAQ) First Hawaiian, Inc.
+  - `FIBK` (NASDAQ) First Interstate BancSystem, Inc.
+  - `FINW` (NASDAQ) FinWise Bancorp
+  - `FISI` (NASDAQ) Financial Institutions, Inc.
+  - `FITB` (NASDAQ) Fifth Third Bancorp
+  - `FMBH` (NASDAQ) First Mid Bancshares, Inc.
+  - `FMCB` (NASDAQ) Farmers & Merchants Bancorp
+  - `FMNB` (NASDAQ) Farmers National Banc Corp.
+  - `FNLC` (NASDAQ) The First Bancorp, Inc.
+  - `FNWB` (NASDAQ) First Northwest Bancorp
+  - `FNWD` (NASDAQ) Finward Bancorp
+  - `FRBA` (NASDAQ) First Bank
+  - `FRME` (NASDAQ) First Merchants Corporation
+  - `FRST` (NASDAQ) Primis Financial Corp.
+  - `FSBC` (NASDAQ) Five Star Bancorp
+  - `FSBW` (NASDAQ) FS Bancorp, Inc.
+  - `FSEA` (NASDAQ) First Seacoast Bancorp, Inc.
+  - `FULT` (NASDAQ) Fulton Financial Corporation
+  - `FUNC` (NASDAQ) First United Corporation
+  - `FUSB` (NASDAQ) First US Bancshares, Inc.
+  - `FVCB` (NASDAQ) FVCBankcorp, Inc.
+  - `GABC` (NASDAQ) German American Bancorp, Inc.
+  - `GBCI` (NASDAQ) Glacier Bancorp, Inc.
+  - `GCBC` (NASDAQ) Greene County Bancorp, Inc.
+  - `GSBC` (NASDAQ) Great Southern Bancorp, Inc.
+  - `HAFC` (NASDAQ) Hanmi Financial Corporation
+  - `HARL` (NASDAQ) Harleysville Financial Corporation
+  - `HBCP` (NASDAQ) Home Bancorp, Inc.
+  - `HBNC` (NASDAQ) Horizon Bancorp, Inc.
+  - `HBT` (NASDAQ) HBT Financial, Inc.
+  - `HFBL` (NASDAQ) Home Federal Bancorp, Inc. of Louisiana
+  - `HFWA` (NASDAQ) Heritage Financial Corporation
+  - `HIFS` (NASDAQ) Hingham Institution for Savings
+  - `HNVR` (NASDAQ) Hanover Bancorp, Inc.
+  - `HOMB` (NASDAQ) Home BancShares, Inc.
+  - `HOPE` (NASDAQ) Hope Bancorp, Inc.
+  - `HTBK` (NASDAQ) Heritage Commerce Corp
+  - `HWBK` (NASDAQ) Hawthorn Bancshares, Inc.
+  - `HWC` (NASDAQ) Hancock Whitney Corporation
+  - `IBCP` (NASDAQ) Independent Bank Corporation
+  - `IBOC` (NASDAQ) International Bancshares Corporation
+  - `INBK` (NASDAQ) First Internet Bancorp
+  - `INDB` (NASDAQ) Independent Bank Corp.
+  - `IROQ` (NASDAQ) IF Bancorp, Inc.
+  - `ISTR` (NASDAQ) Investar Holding Corporation
+  - `JMSB` (NASDAQ) John Marshall Bancorp, Inc.
+  - `KRNY` (NASDAQ) Kearny Financial Corp.
+  - `LARK` (NASDAQ) Landmark Bancorp, Inc.
+  - `LCNB` (NASDAQ) LCNB Corp.
+  - `LKFN` (NASDAQ) Lakeland Financial Corporation
+  - `LNKB` (NASDAQ) LINKBANCORP, Inc.
+  - `LOB` (NASDAQ) Live Oak Bancshares, Inc.
+  - `LSBK` (NASDAQ) Lake Shore Bancorp, Inc.
+  - `MBCN` (NASDAQ) Middlefield Banc Corp
+  - `MBIN` (NASDAQ) Merchants Bancorp
+  - `MBWM` (NASDAQ) Mercantile Bank Corporation
+  - `MGYR` (NASDAQ) Magyar Bancorp, Inc.
+  - `MNSB` (NASDAQ) MainStreet Bancshares, Inc.
+  - `MOFG` (NASDAQ) MidWestOne Financial Group, Inc.
+  - `MSBI` (NASDAQ) Midland States Bancorp, Inc.
+  - `MYFW` (NASDAQ) First Western Financial, Inc.
+  - `NBBK` (NASDAQ) NB Bancorp, Inc.
+  - `NBN` (NASDAQ) Northeast Bank
+  - `NBTB` (NASDAQ) NBT Bancorp Inc.
+  - `NECB` (NASDAQ) Northeast Community Bancorp, Inc.
+  - `NFBK` (NASDAQ) Northfield Bancorp, Inc. (Staten Island, NY)
+  - `NKSH` (NASDAQ) National Bankshares, Inc.
+  - `NRIM` (NASDAQ) Northrim BanCorp, Inc.
+  - `NSTS` (NASDAQ) NSTS Bancorp, Inc.
+  - `NWBI` (NASDAQ) Northwest Bancshares, Inc.
+  - `NWFL` (NASDAQ) Norwood Financial Corp.
+  - `OBT` (NASDAQ) Orange County Bancorp, Inc.
+  - `OCFC` (NASDAQ) OceanFirst Financial Corp.
+  - `OFED` (NASDAQ) Oconee Federal Financial Corp.
+  - `OPBK` (NASDAQ) OP Bancorp
+  - `OPHC` (NASDAQ) OptimumBank Holdings, Inc.
+  - `ORRF` (NASDAQ) Orrstown Financial Services, Inc.
+  - `OSBC` (NASDAQ) Old Second Bancorp, Inc.
+  - `OTTW` (NASDAQ) Ottawa Bancorp, Inc.
+  - `OVBC` (NASDAQ) Ohio Valley Banc Corp.
+  - `OVLY` (NASDAQ) Oak Valley Bancorp
+  - `OZK` (NASDAQ) Bank OZK
+  - `PB` (NASDAQ) Prosperity Bancshares, Inc.
+  - `PBFS` (NASDAQ) Pioneer Bancorp, Inc.
+  - `PBHC` (NASDAQ) Pathfinder Bancorp, Inc.
+  - `PCB` (NASDAQ) PCB Bancorp
+  - `PDLB` (NASDAQ) Ponce Financial Group, Inc.
+  - `PEBK` (NASDAQ) Peoples Bancorp of North Carolina, Inc.
+  - `PEBO` (NASDAQ) Peoples Bancorp Inc.
+  - `PFBC` (NASDAQ) Preferred Bank
+  - `PFBX` (NASDAQ) Peoples Financial Corporation
+  - `PFIS` (NASDAQ) Peoples Financial Services Corp.
+  - `PGC` (NASDAQ) Peapack-Gladstone Financial Corporation
+  - `PKBK` (NASDAQ) Parke Bancorp, Inc.
+  - `PLBC` (NASDAQ) Plumas Bancorp
+  - `PNBK` (NASDAQ) Patriot National Bancorp, Inc.
+  - `PNFP` (NASDAQ) Pinnacle Financial Partners, Inc.
+  - `PROV` (NASDAQ) Provident Financial Holdings, Inc.
+  - `QCRH` (NASDAQ) QCR Holdings, Inc.
+  - `RBB` (NASDAQ) RBB Bancorp
+  - `RBCAA` (NASDAQ) Republic Bancorp, Inc.
+  - `RBKB` (NASDAQ) Rhinebeck Bancorp, Inc.
+  - `RMBI` (NASDAQ) Richmond Mutual Bancorporation, Inc.
+  - `RNST` (NASDAQ) Renasant Corporation
+  - `RRBI` (NASDAQ) Red River Bancshares, Inc.
+  - `RVSB` (NASDAQ) Riverview Bancorp, Inc.
+  - `SBCF` (NASDAQ) Seacoast Banking Corporation of Florida
+  - `SBFG` (NASDAQ) SB Financial Group, Inc.
+  - `SBNY` (NASDAQ) Signature Bank
+  - `SBSI` (NASDAQ) Southside Bancshares, Inc.
+  - `SFBC` (NASDAQ) Sound Financial Bancorp, Inc.
+  - `SFNC` (NASDAQ) Simmons First National Corporation
+  - `SFST` (NASDAQ) Southern First Bancshares, Inc.
+  - `SHBI` (NASDAQ) Shore Bancshares, Inc.
+  - `SMBC` (NASDAQ) Southern Missouri Bancorp, Inc.
+  - `SMBK` (NASDAQ) SmartFinancial, Inc.
+  - `SPFI` (NASDAQ) South Plains Financial, Inc.
+  - `SRBK` (NASDAQ) SR Bancorp, Inc.
+  - `SRCE` (NASDAQ) 1st Source Corporation
+  - `SSB` (NASDAQ) SouthState Bank Corporation
+  - `SSBI` (NASDAQ) Summit State Bank
+  - `STBA` (NASDAQ) S&T Bancorp, Inc.
+  - `SYBT` (NASDAQ) Stock Yards Bancorp, Inc.
+  - `TCBI` (NASDAQ) Texas Capital Bancshares, Inc.
+  - `TFIN` (NASDAQ) Triumph Financial, Inc.
+  - `TFSL` (NASDAQ) TFS Financial Corporation
+  - `THFF` (NASDAQ) First Financial Corporation
+  - `TOWN` (NASDAQ) TowneBank
+  - `TRMK` (NASDAQ) Trustmark Corporation
+  - `TRST` (NASDAQ) TrustCo Bank Corp NY
+  - `TSBK` (NASDAQ) Timberland Bancorp, Inc.
+  - `UBCP` (NASDAQ) United Bancorp, Inc.
+  - `UBFO` (NASDAQ) United Security Bancshares
+  - `UBOH` (NASDAQ) United Bancshares, Inc.
+  - `UBSI` (NASDAQ) United Bankshares, Inc.
+  - `UMBF` (NASDAQ) UMB Financial Corporation
+  - `UNB` (NASDAQ) Union Bankshares, Inc.
+  - `UNTY` (NASDAQ) Unity Bancorp, Inc.
+  - `UVSP` (NASDAQ) Univest Financial Corporation
+  - `VABK` (NASDAQ) Virginia National Bankshares Corporation
+  - `WABC` (NASDAQ) Westamerica Bancorporation
+  - `WAFD` (NASDAQ) WaFd, Inc.
+  - `WASH` (NASDAQ) Washington Trust Bancorp, Inc.
+  - `WNEB` (NASDAQ) Western New England Bancorp, Inc.
+  - `WSBC` (NASDAQ) WesBanco, Inc.
+  - `WSFS` (NASDAQ) WSFS Financial Corporation
+  - `WTBA` (NASDAQ) West Bancorporation, Inc.
+  - `WTFC` (NASDAQ) Wintrust Financial Corporation
+  - `WVFC` (NASDAQ) WVS Financial Corp.
+  - `ZION` (NASDAQ) Zions Bancorporation, National Association
+- **Asset Management** — 49 companies
+  - `ALTI` (NASDAQ) AlTi Global, Inc.
+  - `AMTD` (NASDAQ) AMTD IDEA Group
+  - `ASST` (NASDAQ) Strive Asset Management, LLC
+  - `BANX` (NASDAQ) ArrowMark Financial Corp.
+  - `CCAP` (NASDAQ) Crescent Capital BDC, Inc.
+  - `CFNB` (NASDAQ) California First Leasing Corporation
+  - `CG` (NASDAQ) The Carlyle Group Inc.
+  - `CGBD` (NASDAQ) Carlyle Secured Lending, Inc.
+  - `CSWC` (NASDAQ) Capital Southwest Corporation
+  - `DHIL` (NASDAQ) Diamond Hill Investment Group, Inc.
+  - `FDUS` (NASDAQ) Fidus Investment Corporation
+  - `GAIN` (NASDAQ) Gladstone Investment Corporation
+  - `GBDC` (NASDAQ) Golub Capital BDC, Inc.
+  - `GCMG` (NASDAQ) GCM Grosvenor Inc.
+  - `GECC` (NASDAQ) Great Elm Capital Corp.
+  - `GEG` (NASDAQ) Great Elm Group, Inc.
+  - `GLAD` (NASDAQ) Gladstone Capital Corporation
+  - `HLNE` (NASDAQ) Hamilton Lane Incorporated
+  - `HNNA` (NASDAQ) Hennessy Advisors, Inc.
+  - `HRZN` (NASDAQ) Horizon Technology Finance Corporation
+  - `HSDT` (NASDAQ) Solana Company
+  - `HTGC` (NASDAQ) Hercules Capital, Inc.
+  - `MFIC` (NASDAQ) MidCap Financial Investment Corporation
+  - `MRCC` (NASDAQ) Monroe Capital Corporation
+  - `NTRS` (NASDAQ) Northern Trust Corporation
+  - `OCCI` (NASDAQ) OFS Credit Company, Inc.
+  - `OCSL` (NASDAQ) Oaktree Specialty Lending Corporation
+  - `OFS` (NASDAQ) OFS Capital Corporation
+  - `OXLC` (NASDAQ) Oxford Lane Capital Corp.
+  - `PAX` (NASDAQ) Patria Investments Limited
+  - `PFG` (NASDAQ) Principal Financial Group, Inc.
+  - `PFLT` (NASDAQ) PennantPark Floating Rate Capital Ltd.
+  - `PFX` (NASDAQ) PhenixFIN Corporation
+  - `PNNT` (NASDAQ) PennantPark Investment Corporation
+  - `PSEC` (NASDAQ) Prospect Capital Corporation
+  - `RAND` (NASDAQ) Rand Capital Corporation
+  - `RWAY` (NASDAQ) Runway Growth Finance Corp.
+  - `SAMG` (NASDAQ) Silvercrest Asset Management Group Inc.
+  - `SEIC` (NASDAQ) SEI Investments Company
+  - `SLRC` (NASDAQ) SLR Investment Corp.
+  - `STEP` (NASDAQ) StepStone Group Inc.
+  - `SWKH` (NASDAQ) SWK Holdings Corporation
+  - `TCPC` (NASDAQ) BlackRock TCP Capital Corp.
+  - `TPG` (NASDAQ) TPG Inc.
+  - `TRIN` (NASDAQ) Trinity Capital Inc.
+  - `TROW` (NASDAQ) T. Rowe Price Group, Inc.
+  - `VCTR` (NASDAQ) Victory Capital Holdings, Inc.
+  - `VRTS` (NASDAQ) Virtus Investment Partners, Inc.
+  - `WHF` (NASDAQ) WhiteHorse Finance, Inc.
+- **Credit Services** — 23 companies
+  - `AFRM` (NASDAQ) Affirm Holdings, Inc.
+  - `ATLC` (NASDAQ) Atlanticus Holdings Corporation
+  - `CACC` (NASDAQ) Credit Acceptance Corporation
+  - `CPSS` (NASDAQ) Consumer Portfolio Services, Inc.
+  - `ECPG` (NASDAQ) Encore Capital Group, Inc.
+  - `EZPW` (NASDAQ) EZCORP, Inc.
+  - `FCFS` (NASDAQ) FirstCash Holdings, Inc.
+  - `LMFA` (NASDAQ) LM Funding America, Inc.
+  - `LPRO` (NASDAQ) Open Lending Corporation
+  - `LX` (NASDAQ) LexinFintech Holdings Ltd.
+  - `MFIN` (NASDAQ) Medallion Financial Corp.
+  - `NAVI` (NASDAQ) Navient Corporation
+  - `OPRT` (NASDAQ) Oportun Financial Corporation
+  - `PMTS` (NASDAQ) CPI Card Group Inc.
+  - `PRAA` (NASDAQ) PRA Group, Inc.
+  - `PT` (NASDAQ) J and Friends Holdings Limited
+  - `PYPL` (NASDAQ) PayPal Holdings, Inc.
+  - `QFIN` (NASDAQ) Qfin Holdings, Inc.
+  - `SOFI` (NASDAQ) SoFi Technologies, Inc.
+  - `TROO` (NASDAQ) TROOPS, Inc.
+  - `UPST` (NASDAQ) Upstart Holdings, Inc.
+  - `VRM` (NASDAQ) Vroom, Inc.
+  - `WRLD` (NASDAQ) World Acceptance Corporation
+- **Capital Markets** — 22 companies
+  - `ANY` (NASDAQ) Sphere 3D Corp.
+  - `CLSK` (NASDAQ) CleanSpark, Inc.
+  - `DOMH` (NASDAQ) Dominari Holdings Inc.
+  - `FUTU` (NASDAQ) Futu Holdings Limited
+  - `HGBL` (NASDAQ) Heritage Global Inc.
+  - `HOOD` (NASDAQ) Robinhood Markets, Inc.
+  - `IBKR` (NASDAQ) Interactive Brokers Group, Inc.
+  - `LPLA` (NASDAQ) LPL Financial Holdings Inc.
+  - `MARA` (NASDAQ) MARA Holdings, Inc.
+  - `MIGI` (NASDAQ) Mawson Infrastructure Group Inc.
+  - `NCTY` (NASDAQ) The9 Limited
+  - `OPGN` (NASDAQ) CapForce Inc
+  - `PWP` (NASDAQ) Perella Weinberg Partners
+  - `RIOT` (NASDAQ) Riot Platforms, Inc.
+  - `SCHW` (NASDAQ) The Charles Schwab Corporation
+  - `SIEB` (NASDAQ) Siebert Financial Corp.
+  - `SNEX` (NASDAQ) StoneX Group Inc.
+  - `TIGR` (NASDAQ) UP Fintech Holding Limited
+  - `TW` (NASDAQ) Tradeweb Markets Inc.
+  - `VIRT` (NASDAQ) Virtu Financial, Inc.
+  - `WULF` (NASDAQ) TeraWulf Inc.
+  - `XP` (NASDAQ) XP Inc.
+- **Insurance - Property & Casualty** — 14 companies
+  - `CINF` (NASDAQ) Cincinnati Financial Corporation
+  - `DGICA` (NASDAQ) Donegal Group Inc.
+  - `GBLI` (NASDAQ) Global Indemnity Group, LLC
+  - `HALL` (NASDAQ) Hallmark Financial Services, Inc.
+  - `KINS` (NASDAQ) Kingstone Companies, Inc.
+  - `KNSL` (NASDAQ) Kinsale Capital Group, Inc.
+  - `NODK` (NASDAQ) NI Holdings, Inc.
+  - `PLMR` (NASDAQ) Palomar Holdings, Inc.
+  - `PRCH` (NASDAQ) Porch Group, Inc.
+  - `SAFT` (NASDAQ) Safety Insurance Group, Inc.
+  - `SIGI` (NASDAQ) Selective Insurance Group, Inc.
+  - `SKWD` (NASDAQ) Skyward Specialty Insurance Group, Inc.
+  - `TRUP` (NASDAQ) Trupanion, Inc.
+  - `UFCS` (NASDAQ) United Fire Group, Inc.
+- **Insurance Brokers** — 8 companies
+  - `CRVL` (NASDAQ) CorVel Corporation
+  - `EHTH` (NASDAQ) eHealth, Inc.
+  - `ERIE` (NASDAQ) Erie Indemnity Company
+  - `GOCO` (NASDAQ) GoHealth, Inc.
+  - `GSHD` (NASDAQ) Goosehead Insurance, Inc.
+  - `HUIZ` (NASDAQ) Huize Holding Limited
+  - `LIFE` (NASDAQ) Ethos Technologies Inc.
+  - `RELI` (NASDAQ) Reliance Global Group, Inc.
+- **Insurance - Specialty** — 7 companies
+  - `ACT` (NASDAQ) Enact Holdings, Inc.
+  - `AMSF` (NASDAQ) AMERISAFE, Inc.
+  - `ITIC` (NASDAQ) Investors Title Company
+  - `JRVR` (NASDAQ) James River Group Holdings, Inc.
+  - `NMIH` (NASDAQ) NMI Holdings, Inc.
+  - `STLY` (NASDAQ) HG Holdings, Inc.
+  - `TIPT` (NASDAQ) Tiptree Inc.
+- **Financial Data & Stock Exchanges** — 6 companies
+  - `CBOE` (NASDAQ) Cboe Global Markets, Inc.
+  - `CME` (NASDAQ) CME Group Inc.
+  - `COIN` (NASDAQ) Coinbase Global, Inc.
+  - `MKTW` (NASDAQ) MarketWise, Inc.
+  - `MORN` (NASDAQ) Morningstar, Inc.
+  - `VALU` (NASDAQ) Value Line, Inc.
+- **Insurance - Life** — 4 companies
+  - `AAME` (NASDAQ) Atlantic American Corporation
+  - `BHF` (NASDAQ) Brighthouse Financial, Inc.
+  - `KCLI` (NASDAQ) Kansas City Life Insurance Company
+  - `SNFCA` (NASDAQ) Security National Financial Corporation
+- **Financial Conglomerates** — 3 companies
+  - `FRHC` (NASDAQ) Freedom Holdings Corp.
+  - `RILY` (NASDAQ) BRC Group Holdings, Inc.
+  - `TREE` (NASDAQ) LendingTree, Inc.
+- **Shell Companies** — 3 companies
+  - `CALA` (NASDAQ) Calithera Biosciences, Inc.
+  - `PPYAU` (NASDAQ) Papaya Growth Opportunity Corp. I
+  - `TACO` (NASDAQ) Berto Acquisition Corp.
+- **Insurance - Reinsurance** — 2 companies
+  - `GLRE` (NASDAQ) Greenlight Capital Re, Ltd.
+  - `OXBR` (NASDAQ) Oxbridge Re Holdings Limited
+- **Insurance - Diversified** — 1 companies
+  - `IGIC` (NASDAQ) International General Insurance Holdings Ltd.
+
+## Healthcare (682 companies)
+
+- **Biotechnology** — 424 companies
+  - `ABCL` (NASDAQ) AbCellera Biologics Inc.
+  - `ABEO` (NASDAQ) Abeona Therapeutics Inc.
+  - `ABOS` (NASDAQ) Acumen Pharmaceuticals, Inc.
+  - `ABSI` (NASDAQ) Absci Corporation
+  - `ABUS` (NASDAQ) Arbutus Biopharma Corporation
+  - `ACAD` (NASDAQ) ACADIA Pharmaceuticals Inc.
+  - `ACHV` (NASDAQ) Achieve Life Sciences, Inc.
+  - `ACIU` (NASDAQ) AC Immune SA
+  - `ACLX` (NASDAQ) Arcellx, Inc.
+  - `ACRS` (NASDAQ) Aclaris Therapeutics, Inc.
+  - `ACRV` (NASDAQ) Acrivon Therapeutics, Inc.
+  - `ACXP` (NASDAQ) Acurx Pharmaceuticals, Inc.
+  - `ADIL` (NASDAQ) Adial Pharmaceuticals, Inc.
+  - `ADMA` (NASDAQ) ADMA Biologics, Inc.
+  - `ADPT` (NASDAQ) Adaptive Biotechnologies Corporation
+  - `AGEN` (NASDAQ) Agenus Inc.
+  - `AGIO` (NASDAQ) Agios Pharmaceuticals, Inc.
+  - `AKTS` (NASDAQ) Aktis Oncology, Inc.
+  - `AKTX` (NASDAQ) Akari Therapeutics, Plc
+  - `ALDX` (NASDAQ) Aldeyra Therapeutics, Inc.
+  - `ALEC` (NASDAQ) Alector, Inc.
+  - `ALGS` (NASDAQ) Aligos Therapeutics, Inc.
+  - `ALLO` (NASDAQ) Allogene Therapeutics, Inc.
+  - `ALLR` (NASDAQ) Allarity Therapeutics, Inc.
+  - `ALNY` (NASDAQ) Alnylam Pharmaceuticals, Inc.
+  - `ALT` (NASDAQ) Altimmune, Inc.
+  - `ALXO` (NASDAQ) ALX Oncology Holdings Inc.
+  - `ALZN` (NASDAQ) Alzamend Neuro, Inc.
+  - `ANAB` (NASDAQ) AnaptysBio, Inc.
+  - `ANEB` (NASDAQ) Anebulo Pharmaceuticals, Inc.
+  - `ANIX` (NASDAQ) Anixa Biosciences, Inc.
+  - `ANNX` (NASDAQ) Annexon, Inc.
+  - `ANTX` (NASDAQ) AN2 Therapeutics, Inc.
+  - `APLS` (NASDAQ) Apellis Pharmaceuticals, Inc.
+  - `APLT` (NASDAQ) Applied Therapeutics, Inc.
+  - `APM` (NASDAQ) Aptorum Group Limited
+  - `APRE` (NASDAQ) Aprea Therapeutics, Inc.
+  - `APVO` (NASDAQ) Aptevo Therapeutics Inc.
+  - `ARCT` (NASDAQ) Arcturus Therapeutics Holdings Inc.
+  - `ARDS` (NASDAQ) Aridis Pharmaceuticals, Inc.
+  - `ARDX` (NASDAQ) Ardelyx, Inc.
+  - `ARGX` (NASDAQ) argenx SE
+  - `ARQT` (NASDAQ) Arcutis Biotherapeutics, Inc.
+  - `ARTL` (NASDAQ) Artelo Biosciences, Inc.
+  - `ARVN` (NASDAQ) Arvinas, Inc.
+  - `ARWR` (NASDAQ) Arrowhead Pharmaceuticals, Inc.
+  - `ASMB` (NASDAQ) Assembly Biosciences, Inc.
+  - `ASND` (NASDAQ) Ascendis Pharma A/S
+  - `ATAI` (NASDAQ) AtaiBeckley Inc.
+  - `ATHE` (NASDAQ) Alterity Therapeutics Limited
+  - `ATXI` (NASDAQ) Avenue Therapeutics, Inc.
+  - `ATXS` (NASDAQ) Astria Therapeutics, Inc.
+  - `AUPH` (NASDAQ) Aurinia Pharmaceuticals Inc.
+  - `AURA` (NASDAQ) Aura Biosciences, Inc.
+  - `AUTL` (NASDAQ) Autolus Therapeutics plc
+  - `AVBP` (NASDAQ) ArriVent BioPharma, Inc.
+  - `AVIR` (NASDAQ) Atea Pharmaceuticals, Inc.
+  - `AVTX` (NASDAQ) Avalo Therapeutics, Inc.
+  - `AVXL` (NASDAQ) Anavex Life Sciences Corp.
+  - `AXSM` (NASDAQ) Axsome Therapeutics, Inc.
+  - `BBIO` (NASDAQ) BridgeBio Pharma, Inc.
+  - `BCAB` (NASDAQ) BioAtla, Inc.
+  - `BCDA` (NASDAQ) BioCardia, Inc.
+  - `BCLI` (NASDAQ) Brainstorm Cell Therapeutics Inc.
+  - `BCTX` (NASDAQ) BriaCell Therapeutics Corp.
+  - `BCYC` (NASDAQ) Bicycle Therapeutics plc
+  - `BDRX` (NASDAQ) Biodexa Pharmaceuticals Plc
+  - `BDTX` (NASDAQ) Black Diamond Therapeutics, Inc.
+  - `BEAM` (NASDAQ) Beam Therapeutics Inc.
+  - `BIOR` (NASDAQ) Biora Therapeutics, Inc.
+  - `BIVI` (NASDAQ) BioVie Inc.
+  - `BLRX` (NASDAQ) BioLineRx Ltd.
+  - `BMEA` (NASDAQ) Biomea Fusion, Inc.
+  - `BMRN` (NASDAQ) BioMarin Pharmaceutical Inc.
+  - `BNTC` (NASDAQ) Benitec Biopharma Inc.
+  - `BNTX` (NASDAQ) BioNTech SE
+  - `BOLT` (NASDAQ) Bolt Biotherapeutics, Inc.
+  - `BPTH` (NASDAQ) Bio-Path Holdings, Inc.
+  - `BRNS` (NASDAQ) Barinthus Biotherapeutics plc
+  - `BRTX` (NASDAQ) BioRestorative Therapies, Inc.
+  - `BTTX` (NASDAQ) Better Therapeutics, Inc.
+  - `BYSI` (NASDAQ) BeyondSpring Inc.
+  - `CABA` (NASDAQ) Cabaletta Bio, Inc.
+  - `CADL` (NASDAQ) Candel Therapeutics, Inc.
+  - `CALC` (NASDAQ) CalciMedica, Inc.
+  - `CAPR` (NASDAQ) Capricor Therapeutics, Inc.
+  - `CASI` (NASDAQ) CASI Pharmaceuticals Inc
+  - `CBUS` (NASDAQ) Cibus, Inc.
+  - `CCCC` (NASDAQ) C4 Therapeutics, Inc.
+  - `CDIO` (NASDAQ) Cardio Diagnostics Holdings, Inc.
+  - `CDXS` (NASDAQ) Codexis, Inc.
+  - `CELC` (NASDAQ) Celcuity Inc.
+  - `CGEM` (NASDAQ) Cullinan Therapeutics, Inc.
+  - `CGEN` (NASDAQ) Compugen Ltd.
+  - `CGTX` (NASDAQ) Cognition Therapeutics, Inc.
+  - `CHRS` (NASDAQ) Coherus Oncology, Inc.
+  - `CING` (NASDAQ) Cingulate Inc.
+  - `CLDX` (NASDAQ) Celldex Therapeutics, Inc.
+  - `CLGN` (NASDAQ) CollPlant Biotechnologies Ltd.
+  - `CLLS` (NASDAQ) Cellectis S.A.
+  - `CLRB` (NASDAQ) Cellectar Biosciences, Inc.
+  - `CLSD` (NASDAQ) Clearside Biomedical, Inc.
+  - `CMMB` (NASDAQ) Chemomab Therapeutics Ltd.
+  - `CMPX` (NASDAQ) Compass Therapeutics, Inc.
+  - `CNSP` (NASDAQ) CNS Pharmaceuticals, Inc.
+  - `CNTA` (NASDAQ) Centessa Pharmaceuticals plc
+  - `CNTX` (NASDAQ) Context Therapeutics Inc.
+  - `COCP` (NASDAQ) Cocrystal Pharma, Inc.
+  - `COEP` (NASDAQ) Coeptis Therapeutics Holdings, Inc.
+  - `COGT` (NASDAQ) Cogent Biosciences, Inc.
+  - `CPRX` (NASDAQ) Catalyst Pharmaceuticals, Inc.
+  - `CRBP` (NASDAQ) Corbus Pharmaceuticals Holdings, Inc.
+  - `CRBU` (NASDAQ) Caribou Biosciences, Inc.
+  - `CRDF` (NASDAQ) Cardiff Oncology, Inc.
+  - `CRIS` (NASDAQ) Curis, Inc.
+  - `CRNX` (NASDAQ) Crinetics Pharmaceuticals, Inc.
+  - `CRSP` (NASDAQ) CRISPR Therapeutics AG
+  - `CSBR` (NASDAQ) Champions Oncology, Inc.
+  - `CTMX` (NASDAQ) CytomX Therapeutics, Inc.
+  - `CTXR` (NASDAQ) Citius Pharmaceuticals, Inc.
+  - `CUE` (NASDAQ) Cue Biopharma, Inc.
+  - `CVKD` (NASDAQ) Cadrenal Therapeutics, Inc.
+  - `CYCN` (NASDAQ) Cyclerion Therapeutics, Inc.
+  - `CYTK` (NASDAQ) Cytokinetics, Incorporated
+  - `DARE` (NASDAQ) Daré Bioscience, Inc.
+  - `DAWN` (NASDAQ) Day One Biopharmaceuticals, Inc.
+  - `DBVT` (NASDAQ) DBV Technologies S.A.
+  - `DMAC` (NASDAQ) DiaMedica Therapeutics Inc.
+  - `DNLI` (NASDAQ) Denali Therapeutics Inc.
+  - `DNTH` (NASDAQ) Dianthus Therapeutics, Inc.
+  - `DSGN` (NASDAQ) Design Therapeutics, Inc.
+  - `DTIL` (NASDAQ) Precision BioSciences, Inc.
+  - `DYN` (NASDAQ) Dyne Therapeutics, Inc.
+  - `EDIT` (NASDAQ) Editas Medicine, Inc.
+  - `EDSA` (NASDAQ) Edesa Biotech, Inc.
+  - `EFTR` (NASDAQ) eFFECTOR Therapeutics, Inc.
+  - `ELDN` (NASDAQ) Eledon Pharmaceuticals, Inc.
+  - `ELOX` (NASDAQ) Eloxx Pharmaceuticals, Inc.
+  - `ELVN` (NASDAQ) Enliven Therapeutics, Inc.
+  - `ENSC` (NASDAQ) Ensysce Biosciences, Inc.
+  - `ENTA` (NASDAQ) Enanta Pharmaceuticals, Inc.
+  - `ENTX` (NASDAQ) Entera Bio Ltd.
+  - `ENZN` (NASDAQ) Enzon Pharmaceuticals, Inc.
+  - `EQ` (NASDAQ) Equillium, Inc.
+  - `ERAS` (NASDAQ) Erasca, Inc.
+  - `ERNA` (NASDAQ) Ernexa Therapeutics Inc.
+  - `EVFM` (NASDAQ) Evofem Biosciences, Inc.
+  - `EVGN` (NASDAQ) Evogene Ltd.
+  - `EVLO` (NASDAQ) Evelo Biosciences, Inc.
+  - `EWTX` (NASDAQ) Edgewise Therapeutics, Inc.
+  - `EXEL` (NASDAQ) Exelixis, Inc.
+  - `EYPT` (NASDAQ) EyePoint, Inc.
+  - `FATE` (NASDAQ) Fate Therapeutics, Inc.
+  - `FBIO` (NASDAQ) Fortress Biotech, Inc.
+  - `FBLG` (NASDAQ) FibroBiologics, Inc.
+  - `FENC` (NASDAQ) Fennec Pharmaceuticals Inc.
+  - `FHTX` (NASDAQ) Foghorn Therapeutics Inc.
+  - `FNCH` (NASDAQ) Finch Therapeutics Group, Inc.
+  - `FOLD` (NASDAQ) Amicus Therapeutics, Inc.
+  - `FTRE` (NASDAQ) Fortrea Holdings Inc.
+  - `FULC` (NASDAQ) Fulcrum Therapeutics, Inc.
+  - `GALT` (NASDAQ) Galectin Therapeutics Inc.
+  - `GANX` (NASDAQ) Gain Therapeutics, Inc.
+  - `GBIO` (NASDAQ) Generation Bio Co.
+  - `GERN` (NASDAQ) Geron Corporation
+  - `GLMD` (NASDAQ) Galmed Pharmaceuticals Ltd.
+  - `GLPG` (NASDAQ) Galapagos NV
+  - `GLTO` (NASDAQ) Galecto Inc
+  - `GLUE` (NASDAQ) Monte Rosa Therapeutics, Inc.
+  - `GMAB` (NASDAQ) Genmab A/S
+  - `GNLX` (NASDAQ) Genelux Corporation
+  - `GNPX` (NASDAQ) Genprex, Inc.
+  - `GOSS` (NASDAQ) Gossamer Bio, Inc.
+  - `GPCR` (NASDAQ) Structure Therapeutics Inc.
+  - `GRI` (NASDAQ) GRI Bio, Inc.
+  - `GRTX` (NASDAQ) Galera Therapeutics, Inc.
+  - `GTBP` (NASDAQ) GT Biopharma, Inc.
+  - `GUTS` (NASDAQ) Fractyl Health, Inc.
+  - `GYRE` (NASDAQ) Gyre Therapeutics, Inc.
+  - `HALO` (NASDAQ) Halozyme Therapeutics, Inc.
+  - `HCWB` (NASDAQ) HCW Biologics Inc.
+  - `HEPA` (NASDAQ) Hepion Pharmaceuticals, Inc.
+  - `HOOK` (NASDAQ) HOOKIPA Pharma Inc.
+  - `HOTH` (NASDAQ) Hoth Therapeutics, Inc.
+  - `HOWL` (NASDAQ) Werewolf Therapeutics, Inc.
+  - `HRMY` (NASDAQ) Harmony Biosciences Holdings, Inc.
+  - `HRTX` (NASDAQ) Heron Therapeutics, Inc.
+  - `HUMA` (NASDAQ) Humacyte, Inc.
+  - `IBRX` (NASDAQ) ImmunityBio, Inc.
+  - `ICCC` (NASDAQ) ImmuCell Corporation
+  - `IDYA` (NASDAQ) IDEAYA Biosciences, Inc.
+  - `IFRX` (NASDAQ) InflaRx N.V.
+  - `IKT` (NASDAQ) Inhibikase Therapeutics, Inc.
+  - `IMMP` (NASDAQ) Immutep Limited
+  - `IMMX` (NASDAQ) Immix Biopharma, Inc.
+  - `IMNM` (NASDAQ) Immunome, Inc.
+  - `IMNN` (NASDAQ) Imunon, Inc.
+  - `IMRN` (NASDAQ) Immuron Limited
+  - `IMRX` (NASDAQ) Immuneering Corporation
+  - `IMUX` (NASDAQ) Immunic, Inc.
+  - `IMVT` (NASDAQ) Immunovant, Inc.
+  - `INAB` (NASDAQ) IN8bio, Inc.
+  - `INBX` (NASDAQ) Inhibrx Biosciences, Inc.
+  - `INCY` (NASDAQ) Incyte Corporation
+  - `INDP` (NASDAQ) Indaptus Therapeutics, Inc.
+  - `INKT` (NASDAQ) MiNK Therapeutics, Inc.
+  - `INMB` (NASDAQ) INmune Bio Inc.
+  - `INO` (NASDAQ) Inovio Pharmaceuticals, Inc.
+  - `INSM` (NASDAQ) Insmed Incorporated
+  - `IOBT` (NASDAQ) IO Biotech, Inc.
+  - `IONS` (NASDAQ) Ionis Pharmaceuticals, Inc.
+  - `IOVA` (NASDAQ) Iovance Biotherapeutics, Inc.
+  - `IPHA` (NASDAQ) Innate Pharma S.A.
+  - `IPSC` (NASDAQ) Century Therapeutics, Inc.
+  - `IRON` (NASDAQ) Disc Medicine, Inc.
+  - `ITRM` (NASDAQ) Iterum Therapeutics plc
+  - `IVVD` (NASDAQ) Invivyd, Inc.
+  - `JAGX` (NASDAQ) Jaguar Health, Inc.
+  - `JANX` (NASDAQ) Janux Therapeutics, Inc.
+  - `JAZZ` (NASDAQ) Jazz Pharmaceuticals plc
+  - `JSPR` (NASDAQ) Jasper Therapeutics, Inc.
+  - `KALA` (NASDAQ) KALA BIO, Inc.
+  - `KALV` (NASDAQ) KalVista Pharmaceuticals, Inc.
+  - `KLDO` (NASDAQ) Kaleido Biosciences, Inc.
+  - `KOD` (NASDAQ) Kodiak Sciences Inc.
+  - `KPRX` (NASDAQ) Kiora Pharmaceuticals, Inc.
+  - `KPTI` (NASDAQ) Karyopharm Therapeutics Inc.
+  - `KROS` (NASDAQ) Keros Therapeutics, Inc.
+  - `KRRO` (NASDAQ) Korro Bio, Inc.
+  - `KRYS` (NASDAQ) Krystal Biotech, Inc.
+  - `KURA` (NASDAQ) Kura Oncology, Inc.
+  - `KYMR` (NASDAQ) Kymera Therapeutics, Inc.
+  - `KYTX` (NASDAQ) Kyverna Therapeutics, Inc.
+  - `KZIA` (NASDAQ) Kazia Therapeutics Limited
+  - `KZR` (NASDAQ) Kezar Life Sciences, Inc.
+  - `LEXX` (NASDAQ) Lexaria Bioscience Corp.
+  - `LGND` (NASDAQ) Ligand Pharmaceuticals Incorporated
+  - `LGVN` (NASDAQ) Longeveron Inc.
+  - `LIPO` (NASDAQ) Lipella Pharmaceuticals Inc.
+  - `LIXT` (NASDAQ) Lixte Biotechnology Holdings, Inc.
+  - `LPCN` (NASDAQ) Lipocine Inc.
+  - `LRMR` (NASDAQ) Larimar Therapeutics, Inc.
+  - `LSTA` (NASDAQ) Lisata Therapeutics, Inc.
+  - `LTRN` (NASDAQ) Lantern Pharma Inc.
+  - `LXEO` (NASDAQ) Lexeo Therapeutics, Inc.
+  - `LXRX` (NASDAQ) Lexicon Pharmaceuticals, Inc.
+  - `LYEL` (NASDAQ) Lyell Immunopharma, Inc.
+  - `LYRA` (NASDAQ) Lyra Therapeutics, Inc.
+  - `MBIO` (NASDAQ) Mustang Bio, Inc.
+  - `MBRX` (NASDAQ) Moleculin Biotech, Inc.
+  - `MCRB` (NASDAQ) Seres Therapeutics, Inc.
+  - `MDGL` (NASDAQ) Madrigal Pharmaceuticals, Inc.
+  - `MDWD` (NASDAQ) MediWound Ltd.
+  - `MDXG` (NASDAQ) MiMedx Group, Inc.
+  - `MGNX` (NASDAQ) MacroGenics, Inc.
+  - `MGTX` (NASDAQ) MeiraGTx Holdings plc
+  - `MGX` (NASDAQ) Metagenomi Therapeutics, Inc.
+  - `MIRM` (NASDAQ) Mirum Pharmaceuticals, Inc.
+  - `MLTX` (NASDAQ) MoonLake Immunotherapeutics
+  - `MNKD` (NASDAQ) MannKind Corporation
+  - `MNOV` (NASDAQ) MediciNova, Inc.
+  - `MNPR` (NASDAQ) Monopar Therapeutics Inc.
+  - `MRKR` (NASDAQ) Marker Therapeutics, Inc.
+  - `MRNA` (NASDAQ) Moderna, Inc.
+  - `MRVI` (NASDAQ) Maravai LifeSciences Holdings, Inc.
+  - `NAUT` (NASDAQ) Nautilus Biotechnology, Inc.
+  - `NCNA` (NASDAQ) NuCana plc
+  - `NERV` (NASDAQ) Minerva Neurosciences, Inc.
+  - `NGNE` (NASDAQ) Neurogene Inc.
+  - `NKTR` (NASDAQ) Nektar Therapeutics
+  - `NKTX` (NASDAQ) Nkarta, Inc.
+  - `NMRA` (NASDAQ) Neumora Therapeutics, Inc.
+  - `NRIX` (NASDAQ) Nurix Therapeutics, Inc.
+  - `NTLA` (NASDAQ) Intellia Therapeutics, Inc.
+  - `NUVL` (NASDAQ) Nuvalent, Inc.
+  - `NVAX` (NASDAQ) Novavax, Inc.
+  - `NVCT` (NASDAQ) Nuvectis Pharma, Inc.
+  - `NXTC` (NASDAQ) NextCure, Inc.
+  - `OABI` (NASDAQ) OmniAb, Inc.
+  - `OBIO` (NASDAQ) Orchestra BioMed Holdings, Inc.
+  - `OCEA` (NASDAQ) Ocean Biomedical, Inc.
+  - `OCGN` (NASDAQ) Ocugen, Inc.
+  - `OCUL` (NASDAQ) Ocular Therapeutix, Inc.
+  - `OLMA` (NASDAQ) Olema Pharmaceuticals, Inc.
+  - `OMER` (NASDAQ) Omeros Corporation
+  - `ORIC` (NASDAQ) ORIC Pharmaceuticals, Inc.
+  - `ORMP` (NASDAQ) Oramed Pharmaceuticals Inc.
+  - `OTLK` (NASDAQ) Outlook Therapeutics, Inc.
+  - `OVID` (NASDAQ) Ovid Therapeutics Inc.
+  - `PALI` (NASDAQ) Palisade Bio, Inc.
+  - `PASG` (NASDAQ) Passage Bio, Inc.
+  - `PBLA` (NASDAQ) Panbela Therapeutics, Inc.
+  - `PCSA` (NASDAQ) Processa Pharmaceuticals, Inc.
+  - `PCVX` (NASDAQ) Vaxcyte, Inc.
+  - `PDSB` (NASDAQ) PDS Biotechnology Corporation
+  - `PEPG` (NASDAQ) PepGen Inc.
+  - `PGEN` (NASDAQ) Precigen, Inc.
+  - `PHAT` (NASDAQ) Phathom Pharmaceuticals, Inc.
+  - `PHIO` (NASDAQ) Phio Pharmaceuticals Corp.
+  - `PLRX` (NASDAQ) Pliant Therapeutics, Inc.
+  - `PMCB` (NASDAQ) PharmaCyte Biotech, Inc.
+  - `PMVP` (NASDAQ) PMV Pharmaceuticals, Inc.
+  - `PPBT` (NASDAQ) Purple Biotech Ltd
+  - `PRAX` (NASDAQ) Praxis Precision Medicines, Inc.
+  - `PRME` (NASDAQ) Prime Medicine, Inc.
+  - `PROK` (NASDAQ) ProKidney Corp.
+  - `PRQR` (NASDAQ) ProQR Therapeutics N.V.
+  - `PRTA` (NASDAQ) Prothena Corporation plc
+  - `PSTV` (NASDAQ) Plus Therapeutics, Inc.
+  - `PTCT` (NASDAQ) PTC Therapeutics, Inc.
+  - `PTGX` (NASDAQ) Protagonist Therapeutics, Inc.
+  - `PTIX` (NASDAQ) Protagenic Therapeutics, Inc.
+  - `PULM` (NASDAQ) Pulmatrix, Inc.
+  - `PXMD` (NASDAQ) PaxMedica, Inc.
+  - `PYXS` (NASDAQ) Pyxis Oncology, Inc.
+  - `QNCX` (NASDAQ) Quince Therapeutics, Inc.
+  - `QNRX` (NASDAQ) Quoin Pharmaceuticals, Ltd.
+  - `QURE` (NASDAQ) uniQure N.V.
+  - `RANI` (NASDAQ) Rani Therapeutics Holdings, Inc.
+  - `RAPT` (NASDAQ) RAPT Therapeutics Inc
+  - `RARE` (NASDAQ) Ultragenyx Pharmaceutical Inc.
+  - `RCKT` (NASDAQ) Rocket Pharmaceuticals, Inc.
+  - `REGN` (NASDAQ) Regeneron Pharmaceuticals, Inc.
+  - `REPL` (NASDAQ) Replimune Group, Inc.
+  - `RGNX` (NASDAQ) REGENXBIO Inc.
+  - `RIGL` (NASDAQ) Rigel Pharmaceuticals, Inc.
+  - `RLAY` (NASDAQ) Relay Therapeutics, Inc.
+  - `RLMD` (NASDAQ) Relmada Therapeutics, Inc.
+  - `RLYB` (NASDAQ) Rallybio Corporation
+  - `RNA` (NASDAQ) Atrium Therapeutics, Inc.
+  - `RNAC` (NASDAQ) Cartesian Therapeutics, Inc.
+  - `RNAZ` (NASDAQ) TransCode Therapeutics, Inc.
+  - `RNXT` (NASDAQ) RenovoRx, Inc.
+  - `ROIV` (NASDAQ) Roivant Sciences Ltd.
+  - `RPRX` (NASDAQ) Royalty Pharma plc
+  - `RPTX` (NASDAQ) Repare Therapeutics Inc.
+  - `RVMD` (NASDAQ) Revolution Medicines, Inc.
+  - `RVPH` (NASDAQ) Reviva Pharmaceuticals Holdings, Inc.
+  - `RXRX` (NASDAQ) Recursion Pharmaceuticals, Inc.
+  - `RYTM` (NASDAQ) Rhythm Pharmaceuticals, Inc.
+  - `SANA` (NASDAQ) Sana Biotechnology, Inc.
+  - `SAVA` (NASDAQ) Cassava Sciences Inc
+  - `SEER` (NASDAQ) Seer, Inc.
+  - `SGMO` (NASDAQ) Sangamo Therapeutics, Inc.
+  - `SILO` (NASDAQ) Silo Pharma, Inc.
+  - `SKYE` (NASDAQ) Skye Bioscience, Inc.
+  - `SLDB` (NASDAQ) Solid Biosciences Inc.
+  - `SLGL` (NASDAQ) Sol-Gel Technologies Ltd.
+  - `SLNO` (NASDAQ) Soleno Therapeutics, Inc.
+  - `SLS` (NASDAQ) SELLAS Life Sciences Group, Inc.
+  - `SMMT` (NASDAQ) Summit Therapeutics Inc.
+  - `SNDX` (NASDAQ) Syndax Pharmaceuticals, Inc.
+  - `SNGX` (NASDAQ) Soligenix, Inc.
+  - `SNTI` (NASDAQ) Senti Biosciences, Inc.
+  - `SPRB` (NASDAQ) Spruce Biosciences, Inc.
+  - `SPRC` (NASDAQ) SciSparc Ltd.
+  - `SPRO` (NASDAQ) Spero Therapeutics, Inc.
+  - `SPRY` (NASDAQ) ARS Pharmaceuticals, Inc.
+  - `SRPT` (NASDAQ) Sarepta Therapeutics, Inc.
+  - `SRRK` (NASDAQ) Scholar Rock Holding Corporation
+  - `SRZN` (NASDAQ) Surrozen, Inc.
+  - `STOK` (NASDAQ) Stoke Therapeutics, Inc.
+  - `STRO` (NASDAQ) Sutro Biopharma, Inc.
+  - `STTK` (NASDAQ) Shattuck Labs, Inc.
+  - `SVRA` (NASDAQ) Savara Inc.
+  - `SYBX` (NASDAQ) Synlogic, Inc.
+  - `SYRE` (NASDAQ) Spyre Therapeutics, Inc.
+  - `SYRS` (NASDAQ) Syros Pharmaceuticals, Inc.
+  - `TARA` (NASDAQ) Protara Therapeutics, Inc.
+  - `TBPH` (NASDAQ) Theravance Biopharma, Inc.
+  - `TCRT` (NASDAQ) Alaunos Therapeutics, Inc.
+  - `TCRX` (NASDAQ) TScan Therapeutics, Inc.
+  - `TENX` (NASDAQ) Tenax Therapeutics, Inc.
+  - `TERN` (NASDAQ) Terns Pharmaceuticals, Inc.
+  - `TGTX` (NASDAQ) TG Therapeutics, Inc.
+  - `TIL` (NASDAQ) Instil Bio, Inc.
+  - `TLSA` (NASDAQ) Tiziana Life Sciences Ltd
+  - `TNGX` (NASDAQ) Tango Therapeutics, Inc.
+  - `TNXP` (NASDAQ) Tonix Pharmaceuticals Holding Corp.
+  - `TNYA` (NASDAQ) Tenaya Therapeutics, Inc.
+  - `TPST` (NASDAQ) Tempest Therapeutics, Inc.
+  - `TRDA` (NASDAQ) Entrada Therapeutics, Inc.
+  - `TRVI` (NASDAQ) Trevi Therapeutics, Inc.
+  - `TRVN` (NASDAQ) Trevena, Inc.
+  - `TSHA` (NASDAQ) Taysha Gene Therapies, Inc.
+  - `TVTX` (NASDAQ) Travere Therapeutics, Inc.
+  - `UNCY` (NASDAQ) Unicycive Therapeutics, Inc.
+  - `URGN` (NASDAQ) UroGen Pharma Ltd.
+  - `VANI` (NASDAQ) Vivani Medical, Inc.
+  - `VAXX` (NASDAQ) Vaxxinity, Inc.
+  - `VCEL` (NASDAQ) Vericel Corporation
+  - `VCNX` (NASDAQ) Vaccinex, Inc.
+  - `VERA` (NASDAQ) Vera Therapeutics, Inc.
+  - `VERU` (NASDAQ) Veru Inc.
+  - `VINC` (NASDAQ) Vincerx Pharma, Inc.
+  - `VIR` (NASDAQ) Vir Biotechnology, Inc.
+  - `VKTX` (NASDAQ) Viking Therapeutics, Inc.
+  - `VNDA` (NASDAQ) Vanda Pharmaceuticals Inc.
+  - `VOR` (NASDAQ) Vor Biopharma Inc.
+  - `VRCA` (NASDAQ) Verrica Pharmaceuticals Inc.
+  - `VRDN` (NASDAQ) Viridian Therapeutics, Inc.
+  - `VRPX` (NASDAQ) Virpax Pharmaceuticals, Inc.
+  - `VRTX` (NASDAQ) Vertex Pharmaceuticals Incorporated
+  - `VSTM` (NASDAQ) Verastem, Inc.
+  - `VTGN` (NASDAQ) Vistagen Therapeutics, Inc.
+  - `VTVT` (NASDAQ) vTv Therapeutics Inc.
+  - `VTYX` (NASDAQ) Ventyx Biosciences Inc
+  - `VXRT` (NASDAQ) Vaxart, Inc.
+  - `VYGR` (NASDAQ) Voyager Therapeutics, Inc.
+  - `WVE` (NASDAQ) Wave Life Sciences Ltd.
+  - `XBIO` (NASDAQ) Xenetic Biosciences, Inc.
+  - `XBIT` (NASDAQ) XBiotech Inc.
+  - `XCUR` (NASDAQ) Exicure, Inc.
+  - `XENE` (NASDAQ) Xenon Pharmaceuticals Inc.
+  - `XERS` (NASDAQ) Xeris Biopharma Holdings, Inc.
+  - `XLO` (NASDAQ) Xilio Therapeutics, Inc.
+  - `XNCR` (NASDAQ) Xencor, Inc.
+  - `XOMA` (NASDAQ) XOMA Royalty Corporation
+  - `ZIVO` (NASDAQ) ZIVO Bioscience, Inc.
+  - `ZLAB` (NASDAQ) Zai Lab Limited
+  - `ZNTL` (NASDAQ) Zentalis Pharmaceuticals, Inc.
+  - `ZURA` (NASDAQ) Zura Bio Limited
+  - `ZVRA` (NASDAQ) Zevra Therapeutics, Inc.
+  - `ZVSA` (NASDAQ) ZyVersa Therapeutics, Inc.
+- **Medical Devices** — 92 companies
+  - `AEMD` (NASDAQ) Aethlon Medical, Inc.
+  - `AFIB` (NASDAQ) Acutus Medical, Inc.
+  - `AHCO` (NASDAQ) AdaptHealth Corp.
+  - `APYX` (NASDAQ) Apyx Medical Corporation
+  - `ARAY` (NASDAQ) Accuray Incorporated
+  - `ATEC` (NASDAQ) Alphatec Holdings, Inc.
+  - `AXGN` (NASDAQ) Axogen, Inc.
+  - `BMRA` (NASDAQ) Biomerica, Inc.
+  - `BRKR` (NASDAQ) Bruker Corporation
+  - `BVS` (NASDAQ) Bioventus Inc.
+  - `BWAY` (NASDAQ) BrainsWay Ltd.
+  - `CERS` (NASDAQ) Cerus Corporation
+  - `CLPT` (NASDAQ) ClearPoint Neuro, Inc.
+  - `CNMD` (NASDAQ) CONMED Corporation
+  - `CODX` (NASDAQ) Co-Diagnostics, Inc.
+  - `CTKB` (NASDAQ) Cytek Biosciences, Inc.
+  - `CTSO` (NASDAQ) Cytosorbents Corporation
+  - `CVRX` (NASDAQ) CVRx, Inc.
+  - `DCTH` (NASDAQ) Delcath Systems, Inc.
+  - `DXCM` (NASDAQ) DexCom, Inc.
+  - `DYNT` (NASDAQ) Dynatronics Corporation
+  - `ECOR` (NASDAQ) electroCore, Inc.
+  - `ELUT` (NASDAQ) Elutia Inc.
+  - `ESMC` (NASDAQ) Escalon Medical Corp.
+  - `ESTA` (NASDAQ) Establishment Labs Holdings Inc.
+  - `GEHC` (NASDAQ) GE HealthCare Technologies Inc.
+  - `HSCS` (NASDAQ) HeartSciences Inc.
+  - `HYPR` (NASDAQ) Hyperfine, Inc.
+  - `IART` (NASDAQ) Integra LifeSciences Holdings Corporation
+  - `INBS` (NASDAQ) Intelligent Bio Solutions Inc.
+  - `INGN` (NASDAQ) Inogen, Inc.
+  - `INMD` (NASDAQ) InMode Ltd.
+  - `IRIX` (NASDAQ) IRIDEX Corporation
+  - `IRMD` (NASDAQ) IRADIMED CORPORATION
+  - `IRTC` (NASDAQ) iRhythm Holdings, Inc.
+  - `KIDS` (NASDAQ) OrthoPediatrics Corp.
+  - `LAB` (NASDAQ) Standard BioTools Inc.
+  - `LIVN` (NASDAQ) LivaNova PLC
+  - `LNSR` (NASDAQ) LENSAR, Inc.
+  - `LUCD` (NASDAQ) Lucid Diagnostics Inc.
+  - `LUNG` (NASDAQ) Pulmonx Corporation
+  - `MASI` (NASDAQ) Masimo Corporation
+  - `MASS` (NASDAQ) 908 Devices Inc.
+  - `MOTS` (NASDAQ) Motus GI Holdings, Inc.
+  - `MOVE` (NASDAQ) Movano Inc.
+  - `NEOG` (NASDAQ) Neogen Corporation
+  - `NMRD` (NASDAQ) Nemaura Medical Inc.
+  - `NNOX` (NASDAQ) Nano-X Imaging Ltd.
+  - `NPCE` (NASDAQ) NeuroPace, Inc.
+  - `NSYS` (NASDAQ) Nortech Systems Incorporated
+  - `NUWE` (NASDAQ) Nuwellis, Inc.
+  - `NVCR` (NASDAQ) NovoCure Limited
+  - `NVNO` (NASDAQ) enVVeno Medical Corporation
+  - `NXL` (NASDAQ) Nexalin Technology, Inc.
+  - `OFIX` (NASDAQ) Orthofix Medical Inc.
+  - `OM` (NASDAQ) Outset Medical, Inc.
+  - `PAVM` (NASDAQ) PAVmed Inc.
+  - `PBIO` (NASDAQ) Pressure BioSciences, Inc.
+  - `PODD` (NASDAQ) Insulet Corporation
+  - `PRCT` (NASDAQ) PROCEPT BioRobotics Corporation
+  - `QDEL` (NASDAQ) QuidelOrtho Corporation
+  - `QSI` (NASDAQ) Quantum-Si incorporated
+  - `QTRX` (NASDAQ) Quanterix Corporation
+  - `RCEL` (NASDAQ) AVITA Medical, Inc.
+  - `RXST` (NASDAQ) RxSight, Inc.
+  - `SERA` (NASDAQ) Sera Prognostics, Inc.
+  - `SGHT` (NASDAQ) Sight Sciences, Inc.
+  - `SIBN` (NASDAQ) SI-BONE, Inc.
+  - `SINT` (NASDAQ) Sintx Technologies, Inc.
+  - `SMLR` (NASDAQ) Semler Scientific, Inc.
+  - `SRTS` (NASDAQ) Sensus Healthcare, Inc.
+  - `SSKN` (NASDAQ) STRATA Skin Sciences, Inc.
+  - `STIM` (NASDAQ) Neuronetics, Inc.
+  - `TBIO` (NASDAQ) Telesis Bio, Inc.
+  - `TCMD` (NASDAQ) Tactile Systems Technology, Inc.
+  - `TELA` (NASDAQ) TELA Bio, Inc.
+  - `THMO` (NASDAQ) ThermoGenesis Holdings, Inc.
+  - `TIVC` (NASDAQ) Tivic Health Systems, Inc.
+  - `TLIS` (NASDAQ) Talis Biomedical Corporation
+  - `TLSI` (NASDAQ) TriSalus Life Sciences, Inc.
+  - `TMCI` (NASDAQ) Treace Medical Concepts, Inc.
+  - `TMDX` (NASDAQ) TransMedics Group, Inc.
+  - `TNDM` (NASDAQ) Tandem Diabetes Care, Inc.
+  - `TNON` (NASDAQ) Tenon Medical, Inc.
+  - `TRIB` (NASDAQ) Trinity Biotech plc
+  - `UFPT` (NASDAQ) UFP Technologies, Inc.
+  - `VERO` (NASDAQ) Venus Concept Inc.
+  - `VIVE` (NASDAQ) Viveve Medical, Inc.
+  - `VMD` (NASDAQ) Viemed Healthcare, Inc.
+  - `VREX` (NASDAQ) Varex Imaging Corporation
+  - `VVOS` (NASDAQ) Vivos Therapeutics, Inc.
+  - `XAIR` (NASDAQ) Beyond Air, Inc.
+- **Drug Manufacturers - Specialty & Generic** — 53 companies
+  - `ACUR` (NASDAQ) Acura Pharmaceuticals, Inc.
+  - `AKBA` (NASDAQ) Akebia Therapeutics, Inc.
+  - `AMLX` (NASDAQ) Amylyx Pharmaceuticals, Inc.
+  - `AMPH` (NASDAQ) Amphastar Pharmaceuticals, Inc.
+  - `ANIK` (NASDAQ) Anika Therapeutics, Inc.
+  - `ANIP` (NASDAQ) ANI Pharmaceuticals, Inc.
+  - `AQST` (NASDAQ) Aquestive Therapeutics, Inc.
+  - `ASRT` (NASDAQ) Assertio Holdings, Inc.
+  - `AVDL` (NASDAQ) Avadel Pharmaceuticals PLC
+  - `AYTU` (NASDAQ) Aytu BioPharma, Inc.
+  - `BCRX` (NASDAQ) BioCryst Pharmaceuticals, Inc.
+  - `BGXX` (NASDAQ) Bright Green Corporation
+  - `BTAI` (NASDAQ) BioXcel Therapeutics, Inc.
+  - `CLVR` (NASDAQ) Clever Leaves Holdings Inc.
+  - `COLL` (NASDAQ) Collegium Pharmaceutical, Inc.
+  - `CPIX` (NASDAQ) Cumberland Pharmaceuticals Inc.
+  - `CRON` (NASDAQ) Cronos Group Inc.
+  - `DERM` (NASDAQ) Journey Medical Corporation
+  - `DVAX` (NASDAQ) Dynavax Technologies Corp
+  - `EGRX` (NASDAQ) Eagle Pharmaceuticals, Inc.
+  - `EOLS` (NASDAQ) Evolus, Inc.
+  - `ESPR` (NASDAQ) Esperion Therapeutics, Inc.
+  - `ETON` (NASDAQ) Eton Pharmaceuticals, Inc.
+  - `HCM` (NASDAQ) HUTCHMED (China) Limited
+  - `HROW` (NASDAQ) Harrow, Inc.
+  - `INCR` (NASDAQ) InterCure Ltd.
+  - `INM` (NASDAQ) InMed Pharmaceuticals Inc.
+  - `IRWD` (NASDAQ) Ironwood Pharmaceuticals, Inc.
+  - `KMDA` (NASDAQ) Kamada Ltd.
+  - `KNSA` (NASDAQ) Kiniksa Pharmaceuticals International, plc
+  - `LFCR` (NASDAQ) Lifecore Biomedical, Inc.
+  - `LNTH` (NASDAQ) Lantheus Holdings, Inc.
+  - `LQDA` (NASDAQ) Liquidia Corporation
+  - `NBIX` (NASDAQ) Neurocrine Biosciences, Inc.
+  - `PAHC` (NASDAQ) Phibro Animal Health Corporation
+  - `PCRX` (NASDAQ) Pacira BioSciences, Inc.
+  - `PRGO` (NASDAQ) Perrigo Company plc
+  - `PTPI` (NASDAQ) Petros Pharmaceuticals, Inc.
+  - `RDHL` (NASDAQ) RedHill Biopharma Ltd.
+  - `RMTI` (NASDAQ) Rockwell Medical, Inc.
+  - `SCYX` (NASDAQ) SCYNEXIS, Inc.
+  - `SHPH` (NASDAQ) Shuttle Pharmaceuticals Holdings, Inc.
+  - `SIGA` (NASDAQ) SIGA Technologies, Inc.
+  - `SNOA` (NASDAQ) Sonoma Pharmaceuticals, Inc.
+  - `SUPN` (NASDAQ) Supernus Pharmaceuticals, Inc.
+  - `TEVA` (NASDAQ) Teva Pharmaceutical Industries Limited
+  - `TKNO` (NASDAQ) Alpha Teknova, Inc.
+  - `TLPH` (NASDAQ) Talphera, Inc.
+  - `TLRY` (NASDAQ) Tilray Brands, Inc.
+  - `TXMD` (NASDAQ) TherapeuticsMD, Inc.
+  - `UTHR` (NASDAQ) United Therapeutics Corporation
+  - `VTRS` (NASDAQ) Viatris Inc.
+  - `lnth` (NASDAQ) Lantheus Holdings, Inc.
+- **Diagnostics & Research** — 29 companies
+  - `BDSX` (NASDAQ) Biodesix, Inc.
+  - `BIAF` (NASDAQ) bioAffinity Technologies, Inc.
+  - `CDNA` (NASDAQ) CareDx, Inc.
+  - `CSTL` (NASDAQ) Castle Biosciences, Inc.
+  - `EXAS` (NASDAQ) Exact Sciences Corporation
+  - `FLGT` (NASDAQ) Fulgent Genetics, Inc.
+  - `FONR` (NASDAQ) FONAR Corporation
+  - `GH` (NASDAQ) Guardant Health, Inc.
+  - `ICLR` (NASDAQ) ICON Public Limited Company
+  - `IDXG` (NASDAQ) Interpace Biosciences, Inc.
+  - `IDXX` (NASDAQ) IDEXX Laboratories, Inc.
+  - `ILMN` (NASDAQ) Illumina, Inc.
+  - `MEDP` (NASDAQ) Medpace Holdings, Inc.
+  - `MYGN` (NASDAQ) Myriad Genetics, Inc.
+  - `NDRA` (NASDAQ) ENDRA Life Sciences Inc.
+  - `NEO` (NASDAQ) NeoGenomics, Inc.
+  - `NOTV` (NASDAQ) Inotiv, Inc.
+  - `NTRA` (NASDAQ) Natera, Inc.
+  - `PRPH` (NASDAQ) ProPhase Labs, Inc.
+  - `PRPO` (NASDAQ) Precipio, Inc.
+  - `PSNL` (NASDAQ) Personalis, Inc.
+  - `QGEN` (NASDAQ) Qiagen N.V.
+  - `RDNT` (NASDAQ) RadNet, Inc.
+  - `SHC` (NASDAQ) Sotera Health Company
+  - `TTOO` (NASDAQ) T2 Biosystems, Inc.
+  - `TWST` (NASDAQ) Twist Bioscience Corporation
+  - `VCYT` (NASDAQ) Veracyte, Inc.
+  - `WGS` (NASDAQ) GeneDx Holdings Corp.
+  - `XWEL` (NASDAQ) XWELL, Inc.
+- **Health Information Services** — 26 companies
+  - `BEAT` (NASDAQ) HeartBeam, Inc.
+  - `BTSG` (NASDAQ) BrightSpring Health Services, Inc.
+  - `CERT` (NASDAQ) Certara, Inc.
+  - `DH` (NASDAQ) Definitive Healthcare Corp.
+  - `DRIO` (NASDAQ) DarioHealth Corp.
+  - `FORA` (NASDAQ) Forian Inc.
+  - `GDRX` (NASDAQ) GoodRx Holdings, Inc.
+  - `HCAT` (NASDAQ) Health Catalyst, Inc.
+  - `HCTI` (NASDAQ) Healthcare Triangle, Inc.
+  - `HQY` (NASDAQ) HealthEquity, Inc.
+  - `HSTM` (NASDAQ) HealthStream, Inc.
+  - `LFMD` (NASDAQ) LifeMD, Inc.
+  - `LGMK` (NASDAQ) LogicMark, Inc.
+  - `MDRX` (NASDAQ) Veradigm Inc.
+  - `NRC` (NASDAQ) National Research Corporation
+  - `OMCL` (NASDAQ) Omnicell, Inc.
+  - `OPRX` (NASDAQ) OptimizeRx Corporation
+  - `PINC` (NASDAQ) Premier, Inc.
+  - `PRVA` (NASDAQ) Privia Health Group, Inc.
+  - `SDGR` (NASDAQ) Schrödinger, Inc.
+  - `SLP` (NASDAQ) Simulations Plus, Inc.
+  - `SPOK` (NASDAQ) Spok Holdings, Inc.
+  - `SY` (NASDAQ) So-Young International Inc.
+  - `TALK` (NASDAQ) Talkspace, Inc.
+  - `TXG` (NASDAQ) 10x Genomics, Inc.
+  - `WORX` (NASDAQ) SCWorx Corp.
+- **Medical Instruments & Supplies** — 24 companies
+  - `ALGN` (NASDAQ) Align Technology, Inc.
+  - `ANGO` (NASDAQ) AngioDynamics, Inc.
+  - `ATRC` (NASDAQ) AtriCure, Inc.
+  - `BNGO` (NASDAQ) Bionano Genomics, Inc.
+  - `EKSO` (NASDAQ) Ekso Bionics Holdings, Inc.
+  - `EMBC` (NASDAQ) Embecta Corp.
+  - `HBIO` (NASDAQ) Harvard Bioscience, Inc.
+  - `HOLX` (NASDAQ) Hologic, Inc.
+  - `ICUI` (NASDAQ) ICU Medical, Inc.
+  - `ISRG` (NASDAQ) Intuitive Surgical, Inc.
+  - `KRMD` (NASDAQ) KORU Medical Systems, Inc.
+  - `LMAT` (NASDAQ) LeMaitre Vascular, Inc.
+  - `MBOT` (NASDAQ) Microbot Medical Inc.
+  - `MMSI` (NASDAQ) Merit Medical Systems, Inc.
+  - `NEPH` (NASDAQ) Nephros, Inc.
+  - `NXGL` (NASDAQ) NEXGEL, Inc.
+  - `OSUR` (NASDAQ) OraSure Technologies, Inc.
+  - `PDEX` (NASDAQ) Pro-Dex, Inc.
+  - `PLSE` (NASDAQ) Pulse Biosciences, Inc.
+  - `RGEN` (NASDAQ) Repligen Corporation
+  - `SMTI` (NASDAQ) Sanara MedTech Inc.
+  - `STAA` (NASDAQ) STAAR Surgical Company
+  - `STSS` (NASDAQ) Sharps Technology, Inc.
+  - `UTMD` (NASDAQ) Utah Medical Products, Inc.
+- **Medical Care Facilities** — 21 companies
+  - `ACHC` (NASDAQ) Acadia Healthcare Company, Inc.
+  - `ADUS` (NASDAQ) Addus HomeCare Corporation
+  - `AIRS` (NASDAQ) AirSculpt Technologies, Inc.
+  - `ASTH` (NASDAQ) Astrana Health, Inc.
+  - `AVAH` (NASDAQ) Aveanna Healthcare Holdings Inc.
+  - `BTMD` (NASDAQ) biote Corp.
+  - `CCRN` (NASDAQ) Cross Country Healthcare, Inc.
+  - `CMPS` (NASDAQ) COMPASS Pathways plc
+  - `DCGO` (NASDAQ) DocGo Inc.
+  - `ENSG` (NASDAQ) The Ensign Group, Inc.
+  - `HCSG` (NASDAQ) Healthcare Services Group, Inc.
+  - `INNV` (NASDAQ) InnovAge Holding Corp.
+  - `JYNT` (NASDAQ) The Joint Corp.
+  - `LFST` (NASDAQ) LifeStance Health Group, Inc.
+  - `NUTX` (NASDAQ) Nutex Health Inc.
+  - `OPCH` (NASDAQ) Option Care Health, Inc.
+  - `PIII` (NASDAQ) P3 Health Partners Inc.
+  - `PNTG` (NASDAQ) The Pennant Group, Inc.
+  - `SGRY` (NASDAQ) Surgery Partners, Inc.
+  - `TOI` (NASDAQ) The Oncology Institute, Inc.
+  - `WW` (NASDAQ) WW International, Inc.
+- **Drug Manufacturers - General** — 5 companies
+  - `AMGN` (NASDAQ) Amgen Inc.
+  - `AMRN` (NASDAQ) Amarin Corporation plc
+  - `BIIB` (NASDAQ) Biogen Inc.
+  - `GILD` (NASDAQ) Gilead Sciences, Inc.
+  - `SCLX` (NASDAQ) Scilex Holding Company
+- **Medical Distribution** — 4 companies
+  - `EDAP` (NASDAQ) EDAP TMS S.A.
+  - `HSIC` (NASDAQ) Henry Schein, Inc.
+  - `QIPT` (NASDAQ) Quipt Home Medical Corp.
+  - `YI` (NASDAQ) 111, Inc.
+- **Healthcare Plans** — 3 companies
+  - `ALHC` (NASDAQ) Alignment Healthcare, Inc.
+  - `CLOV` (NASDAQ) Clover Health Investments, Corp.
+  - `PGNY` (NASDAQ) Progyny, Inc.
+- **Pharmaceutical Retailers** — 1 companies
+  - `PETS` (NASDAQ) PetMed Express, Inc.
+
+## Industrials (194 companies)
+
+- **Aerospace & Defense** — 24 companies
+  - `ATRO` (NASDAQ) Astronics Corporation
+  - `AVAV` (NASDAQ) AeroVironment, Inc.
+  - `AXON` (NASDAQ) Axon Enterprise, Inc.
+  - `BYRN` (NASDAQ) Byrna Technologies Inc.
+  - `CODA` (NASDAQ) Coda Octopus Group, Inc.
+  - `DRS` (NASDAQ) Leonardo DRS, Inc.
+  - `EH` (NASDAQ) EHang Holdings Limited
+  - `ESLT` (NASDAQ) Elbit Systems Ltd.
+  - `EVEX` (NASDAQ) Eve Holding, Inc.
+  - `ISSC` (NASDAQ) Innovative Aerosystems, Inc.
+  - `KITT` (NASDAQ) Nauticus Robotics, Inc.
+  - `KTOS` (NASDAQ) Kratos Defense & Security Solutions, Inc.
+  - `LUNR` (NASDAQ) Intuitive Machines, Inc.
+  - `MNTS` (NASDAQ) Momentus Inc.
+  - `OPXS` (NASDAQ) Optex Systems Holdings, Inc
+  - `POWW` (NASDAQ) Outdoor Holding Company
+  - `RCAT` (NASDAQ) Red Cat Holdings, Inc.
+  - `RKLB` (NASDAQ) Rocket Lab Corporation
+  - `SIDU` (NASDAQ) Sidus Space, Inc.
+  - `SWBI` (NASDAQ) Smith & Wesson Brands, Inc.
+  - `TATT` (NASDAQ) TAT Technologies Ltd.
+  - `VSEC` (NASDAQ) VSE Corporation
+  - `WWD` (NASDAQ) Woodward, Inc.
+  - `XTIA` (NASDAQ) XTI Aerospace, Inc.
+- **Electrical Equipment & Parts** — 21 companies
+  - `AEIS` (NASDAQ) Advanced Energy Industries, Inc.
+  - `APWC` (NASDAQ) Asia Pacific Wire & Cable Corporation Limited
+  - `BLDP` (NASDAQ) Ballard Power Systems Inc.
+  - `CBAT` (NASDAQ) CBAK Energy Technology, Inc.
+  - `DFLI` (NASDAQ) Dragonfly Energy Holdings Corp.
+  - `ENVX` (NASDAQ) Enovix Corporation
+  - `EOSE` (NASDAQ) Eos Energy Enterprises, Inc.
+  - `FCEL` (NASDAQ) FuelCell Energy, Inc.
+  - `FLUX` (NASDAQ) Flux Power Holdings, Inc.
+  - `KE` (NASDAQ) Kimball Electronics, Inc.
+  - `LTBR` (NASDAQ) Lightbridge Corporation
+  - `OESX` (NASDAQ) Orion Energy Systems, Inc.
+  - `PLPC` (NASDAQ) Preformed Line Products Company
+  - `PLUG` (NASDAQ) Plug Power Inc.
+  - `POLA` (NASDAQ) Polar Power, Inc.
+  - `POWL` (NASDAQ) Powell Industries, Inc.
+  - `PPSI` (NASDAQ) Pioneer Power Solutions, Inc.
+  - `RFIL` (NASDAQ) RF Industries, Ltd.
+  - `SKYX` (NASDAQ) SKYX Platforms Corp.
+  - `TGEN` (NASDAQ) Tecogen Inc.
+  - `ULBI` (NASDAQ) Ultralife Corporation
+- **Specialty Industrial Machinery** — 15 companies
+  - `AMSC` (NASDAQ) American Superconductor Corporation
+  - `BWEN` (NASDAQ) Broadwind, Inc.
+  - `CVV` (NASDAQ) CVD Equipment Corporation
+  - `FELE` (NASDAQ) Franklin Electric Co., Inc.
+  - `FLS` (NASDAQ) Flowserve Corporation
+  - `GTLS` (NASDAQ) Chart Industries, Inc.
+  - `HURC` (NASDAQ) Hurco Companies, Inc.
+  - `KRNT` (NASDAQ) Kornit Digital Ltd.
+  - `MIDD` (NASDAQ) The Middleby Corporation
+  - `NDSN` (NASDAQ) Nordson Corporation
+  - `OFLX` (NASDAQ) Omega Flex, Inc.
+  - `OPTT` (NASDAQ) Ocean Power Technologies, Inc.
+  - `PKOH` (NASDAQ) Park-Ohio Holdings Corp.
+  - `SYM` (NASDAQ) Symbotic Inc.
+  - `TWIN` (NASDAQ) Twin Disc, Incorporated
+- **Specialty Business Services** — 13 companies
+  - `CASS` (NASDAQ) Cass Information Systems, Inc.
+  - `CMPR` (NASDAQ) Cimpress plc
+  - `CPRT` (NASDAQ) Copart, Inc.
+  - `CTAS` (NASDAQ) Cintas Corporation
+  - `FA` (NASDAQ) First Advantage Corporation
+  - `KODK` (NASDAQ) Eastman Kodak Company
+  - `LZ` (NASDAQ) LegalZoom.com, Inc.
+  - `SGRP` (NASDAQ) SPAR Group, Inc.
+  - `TH` (NASDAQ) Target Hospitality Corp.
+  - `TISI` (NASDAQ) Team, Inc.
+  - `TRNS` (NASDAQ) Transcat, Inc.
+  - `WFCF` (NASDAQ) Where Food Comes From, Inc.
+  - `WHLM` (NASDAQ) Wilhelmina International, Inc.
+- **Engineering & Construction** — 12 companies
+  - `BBCP` (NASDAQ) Concrete Pumping Holdings, Inc.
+  - `BLNK` (NASDAQ) Blink Charging Co.
+  - `BWMN` (NASDAQ) Bowman Consulting Group Ltd.
+  - `EXPO` (NASDAQ) Exponent, Inc.
+  - `GLDD` (NASDAQ) Great Lakes Dredge & Dock Corporation
+  - `MTRX` (NASDAQ) Matrix Service Company
+  - `MYRG` (NASDAQ) MYR Group Inc.
+  - `PRIM` (NASDAQ) Primoris Services Corporation
+  - `ROAD` (NASDAQ) Construction Partners, Inc.
+  - `STRL` (NASDAQ) Sterling Infrastructure, Inc.
+  - `TTEK` (NASDAQ) Tetra Tech, Inc.
+  - `WLDN` (NASDAQ) Willdan Group, Inc.
+- **Marine Shipping** — 10 companies
+  - `CTRM` (NASDAQ) Castor Maritime Inc.
+  - `EDRY` (NASDAQ) EuroDry Ltd.
+  - `ESEA` (NASDAQ) Euroseas Ltd.
+  - `GASS` (NASDAQ) StealthGas Inc.
+  - `GLBS` (NASDAQ) Globus Maritime Limited
+  - `ICON` (NASDAQ) Icon Energy Corp.
+  - `PANL` (NASDAQ) Pangaea Logistics Solutions Ltd.
+  - `PSHG` (NASDAQ) Performance Shipping Inc.
+  - `SBLK` (NASDAQ) Star Bulk Carriers Corp.
+  - `SHIP` (NASDAQ) Seanergy Maritime Holdings Corp
+- **Airlines** — 8 companies
+  - `AAL` (NASDAQ) American Airlines Group Inc.
+  - `ALGT` (NASDAQ) Allegiant Travel Company
+  - `JBLU` (NASDAQ) JetBlue Airways Corporation
+  - `RYAAY` (NASDAQ) Ryanair Holdings plc
+  - `SKYW` (NASDAQ) SkyWest, Inc.
+  - `SNCY` (NASDAQ) Sun Country Airlines Holdings, Inc.
+  - `UAL` (NASDAQ) United Airlines Holdings, Inc.
+  - `ULCC` (NASDAQ) Frontier Group Holdings, Inc.
+- **Conglomerates** — 8 companies
+  - `AIRT` (NASDAQ) Air T, Inc.
+  - `CODI` (NASDAQ) Compass Diversified
+  - `FIP` (NASDAQ) FTAI Infrastructure Inc.
+  - `MATW` (NASDAQ) Matthews International Corporation
+  - `NNBR` (NASDAQ) NN, Inc.
+  - `OTTR` (NASDAQ) Otter Tail Corporation
+  - `RCMT` (NASDAQ) RCM Technologies, Inc.
+  - `TUSK` (NASDAQ) Mammoth Energy Services, Inc.
+- **Farm & Heavy Construction Machinery** — 8 companies
+  - `ARTW` (NASDAQ) Art's-Way Manufacturing Co., Inc.
+  - `ASTE` (NASDAQ) Astec Industries, Inc.
+  - `BLBD` (NASDAQ) Blue Bird Corporation
+  - `CMCO` (NASDAQ) Columbus McKinnon Corporation
+  - `GENC` (NASDAQ) Gencor Industries, Inc.
+  - `HYFM` (NASDAQ) Hydrofarm Holdings Group, Inc.
+  - `PCAR` (NASDAQ) PACCAR Inc
+  - `UGRO` (NASDAQ) urban-gro, Inc.
+- **Building Products & Equipment** — 7 companies
+  - `APOG` (NASDAQ) Apogee Enterprises, Inc.
+  - `CSTE` (NASDAQ) Caesarstone Ltd.
+  - `INVE` (NASDAQ) Identiv, Inc.
+  - `LMB` (NASDAQ) Limbach Holdings, Inc.
+  - `PPIH` (NASDAQ) Perma-Pipe International Holdings, Inc.
+  - `ROCK` (NASDAQ) Gibraltar Industries, Inc.
+  - `SWIM` (NASDAQ) Latham Group, Inc.
+- **Consulting Services** — 7 companies
+  - `CRAI` (NASDAQ) CRA International, Inc.
+  - `FORR` (NASDAQ) Forrester Research, Inc.
+  - `GRNQ` (NASDAQ) Greenpro Capital Corp.
+  - `HURN` (NASDAQ) Huron Consulting Group Inc.
+  - `ICFI` (NASDAQ) ICF International, Inc.
+  - `RGP` (NASDAQ) Resources Connection, Inc.
+  - `VRSK` (NASDAQ) Verisk Analytics, Inc.
+- **Integrated Freight & Logistics** — 7 companies
+  - `CHRW` (NASDAQ) C.H. Robinson Worldwide, Inc.
+  - `CYRX` (NASDAQ) Cryoport, Inc.
+  - `EXPD` (NASDAQ) Expeditors International of Washington, Inc.
+  - `FWRD` (NASDAQ) Forward Air Corporation
+  - `HUBG` (NASDAQ) Hub Group, Inc.
+  - `JBHT` (NASDAQ) J.B. Hunt Transport Services, Inc.
+  - `LSTR` (NASDAQ) Landstar System, Inc.
+- **Pollution & Treatment Controls** — 7 companies
+  - `CECO` (NASDAQ) CECO Environmental Corp.
+  - `CLIR` (NASDAQ) ClearSign Technologies Corporation
+  - `ERII` (NASDAQ) Energy Recovery, Inc.
+  - `PCT` (NASDAQ) PureCycle Technologies, Inc.
+  - `RAIN` (NASDAQ) Rain Enhancement Technologies Holdco, Inc.
+  - `SCWO` (NASDAQ) 374Water Inc.
+  - `TOMZ` (NASDAQ) TOMI Environmental Solutions, Inc.
+- **Rental & Leasing Services** — 7 companies
+  - `AER` (NASDAQ) AerCap Holdings N.V.
+  - `AIHS` (NASDAQ) Senmiao Technology Limited
+  - `CAR` (NASDAQ) Avis Budget Group, Inc.
+  - `FTAI` (NASDAQ) FTAI Aviation Ltd.
+  - `MGRC` (NASDAQ) McGrath RentCorp
+  - `UHAL` (NASDAQ) U-Haul Holding Company
+  - `WLFC` (NASDAQ) Willis Lease Finance Corporation
+- **Industrial Distribution** — 6 companies
+  - `DSGR` (NASDAQ) Distribution Solutions Group, Inc.
+  - `DXPE` (NASDAQ) DXP Enterprises, Inc.
+  - `FAST` (NASDAQ) Fastenal Company
+  - `POOL` (NASDAQ) Pool Corporation
+  - `TITN` (NASDAQ) Titan Machinery Inc.
+  - `XMTR` (NASDAQ) Xometry, Inc.
+- **Trucking** — 6 companies
+  - `HTLD` (NASDAQ) Heartland Express, Inc.
+  - `MRTN` (NASDAQ) Marten Transport, Ltd.
+  - `ODFL` (NASDAQ) Old Dominion Freight Line, Inc.
+  - `SAIA` (NASDAQ) Saia, Inc.
+  - `ULH` (NASDAQ) Universal Logistics Holdings, Inc.
+  - `WERN` (NASDAQ) Werner Enterprises, Inc.
+- **Waste Management** — 6 companies
+  - `ABAT` (NASDAQ) American Battery Technology Company
+  - `AQMS` (NASDAQ) Aqua Metals, Inc.
+  - `CWST` (NASDAQ) Casella Waste Systems, Inc.
+  - `LNZA` (NASDAQ) LanzaTech Global, Inc.
+  - `PESI` (NASDAQ) Perma-Fix Environmental Services, Inc.
+  - `QRHC` (NASDAQ) Quest Resource Holding Corporation
+- **Metal Fabrication** — 5 companies
+  - `CMPO` (NASDAQ) GPGI, Inc.
+  - `GIFI` (NASDAQ) Gulf Island Fabrication, Inc.
+  - `HIHO` (NASDAQ) Highway Holdings Limited
+  - `IIIN` (NASDAQ) Insteel Industries Inc.
+  - `SGBX` (NASDAQ) Olenox Industries Inc.
+- **Staffing & Employment Services** — 5 companies
+  - `BBSI` (NASDAQ) Barrett Business Services, Inc.
+  - `HQI` (NASDAQ) HireQuest, Inc.
+  - `IPDN` (NASDAQ) Professional Diversity Network, Inc.
+  - `KELYA` (NASDAQ) Kelly Services, Inc.
+  - `KFRC` (NASDAQ) Kforce Inc.
+- **Security & Protection Services** — 4 companies
+  - `BAER` (NASDAQ) Bridger Aerospace Group Holdings, Inc.
+  - `BKYI` (NASDAQ) BIO-key International, Inc.
+  - `EVLV` (NASDAQ) Evolv Technologies Holdings, Inc.
+  - `SPCB` (NASDAQ) SuperCom Ltd.
+- **Railroads** — 3 companies
+  - `CSX` (NASDAQ) CSX Corporation
+  - `FSTR` (NASDAQ) L.B. Foster Company
+  - `RAIL` (NASDAQ) FreightCar America, Inc.
+- **Tools & Accessories** — 3 companies
+  - `HLMN` (NASDAQ) Hillman Solutions Corp.
+  - `LECO` (NASDAQ) Lincoln Electric Holdings, Inc.
+  - `TBLT` (NASDAQ) ToughBuilt Industries, Inc.
+- **Airports & Air Services** — 1 companies
+  - `ASLE` (NASDAQ) AerSale Corporation
+- **Business Equipment & Supplies** — 1 companies
+  - `ACTG` (NASDAQ) Acacia Research Corporation
+
+## Real Estate (42 companies)
+
+- **Real Estate Services** — 14 companies
+  - `ASPS` (NASDAQ) Altisource Portfolio Solutions S.A.
+  - `CHCI` (NASDAQ) Comstock Holding Companies, Inc.
+  - `CSGP` (NASDAQ) CoStar Group, Inc.
+  - `DUO` (NASDAQ) Fangdd Network Group Ltd.
+  - `FRPH` (NASDAQ) FRP Holdings, Inc.
+  - `FTHM` (NASDAQ) Fathom Holdings Inc.
+  - `GYRO` (NASDAQ) Gyrodyne, LLC
+  - `MAYS` (NASDAQ) J.W. Mays, Inc.
+  - `MDRR` (NASDAQ) Medalist Diversified, Inc.
+  - `NMRK` (NASDAQ) Newmark Group, Inc.
+  - `OPEN` (NASDAQ) Opendoor Technologies Inc.
+  - `REAX` (NASDAQ) The Real Brokerage Inc.
+  - `RMR` (NASDAQ) The RMR Group Inc.
+  - `STHO` (NASDAQ) Star Holdings
+- **REIT - Specialty** — 7 companies
+  - `EQIX` (NASDAQ) Equinix, Inc.
+  - `GLPI` (NASDAQ) Gaming and Leisure Properties, Inc.
+  - `LAMR` (NASDAQ) Lamar Advertising Company
+  - `LAND` (NASDAQ) Gladstone Land Corporation
+  - `SBAC` (NASDAQ) SBA Communications Corporation
+  - `SELF` (NASDAQ) Global Self Storage, Inc.
+  - `UNIT` (NASDAQ) Uniti Group Inc.
+- **REIT - Mortgage** — 6 companies
+  - `AFCG` (NASDAQ) Advanced Flower Capital Inc.
+  - `AGNC` (NASDAQ) AGNC Investment Corp.
+  - `LOAN` (NASDAQ) Manhattan Bridge Capital, Inc.
+  - `REFI` (NASDAQ) Chicago Atlantic Real Estate Finance, Inc.
+  - `SEVN` (NASDAQ) Seven Hills Realty Trust
+  - `SUNS` (NASDAQ) Sunrise Realty Trust, Inc.
+- **REIT - Diversified** — 3 companies
+  - `GIPR` (NASDAQ) Generation Income Properties, Inc.
+  - `GOOD` (NASDAQ) Gladstone Commercial Corporation
+  - `SQFT` (NASDAQ) Presidio Property Trust, Inc.
+- **REIT - Healthcare Facilities** — 3 companies
+  - `CTRE` (NASDAQ) CareTrust REIT, Inc.
+  - `DHC` (NASDAQ) Diversified Healthcare Trust
+  - `SBRA` (NASDAQ) Sabra Health Care REIT, Inc.
+- **REIT - Retail** — 3 companies
+  - `ALEX` (NASDAQ) Alexander & Baldwin Inc
+  - `PECO` (NASDAQ) Phillips Edison & Company, Inc.
+  - `WHLR` (NASDAQ) Wheeler Real Estate Investment Trust, Inc.
+- **REIT - Hotel & Motel** — 2 companies
+  - `SOHO` (NASDAQ) Sotherly Hotels Inc.
+  - `SVC` (NASDAQ) Service Properties Trust
+- **REIT - Industrial** — 2 companies
+  - `ILPT` (NASDAQ) Industrial Logistics Properties Trust
+  - `LINE` (NASDAQ) Lineage, Inc.
+- **REIT - Office** — 1 companies
+  - `CMCT` (NASDAQ) Creative Media & Community Trust Corporation
+- **Real Estate - Diversified** — 1 companies
+  - `STRS` (NASDAQ) Stratus Properties Inc.
+
+## Technology (377 companies)
+
+- **Software - Application** — 101 companies
+  - `ADBE` (NASDAQ) Adobe Inc.
+  - `ADEA` (NASDAQ) Adeia Inc.
+  - `ADSK` (NASDAQ) Autodesk, Inc.
+  - `AEYE` (NASDAQ) AudioEye, Inc.
+  - `AGYS` (NASDAQ) Agilysys, Inc.
+  - `ALKT` (NASDAQ) Alkami Technology, Inc.
+  - `ALRM` (NASDAQ) Alarm.com Holdings, Inc.
+  - `AMPL` (NASDAQ) Amplitude, Inc.
+  - `AMST` (NASDAQ) Amesite Inc.
+  - `APPF` (NASDAQ) AppFolio, Inc.
+  - `APPS` (NASDAQ) Digital Turbine, Inc.
+  - `ASUR` (NASDAQ) Asure Software, Inc.
+  - `AUUD` (NASDAQ) Auddia Inc.
+  - `AWRE` (NASDAQ) Aware, Inc.
+  - `BL` (NASDAQ) BlackLine, Inc.
+  - `BLKB` (NASDAQ) Blackbaud, Inc.
+  - `BRZE` (NASDAQ) Braze, Inc.
+  - `BSY` (NASDAQ) Bentley Systems, Incorporated
+  - `CDNS` (NASDAQ) Cadence Design Systems, Inc.
+  - `CREX` (NASDAQ) Creative Realities, Inc.
+  - `CRNC` (NASDAQ) Cerence Inc.
+  - `CUEN` (NASDAQ) Cuentas Inc.
+  - `CVLT` (NASDAQ) Commvault Systems, Inc.
+  - `CXAI` (NASDAQ) CXApp Inc.
+  - `CYN` (NASDAQ) Cyngn Inc.
+  - `DASTY` (NASDAQ) Dassault Systèmes SE
+  - `DAVE` (NASDAQ) Dave Inc.
+  - `DDOG` (NASDAQ) Datadog, Inc.
+  - `DJCO` (NASDAQ) Daily Journal Corporation
+  - `DMRC` (NASDAQ) Digimarc Corporation
+  - `DOCU` (NASDAQ) DocuSign, Inc.
+  - `DOMO` (NASDAQ) Domo, Inc.
+  - `DSGX` (NASDAQ) The Descartes Systems Group Inc.
+  - `DSP` (NASDAQ) Viant Technology Inc.
+  - `DUOL` (NASDAQ) Duolingo, Inc.
+  - `DUOT` (NASDAQ) Duos Technologies Group, Inc.
+  - `EGAN` (NASDAQ) eGain Corporation
+  - `EGHT` (NASDAQ) 8x8, Inc.
+  - `EVOL` (NASDAQ) Symbolic Logic, Inc.
+  - `EXFY` (NASDAQ) Expensify, Inc.
+  - `FROG` (NASDAQ) JFrog Ltd.
+  - `FRSH` (NASDAQ) Freshworks Inc.
+  - `FTFT` (NASDAQ) Future FinTech Group Inc.
+  - `IDAI` (NASDAQ) T Stamp Inc.
+  - `IDCC` (NASDAQ) InterDigital, Inc.
+  - `IDN` (NASDAQ) Intellicheck, Inc.
+  - `IMMR` (NASDAQ) Immersion Corporation
+  - `INTA` (NASDAQ) Intapp, Inc.
+  - `JAMF` (NASDAQ) Jamf Holding Corp
+  - `JG` (NASDAQ) Aurora Mobile Limited
+  - `KBNT` (NASDAQ) Kubient, Inc.
+  - `KLTR` (NASDAQ) Kaltura, Inc.
+  - `LPSN` (NASDAQ) LivePerson, Inc.
+  - `LYFT` (NASDAQ) Lyft, Inc.
+  - `MANH` (NASDAQ) Manhattan Associates, Inc.
+  - `MAPS` (NASDAQ) WM Technology, Inc.
+  - `MITK` (NASDAQ) Mitek Systems, Inc.
+  - `MNDO` (NASDAQ) MIND C.T.I. Ltd
+  - `MNDY` (NASDAQ) monday.com Ltd.
+  - `MSTR` (NASDAQ) Strategy Inc
+  - `MTLS` (NASDAQ) Materialise NV
+  - `MVLA` (NASDAQ) Movella Holdings Inc.
+  - `MYSZ` (NASDAQ) My Size, Inc.
+  - `NCNO` (NASDAQ) nCino, Inc.
+  - `NICE` (NASDAQ) NICE Ltd.
+  - `NTWK` (NASDAQ) NetSol Technologies, Inc.
+  - `NXPL` (NASDAQ) NextPlat Corp
+  - `OTEX` (NASDAQ) Open Text Corporation
+  - `PAYX` (NASDAQ) Paychex, Inc.
+  - `PCTY` (NASDAQ) Paylocity Holding Corporation
+  - `PDFS` (NASDAQ) PDF Solutions, Inc.
+  - `PEGA` (NASDAQ) Pegasystems Inc.
+  - `PHUN` (NASDAQ) Phunware, Inc.
+  - `PLUS` (NASDAQ) ePlus inc.
+  - `PRST` (NASDAQ) Presto Automation Inc.
+  - `PTC` (NASDAQ) PTC Inc.
+  - `PUBM` (NASDAQ) PubMatic, Inc.
+  - `RBBN` (NASDAQ) Ribbon Communications Inc.
+  - `RDVT` (NASDAQ) Red Violet, Inc.
+  - `RDZN` (NASDAQ) Roadzen, Inc.
+  - `RMNI` (NASDAQ) Rimini Street, Inc.
+  - `RSSS` (NASDAQ) Research Solutions, Inc.
+  - `SBIG` (NASDAQ) SpringBig Holdings, Inc.
+  - `SCOR` (NASDAQ) comScore, Inc.
+  - `SEAC` (NASDAQ) SeaChange International, Inc.
+  - `SMRT` (NASDAQ) SmartRent, Inc.
+  - `SMSI` (NASDAQ) Smith Micro Software, Inc.
+  - `SOFO` (NASDAQ) Sonic Foundry, Inc.
+  - `SOUN` (NASDAQ) SoundHound AI, Inc.
+  - `SPSC` (NASDAQ) SPS Commerce, Inc.
+  - `SPT` (NASDAQ) Sprout Social, Inc.
+  - `SRAX` (NASDAQ) SRAX, Inc.
+  - `SSNC` (NASDAQ) SS&C Technologies Holdings, Inc.
+  - `TEAM` (NASDAQ) Atlassian Corporation
+  - `THRY` (NASDAQ) Thryv Holdings, Inc.
+  - `UPBD` (NASDAQ) Upbound Group, Inc.
+  - `UPLD` (NASDAQ) Upland Software, Inc.
+  - `VERX` (NASDAQ) Vertex, Inc.
+  - `XELA` (NASDAQ) Exela Technologies, Inc.
+  - `XPER` (NASDAQ) Xperi Inc.
+  - `ZM` (NASDAQ) Zoom Communications, Inc.
+- **Software - Infrastructure** — 74 companies
+  - `ACIW` (NASDAQ) ACI Worldwide, Inc.
+  - `AILE` (NASDAQ) iLearningEngines, Inc.
+  - `AISP` (NASDAQ) Airship AI Holdings, Inc.
+  - `AKAM` (NASDAQ) Akamai Technologies, Inc.
+  - `ALLT` (NASDAQ) Allot Ltd.
+  - `APCX` (NASDAQ) AppTech Payments Corp.
+  - `APPN` (NASDAQ) Appian Corporation
+  - `AUID` (NASDAQ) authID Inc.
+  - `AVPT` (NASDAQ) AvePoint, Inc.
+  - `BAND` (NASDAQ) Bandwidth Inc.
+  - `BLIN` (NASDAQ) Bridgeline Digital, Inc.
+  - `BLZE` (NASDAQ) Backblaze, Inc.
+  - `CCSI` (NASDAQ) Consensus Cloud Solutions, Inc.
+  - `CETX` (NASDAQ) Cemtrex, Inc.
+  - `CFLT` (NASDAQ) Confluent, Inc.
+  - `CGNT` (NASDAQ) Cognyte Software Ltd.
+  - `CHKP` (NASDAQ) Check Point Software Technologies Ltd.
+  - `CISO` (NASDAQ) CISO Global Inc.
+  - `CORZ` (NASDAQ) Core Scientific, Inc.
+  - `CSGS` (NASDAQ) CSG Systems International, Inc.
+  - `CTLP` (NASDAQ) Cantaloupe, Inc.
+  - `CYBR` (NASDAQ) CyberArk Software Ltd
+  - `DBX` (NASDAQ) Dropbox, Inc.
+  - `DTSS` (NASDAQ) Datasea Inc.
+  - `EEFT` (NASDAQ) Euronet Worldwide, Inc.
+  - `EVCM` (NASDAQ) EverCommerce Inc.
+  - `FFIV` (NASDAQ) F5, Inc.
+  - `FIVN` (NASDAQ) Five9, Inc.
+  - `FLYW` (NASDAQ) Flywire Corporation
+  - `FTNT` (NASDAQ) Fortinet, Inc.
+  - `GCT` (NASDAQ) GigaCloud Technology Inc.
+  - `GEN` (NASDAQ) Gen Digital Inc.
+  - `GTLB` (NASDAQ) GitLab Inc.
+  - `IMXI` (NASDAQ) International Money Express, Inc.
+  - `KPLT` (NASDAQ) Katapult Holdings, Inc.
+  - `KSPI` (NASDAQ) Joint Stock Company Kaspi.kz
+  - `LIDR` (NASDAQ) AEye, Inc.
+  - `LSAK` (NASDAQ) Lesaka Technologies, Inc.
+  - `MARK` (NASDAQ) Remark Holdings, Inc.
+  - `MDB` (NASDAQ) MongoDB, Inc.
+  - `MQ` (NASDAQ) Marqeta, Inc.
+  - `MSFT` (NASDAQ) Microsoft Corporation
+  - `NN` (NASDAQ) NextNav Inc.
+  - `NTAP` (NASDAQ) NetApp, Inc.
+  - `NTNX` (NASDAQ) Nutanix, Inc.
+  - `OKTA` (NASDAQ) Okta, Inc.
+  - `OLB` (NASDAQ) The OLB Group, Inc.
+  - `OSPN` (NASDAQ) OneSpan Inc.
+  - `PAYO` (NASDAQ) Payoneer Global Inc.
+  - `PAYS` (NASDAQ) Paysign, Inc.
+  - `PDYN` (NASDAQ) Palladyne AI Corp.
+  - `PRGS` (NASDAQ) Progress Software Corporation
+  - `PRTH` (NASDAQ) Priority Technology Holdings, Inc.
+  - `QLYS` (NASDAQ) Qualys, Inc.
+  - `RDWR` (NASDAQ) Radware Ltd.
+  - `REKR` (NASDAQ) Rekor Systems, Inc.
+  - `RELY` (NASDAQ) Remitly Global, Inc.
+  - `RPAY` (NASDAQ) Repay Holdings Corporation
+  - `RPD` (NASDAQ) Rapid7, Inc.
+  - `SABR` (NASDAQ) Sabre Corporation
+  - `SNCR` (NASDAQ) Synchronoss Technologies, Inc.
+  - `SNPS` (NASDAQ) Synopsys, Inc.
+  - `SONM` (NASDAQ) DNA X, Inc.
+  - `STNE` (NASDAQ) StoneCo Ltd.
+  - `TENB` (NASDAQ) Tenable Holdings, Inc.
+  - `TLS` (NASDAQ) Telos Corporation
+  - `USIO` (NASDAQ) Usio, Inc.
+  - `VERI` (NASDAQ) Veritone, Inc.
+  - `VRAR` (NASDAQ) The Glimpse Group Inc
+  - `VRNS` (NASDAQ) Varonis Systems, Inc.
+  - `VRNT` (NASDAQ) Verint Systems Inc.
+  - `VVPR` (NASDAQ) Vivopower International PLC
+  - `XNET` (NASDAQ) Xunlei Limited
+  - `ZS` (NASDAQ) Zscaler, Inc.
+- **Semiconductors** — 48 companies
+  - `ADI` (NASDAQ) Analog Devices, Inc.
+  - `AIP` (NASDAQ) Arteris, Inc.
+  - `ALGM` (NASDAQ) Allegro MicroSystems, Inc.
+  - `AMD` (NASDAQ) Advanced Micro Devices, Inc.
+  - `AOSL` (NASDAQ) Alpha and Omega Semiconductor Limited
+  - `AVGO` (NASDAQ) Broadcom Inc.
+  - `CEVA` (NASDAQ) CEVA, Inc.
+  - `CRDO` (NASDAQ) Credo Technology Group Holding Ltd
+  - `CRUS` (NASDAQ) Cirrus Logic, Inc.
+  - `DIOD` (NASDAQ) Diodes Incorporated
+  - `GFS` (NASDAQ) GLOBALFOUNDRIES Inc.
+  - `GSIT` (NASDAQ) GSI Technology, Inc.
+  - `HIMX` (NASDAQ) Himax Technologies, Inc.
+  - `IMOS` (NASDAQ) ChipMOS TECHNOLOGIES INC.
+  - `INDI` (NASDAQ) indie Semiconductor, Inc.
+  - `INTC` (NASDAQ) Intel Corporation
+  - `IPWR` (NASDAQ) Ideal Power Inc.
+  - `LASR` (NASDAQ) nLIGHT, Inc.
+  - `LEDS` (NASDAQ) SemiLEDs Corporation
+  - `LSCC` (NASDAQ) Lattice Semiconductor Corporation
+  - `MCHP` (NASDAQ) Microchip Technology Incorporated
+  - `MPWR` (NASDAQ) Monolithic Power Systems, Inc.
+  - `MRAM` (NASDAQ) Everspin Technologies, Inc.
+  - `MRVL` (NASDAQ) Marvell Technology, Inc.
+  - `MTSI` (NASDAQ) MACOM Technology Solutions Holdings, Inc.
+  - `NVDA` (NASDAQ) NVIDIA Corporation
+  - `NVTS` (NASDAQ) Navitas Semiconductor Corporation
+  - `NXPI` (NASDAQ) NXP Semiconductors N.V.
+  - `ON` (NASDAQ) ON Semiconductor Corporation
+  - `PI` (NASDAQ) Impinj, Inc.
+  - `POWI` (NASDAQ) Power Integrations, Inc.
+  - `PRKR` (NASDAQ) ParkerVision, Inc.
+  - `PRSO` (NASDAQ) Peraso Inc.
+  - `PXLW` (NASDAQ) Pixelworks, Inc.
+  - `QCOM` (NASDAQ) QUALCOMM Incorporated
+  - `QRVO` (NASDAQ) Qorvo, Inc.
+  - `QUIK` (NASDAQ) QuickLogic Corporation
+  - `RMBS` (NASDAQ) Rambus Inc.
+  - `SIMO` (NASDAQ) Silicon Motion Technology Corporation
+  - `SITM` (NASDAQ) SiTime Corporation
+  - `SKYT` (NASDAQ) SkyWater Technology, Inc.
+  - `SLAB` (NASDAQ) Silicon Laboratories Inc.
+  - `SMTC` (NASDAQ) Semtech Corporation
+  - `SWKS` (NASDAQ) Skyworks Solutions, Inc.
+  - `SYNA` (NASDAQ) Synaptics Incorporated
+  - `TSEM` (NASDAQ) Tower Semiconductor Ltd.
+  - `TXN` (NASDAQ) Texas Instruments Incorporated
+  - `WKEY` (NASDAQ) WISeKey International Holding AG
+- **Communication Equipment** — 34 companies
+  - `AAOI` (NASDAQ) Applied Optoelectronics, Inc.
+  - `ADTN` (NASDAQ) ADTRAN Holdings, Inc.
+  - `AIRG` (NASDAQ) Airgain, Inc.
+  - `ASNS` (NASDAQ) Actelis Networks, Inc.
+  - `ASTS` (NASDAQ) AST SpaceMobile, Inc.
+  - `AUDC` (NASDAQ) AudioCodes Ltd.
+  - `AVNW` (NASDAQ) Aviat Networks, Inc.
+  - `CLFD` (NASDAQ) Clearfield, Inc.
+  - `CLRO` (NASDAQ) ClearOne, Inc.
+  - `CMBM` (NASDAQ) Cambium Networks Corporation
+  - `CMTL` (NASDAQ) Comtech Telecommunications Corp.
+  - `COMS` (NASDAQ) COMSovereign Holding Corp.
+  - `CRNT` (NASDAQ) Ceragon Networks Ltd.
+  - `CSCO` (NASDAQ) Cisco Systems, Inc.
+  - `DGII` (NASDAQ) Digi International Inc.
+  - `DZSI` (NASDAQ) DZS Inc.
+  - `ERIC` (NASDAQ) Telefonaktiebolaget LM Ericsson (publ)
+  - `EXTR` (NASDAQ) Extreme Networks, Inc.
+  - `FEIM` (NASDAQ) Frequency Electronics, Inc.
+  - `GILT` (NASDAQ) Gilat Satellite Networks Ltd.
+  - `HLIT` (NASDAQ) Harmonic Inc.
+  - `INSG` (NASDAQ) Inseego Corp.
+  - `LITE` (NASDAQ) Lumentum Holdings Inc.
+  - `LTRX` (NASDAQ) Lantronix, Inc.
+  - `NTGR` (NASDAQ) NETGEAR, Inc.
+  - `OCC` (NASDAQ) Optical Cable Corporation
+  - `ONDS` (NASDAQ) Ondas Inc.
+  - `TCCO` (NASDAQ) Technical Communications Corporation
+  - `VIAV` (NASDAQ) Viavi Solutions Inc.
+  - `VISL` (NASDAQ) Vislink Technologies, Inc.
+  - `VSAT` (NASDAQ) Viasat, Inc.
+  - `WATT` (NASDAQ) Energous Corporation
+  - `WSTL` (NASDAQ) Westell Technologies, Inc.
+  - `ZBRA` (NASDAQ) Zebra Technologies Corporation
+- **Information Technology Services** — 25 companies
+  - `APLD` (NASDAQ) Applied Digital Corporation
+  - `AUR` (NASDAQ) Aurora Innovation, Inc.
+  - `CDW` (NASDAQ) CDW Corporation
+  - `CIFR` (NASDAQ) Cipher Digital Inc.
+  - `CLPS` (NASDAQ) CLPS Incorporation
+  - `CNXC` (NASDAQ) Concentrix Corporation
+  - `CSPI` (NASDAQ) CSP Inc.
+  - `CTSH` (NASDAQ) Cognizant Technology Solutions Corporation
+  - `DTST` (NASDAQ) Data Storage Corporation
+  - `EXLS` (NASDAQ) ExlService Holdings, Inc.
+  - `FORTY` (NASDAQ) Formula Systems (1985) Ltd.
+  - `GDS` (NASDAQ) GDS Holdings Limited
+  - `GDYN` (NASDAQ) Grid Dynamics Holdings, Inc.
+  - `HCKT` (NASDAQ) The Hackett Group, Inc.
+  - `IBEX` (NASDAQ) IBEX Limited
+  - `III` (NASDAQ) Information Services Group, Inc.
+  - `INOD` (NASDAQ) Innodata Inc.
+  - `JFU` (NASDAQ) 9F Inc.
+  - `JKHY` (NASDAQ) Jack Henry & Associates, Inc.
+  - `MGIC` (NASDAQ) Magic Software Enterprises Ltd
+  - `TASK` (NASDAQ) TaskUs, Inc.
+  - `TTEC` (NASDAQ) TTEC Holdings, Inc.
+  - `TTGT` (NASDAQ) TechTarget, Inc.
+  - `VNET` (NASDAQ) VNET Group, Inc.
+  - `VRRM` (NASDAQ) Verra Mobility Corporation
+- **Semiconductor Equipment & Materials** — 25 companies
+  - `ACLS` (NASDAQ) Axcelis Technologies, Inc.
+  - `ACMR` (NASDAQ) ACM Research, Inc.
+  - `AEHR` (NASDAQ) Aehr Test Systems, Inc.
+  - `AMAT` (NASDAQ) Applied Materials, Inc.
+  - `AMBA` (NASDAQ) Ambarella, Inc.
+  - `AMKR` (NASDAQ) Amkor Technology, Inc.
+  - `ASML` (NASDAQ) ASML Holding N.V.
+  - `ASYS` (NASDAQ) Amtech Systems, Inc.
+  - `ATOM` (NASDAQ) Atomera Incorporated
+  - `ATOM` (NASDAQ) Atomera Incorporated
+  - `AXTI` (NASDAQ) AXT, Inc.
+  - `COHU` (NASDAQ) Cohu, Inc.
+  - `ENTG` (NASDAQ) Entegris, Inc.
+  - `FORM` (NASDAQ) FormFactor, Inc.
+  - `ICHR` (NASDAQ) Ichor Holdings, Ltd.
+  - `INTT` (NASDAQ) inTEST Corporation
+  - `IPGP` (NASDAQ) IPG Photonics Corporation
+  - `KLAC` (NASDAQ) KLA Corporation
+  - `KLIC` (NASDAQ) Kulicke and Soffa Industries, Inc.
+  - `LRCX` (NASDAQ) Lam Research Corporation
+  - `NVMI` (NASDAQ) Nova Ltd.
+  - `RBCN` (NASDAQ) Rubicon Technology, Inc.
+  - `TER` (NASDAQ) Teradyne, Inc.
+  - `UCTT` (NASDAQ) Ultra Clean Holdings, Inc.
+  - `VECO` (NASDAQ) Veeco Instruments Inc.
+- **Electronic Components** — 18 companies
+  - `ALNT` (NASDAQ) Allient Inc.
+  - `BELFB` (NASDAQ) Bel Fuse Inc.
+  - `DAIO` (NASDAQ) Data I/O Corporation
+  - `DAKT` (NASDAQ) Daktronics, Inc.
+  - `ELTK` (NASDAQ) Eltek Ltd.
+  - `FLEX` (NASDAQ) Flex Ltd.
+  - `KOPN` (NASDAQ) Kopin Corporation
+  - `LFUS` (NASDAQ) Littelfuse, Inc.
+  - `LPTH` (NASDAQ) LightPath Technologies, Inc.
+  - `LYTS` (NASDAQ) LSI Industries Inc.
+  - `NEON` (NASDAQ) Neonode Inc.
+  - `OLED` (NASDAQ) Universal Display Corporation
+  - `OSIS` (NASDAQ) OSI Systems, Inc.
+  - `PLXS` (NASDAQ) Plexus Corp.
+  - `REFR` (NASDAQ) Research Frontiers Incorporated
+  - `SANM` (NASDAQ) Sanmina Corporation
+  - `TTMI` (NASDAQ) TTM Technologies, Inc.
+  - `VICR` (NASDAQ) Vicor Corporation
+- **Computer Hardware** — 16 companies
+  - `AGMH` (NASDAQ) AGM Group Holdings Inc.
+  - `ALOT` (NASDAQ) AstroNova, Inc.
+  - `CAN` (NASDAQ) Canaan Inc.
+  - `CRCT` (NASDAQ) Cricut, Inc.
+  - `CRSR` (NASDAQ) Corsair Gaming, Inc.
+  - `DDD` (NASDAQ) 3D Systems Corporation
+  - `KTCC` (NASDAQ) Key Tronic Corporation
+  - `LOGI` (NASDAQ) Logitech International S.A.
+  - `NNDM` (NASDAQ) Nano Dimension Ltd.
+  - `OSS` (NASDAQ) One Stop Systems, Inc.
+  - `RGTI` (NASDAQ) Rigetti Computing, Inc.
+  - `SMCI` (NASDAQ) Super Micro Computer, Inc.
+  - `SSYS` (NASDAQ) Stratasys Ltd.
+  - `STX` (NASDAQ) Seagate Technology Holdings plc
+  - `TACT` (NASDAQ) TransAct Technologies Incorporated
+  - `WDC` (NASDAQ) Western Digital Corporation
+- **Scientific & Technical Instruments** — 15 companies
+  - `ASTC` (NASDAQ) Astrotech Corporation
+  - `COHR` (NASDAQ) Coherent Corp.
+  - `ELSE` (NASDAQ) Electro-Sensors, Inc.
+  - `FCUV` (NASDAQ) Focus Universal Inc.
+  - `GRMN` (NASDAQ) Garmin Ltd.
+  - `ITRI` (NASDAQ) Itron, Inc.
+  - `ITRN` (NASDAQ) Ituran Location and Control Ltd.
+  - `LUNA` (NASDAQ) Luna Innovations Incorporated
+  - `MIND` (NASDAQ) MIND Technology, Inc.
+  - `MKSI` (NASDAQ) MKS Inc.
+  - `MVIS` (NASDAQ) MicroVision, Inc.
+  - `NOVT` (NASDAQ) Novanta Inc.
+  - `SMIT` (NASDAQ) Schmitt Industries, Inc.
+  - `SOBR` (NASDAQ) SOBR Safe, Inc.
+  - `TRMB` (NASDAQ) Trimble Inc.
+- **Solar** — 12 companies
+  - `ARRY` (NASDAQ) Array Technologies, Inc.
+  - `ASTI` (NASDAQ) Ascent Solar Technologies, Inc.
+  - `CSIQ` (NASDAQ) Canadian Solar Inc.
+  - `ENPH` (NASDAQ) Enphase Energy, Inc.
+  - `FTCI` (NASDAQ) FTC Solar, Inc.
+  - `MAXN` (NASDAQ) Maxeon Solar Technologies, Ltd.
+  - `NXT` (NASDAQ) Nextpower Inc.
+  - `RUN` (NASDAQ) Sunrun Inc.
+  - `SEDG` (NASDAQ) SolarEdge Technologies, Inc.
+  - `SHLS` (NASDAQ) Shoals Technologies Group, Inc.
+  - `SMXT` (NASDAQ) SolarMax Technology, Inc.
+  - `SPWR` (NASDAQ) SunPower Inc.
+- **Consumer Electronics** — 5 companies
+  - `BOXL` (NASDAQ) Boxlight Corporation
+  - `KOSS` (NASDAQ) Koss Corporation
+  - `SONO` (NASDAQ) Sonos, Inc.
+  - `UEIC` (NASDAQ) Universal Electronics Inc.
+  - `VUZI` (NASDAQ) Vuzix Corporation
+- **Electronics & Computer Distribution** — 4 companies
+  - `CLMB` (NASDAQ) Climb Global Solutions, Inc.
+  - `NSIT` (NASDAQ) Insight Enterprises, Inc.
+  - `SCSC` (NASDAQ) ScanSource, Inc.
+  - `TAIT` (NASDAQ) Taitron Components Incorporated
+
+## Utilities (13 companies)
+
+- **Utilities - Regulated Water** — 6 companies
+  - `ARTNA` (NASDAQ) Artesian Resources Corporation
+  - `CDZI` (NASDAQ) Cadiz Inc.
+  - `CWCO` (NASDAQ) Consolidated Water Co. Ltd.
+  - `GWRS` (NASDAQ) Global Water Resources, Inc.
+  - `MSEX` (NASDAQ) Middlesex Water Company
+  - `PCYO` (NASDAQ) Pure Cycle Corporation
+- **Utilities - Regulated Electric** — 2 companies
+  - `MGEE` (NASDAQ) MGE Energy, Inc.
+  - `XEL` (NASDAQ) Xcel Energy Inc.
+- **Utilities - Regulated Gas** — 2 companies
+  - `OPAL` (NASDAQ) OPAL Fuels Inc.
+  - `RGCO` (NASDAQ) RGC Resources, Inc.
+- **Utilities - Renewable** — 2 companies
+  - `FLNC` (NASDAQ) Fluence Energy, Inc.
+  - `VGAS` (NASDAQ) Verde Clean Fuels, Inc.
+- **Utilities - Independent Power Producers** — 1 companies
+  - `CEG` (NASDAQ) Constellation Energy Corporation

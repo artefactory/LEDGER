@@ -1,0 +1,1733 @@
+# Industry peer groups — NYSE
+
+## Basic Materials (104 companies)
+
+- **Specialty Chemicals** — 36 companies
+  - `ALB` (NYSE) Albemarle Corporation
+  - `APD` (NYSE) Air Products and Chemicals, Inc.
+  - `ASH` (NYSE) Ashland Inc.
+  - `AVNT` (NYSE) Avient Corporation
+  - `AXTA` (NYSE) Axalta Coating Systems Ltd.
+  - `CBT` (NYSE) Cabot Corporation
+  - `CC` (NYSE) The Chemours Company
+  - `CMT` (NYSE) Core Molding Technologies, Inc.
+  - `DD` (NYSE) DuPont de Nemours, Inc.
+  - `ECL` (NYSE) Ecolab Inc.
+  - `ECVT` (NYSE) Ecovyst Inc.
+  - `EMN` (NYSE) Eastman Chemical Company
+  - `ESI` (NYSE) Element Solutions Inc
+  - `FF` (NYSE) FutureFuel Corp.
+  - `IFF` (NYSE) International Flavors & Fragrances Inc.
+  - `KOP` (NYSE) Koppers Holdings Inc.
+  - `KRO` (NYSE) Kronos Worldwide, Inc.
+  - `LIN` (NYSE) Linde plc
+  - `LYB` (NYSE) LyondellBasell Industries N.V.
+  - `MATV` (NYSE) Mativ Holdings, Inc.
+  - `MTX` (NYSE) Minerals Technologies Inc.
+  - `NEU` (NYSE) NewMarket Corporation
+  - `NGVT` (NYSE) Ingevity Corporation
+  - `NGVT` (NYSE) Ingevity Corporation
+  - `ODC` (NYSE) Oil-Dri Corporation of America
+  - `OEC` (NYSE) Orion S.A.
+  - `PPG` (NYSE) PPG Industries, Inc.
+  - `PRM` (NYSE) Perimeter Solutions, Inc.
+  - `RPM` (NYSE) RPM International Inc.
+  - `SCL` (NYSE) Stepan Company
+  - `SHW` (NYSE) The Sherwin-Williams Company
+  - `SQM` (NYSE) Sociedad Química y Minera de Chile S.A.
+  - `SSL` (NYSE) Sasol Limited
+  - `SXT` (NYSE) Sensient Technologies Corporation
+  - `TSE` (NYSE) Trinseo PLC
+  - `WLK` (NYSE) Westlake Corporation
+- **Gold** — 14 companies
+  - `AEM` (NYSE) Agnico Eagle Mines Limited
+  - `ARIS` (NYSE) Aris Mining Corporation
+  - `AU` (NYSE) AngloGold Ashanti plc
+  - `CDE` (NYSE) Coeur Mining, Inc.
+  - `CMCL` (NYSE) Caledonia Mining Corporation Plc
+  - `CTGO` (NYSE) Contango Ore, Inc.
+  - `DC` (NYSE) Dakota Gold Corp.
+  - `GAU` (NYSE) Galiano Gold Inc.
+  - `GFI` (NYSE) Gold Fields Limited
+  - `IAG` (NYSE) IAMGOLD Corporation
+  - `IAUX` (NYSE) i-80 Gold Corp.
+  - `NEM` (NYSE) Newmont Corporation
+  - `PZG` (NYSE) Paramount Gold Nevada Corp.
+  - `WPM` (NYSE) Wheaton Precious Metals Corp.
+- **Chemicals** — 10 companies
+  - `ASIX` (NYSE) AdvanSix Inc.
+  - `BAK` (NYSE) Braskem S.A.
+  - `CE` (NYSE) Celanese Corporation
+  - `DOW` (NYSE) Dow Inc.
+  - `HUN` (NYSE) Huntsman Corporation
+  - `REX` (NYSE) REX American Resources Corporation
+  - `RYAM` (NYSE) Rayonier Advanced Materials Inc.
+  - `TROX` (NYSE) Tronox Holdings plc
+  - `VHI` (NYSE) Valhi, Inc.
+  - `WLKP` (NYSE) Westlake Chemical Partners LP
+- **Other Industrial Metals & Mining** — 9 companies
+  - `BHP` (NYSE) BHP Group Limited
+  - `CMP` (NYSE) Compass Minerals International, Inc.
+  - `LZM` (NYSE) Lifezone Metals Limited
+  - `MP` (NYSE) MP Materials Corp.
+  - `MTRN` (NYSE) Materion Corporation
+  - `TECK` (NYSE) Teck Resources Limited
+  - `TMQ` (NYSE) Trilogy Metals Inc.
+  - `UAMY` (NYSE) United States Antimony Corporation
+  - `VALE` (NYSE) Vale S.A.
+- **Agricultural Inputs** — 8 companies
+  - `CF` (NYSE) CF Industries Holdings, Inc.
+  - `CTVA` (NYSE) Corteva, Inc.
+  - `FMC` (NYSE) FMC Corporation
+  - `ICL` (NYSE) ICL Group Ltd
+  - `MOS` (NYSE) The Mosaic Company
+  - `NTR` (NYSE) Nutrien Ltd.
+  - `SMG` (NYSE) The Scotts Miracle-Gro Company
+  - `UAN` (NYSE) CVR Partners, LP
+- **Steel** — 6 companies
+  - `CLF` (NYSE) Cleveland-Cliffs Inc.
+  - `FRD` (NYSE) Friedman Industries, Incorporated
+  - `MTUS` (NYSE) Metallus Inc.
+  - `NUE` (NYSE) Nucor Corporation
+  - `RS` (NYSE) Reliance, Inc.
+  - `TX` (NYSE) Ternium S.A.
+- **Building Materials** — 5 companies
+  - `CX` (NYSE) CEMEX, S.A.B. de C.V.
+  - `EXP` (NYSE) Eagle Materials Inc.
+  - `KNF` (NYSE) Knife River Corporation
+  - `LOMA` (NYSE) Loma Negra Compañía Industrial Argentina Sociedad Anónima
+  - `VMC` (NYSE) Vulcan Materials Company
+- **Other Precious Metals & Mining** — 5 companies
+  - `AUMN` (NYSE) Golden Minerals Company
+  - `BVN` (NYSE) Compañía de Minas Buenaventura S.A.A.
+  - `HL` (NYSE) Hecla Mining Company
+  - `LODE` (NYSE) Comstock Inc.
+  - `MUX` (NYSE) McEwen Inc.
+- **Paper & Paper Products** — 4 companies
+  - `CLW` (NYSE) Clearwater Paper Corporation
+  - `ITP` (NYSE) IT Tech Packaging, Inc.
+  - `SLVM` (NYSE) Sylvamo Corporation
+  - `SUZ` (NYSE) Suzano S.A.
+- **Coking Coal** — 3 companies
+  - `AMR` (NYSE) Alpha Metallurgical Resources, Inc.
+  - `HCC` (NYSE) Warrior Met Coal, Inc.
+  - `SXC` (NYSE) SunCoke Energy, Inc.
+- **Aluminum** — 2 companies
+  - `AA` (NYSE) Alcoa Corporation
+  - `CSTM` (NYSE) Constellium SE
+- **Copper** — 1 companies
+  - `IE` (NYSE) Ivanhoe Electric Inc.
+- **Lumber & Wood Production** — 1 companies
+  - `BCC` (NYSE) Boise Cascade Company
+
+## Communication Services (58 companies)
+
+- **Telecom Services** — 16 companies
+  - `AMX` (NYSE) América Móvil, S.A.B. de C.V.
+  - `BCE` (NYSE) BCE Inc.
+  - `CABO` (NYSE) Cable One, Inc.
+  - `CHT` (NYSE) Chunghwa Telecom Co., Ltd.
+  - `IDT` (NYSE) IDT Corporation
+  - `KORE` (NYSE) KORE Group Holdings, Inc.
+  - `LUMN` (NYSE) Lumen Technologies, Inc.
+  - `PHI` (NYSE) PLDT Inc.
+  - `RCI` (NYSE) Rogers Communications Inc.
+  - `SKM` (NYSE) SK Telecom Co., Ltd.
+  - `T` (NYSE) AT&T Inc.
+  - `TDS` (NYSE) Telephone and Data Systems, Inc.
+  - `TKC` (NYSE) Turkcell Iletisim Hizmetleri A.S.
+  - `TLK` (NYSE) Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk
+  - `TV` (NYSE) Grupo Televisa, S.A.B.
+  - `VZ` (NYSE) Verizon Communications Inc.
+- **Internet Content & Information** — 15 companies
+  - `AREN` (NYSE) The Arena Group Holdings, Inc.
+  - `CARS` (NYSE) Cars.com Inc.
+  - `CMCM` (NYSE) Cheetah Mobile Inc.
+  - `EB` (NYSE) Eventbrite Inc
+  - `FENG` (NYSE) Phoenix New Media Limited
+  - `FVRR` (NYSE) Fiverr International Ltd.
+  - `MAX` (NYSE) MediaAlpha, Inc.
+  - `PINS` (NYSE) Pinterest, Inc.
+  - `SNAP` (NYSE) Snap Inc.
+  - `SPOT` (NYSE) Spotify Technology S.A.
+  - `SSTK` (NYSE) Shutterstock, Inc.
+  - `TME` (NYSE) Tencent Music Entertainment Group
+  - `YELP` (NYSE) Yelp Inc.
+  - `ZDGE` (NYSE) Zedge, Inc.
+  - `ZIP` (NYSE) ZipRecruiter, Inc.
+- **Entertainment** — 11 companies
+  - `AMC` (NYSE) AMC Entertainment Holdings, Inc.
+  - `CNK` (NYSE) Cinemark Holdings, Inc.
+  - `DIS` (NYSE) The Walt Disney Company
+  - `HUYA` (NYSE) HUYA Inc.
+  - `IMAX` (NYSE) IMAX Corporation
+  - `LYV` (NYSE) Live Nation Entertainment, Inc.
+  - `MANU` (NYSE) Manchester United plc
+  - `MCS` (NYSE) The Marcus Corporation
+  - `NWS` (NYSE) News Corporation
+  - `SPHR` (NYSE) Sphere Entertainment Co.
+  - `TKO` (NYSE) TKO Group Holdings, Inc.
+- **Advertising Agencies** — 6 companies
+  - `CCO` (NYSE) Clear Channel Outdoor Holdings, Inc.
+  - `DV` (NYSE) DoubleVerify Holdings, Inc.
+  - `EVC` (NYSE) Entravision Communications Corporation
+  - `OMC` (NYSE) Omnicom Group Inc.
+  - `TSQ` (NYSE) Townsquare Media, Inc.
+  - `WPP` (NYSE) WPP plc
+- **Broadcasting** — 5 companies
+  - `FUBO` (NYSE) FuboTV Inc.
+  - `GTN` (NYSE) Gray Media, Inc.
+  - `SGA` (NYSE) Saga Communications, Inc.
+  - `SSP` (NYSE) The E.W. Scripps Company
+  - `TGNA` (NYSE) TEGNA Inc.
+- **Publishing** — 3 companies
+  - `IDWM` (NYSE) IDW Media Holdings, Inc.
+  - `LEE` (NYSE) Lee Enterprises, Incorporated
+  - `NYT` (NYSE) The New York Times Company
+- **Electronic Gaming & Multimedia** — 2 companies
+  - `RBLX` (NYSE) Roblox Corporation
+  - `SKLZ` (NYSE) Skillz Inc.
+
+## Consumer Cyclical (208 companies)
+
+- **Auto Parts** — 26 companies
+  - `AAP` (NYSE) Advance Auto Parts, Inc.
+  - `ADNT` (NYSE) Adient plc
+  - `ALSN` (NYSE) Allison Transmission Holdings, Inc.
+  - `ALV` (NYSE) Autoliv, Inc.
+  - `APTV` (NYSE) Aptiv PLC
+  - `ATMU` (NYSE) Atmus Filtration Technologies Inc.
+  - `AXL` (NYSE) Dauch Corporation
+  - `AZO` (NYSE) AutoZone, Inc.
+  - `BWA` (NYSE) BorgWarner Inc.
+  - `CPS` (NYSE) Cooper-Standard Holdings Inc.
+  - `DAN` (NYSE) Dana Incorporated
+  - `GPC` (NYSE) Genuine Parts Company
+  - `GT` (NYSE) The Goodyear Tire & Rubber Company
+  - `GTX` (NYSE) Garrett Motion Inc.
+  - `HLLY` (NYSE) Holley Inc.
+  - `HYLN` (NYSE) Hyliion Holdings Corp.
+  - `LEA` (NYSE) Lear Corporation
+  - `MLR` (NYSE) Miller Industries, Inc.
+  - `MOD` (NYSE) Modine Manufacturing Company
+  - `PHIN` (NYSE) PHINIA Inc.
+  - `PLOW` (NYSE) Douglas Dynamics, Inc.
+  - `QS` (NYSE) QuantumScape Corporation
+  - `SES` (NYSE) SES AI Corporation
+  - `SMP` (NYSE) Standard Motor Products, Inc.
+  - `SRI` (NYSE) Stoneridge, Inc.
+  - `VC` (NYSE) Visteon Corporation
+- **Apparel Retail** — 16 companies
+  - `AEO` (NYSE) American Eagle Outfitters, Inc.
+  - `AKA` (NYSE) a.k.a. Brands Holding Corp.
+  - `ANF` (NYSE) Abercrombie & Fitch Co.
+  - `BKE` (NYSE) The Buckle, Inc.
+  - `BOOT` (NYSE) Boot Barn Holdings, Inc.
+  - `BURL` (NYSE) Burlington Stores, Inc.
+  - `CAL` (NYSE) Caleres, Inc.
+  - `CATO` (NYSE) The Cato Corporation
+  - `CRI` (NYSE) Carter's, Inc.
+  - `CURV` (NYSE) Torrid Holdings Inc.
+  - `GCO` (NYSE) Genesco Inc.
+  - `GES` (NYSE) Guess?, Inc.
+  - `JILL` (NYSE) J.Jill, Inc.
+  - `TJX` (NYSE) The TJX Companies, Inc.
+  - `TLYS` (NYSE) Tilly's, Inc.
+  - `VSCO` (NYSE) Victoria's Secret & Co.
+- **Restaurants** — 16 companies
+  - `ARCO` (NYSE) Arcos Dorados Holdings Inc.
+  - `BH` (NYSE) Biglari Holdings Inc.
+  - `BROS` (NYSE) Dutch Bros Inc.
+  - `CAVA` (NYSE) CAVA Group, Inc.
+  - `CHA` (NYSE) Chagee Holdings Limited
+  - `CMG` (NYSE) Chipotle Mexican Grill, Inc.
+  - `CNNE` (NYSE) Cannae Holdings, Inc.
+  - `DIN` (NYSE) Dine Brands Global, Inc.
+  - `DPZ` (NYSE) Domino's Pizza, Inc.
+  - `DRI` (NYSE) Darden Restaurants, Inc.
+  - `EAT` (NYSE) Brinker International, Inc.
+  - `MCD` (NYSE) McDonald's Corporation
+  - `SG` (NYSE) Sweetgreen, Inc.
+  - `SHAK` (NYSE) Shake Shack Inc.
+  - `YUM` (NYSE) Yum! Brands, Inc.
+  - `YUMC` (NYSE) Yum China Holdings, Inc.
+- **Packaging & Containers** — 14 companies
+  - `AMBP` (NYSE) Ardagh Metal Packaging S.A.
+  - `AVY` (NYSE) Avery Dennison Corporation
+  - `CCK` (NYSE) Crown Holdings, Inc.
+  - `DSS` (NYSE) DSS, Inc.
+  - `GEF` (NYSE) Greif, Inc.
+  - `GPK` (NYSE) Graphic Packaging Holding Company
+  - `IP` (NYSE) International Paper Company
+  - `MYE` (NYSE) Myers Industries, Inc.
+  - `OI` (NYSE) O-I Glass, Inc.
+  - `PACK` (NYSE) Ranpak Holdings Corp.
+  - `PKG` (NYSE) Packaging Corporation of America
+  - `SEE` (NYSE) Sealed Air Corporation
+  - `SON` (NYSE) Sonoco Products Company
+  - `TRS` (NYSE) TriMas Corporation
+- **Residential Construction** — 14 companies
+  - `BZH` (NYSE) Beazer Homes USA, Inc.
+  - `DFH` (NYSE) Dream Finders Homes, Inc.
+  - `HOV` (NYSE) Hovnanian Enterprises, Inc.
+  - `IBP` (NYSE) Installed Building Products, Inc.
+  - `KBH` (NYSE) KB Home
+  - `LEN` (NYSE) Lennar Corporation
+  - `MHO` (NYSE) M/I Homes, Inc.
+  - `MTH` (NYSE) Meritage Homes Corporation
+  - `NVR` (NYSE) NVR, Inc.
+  - `PHM` (NYSE) PulteGroup, Inc.
+  - `SKY` (NYSE) Champion Homes, Inc.
+  - `TMHC` (NYSE) Taylor Morrison Home Corporation
+  - `TOL` (NYSE) Toll Brothers, Inc.
+  - `TPH` (NYSE) Tri Pointe Homes, Inc.
+- **Specialty Retail** — 12 companies
+  - `BARK` (NYSE) BARK, Inc.
+  - `BBWI` (NYSE) Bath & Body Works, Inc.
+  - `BNED` (NYSE) Barnes & Noble Education, Inc.
+  - `CHPT` (NYSE) ChargePoint Holdings, Inc.
+  - `DKS` (NYSE) DICK'S Sporting Goods, Inc.
+  - `GME` (NYSE) GameStop Corp.
+  - `HZO` (NYSE) MarineMax, Inc.
+  - `MUSA` (NYSE) Murphy USA Inc.
+  - `RH` (NYSE) RH
+  - `SBH` (NYSE) Sally Beauty Holdings, Inc.
+  - `SVV` (NYSE) Savers Value Village, Inc.
+  - `WSM` (NYSE) Williams-Sonoma, Inc.
+- **Apparel Manufacturing** — 11 companies
+  - `FIGS` (NYSE) FIGS, Inc.
+  - `GIL` (NYSE) Gildan Activewear Inc.
+  - `KTB` (NYSE) Kontoor Brands, Inc.
+  - `LEVI` (NYSE) Levi Strauss & Co.
+  - `NCI` (NYSE) Neo-Concept International Group Holdings Limited
+  - `OXM` (NYSE) Oxford Industries, Inc.
+  - `PVH` (NYSE) PVH Corp.
+  - `RL` (NYSE) Ralph Lauren Corporation
+  - `UA` (NYSE) Under Armour, Inc.
+  - `UAA` (NYSE) Under Armour, Inc.
+  - `VNCE` (NYSE) Vince Holding Corp.
+- **Auto & Truck Dealerships** — 11 companies
+  - `ABG` (NYSE) Asbury Automotive Group, Inc.
+  - `AN` (NYSE) AutoNation, Inc.
+  - `CVNA` (NYSE) Carvana Co.
+  - `CWH` (NYSE) Camping World Holdings, Inc.
+  - `GPI` (NYSE) Group 1 Automotive, Inc.
+  - `KFS` (NYSE) Kingsway Financial Services Inc.
+  - `KMX` (NYSE) CarMax, Inc.
+  - `LAD` (NYSE) Lithia Motors, Inc.
+  - `MCW` (NYSE) Mister Car Wash, Inc.
+  - `PAG` (NYSE) Penske Automotive Group, Inc.
+  - `VVV` (NYSE) Valvoline Inc.
+- **Internet Retail** — 11 companies
+  - `BABA` (NYSE) Alibaba Group Holding Limited
+  - `CHWY` (NYSE) Chewy, Inc.
+  - `CPNG` (NYSE) Coupang, Inc.
+  - `DASH` (NYSE) DoorDash, Inc.
+  - `JMIA` (NYSE) Jumia Technologies AG
+  - `LITB` (NYSE) LightInTheBox Holding Co., Ltd.
+  - `MOGU` (NYSE) MOGU Inc.
+  - `RVLV` (NYSE) Revolve Group, Inc.
+  - `SE` (NYSE) Sea Limited
+  - `VIPS` (NYSE) Vipshop Holdings Limited
+  - `W` (NYSE) Wayfair Inc.
+- **Furnishings, Fixtures & Appliances** — 10 companies
+  - `COOK` (NYSE) Traeger, Inc.
+  - `HBB` (NYSE) Hamilton Beach Brands Holding Company
+  - `HNI` (NYSE) HNI Corporation
+  - `LEG` (NYSE) Leggett & Platt, Incorporated
+  - `LZB` (NYSE) La-Z-Boy Incorporated
+  - `MBC` (NYSE) MasterBrand, Inc.
+  - `MHK` (NYSE) Mohawk Industries, Inc.
+  - `NTZ` (NYSE) Natuzzi S.p.A.
+  - `SN` (NYSE) SharkNinja, Inc.
+  - `WHR` (NYSE) Whirlpool Corporation
+- **Auto Manufacturers** — 8 companies
+  - `CYD` (NYSE) China Yuchai International Limited
+  - `F` (NYSE) Ford Motor Company
+  - `GM` (NYSE) General Motors Company
+  - `LVWR` (NYSE) LiveWire Group, Inc.
+  - `NIO` (NYSE) NIO Inc.
+  - `RACE` (NYSE) Ferrari N.V.
+  - `STLA` (NYSE) Stellantis N.V.
+  - `TM` (NYSE) Toyota Motor Corporation
+- **Lodging** — 8 companies
+  - `CHH` (NYSE) Choice Hotels International, Inc.
+  - `CVEO` (NYSE) Civeo Corporation
+  - `GHG` (NYSE) GreenTree Hospitality Group Ltd.
+  - `H` (NYSE) Hyatt Hotels Corporation
+  - `HLT` (NYSE) Hilton Worldwide Holdings Inc.
+  - `IHG` (NYSE) InterContinental Hotels Group PLC
+  - `SHCO` (NYSE) Soho House & Co Inc.
+  - `WH` (NYSE) Wyndham Hotels & Resorts, Inc.
+- **Resorts & Casinos** — 8 companies
+  - `BALY` (NYSE) Bally's Corporation
+  - `BYD` (NYSE) Boyd Gaming Corporation
+  - `HGV` (NYSE) Hilton Grand Vacations Inc.
+  - `LVS` (NYSE) Las Vegas Sands Corp.
+  - `MGM` (NYSE) MGM Resorts International
+  - `MSC` (NYSE) Studio City International Holdings Limited
+  - `MTN` (NYSE) Vail Resorts, Inc.
+  - `VAC` (NYSE) Marriott Vacations Worldwide Corporation
+- **Leisure** — 7 companies
+  - `AS` (NYSE) Amer Sports, Inc.
+  - `GOLF` (NYSE) Acushnet Holdings Corp.
+  - `HAS` (NYSE) Hasbro, Inc.
+  - `PLNT` (NYSE) Planet Fitness, Inc.
+  - `PRKS` (NYSE) United Parks & Resorts Inc.
+  - `XPOF` (NYSE) Xponential Fitness, Inc.
+  - `YETI` (NYSE) YETI Holdings, Inc.
+- **Recreational Vehicles** — 6 companies
+  - `HOG` (NYSE) Harley-Davidson, Inc.
+  - `LCII` (NYSE) LCI Industries
+  - `MPX` (NYSE) Marine Products Corporation
+  - `PII` (NYSE) Polaris Inc.
+  - `THO` (NYSE) THOR Industries, Inc.
+  - `WGO` (NYSE) Winnebago Industries, Inc.
+- **Luxury Goods** — 5 companies
+  - `CPRI` (NYSE) Capri Holdings Limited
+  - `ELA` (NYSE) Envela Corporation
+  - `MOV` (NYSE) Movado Group, Inc.
+  - `SIG` (NYSE) Signet Jewelers Limited
+  - `TPR` (NYSE) Tapestry, Inc.
+- **Personal Services** — 5 companies
+  - `BFAM` (NYSE) Bright Horizons Family Solutions Inc.
+  - `CSV` (NYSE) Carriage Services, Inc.
+  - `MED` (NYSE) Medifast, Inc.
+  - `ROL` (NYSE) Rollins, Inc.
+  - `SCI` (NYSE) Service Corporation International
+- **Footwear & Accessories** — 4 companies
+  - `BIRK` (NYSE) Birkenstock Holding plc
+  - `DBI` (NYSE) Designer Brands Inc.
+  - `NKE` (NYSE) NIKE, Inc.
+  - `WWW` (NYSE) Wolverine World Wide, Inc.
+- **Home Improvement Retail** — 4 companies
+  - `FND` (NYSE) Floor & Decor Holdings, Inc.
+  - `HD` (NYSE) The Home Depot, Inc.
+  - `HVT` (NYSE) Haverty Furniture Companies, Inc.
+  - `LOW` (NYSE) Lowe's Companies, Inc.
+- **Travel Services** — 4 companies
+  - `CCL` (NYSE) Carnival Corporation & plc
+  - `GBTG` (NYSE) Global Business Travel Group, Inc.
+  - `RCL` (NYSE) Royal Caribbean Cruises Ltd.
+  - `TNL` (NYSE) Travel + Leisure Co.
+- **Department Stores** — 3 companies
+  - `DDS` (NYSE) Dillard's, Inc.
+  - `KSS` (NYSE) Kohl's Corporation
+  - `M` (NYSE) Macy's, Inc.
+- **Gambling** — 3 companies
+  - `ACEL` (NYSE) Accel Entertainment, Inc.
+  - `RSI` (NYSE) Rush Street Interactive, Inc.
+  - `SGHC` (NYSE) Super Group (SGHC) Limited
+- **Textile Manufacturing** — 2 companies
+  - `AIN` (NYSE) Albany International Corp.
+  - `UFI` (NYSE) Unifi, Inc.
+
+## Consumer Defensive (76 companies)
+
+- **Packaged Foods** — 18 companies
+  - `BGS` (NYSE) B&G Foods, Inc.
+  - `BRBR` (NYSE) BellRing Brands, Inc.
+  - `BRCC` (NYSE) BRC Inc.
+  - `CAG` (NYSE) Conagra Brands, Inc.
+  - `CPB` (NYSE) The Campbell's Company
+  - `DAR` (NYSE) Darling Ingredients Inc.
+  - `FLO` (NYSE) Flowers Foods, Inc.
+  - `GIS` (NYSE) General Mills, Inc.
+  - `HLF` (NYSE) Herbalife Ltd.
+  - `HRL` (NYSE) Hormel Foods Corporation
+  - `INGR` (NYSE) Ingredion Incorporated
+  - `LSF` (NYSE) Laird Superfood, Inc.
+  - `LW` (NYSE) Lamb Weston Holdings, Inc.
+  - `MKC` (NYSE) McCormick & Company, Incorporated
+  - `NOMD` (NYSE) Nomad Foods Limited
+  - `POST` (NYSE) Post Holdings, Inc.
+  - `THS` (NYSE) Treehouse Foods Inc
+  - `UTZ` (NYSE) Utz Brands, Inc.
+- **Education & Training Services** — 13 companies
+  - `ATGE` (NYSE) Adtalem Global Education Inc
+  - `CHGG` (NYSE) Chegg, Inc.
+  - `COE` (NYSE) 51Talk Online Education Group
+  - `COUR` (NYSE) Coursera, Inc.
+  - `DAO` (NYSE) Youdao, Inc.
+  - `EDU` (NYSE) New Oriental Education & Technology Group Inc.
+  - `FC` (NYSE) Franklin Covey Co.
+  - `FEDU` (NYSE) Four Seasons Education (Cayman) Inc.
+  - `GOTU` (NYSE) Gaotu Techedu Inc.
+  - `LRN` (NYSE) Stride, Inc.
+  - `SKIL` (NYSE) Skillsoft Corp.
+  - `TAL` (NYSE) TAL Education Group
+  - `UTI` (NYSE) Universal Technical Institute, Inc.
+- **Household & Personal Products** — 12 companies
+  - `ACU` (NYSE) Acme United Corporation
+  - `CHD` (NYSE) Church & Dwight Co., Inc.
+  - `COTY` (NYSE) Coty Inc.
+  - `EL` (NYSE) The Estée Lauder Companies Inc.
+  - `ELF` (NYSE) e.l.f. Beauty, Inc.
+  - `EPC` (NYSE) Edgewell Personal Care Company
+  - `GROV` (NYSE) Grove Collaborative Holdings, Inc.
+  - `KMB` (NYSE) Kimberly-Clark Corporation
+  - `NUS` (NYSE) Nu Skin Enterprises, Inc.
+  - `NWL` (NYSE) Newell Brands Inc.
+  - `PG` (NYSE) The Procter & Gamble Company
+  - `SPB` (NYSE) Spectrum Brands Holdings, Inc.
+- **Farm Products** — 6 companies
+  - `ADM` (NYSE) Archer-Daniels-Midland Company
+  - `BG` (NYSE) Bunge Global SA
+  - `CALM` (NYSE) Cal-Maine Foods, Inc.
+  - `DOLE` (NYSE) Dole plc
+  - `LOCL` (NYSE) Local Bounti Corporation
+  - `TSN` (NYSE) Tyson Foods, Inc.
+- **Tobacco** — 6 companies
+  - `BTI` (NYSE) British American Tobacco p.l.c.
+  - `GRAM` (NYSE) Gold Flora Corporation
+  - `MO` (NYSE) Altria Group, Inc.
+  - `TPB` (NYSE) Turning Point Brands, Inc.
+  - `UVV` (NYSE) Universal Corporation
+  - `XXII` (NYSE) 22nd Century Group, Inc.
+- **Beverages - Brewers** — 4 companies
+  - `ABEV` (NYSE) Ambev S.A.
+  - `BUD` (NYSE) Anheuser-Busch InBev SA/NV
+  - `FMX` (NYSE) Fomento Económico Mexicano, S.A.B. de C.V.
+  - `STZ` (NYSE) Constellation Brands, Inc.
+- **Beverages - Non-Alcoholic** — 4 companies
+  - `AKO-B` (NYSE) Embotelladora Andina S.A.
+  - `KO` (NYSE) The Coca-Cola Company
+  - `KOF` (NYSE) Coca-Cola FEMSA, S.A.B. de C.V.
+  - `PEP` (NYSE) PepsiCo, Inc.
+- **Discount Stores** — 4 companies
+  - `BJ` (NYSE) BJ's Wholesale Club Holdings, Inc.
+  - `DG` (NYSE) Dollar General Corporation
+  - `TGT` (NYSE) Target Corporation
+  - `WMT` (NYSE) Walmart Inc.
+- **Food Distribution** — 4 companies
+  - `DIT` (NYSE) AMCON Distributing Company
+  - `PFGC` (NYSE) Performance Food Group Company
+  - `SYY` (NYSE) Sysco Corporation
+  - `USFD` (NYSE) US Foods Holding Corp.
+- **Grocery Stores** — 3 companies
+  - `KR` (NYSE) The Kroger Co.
+  - `NGVC` (NYSE) Natural Grocers by Vitamin Cottage, Inc.
+  - `WMK` (NYSE) Weis Markets, Inc.
+- **Beverages - Wineries & Distilleries** — 1 companies
+  - `SBEV` (NYSE) Splash Beverage Group, Inc.
+- **Confectioners** — 1 companies
+  - `HSY` (NYSE) The Hershey Company
+
+## Energy (135 companies)
+
+- **Oil & Gas E&P** — 43 companies
+  - `AMPY` (NYSE) Amplify Energy Corp.
+  - `APA` (NYSE) APA Corporation
+  - `AR` (NYSE) Antero Resources Corporation
+  - `BATL` (NYSE) Battalion Oil Corporation
+  - `BSM` (NYSE) Black Stone Minerals, L.P.
+  - `BTE` (NYSE) Baytex Energy Corp.
+  - `CIVI` (NYSE) Civitas Resources, Inc.
+  - `CNX` (NYSE) CNX Resources Corporation
+  - `COP` (NYSE) ConocoPhillips
+  - `CRC` (NYSE) California Resources Corporation
+  - `CRGY` (NYSE) Crescent Energy Company
+  - `CRK` (NYSE) Comstock Resources, Inc.
+  - `CRT` (NYSE) Cross Timbers Royalty Trust
+  - `CTRA` (NYSE) Coterra Energy Inc.
+  - `DVN` (NYSE) Devon Energy Corporation
+  - `EGY` (NYSE) VAALCO Energy, Inc.
+  - `EOG` (NYSE) EOG Resources, Inc.
+  - `GPRK` (NYSE) GeoPark Limited
+  - `GRNT` (NYSE) Granite Ridge Resources, Inc.
+  - `KOS` (NYSE) Kosmos Energy Ltd.
+  - `KRP` (NYSE) Kimbell Royalty Partners, LP
+  - `MGY` (NYSE) Magnolia Oil & Gas Corporation
+  - `MTDR` (NYSE) Matador Resources Company
+  - `MTR` (NYSE) Mesa Royalty Trust
+  - `MUR` (NYSE) Murphy Oil Corporation
+  - `NOG` (NYSE) Northern Oil and Gas, Inc.
+  - `NRT` (NYSE) North European Oil Royalty Trust
+  - `OXY` (NYSE) Occidental Petroleum Corporation
+  - `PED` (NYSE) PEDEVCO Corp.
+  - `PR` (NYSE) Permian Resources Corporation
+  - `PRT` (NYSE) PermRock Royalty Trust
+  - `PVL` (NYSE) Permianville Royalty Trust
+  - `REI` (NYSE) Ring Energy, Inc.
+  - `REPX` (NYSE) Riley Exploration Permian, Inc.
+  - `RRC` (NYSE) Range Resources Corporation
+  - `SD` (NYSE) SandRidge Energy, Inc.
+  - `SJT` (NYSE) San Juan Basin Royalty Trust
+  - `SM` (NYSE) SM Energy Company
+  - `TPL` (NYSE) Texas Pacific Land Corporation
+  - `VIST` (NYSE) Vista Energy, S.A.B. de C.V.
+  - `VTS` (NYSE) Vitesse Energy, Inc.
+  - `WDS` (NYSE) Woodside Energy Group Ltd
+  - `WTI` (NYSE) W&T Offshore, Inc.
+- **Oil & Gas Midstream** — 31 companies
+  - `AM` (NYSE) Antero Midstream Corporation
+  - `CQP` (NYSE) Cheniere Energy Partners, L.P.
+  - `DHT` (NYSE) DHT Holdings, Inc.
+  - `DLNG` (NYSE) Dynagas LNG Partners LP
+  - `DTM` (NYSE) DT Midstream, Inc.
+  - `EE` (NYSE) Excelerate Energy, Inc.
+  - `EPD` (NYSE) Enterprise Products Partners L.P.
+  - `ET` (NYSE) Energy Transfer LP
+  - `FLNG` (NYSE) FLEX LNG Ltd.
+  - `FRO` (NYSE) Frontline plc
+  - `GLP` (NYSE) Global Partners LP
+  - `HESM` (NYSE) Hess Midstream LP
+  - `INSW` (NYSE) International Seaways, Inc.
+  - `KMI` (NYSE) Kinder Morgan, Inc.
+  - `KNOP` (NYSE) KNOT Offshore Partners LP
+  - `KNTK` (NYSE) Kinetik Holdings Inc.
+  - `LPG` (NYSE) Dorian LPG Ltd.
+  - `MPLX` (NYSE) MPLX LP
+  - `NAT` (NYSE) Nordic American Tankers Limited
+  - `NGL` (NYSE) NGL Energy Partners LP
+  - `NVGS` (NYSE) Navigator Holdings Ltd.
+  - `PAA` (NYSE) Plains All American Pipeline, L.P.
+  - `PAGP` (NYSE) Plains GP Holdings, L.P.
+  - `PBT` (NYSE) Permian Basin Royalty Trust
+  - `SBR` (NYSE) Sabine Royalty Trust
+  - `STNG` (NYSE) Scorpio Tankers Inc.
+  - `TEN` (NYSE) Tsakos Energy Navigation Limited
+  - `TK` (NYSE) Teekay Corporation Ltd.
+  - `TNK` (NYSE) Teekay Tankers Ltd.
+  - `WES` (NYSE) Western Midstream Partners, LP
+  - `WMB` (NYSE) The Williams Companies, Inc.
+- **Oil & Gas Equipment & Services** — 29 companies
+  - `AESI` (NYSE) Atlas Energy Solutions Inc.
+  - `AROC` (NYSE) Archrock, Inc.
+  - `BKR` (NYSE) Baker Hughes Company
+  - `CLB` (NYSE) Core Laboratories Inc.
+  - `ENSV` (NYSE) Enservco Corporation
+  - `FET` (NYSE) Forum Energy Technologies, Inc.
+  - `FTI` (NYSE) TechnipFMC plc
+  - `FTK` (NYSE) Flotek Industries, Inc.
+  - `HAL` (NYSE) Halliburton Company
+  - `HLX` (NYSE) Helix Energy Solutions Group, Inc.
+  - `KGS` (NYSE) Kodiak Gas Services, Inc.
+  - `LB` (NYSE) LandBridge Company LLC
+  - `LBRT` (NYSE) Liberty Energy Inc.
+  - `NINE` (NYSE) Nine Energy Service, Inc.
+  - `NOV` (NYSE) NOV Inc.
+  - `OII` (NYSE) Oceaneering International, Inc.
+  - `OIS` (NYSE) Oil States International, Inc.
+  - `PUMP` (NYSE) ProPetro Holding Corp.
+  - `RES` (NYSE) RPC, Inc.
+  - `RNGR` (NYSE) Ranger Energy Services, Inc.
+  - `SLB` (NYSE) SLB N.V.
+  - `TDW` (NYSE) Tidewater Inc.
+  - `TS` (NYSE) Tenaris S.A.
+  - `USAC` (NYSE) USA Compression Partners, LP
+  - `VAL` (NYSE) Valaris Limited
+  - `VTOL` (NYSE) Bristow Group Inc.
+  - `WHD` (NYSE) Cactus, Inc.
+  - `WTTR` (NYSE) Select Water Solutions, Inc.
+  - `XPRO` (NYSE) Expro Group Holdings N.V.
+- **Oil & Gas Refining & Marketing** — 13 companies
+  - `CAPL` (NYSE) CrossAmerica Partners LP
+  - `CVI` (NYSE) CVR Energy, Inc.
+  - `DINO` (NYSE) HF Sinclair Corporation
+  - `DK` (NYSE) Delek US Holdings, Inc.
+  - `DKL` (NYSE) Delek Logistics Partners, LP
+  - `MPC` (NYSE) Marathon Petroleum Corporation
+  - `PARR` (NYSE) Par Pacific Holdings, Inc.
+  - `PBF` (NYSE) PBF Energy Inc.
+  - `PSX` (NYSE) Phillips 66
+  - `SGU` (NYSE) Star Group, L.P.
+  - `SUN` (NYSE) Sunoco LP
+  - `UGP` (NYSE) Ultrapar Participações S.A.
+  - `VLO` (NYSE) Valero Energy Corporation
+- **Oil & Gas Integrated** — 7 companies
+  - `CVX` (NYSE) Chevron Corporation
+  - `NFG` (NYSE) National Fuel Gas Company
+  - `PBR` (NYSE) Petróleo Brasileiro S.A. - Petrobras
+  - `SHEL` (NYSE) Shell plc
+  - `TTE` (NYSE) TotalEnergies SE
+  - `XOM` (NYSE) Exxon Mobil Corporation
+  - `YPF` (NYSE) YPF Sociedad Anónima
+- **Oil & Gas Drilling** — 5 companies
+  - `BORR` (NYSE) Borr Drilling Limited
+  - `HP` (NYSE) Helmerich & Payne, Inc.
+  - `NE` (NYSE) Noble Corporation plc
+  - `SDRL` (NYSE) Seadrill Limited
+  - `SOC` (NYSE) Sable Offshore Corp.
+- **Thermal Coal** — 4 companies
+  - `BTU` (NYSE) Peabody Energy Corporation
+  - `CNR` (NYSE) Core Natural Resources, Inc.
+  - `NC` (NYSE) NACCO Industries, Inc.
+  - `NRP` (NYSE) Natural Resource Partners L.P.
+- **Uranium** — 3 companies
+  - `LEU` (NYSE) Centrus Energy Corp.
+  - `UEC` (NYSE) Uranium Energy Corp.
+  - `UUUU` (NYSE) Energy Fuels Inc.
+
+## Financial Services (220 companies)
+
+- **Banks - Regional** — 47 companies
+  - `ASB` (NYSE) Associated Banc-Corp
+  - `AX` (NYSE) Axos Financial, Inc.
+  - `BANC` (NYSE) Banc of California, Inc.
+  - `BAP` (NYSE) Credicorp Ltd.
+  - `BHB` (NYSE) Bar Harbor Bankshares
+  - `BKU` (NYSE) BankUnited, Inc.
+  - `BLX` (NYSE) Banco Latinoamericano de Comercio Exterior, S. A.
+  - `BOH` (NYSE) Bank of Hawaii Corporation
+  - `BSAC` (NYSE) Banco Santander-Chile
+  - `BY` (NYSE) Byline Bancorp, Inc.
+  - `CADE` (NYSE) Cadence Bank
+  - `CBU` (NYSE) Community Financial System, Inc.
+  - `CFG` (NYSE) Citizens Financial Group, Inc.
+  - `CPF` (NYSE) Central Pacific Financial Corp.
+  - `CZFS` (NYSE) Citizens Financial Services, Inc.
+  - `DB` (NYSE) Deutsche Bank Aktiengesellschaft
+  - `FBK` (NYSE) FB Financial Corporation
+  - `FBP` (NYSE) First BanCorp.
+  - `FCF` (NYSE) First Commonwealth Financial Corporation
+  - `FNB` (NYSE) F.N.B. Corporation
+  - `HBAN` (NYSE) Huntington Bancshares Incorporated
+  - `HDB` (NYSE) HDFC Bank Limited
+  - `IBN` (NYSE) ICICI Bank Limited
+  - `KB` (NYSE) KB Financial Group Inc.
+  - `KEY` (NYSE) KeyCorp
+  - `LC` (NYSE) LendingClub Corporation
+  - `MCB` (NYSE) Metropolitan Bank Holding Corp.
+  - `MFG` (NYSE) Mizuho Financial Group, Inc.
+  - `MTB` (NYSE) M&T Bank Corporation
+  - `NBHC` (NYSE) National Bank Holdings Corporation
+  - `NU` (NYSE) Nu Holdings Ltd.
+  - `NWG` (NYSE) NatWest Group plc
+  - `OFG` (NYSE) OFG Bancorp
+  - `ONB` (NYSE) Old National Bancorp
+  - `PFS` (NYSE) Provident Financial Services, Inc.
+  - `PNC` (NYSE) The PNC Financial Services Group, Inc.
+  - `PRK` (NYSE) Park National Corporation
+  - `SHG` (NYSE) Shinhan Financial Group Co., Ltd.
+  - `STEL` (NYSE) Stellar Bancorp, Inc.
+  - `SUPV` (NYSE) Grupo Supervielle S.A.
+  - `TFC` (NYSE) Truist Financial Corporation
+  - `TMP` (NYSE) Tompkins Financial Corporation
+  - `USB` (NYSE) U.S. Bancorp
+  - `VLY` (NYSE) Valley National Bancorp
+  - `WAL` (NYSE) Western Alliance Bancorporation
+  - `WBS` (NYSE) Webster Financial Corporation
+  - `WF` (NYSE) Woori Financial Group Inc.
+- **Asset Management** — 46 companies
+  - `AB` (NYSE) AllianceBernstein Holding L.P.
+  - `ADX` (NYSE) Adams Diversified Equity Fund, Inc.
+  - `AMG` (NYSE) Affiliated Managers Group, Inc.
+  - `AMP` (NYSE) Ameriprise Financial, Inc.
+  - `APAM` (NYSE) Artisan Partners Asset Management Inc.
+  - `APO` (NYSE) Apollo Global Management, Inc.
+  - `ARDC` (NYSE) Ares Dynamic Credit Allocation Fund, Inc.
+  - `ARES` (NYSE) Ares Management Corporation
+  - `ASA` (NYSE) ASA Gold and Precious Metals Limited
+  - `AVX` (NYSE) Avax One Technology Ltd.
+  - `BAM` (NYSE) Brookfield Asset Management Ltd.
+  - `BLK` (NYSE) BlackRock, Inc.
+  - `BN` (NYSE) Brookfield Corporation
+  - `BX` (NYSE) Blackstone Inc.
+  - `CNS` (NYSE) Cohen & Steers, Inc.
+  - `CRBG` (NYSE) Corebridge Financial, Inc.
+  - `DBRG` (NYSE) DigitalBridge Group, Inc.
+  - `EARN` (NYSE) Ellington Credit Company
+  - `ECC` (NYSE) Eagle Point Credit Company Inc.
+  - `EQH` (NYSE) Equitable Holdings, Inc.
+  - `EQS` (NYSE) Equus Total Return, Inc.
+  - `FSK` (NYSE) FS KKR Capital Corp.
+  - `GAM` (NYSE) General American Investors Company, Inc.
+  - `HASI` (NYSE) HA Sustainable Infrastructure Capital, Inc.
+  - `IVZ` (NYSE) Invesco Ltd.
+  - `JHG` (NYSE) Janus Henderson Group plc
+  - `KF` (NYSE) The Korea Fund, Inc.
+  - `KKR` (NYSE) KKR & Co. Inc.
+  - `MAIN` (NYSE) Main Street Capital Corporation
+  - `MXE` (NYSE) Mexico Equity & Income Fund Inc.
+  - `MXF` (NYSE) The Mexico Fund, Inc.
+  - `NHS` (NYSE) Neuberger Berman Income Funds - Neuberger High Yield Strategies Fund Inc.
+  - `NMFC` (NYSE) New Mountain Finance Corporation
+  - `NOAH` (NYSE) Noah Holdings Limited
+  - `PMM` (NYSE) Putnam Managed Municipal Income Trust
+  - `PX` (NYSE) P10 Inc
+  - `RA` (NYSE) Brookfield Real Assets Income Fund Inc.
+  - `RJF` (NYSE) Raymond James Financial, Inc.
+  - `SAR` (NYSE) Saratoga Investment Corp.
+  - `SCM` (NYSE) Stellus Capital Investment Corporation
+  - `SPE` (NYSE) Special Opportunities Fund, Inc.
+  - `STT` (NYSE) State Street Corporation
+  - `TPVG` (NYSE) TriplePoint Venture Growth BDC Corp.
+  - `TSLX` (NYSE) Sixth Street Specialty Lending, Inc.
+  - `TSLX` (NYSE) Sixth Street Specialty Lending, Inc.
+  - `WHG` (NYSE) Westwood Holdings Group, Inc.
+- **Insurance - Property & Casualty** — 24 companies
+  - `AFG` (NYSE) American Financial Group, Inc.
+  - `AIZ` (NYSE) Assurant, Inc.
+  - `ALL` (NYSE) The Allstate Corporation
+  - `CB` (NYSE) Chubb Limited
+  - `CNA` (NYSE) CNA Financial Corporation
+  - `HCI` (NYSE) HCI Group, Inc.
+  - `HGTY` (NYSE) Hagerty, Inc.
+  - `HIPO` (NYSE) Hippo Holdings Inc.
+  - `HMN` (NYSE) Horace Mann Educators Corporation
+  - `HRTG` (NYSE) Heritage Insurance Holdings, Inc.
+  - `KMPR` (NYSE) Kemper Corporation
+  - `L` (NYSE) Loews Corporation
+  - `LMND` (NYSE) Lemonade, Inc.
+  - `MCY` (NYSE) Mercury General Corporation
+  - `MKL` (NYSE) Markel Group Inc.
+  - `ORI` (NYSE) Old Republic International Corporation
+  - `PGR` (NYSE) The Progressive Corporation
+  - `PRA` (NYSE) ProAssurance Corporation
+  - `RLI` (NYSE) RLI Corp.
+  - `STC` (NYSE) Stewart Information Services Corporation
+  - `THG` (NYSE) The Hanover Insurance Group, Inc.
+  - `TRV` (NYSE) The Travelers Companies, Inc.
+  - `WRB` (NYSE) W. R. Berkley Corporation
+  - `WTM` (NYSE) White Mountains Insurance Group, Ltd.
+- **Credit Services** — 20 companies
+  - `AGM` (NYSE) Federal Agricultural Mortgage Corporation
+  - `ALLY` (NYSE) Ally Financial Inc.
+  - `AXP` (NYSE) American Express Company
+  - `BFH` (NYSE) Bread Financial Holdings, Inc.
+  - `COF` (NYSE) Capital One Financial Corporation
+  - `ENVA` (NYSE) Enova International, Inc.
+  - `FINV` (NYSE) FinVolution Group
+  - `FOA` (NYSE) Finance of America Companies Inc.
+  - `GDOT` (NYSE) Green Dot Corporation
+  - `JCAP` (NYSE) Jefferson Capital, Inc.
+  - `MA` (NYSE) Mastercard Incorporated
+  - `NNI` (NYSE) Nelnet, Inc.
+  - `OMF` (NYSE) OneMain Holdings, Inc.
+  - `OPFI` (NYSE) OppFi Inc.
+  - `RM` (NYSE) Regional Management Corp.
+  - `SLM` (NYSE) SLM Corporation
+  - `SYF` (NYSE) Synchrony Financial
+  - `V` (NYSE) Visa Inc.
+  - `WU` (NYSE) The Western Union Company
+  - `XYF` (NYSE) X Financial
+- **Capital Markets** — 15 companies
+  - `CANG` (NYSE) Cango Inc.
+  - `COHN` (NYSE) Cohen & Company Inc.
+  - `EVR` (NYSE) Evercore Inc.
+  - `FRGE` (NYSE) Forge Global Holdings Inc
+  - `GS` (NYSE) The Goldman Sachs Group, Inc.
+  - `HLI` (NYSE) Houlihan Lokey, Inc.
+  - `JEF` (NYSE) Jefferies Financial Group Inc.
+  - `LAZ` (NYSE) Lazard, Inc.
+  - `MS` (NYSE) Morgan Stanley
+  - `OPY` (NYSE) Oppenheimer Holdings Inc.
+  - `PIPR` (NYSE) Piper Sandler Companies
+  - `PJT` (NYSE) PJT Partners Inc.
+  - `SCHW` (NYSE) The Charles Schwab Corporation
+  - `SF` (NYSE) Stifel Financial Corp.
+  - `SRL` (NYSE) Scully Royalty Ltd.
+- **Banks - Diversified** — 11 companies
+  - `BAC` (NYSE) Bank of America Corporation
+  - `BK` (NYSE) The Bank of New York Mellon Corporation
+  - `C` (NYSE) Citigroup Inc.
+  - `HSBC` (NYSE) HSBC Holdings plc
+  - `JPM` (NYSE) JPMorgan Chase & Co.
+  - `MUFG` (NYSE) Mitsubishi UFJ Financial Group, Inc.
+  - `NTB` (NYSE) The Bank of N.T. Butterfield & Son Limited
+  - `SMFG` (NYSE) Sumitomo Mitsui Financial Group, Inc.
+  - `UBS` (NYSE) UBS Group AG
+  - `WFC` (NYSE) Wells Fargo & Company
+  - `ntb` (NYSE) The Bank of N.T. Butterfield & Son Limited
+- **Insurance - Life** — 11 companies
+  - `ABX` (NYSE) Abacus Global Management, Inc.
+  - `AFL` (NYSE) Aflac Incorporated
+  - `CNO` (NYSE) CNO Financial Group, Inc.
+  - `FG` (NYSE) F&G Annuities & Life, Inc.
+  - `GL` (NYSE) Globe Life Inc.
+  - `GNW` (NYSE) Genworth Financial, Inc.
+  - `JXN` (NYSE) Jackson Financial Inc.
+  - `LNC` (NYSE) Lincoln National Corporation
+  - `PRI` (NYSE) Primerica, Inc.
+  - `PRU` (NYSE) Prudential Financial, Inc.
+  - `UNM` (NYSE) Unum Group
+- **Insurance - Specialty** — 10 companies
+  - `AGO` (NYSE) Assured Guaranty Ltd.
+  - `AXS` (NYSE) AXIS Capital Holdings Limited
+  - `EIG` (NYSE) Employers Holdings, Inc.
+  - `ESNT` (NYSE) Essent Group Ltd.
+  - `FAF` (NYSE) First American Financial Corporation
+  - `FNF` (NYSE) Fidelity National Financial, Inc.
+  - `MTG` (NYSE) MGIC Investment Corporation
+  - `OSG` (NYSE) Octave Specialty Group, Inc.
+  - `RDN` (NYSE) Radian Group Inc.
+  - `RYAN` (NYSE) Ryan Specialty Holdings, Inc.
+- **Mortgage Finance** — 9 companies
+  - `CNF` (NYSE) CNFinance Holdings Limited
+  - `FMCC` (NYSE) Federal Home Loan Mortgage Corporation
+  - `GHI` (NYSE) Greystone Housing Impact Investors LP
+  - `LDI` (NYSE) loanDepot, Inc.
+  - `PFSI` (NYSE) PennyMac Financial Services, Inc.
+  - `RKT` (NYSE) Rocket Companies, Inc.
+  - `UWMC` (NYSE) UWM Holdings Corporation
+  - `VEL` (NYSE) Velocity Financial, Inc.
+  - `WD` (NYSE) Walker & Dunlop, Inc.
+- **Insurance Brokers** — 7 companies
+  - `AJG` (NYSE) Arthur J. Gallagher & Co.
+  - `AON` (NYSE) Aon plc
+  - `BRO` (NYSE) Brown & Brown, Inc.
+  - `CRD-B` (NYSE) Crawford & Company
+  - `NP` (NYSE) Neptune Insurance Holdings Inc.
+  - `SLQT` (NYSE) SelectQuote, Inc.
+  - `WTW` (NYSE) Willis Towers Watson Public Limited Company
+- **Financial Data & Stock Exchanges** — 6 companies
+  - `FDS` (NYSE) FactSet Research Systems Inc.
+  - `ICE` (NYSE) Intercontinental Exchange, Inc.
+  - `MCO` (NYSE) Moody's Corporation
+  - `MSCI` (NYSE) MSCI Inc.
+  - `SPGI` (NYSE) S&P Global Inc.
+  - `TRU` (NYSE) TransUnion
+- **Insurance - Diversified** — 6 companies
+  - `AEG` (NYSE) Aegon Ltd.
+  - `AIG` (NYSE) American International Group, Inc.
+  - `BRK-A` (NYSE) Berkshire Hathaway Inc.
+  - `FIHL` (NYSE) Fidelis Insurance Holdings Limited
+  - `HIG` (NYSE) The Hartford Insurance Group, Inc.
+  - `SLF` (NYSE) Sun Life Financial Inc.
+- **Insurance - Reinsurance** — 4 companies
+  - `HG` (NYSE) Hamilton Insurance Group, Ltd.
+  - `RGA` (NYSE) Reinsurance Group of America, Incorporated
+  - `RNR` (NYSE) RenaissanceRe Holdings Ltd.
+  - `SPNT` (NYSE) SiriusPoint Ltd.
+- **Financial Conglomerates** — 2 companies
+  - `HTH` (NYSE) Hilltop Holdings Inc.
+  - `VOYA` (NYSE) Voya Financial, Inc.
+- **Shell Companies** — 2 companies
+  - `CUB` (NYSE) Lionheart Holdings
+  - `GRAF` (NYSE) Graf Global Corp.
+
+## Healthcare (127 companies)
+
+- **Medical Devices** — 27 companies
+  - `ABT` (NYSE) Abbott Laboratories
+  - `AORT` (NYSE) Artivion, Inc.
+  - `AVNS` (NYSE) Avanos Medical, Inc.
+  - `BFLY` (NYSE) Butterfly Network, Inc.
+  - `BIO` (NYSE) Bio-Rad Laboratories, Inc.
+  - `BSX` (NYSE) Boston Scientific Corporation
+  - `ELMD` (NYSE) Electromed, Inc.
+  - `ENOV` (NYSE) Enovis Corporation
+  - `EW` (NYSE) Edwards Lifesciences Corporation
+  - `GKOS` (NYSE) Glaukos Corporation
+  - `GMED` (NYSE) Globus Medical, Inc.
+  - `HAE` (NYSE) Haemonetics Corporation
+  - `INFU` (NYSE) InfuSystem Holdings, Inc.
+  - `INSP` (NYSE) Inspire Medical Systems, Inc.
+  - `ITGR` (NYSE) Integer Holdings Corporation
+  - `MDT` (NYSE) Medtronic plc
+  - `MYO` (NYSE) Myomo, Inc.
+  - `OWLT` (NYSE) Owlet, Inc.
+  - `PEN` (NYSE) Penumbra, Inc.
+  - `PHG` (NYSE) Koninklijke Philips N.V.
+  - `RBOT` (NYSE) Vicarious Surgical Inc.
+  - `SENS` (NYSE) Senseonics Holdings, Inc.
+  - `STE` (NYSE) STERIS plc
+  - `SYK` (NYSE) Stryker Corporation
+  - `VNRX` (NYSE) VolitionRx Limited
+  - `XTNT` (NYSE) Xtant Medical Holdings, Inc.
+  - `ZBH` (NYSE) Zimmer Biomet Holdings, Inc.
+- **Biotechnology** — 19 companies
+  - `ADCT` (NYSE) ADC Therapeutics SA
+  - `AMPE` (NYSE) Ampio Pharmaceuticals, Inc.
+  - `ATNM` (NYSE) Actinium Pharmaceuticals, Inc.
+  - `BHVN` (NYSE) Biohaven Ltd.
+  - `CARM` (NYSE) Carisma Therapeutics, Inc.
+  - `CRMD` (NYSE) CorMedix Inc.
+  - `CVM` (NYSE) CEL-SCI Corporation
+  - `DNA` (NYSE) Ginkgo Bioworks Holdings, Inc.
+  - `IBIO` (NYSE) iBio, Inc.
+  - `LCTX` (NYSE) Lineage Cell Therapeutics, Inc.
+  - `MAIA` (NYSE) MAIA Biotechnology, Inc.
+  - `MTNB` (NYSE) Matinas BioPharma Holdings, Inc.
+  - `NBY` (NYSE) NovaBay Pharmaceuticals, Inc.
+  - `NUVB` (NYSE) Nuvation Bio Inc.
+  - `OGEN` (NYSE) Oragenics, Inc.
+  - `PBYI` (NYSE) Puma Biotechnology, Inc.
+  - `PHGE` (NYSE) BiomX Inc.
+  - `RCUS` (NYSE) Arcus Biosciences, Inc.
+  - `ZYME` (NYSE) Zymeworks Inc.
+- **Medical Care Facilities** — 17 companies
+  - `AGL` (NYSE) agilon health, inc.
+  - `AMN` (NYSE) AMN Healthcare Services, Inc.
+  - `AMS` (NYSE) American Shared Hospital Services
+  - `BKD` (NYSE) Brookdale Senior Living Inc.
+  - `CCEL` (NYSE) Cryo-Cell International, Inc.
+  - `CHE` (NYSE) Chemed Corporation
+  - `CYH` (NYSE) Community Health Systems, Inc.
+  - `DVA` (NYSE) DaVita Inc.
+  - `EHAB` (NYSE) Enhabit, Inc.
+  - `EHC` (NYSE) Encompass Health Corporation
+  - `FMS` (NYSE) Fresenius Medical Care AG
+  - `HCA` (NYSE) HCA Healthcare, Inc.
+  - `MD` (NYSE) Pediatrix Medical Group, Inc.
+  - `SEM` (NYSE) Select Medical Holdings Corporation
+  - `SNDA` (NYSE) Sonida Senior Living, Inc.
+  - `THC` (NYSE) Tenet Healthcare Corporation
+  - `UHS` (NYSE) Universal Health Services, Inc.
+- **Drug Manufacturers - Specialty & Generic** — 12 companies
+  - `AMRX` (NYSE) Amneal Pharmaceuticals, Inc.
+  - `BHC` (NYSE) Bausch Health Companies Inc.
+  - `CGC` (NYSE) Canopy Growth Corporation
+  - `EBS` (NYSE) Emergent BioSolutions Inc.
+  - `ELAN` (NYSE) Elanco Animal Health Incorporated
+  - `HIMS` (NYSE) Hims & Hers Health, Inc.
+  - `PBH` (NYSE) Prestige Consumer Healthcare Inc.
+  - `RDY` (NYSE) Dr. Reddy's Laboratories Limited
+  - `TAK` (NYSE) Takeda Pharmaceutical Company Limited
+  - `TEVA` (NYSE) Teva Pharmaceutical Industries Limited
+  - `YCBD` (NYSE) cbdMD, Inc.
+  - `ZTS` (NYSE) Zoetis Inc.
+- **Medical Instruments & Supplies** — 12 companies
+  - `ALC` (NYSE) Alcon Inc.
+  - `ATR` (NYSE) AptarGroup, Inc.
+  - `AVTR` (NYSE) Avantor, Inc.
+  - `BAX` (NYSE) Baxter International Inc.
+  - `BLCO` (NYSE) Bausch + Lomb Corporation
+  - `COO` (NYSE) The Cooper Companies, Inc.
+  - `MLSS` (NYSE) Milestone Scientific Inc.
+  - `NVST` (NYSE) Envista Holdings Corporation
+  - `RMD` (NYSE) ResMed Inc.
+  - `RVP` (NYSE) Retractable Technologies, Inc.
+  - `TFX` (NYSE) Teleflex Incorporated
+  - `WST` (NYSE) West Pharmaceutical Services, Inc.
+- **Diagnostics & Research** — 10 companies
+  - `A` (NYSE) Agilent Technologies, Inc.
+  - `CRL` (NYSE) Charles River Laboratories International, Inc.
+  - `DGX` (NYSE) Quest Diagnostics Incorporated
+  - `LH` (NYSE) Labcorp Holdings Inc.
+  - `MTD` (NYSE) Mettler-Toledo International Inc.
+  - `OPK` (NYSE) OPKO Health, Inc.
+  - `PRE` (NYSE) Prenetics Global Limited
+  - `RVTY` (NYSE) Revvity, Inc.
+  - `TMO` (NYSE) Thermo Fisher Scientific Inc.
+  - `WAT` (NYSE) Waters Corporation
+- **Drug Manufacturers - General** — 10 companies
+  - `ABBV` (NYSE) AbbVie Inc.
+  - `BMY` (NYSE) Bristol-Myers Squibb Company
+  - `JNJ` (NYSE) Johnson & Johnson
+  - `LLY` (NYSE) Eli Lilly and Company
+  - `MRK` (NYSE) Merck & Co., Inc.
+  - `NVO` (NYSE) Novo Nordisk A/S
+  - `NVS` (NYSE) Novartis AG
+  - `OGN` (NYSE) Organon & Co.
+  - `PFE` (NYSE) Pfizer Inc.
+  - `SNY` (NYSE) Sanofi
+- **Health Information Services** — 8 companies
+  - `AMWL` (NYSE) American Well Corporation
+  - `DOCS` (NYSE) Doximity, Inc.
+  - `EVH` (NYSE) Evolent Health, Inc.
+  - `EVH` (NYSE) Evolent Health, Inc.
+  - `FOXO` (NYSE) FOXO Technologies Inc.
+  - `PHR` (NYSE) Phreesia, Inc.
+  - `TDOC` (NYSE) Teladoc Health, Inc.
+  - `VEEV` (NYSE) Veeva Systems Inc.
+- **Healthcare Plans** — 8 companies
+  - `CI` (NYSE) The Cigna Group
+  - `CNC` (NYSE) Centene Corporation
+  - `CVS` (NYSE) CVS Health Corporation
+  - `ELV` (NYSE) Elevance Health, Inc.
+  - `HUM` (NYSE) Humana Inc.
+  - `MOH` (NYSE) Molina Healthcare, Inc.
+  - `OSCR` (NYSE) Oscar Health, Inc.
+  - `UNH` (NYSE) UnitedHealth Group Incorporated
+- **Medical Distribution** — 4 companies
+  - `ACH` (NYSE) Accendra Health, Inc.
+  - `CAH` (NYSE) Cardinal Health, Inc.
+  - `COR` (NYSE) Cencora, Inc.
+  - `MCK` (NYSE) McKesson Corporation
+
+## Industrials (249 companies)
+
+- **Specialty Industrial Machinery** — 35 companies
+  - `AME` (NYSE) AMETEK, Inc.
+  - `BURU` (NYSE) Nuburu, Inc.
+  - `BW` (NYSE) Babcock & Wilcox Enterprises, Inc.
+  - `CMI` (NYSE) Cummins Inc.
+  - `CR` (NYSE) Crane Company
+  - `DCI` (NYSE) Donaldson Company, Inc.
+  - `DOV` (NYSE) Dover Corporation
+  - `EPAC` (NYSE) Enerpac Tool Group Corp.
+  - `ETN` (NYSE) Eaton Corporation plc
+  - `FLS` (NYSE) Flowserve Corporation
+  - `GNRC` (NYSE) Generac Holdings Inc.
+  - `GRC` (NYSE) The Gorman-Rupp Company
+  - `GTES` (NYSE) Gates Industrial Corporation plc
+  - `HI` (NYSE) Hillenbrand, Inc.
+  - `IEX` (NYSE) IDEX Corporation
+  - `IR` (NYSE) Ingersoll Rand Inc.
+  - `ITT` (NYSE) ITT Inc.
+  - `ITW` (NYSE) Illinois Tool Works Inc.
+  - `KAI` (NYSE) Kadant Inc.
+  - `LXFR` (NYSE) Luxfer Holdings PLC
+  - `MIR` (NYSE) Mirion Technologies, Inc.
+  - `MWA` (NYSE) Mueller Water Products, Inc.
+  - `NPO` (NYSE) Enpro Inc.
+  - `OTIS` (NYSE) Otis Worldwide Corporation
+  - `PH` (NYSE) Parker-Hannifin Corporation
+  - `PNR` (NYSE) Pentair plc
+  - `ROK` (NYSE) Rockwell Automation, Inc.
+  - `RRX` (NYSE) Regal Rexnord Corporation
+  - `SERV` (NYSE) Serve Robotics Inc.
+  - `SMR` (NYSE) NuScale Power Corporation
+  - `SXI` (NYSE) Standex International Corporation
+  - `THR` (NYSE) Thermon Group Holdings, Inc.
+  - `TNC` (NYSE) Tennant Company
+  - `WTS` (NYSE) Watts Water Technologies, Inc.
+  - `XYL` (NYSE) Xylem Inc.
+- **Aerospace & Defense** — 25 companies
+  - `ACHR` (NYSE) Archer Aviation Inc.
+  - `AIR` (NYSE) AAR Corp.
+  - `AIRI` (NYSE) Air Industries Group
+  - `BA` (NYSE) The Boeing Company
+  - `BWXT` (NYSE) BWX Technologies, Inc.
+  - `CDRE` (NYSE) Cadre Holdings, Inc.
+  - `CVU` (NYSE) CPI Aerostructures, Inc.
+  - `CW` (NYSE) Curtiss-Wright Corporation
+  - `DCO` (NYSE) Ducommun Incorporated
+  - `GD` (NYSE) General Dynamics Corporation
+  - `GE` (NYSE) GE Aerospace
+  - `HEI` (NYSE) HEICO Corporation
+  - `HWM` (NYSE) Howmet Aerospace Inc.
+  - `HXL` (NYSE) Hexcel Corporation
+  - `LHX` (NYSE) L3Harris Technologies, Inc.
+  - `LMT` (NYSE) Lockheed Martin Corporation
+  - `NOC` (NYSE) Northrop Grumman Corporation
+  - `NPK` (NYSE) National Presto Industries, Inc.
+  - `PKE` (NYSE) Park Aerospace Corp.
+  - `PL` (NYSE) Planet Labs PBC
+  - `RDW` (NYSE) Redwire Corporation
+  - `RTX` (NYSE) RTX Corporation
+  - `SPCE` (NYSE) Virgin Galactic Holdings, Inc.
+  - `TDG` (NYSE) TransDigm Group Incorporated
+  - `TXT` (NYSE) Textron Inc.
+- **Building Products & Equipment** — 16 companies
+  - `APT` (NYSE) Alpha Pro Tech, Ltd.
+  - `ARLO` (NYSE) Arlo Technologies, Inc.
+  - `ASPN` (NYSE) Aspen Aerogels, Inc.
+  - `AWI` (NYSE) Armstrong World Industries, Inc.
+  - `CARR` (NYSE) Carrier Global Corporation
+  - `JCI` (NYSE) Johnson Controls International plc
+  - `JELD` (NYSE) JELD-WEN Holding, Inc.
+  - `LII` (NYSE) Lennox International Inc.
+  - `LPX` (NYSE) Louisiana-Pacific Corporation
+  - `MAS` (NYSE) Masco Corporation
+  - `NX` (NYSE) Quanex Building Products Corporation
+  - `OC` (NYSE) Owens Corning
+  - `SPXC` (NYSE) SPX Technologies, Inc.
+  - `TREX` (NYSE) Trex Company, Inc.
+  - `TT` (NYSE) Trane Technologies plc
+  - `WMS` (NYSE) Advanced Drainage Systems, Inc.
+- **Engineering & Construction** — 15 companies
+  - `ACA` (NYSE) Arcosa, Inc.
+  - `AGX` (NYSE) Argan, Inc.
+  - `AMRC` (NYSE) Ameresco, Inc.
+  - `APG` (NYSE) APi Group Corporation
+  - `BLD` (NYSE) TopBuild Corp.
+  - `CDLR` (NYSE) Cadeler A/S
+  - `FIX` (NYSE) Comfort Systems USA, Inc.
+  - `FLR` (NYSE) Fluor Corporation
+  - `GVA` (NYSE) Granite Construction Incorporated
+  - `KBR` (NYSE) KBR, Inc.
+  - `MTZ` (NYSE) MasTec, Inc.
+  - `ORN` (NYSE) Orion Group Holdings, Inc.
+  - `PWR` (NYSE) Quanta Services, Inc.
+  - `TPC` (NYSE) Tutor Perini Corporation
+  - `VATE` (NYSE) INNOVATE Corp.
+- **Specialty Business Services** — 15 companies
+  - `ABM` (NYSE) ABM Industries Incorporated
+  - `AZZ` (NYSE) AZZ Inc.
+  - `BKSY` (NYSE) BlackSky Technology Inc.
+  - `BV` (NYSE) BrightView Holdings, Inc.
+  - `CBZ` (NYSE) CBIZ, Inc.
+  - `DLB` (NYSE) Dolby Laboratories, Inc.
+  - `GPN` (NYSE) Global Payments Inc.
+  - `NTIP` (NYSE) Network-1 Technologies, Inc.
+  - `PC` (NYSE) Premium Catering (Holdings) Limited
+  - `QUAD` (NYSE) Quad/Graphics, Inc.
+  - `RELX` (NYSE) RELX PLC
+  - `SPIR` (NYSE) Spire Global, Inc.
+  - `SST` (NYSE) System1, Inc.
+  - `TRI` (NYSE) Thomson Reuters Corporation
+  - `UNF` (NYSE) UniFirst Corporation
+- **Marine Shipping** — 14 companies
+  - `ASC` (NYSE) Ardmore Shipping Corporation
+  - `CMRE` (NYSE) Costamare Inc.
+  - `DAC` (NYSE) Danaos Corporation
+  - `DSX` (NYSE) Diana Shipping Inc.
+  - `GNK` (NYSE) Genco Shipping & Trading Limited
+  - `GSL` (NYSE) Global Ship Lease, Inc.
+  - `HSHP` (NYSE) Himalaya Shipping Ltd.
+  - `KEX` (NYSE) Kirby Corporation
+  - `MATX` (NYSE) Matson, Inc.
+  - `NMM` (NYSE) Navios Maritime Partners L.P.
+  - `RUBI` (NYSE) Rubico Inc.
+  - `SB` (NYSE) Safe Bulkers, Inc.
+  - `SFL` (NYSE) SFL Corporation Ltd.
+  - `SMHI` (NYSE) SEACOR Marine Holdings Inc.
+- **Electrical Equipment & Parts** — 12 companies
+  - `AMPX` (NYSE) Amprius Technologies, Inc.
+  - `ATKR` (NYSE) Atkore Inc.
+  - `AYI` (NYSE) Acuity Inc.
+  - `BE` (NYSE) Bloom Energy Corporation
+  - `ENR` (NYSE) Energizer Holdings, Inc.
+  - `ENS` (NYSE) EnerSys
+  - `GWH` (NYSE) ESS Tech, Inc.
+  - `HAYW` (NYSE) Hayward Holdings, Inc.
+  - `HUBB` (NYSE) Hubbell Incorporated
+  - `NVT` (NYSE) nVent Electric plc
+  - `STI` (NYSE) Solidion Technology, Inc.
+  - `VRT` (NYSE) Vertiv Holdings Co
+- **Farm & Heavy Construction Machinery** — 11 companies
+  - `AGCO` (NYSE) AGCO Corporation
+  - `ALG` (NYSE) Alamo Group Inc.
+  - `CAT` (NYSE) Caterpillar Inc.
+  - `DE` (NYSE) Deere & Company
+  - `HY` (NYSE) Hyster-Yale, Inc.
+  - `LNN` (NYSE) Lindsay Corporation
+  - `MTW` (NYSE) The Manitowoc Company, Inc.
+  - `OSK` (NYSE) Oshkosh Corporation
+  - `REVG` (NYSE) REV Group, Inc.
+  - `TEX` (NYSE) Terex Corporation
+  - `WNC` (NYSE) Wabash National Corporation
+- **Rental & Leasing Services** — 11 companies
+  - `AL` (NYSE) Air Lease Corporation
+  - `ALTG` (NYSE) Alta Equipment Group Inc.
+  - `CAR` (NYSE) Avis Budget Group, Inc.
+  - `CTOS` (NYSE) Custom Truck One Source, Inc.
+  - `FTAI` (NYSE) FTAI Aviation Ltd.
+  - `HRI` (NYSE) Herc Holdings Inc.
+  - `HTZ` (NYSE) Hertz Global Holdings, Inc.
+  - `PRG` (NYSE) PROG Holdings, Inc.
+  - `R` (NYSE) Ryder System, Inc.
+  - `URI` (NYSE) United Rentals, Inc.
+  - `VSTS` (NYSE) Vestis Corporation
+- **Conglomerates** — 10 companies
+  - `BBU` (NYSE) Brookfield Business Partners L.P.
+  - `DLX` (NYSE) Deluxe Corporation
+  - `HHS` (NYSE) Harte Hanks, Inc.
+  - `HON` (NYSE) Honeywell International Inc.
+  - `MMM` (NYSE) 3M Company
+  - `PAM` (NYSE) Pampa Energía S.A.
+  - `SPLP` (NYSE) Steel Partners Holdings L.P.
+  - `TRC` (NYSE) Tejon Ranch Co.
+  - `TTI` (NYSE) TETRA Technologies, Inc.
+  - `VMI` (NYSE) Valmont Industries, Inc.
+- **Industrial Distribution** — 10 companies
+  - `AIT` (NYSE) Applied Industrial Technologies, Inc.
+  - `BXC` (NYSE) BlueLinx Holdings Inc.
+  - `CNM` (NYSE) Core & Main, Inc.
+  - `DNOW` (NYSE) DNOW Inc.
+  - `EVI` (NYSE) EVI Industries, Inc.
+  - `GIC` (NYSE) Global Industrial Company
+  - `GWW` (NYSE) W.W. Grainger, Inc.
+  - `MSM` (NYSE) MSC Industrial Direct Co., Inc.
+  - `SITE` (NYSE) SiteOne Landscape Supply, Inc.
+  - `WSO` (NYSE) Watsco, Inc.
+- **Security & Protection Services** — 10 companies
+  - `ADT` (NYSE) ADT Inc.
+  - `ALLE` (NYSE) Allegion plc
+  - `BCO` (NYSE) The Brink's Company
+  - `BRC` (NYSE) Brady Corporation
+  - `CIX` (NYSE) CompX International Inc.
+  - `CXW` (NYSE) CoreCivic, Inc.
+  - `GEO` (NYSE) The GEO Group, Inc.
+  - `MG` (NYSE) Mistras Group, Inc.
+  - `MSA` (NYSE) MSA Safety Incorporated
+  - `NL` (NYSE) NL Industries, Inc.
+- **Metal Fabrication** — 8 companies
+  - `CMC` (NYSE) Commercial Metals Company
+  - `CRS` (NYSE) Carpenter Technology Corporation
+  - `ESAB` (NYSE) ESAB Corporation
+  - `MEC` (NYSE) Mayville Engineering Company, Inc.
+  - `PRLB` (NYSE) Proto Labs, Inc.
+  - `RYI` (NYSE) Ryerson Holding Corp
+  - `TG` (NYSE) Tredegar Corporation
+  - `WOR` (NYSE) Worthington Enterprises, Inc.
+- **Staffing & Employment Services** — 8 companies
+  - `BGSF` (NYSE) BGSF, Inc.
+  - `JOB` (NYSE) GEE Group Inc.
+  - `KFY` (NYSE) Korn Ferry
+  - `MAN` (NYSE) ManpowerGroup Inc.
+  - `NSP` (NYSE) Insperity, Inc.
+  - `RHI` (NYSE) Robert Half Inc.
+  - `TBI` (NYSE) TrueBlue, Inc.
+  - `TNET` (NYSE) TriNet Group, Inc.
+- **Railroads** — 7 companies
+  - `CSX` (NYSE) CSX Corporation
+  - `GBX` (NYSE) The Greenbrier Companies, Inc.
+  - `NSC` (NYSE) Norfolk Southern Corporation
+  - `TRN` (NYSE) Trinity Industries, Inc.
+  - `UNP` (NYSE) Union Pacific Corporation
+  - `USDP` (NYSE) USD Partners LP
+  - `WAB` (NYSE) Westinghouse Air Brake Technologies Corporation
+- **Trucking** — 7 companies
+  - `CVLG` (NYSE) Covenant Logistics Group, Inc.
+  - `KNX` (NYSE) Knight-Swift Transportation Holdings Inc.
+  - `RRTS` (NYSE) Roadrunner Transportation Systems, Inc.
+  - `RXO` (NYSE) RXO, Inc.
+  - `SNDR` (NYSE) Schneider National, Inc.
+  - `TFII` (NYSE) TFI International Inc.
+  - `XPO` (NYSE) XPO, Inc.
+- **Airlines** — 6 companies
+  - `ALK` (NYSE) Alaska Air Group, Inc.
+  - `CPA` (NYSE) Copa Holdings, S.A.
+  - `DAL` (NYSE) Delta Air Lines, Inc.
+  - `LUV` (NYSE) Southwest Airlines Co.
+  - `UAL` (NYSE) United Airlines Holdings, Inc.
+  - `VLRS` (NYSE) Controladora Vuela Compañía de Aviación, S.A.B. de C.V.
+- **Integrated Freight & Logistics** — 6 companies
+  - `FDX` (NYSE) FedEx Corporation
+  - `GXO` (NYSE) GXO Logistics, Inc.
+  - `PBI` (NYSE) Pitney Bowes Inc.
+  - `RLGT` (NYSE) Radiant Logistics, Inc.
+  - `UPS` (NYSE) United Parcel Service, Inc.
+  - `ZTO` (NYSE) ZTO Express (Cayman) Inc.
+- **Tools & Accessories** — 6 companies
+  - `KMT` (NYSE) Kennametal Inc.
+  - `RBC` (NYSE) RBC Bearings Incorporated
+  - `SNA` (NYSE) Snap-on Incorporated
+  - `SWK` (NYSE) Stanley Black & Decker, Inc.
+  - `TKR` (NYSE) The Timken Company
+  - `TTC` (NYSE) The Toro Company
+- **Waste Management** — 5 companies
+  - `CLH` (NYSE) Clean Harbors, Inc.
+  - `MEG` (NYSE) Montrose Environmental Group, Inc.
+  - `NVRI` (NYSE) Enviri Corporation
+  - `RSG` (NYSE) Republic Services, Inc.
+  - `WM` (NYSE) Waste Management, Inc.
+- **Airports & Air Services** — 3 companies
+  - `CAAP` (NYSE) Corporación América Airports S.A.
+  - `JOBY` (NYSE) Joby Aviation, Inc.
+  - `UP` (NYSE) Wheels Up Experience Inc.
+- **Business Equipment & Supplies** — 3 companies
+  - `ACCO` (NYSE) ACCO Brands Corporation
+  - `EBF` (NYSE) Ennis, Inc.
+  - `XRX` (NYSE) Xerox Holdings Corporation
+- **Consulting Services** — 3 companies
+  - `BAH` (NYSE) Booz Allen Hamilton Holding Corporation
+  - `EFX` (NYSE) Equifax Inc.
+  - `FCN` (NYSE) FTI Consulting, Inc.
+- **Pollution & Treatment Controls** — 3 companies
+  - `FSS` (NYSE) Federal Signal Corporation
+  - `VLTO` (NYSE) Veralto Corporation
+  - `ZWS` (NYSE) Zurn Elkay Water Solutions Corporation
+
+## Real Estate (162 companies)
+
+- **REIT - Mortgage** — 27 companies
+  - `ABR` (NYSE) Arbor Realty Trust, Inc.
+  - `ACR` (NYSE) ACRES Commercial Realty Corp.
+  - `ACRE` (NYSE) Ares Commercial Real Estate Corporation
+  - `ARI` (NYSE) Apollo Commercial Real Estate Finance, Inc.
+  - `ARR` (NYSE) ARMOUR Residential REIT, Inc.
+  - `BRSP` (NYSE) BrightSpire Capital, Inc.
+  - `BXMT` (NYSE) Blackstone Mortgage Trust, Inc.
+  - `CHMI` (NYSE) Cherry Hill Mortgage Investment Corporation
+  - `CIM` (NYSE) Chimera Investment Corporation
+  - `CMTG` (NYSE) Claros Mortgage Trust, Inc.
+  - `DX` (NYSE) Dynex Capital, Inc.
+  - `FBRT` (NYSE) Franklin BSP Realty Trust, Inc.
+  - `GPMT` (NYSE) Granite Point Mortgage Trust Inc.
+  - `KREF` (NYSE) KKR Real Estate Finance Trust Inc.
+  - `LADR` (NYSE) Ladder Capital Corp
+  - `LFT` (NYSE) Lument Finance Trust, Inc.
+  - `MFA` (NYSE) MFA Financial, Inc.
+  - `MITT` (NYSE) TPG Mortgage Investment Trust, Inc.
+  - `NLY` (NYSE) Annaly Capital Management, Inc.
+  - `ORC` (NYSE) Orchid Island Capital, Inc.
+  - `PMT` (NYSE) PennyMac Mortgage Investment Trust
+  - `RC` (NYSE) Ready Capital Corporation
+  - `RITM` (NYSE) Rithm Capital Corp.
+  - `RWT` (NYSE) Redwood Trust, Inc.
+  - `SACH` (NYSE) Sachem Capital Corp.
+  - `STWD` (NYSE) Starwood Property Trust, Inc.
+  - `TRTX` (NYSE) TPG RE Finance Trust, Inc.
+- **REIT - Retail** — 23 companies
+  - `ADC` (NYSE) Agree Realty Corporation
+  - `AKR` (NYSE) Acadia Realty Trust
+  - `ALEX` (NYSE) Alexander & Baldwin Inc
+  - `ALX` (NYSE) Alexander's, Inc.
+  - `BFS` (NYSE) Saul Centers, Inc.
+  - `BRX` (NYSE) Brixmor Property Group Inc.
+  - `CBL` (NYSE) CBL & Associates Properties, Inc.
+  - `EPRT` (NYSE) Essential Properties Realty Trust, Inc.
+  - `FCPT` (NYSE) Four Corners Property Trust, Inc.
+  - `FRT` (NYSE) Federal Realty Investment Trust
+  - `GTY` (NYSE) Getty Realty Corp.
+  - `KRG` (NYSE) Kite Realty Group Trust
+  - `MAC` (NYSE) The Macerich Company
+  - `NNN` (NYSE) NNN REIT, Inc.
+  - `NTST` (NYSE) NETSTREIT Corp.
+  - `O` (NYSE) Realty Income Corporation
+  - `PINE` (NYSE) Alpine Income Property Trust, Inc.
+  - `REG` (NYSE) Regency Centers Corporation
+  - `SITC` (NYSE) SITE Centers Corp.
+  - `SKT` (NYSE) Tanger Inc.
+  - `SPG` (NYSE) Simon Property Group, Inc.
+  - `UE` (NYSE) Urban Edge Properties
+  - `WSR` (NYSE) Whitestone REIT
+- **REIT - Residential** — 18 companies
+  - `AIV` (NYSE) Apartment Investment and Management Company
+  - `AMH` (NYSE) American Homes 4 Rent
+  - `AVB` (NYSE) AvalonBay Communities, Inc.
+  - `BRT` (NYSE) BRT Apartments Corp.
+  - `CLPR` (NYSE) Clipper Realty Inc.
+  - `CPT` (NYSE) Camden Property Trust
+  - `CSR` (NYSE) Centerspace
+  - `ELME` (NYSE) Elme Communities
+  - `ELS` (NYSE) Equity LifeStyle Properties, Inc.
+  - `EQR` (NYSE) Equity Residential
+  - `ESS` (NYSE) Essex Property Trust, Inc.
+  - `INVH` (NYSE) Invitation Homes Inc.
+  - `IRT` (NYSE) Independence Realty Trust, Inc.
+  - `MAA` (NYSE) Mid-America Apartment Communities, Inc.
+  - `NXRT` (NYSE) NexPoint Residential Trust, Inc.
+  - `SUI` (NYSE) Sun Communities, Inc.
+  - `UDR` (NYSE) UDR, Inc.
+  - `VRE` (NYSE) Veris Residential, Inc.
+- **REIT - Office** — 15 companies
+  - `ARE` (NYSE) Alexandria Real Estate Equities, Inc.
+  - `BDN` (NYSE) Brandywine Realty Trust
+  - `BXP` (NYSE) BXP, Inc.
+  - `CDP` (NYSE) COPT Defense Properties
+  - `CUZ` (NYSE) Cousins Properties Incorporated
+  - `DEA` (NYSE) Easterly Government Properties, Inc.
+  - `DEI` (NYSE) Douglas Emmett, Inc.
+  - `FSP` (NYSE) Franklin Street Properties Corp.
+  - `HPP` (NYSE) Hudson Pacific Properties, Inc.
+  - `JBGS` (NYSE) JBG SMITH Properties
+  - `PDM` (NYSE) Piedmont Realty Trust, Inc.
+  - `PKST` (NYSE) Peakstone Realty Trust
+  - `PSTL` (NYSE) Postal Realty Trust, Inc.
+  - `SLG` (NYSE) SL Green Realty Corp.
+  - `VNO` (NYSE) Vornado Realty Trust
+- **Real Estate Services** — 15 companies
+  - `ARL` (NYSE) American Realty Investors, Inc.
+  - `CBRE` (NYSE) CBRE Group, Inc.
+  - `COMP` (NYSE) Compass, Inc.
+  - `CWK` (NYSE) Cushman & Wakefield Limited
+  - `DOUG` (NYSE) Douglas Elliman Inc.
+  - `IHS` (NYSE) IHS Holding Limited
+  - `JLL` (NYSE) Jones Lang LaSalle Incorporated
+  - `KW` (NYSE) Kennedy-Wilson Holdings, Inc.
+  - `MLP` (NYSE) Maui Land & Pineapple Company, Inc.
+  - `MMI` (NYSE) Marcus & Millichap, Inc.
+  - `NYC` (NYSE) American Strategic Investment Co.
+  - `OPAD` (NYSE) Offerpad Solutions Inc.
+  - `RFL` (NYSE) Rafael Holdings, Inc.
+  - `RMAX` (NYSE) RE/MAX Holdings, Inc.
+  - `TCI` (NYSE) Transcontinental Realty Investors, Inc.
+- **REIT - Hotel & Motel** — 13 companies
+  - `AHT` (NYSE) Ashford Hospitality Trust, Inc.
+  - `APLE` (NYSE) Apple Hospitality REIT, Inc.
+  - `BHR` (NYSE) Braemar Hotels & Resorts Inc.
+  - `CLDT` (NYSE) Chatham Lodging Trust
+  - `DRH` (NYSE) DiamondRock Hospitality Company
+  - `HST` (NYSE) Host Hotels & Resorts, Inc.
+  - `INN` (NYSE) Summit Hotel Properties, Inc.
+  - `PEB` (NYSE) Pebblebrook Hotel Trust
+  - `PK` (NYSE) Park Hotels & Resorts Inc.
+  - `RHP` (NYSE) Ryman Hospitality Properties, Inc.
+  - `RLJ` (NYSE) RLJ Lodging Trust
+  - `SHO` (NYSE) Sunstone Hotel Investors, Inc.
+  - `XHR` (NYSE) Xenia Hotels & Resorts, Inc.
+- **REIT - Industrial** — 13 companies
+  - `COLD` (NYSE) Americold Realty Trust, Inc.
+  - `CUBE` (NYSE) CubeSmart
+  - `EGP` (NYSE) EastGroup Properties, Inc.
+  - `EXR` (NYSE) Extra Space Storage Inc.
+  - `FR` (NYSE) First Industrial Realty Trust, Inc.
+  - `IIPR` (NYSE) Innovative Industrial Properties, Inc.
+  - `LXP` (NYSE) LXP Industrial Trust
+  - `NSA` (NYSE) National Storage Affiliates Trust
+  - `PLD` (NYSE) Prologis, Inc.
+  - `PSA` (NYSE) Public Storage
+  - `REXR` (NYSE) Rexford Industrial Realty, Inc.
+  - `STAG` (NYSE) STAG Industrial, Inc.
+  - `TRNO` (NYSE) Terreno Realty Corporation
+- **REIT - Diversified** — 11 companies
+  - `AAT` (NYSE) American Assets Trust, Inc.
+  - `AHH` (NYSE) Armada Hoffler Properties Inc
+  - `BNL` (NYSE) Broadstone Net Lease, Inc.
+  - `CTO` (NYSE) CTO Realty Growth, Inc.
+  - `ESRT` (NYSE) Empire State Realty Trust, Inc.
+  - `GNL` (NYSE) Global Net Lease, Inc.
+  - `NXDT` (NYSE) NexPoint Diversified Real Estate Trust
+  - `OLP` (NYSE) One Liberty Properties, Inc.
+  - `SAFE` (NYSE) Safehold Inc.
+  - `VICI` (NYSE) VICI Properties Inc.
+  - `WPC` (NYSE) W. P. Carey Inc.
+- **REIT - Healthcare Facilities** — 11 companies
+  - `AHR` (NYSE) American Healthcare REIT, Inc.
+  - `CHCT` (NYSE) Community Healthcare Trust Incorporated
+  - `DOC` (NYSE) Healthpeak Properties, Inc.
+  - `GMRE` (NYSE) Global Medical REIT Inc
+  - `HR` (NYSE) Healthcare Realty Trust Incorporated
+  - `LTC` (NYSE) LTC Properties, Inc.
+  - `MPW` (NYSE) Medical Properties Trust, Inc.
+  - `OHI` (NYSE) Omega Healthcare Investors, Inc.
+  - `UHT` (NYSE) Universal Health Realty Income Trust
+  - `VTR` (NYSE) Ventas, Inc.
+  - `WELL` (NYSE) Welltower Inc.
+- **REIT - Specialty** — 9 companies
+  - `AMT` (NYSE) American Tower Corporation
+  - `CCI` (NYSE) Crown Castle Inc.
+  - `DLR` (NYSE) Digital Realty Trust, Inc.
+  - `EPR` (NYSE) EPR Properties
+  - `FPI` (NYSE) Farmland Partners Inc.
+  - `IRM` (NYSE) Iron Mountain Incorporated
+  - `PCH` (NYSE) PotlatchDeltic Corporation
+  - `RYN` (NYSE) Rayonier Inc.
+  - `WY` (NYSE) Weyerhaeuser Company
+- **Real Estate - Development** — 6 companies
+  - `AXR` (NYSE) AMREP Corporation
+  - `FOR` (NYSE) Forestar Group Inc.
+  - `FPH` (NYSE) Five Point Holdings, LLC
+  - `OZ` (NYSE) Belpointe PREP, LLC
+  - `SKYH` (NYSE) Sky Harbour Group Corporation
+  - `TPHS` (NYSE) Trinity Place Holdings Inc.
+- **Real Estate - Diversified** — 1 companies
+  - `JOE` (NYSE) The St. Joe Company
+
+## Technology (157 companies)
+
+- **Software - Application** — 44 companies
+  - `ADP` (NYSE) Automatic Data Processing, Inc.
+  - `ALIT` (NYSE) Alight, Inc.
+  - `ASAN` (NYSE) Asana, Inc.
+  - `AZ` (NYSE) A2Z Cust2Mate Solutions Corp.
+  - `BILL` (NYSE) BILL Holdings, Inc.
+  - `BLND` (NYSE) Blend Labs, Inc.
+  - `CRM` (NYSE) Salesforce, Inc.
+  - `CWAN` (NYSE) Clearwater Analytics Holdings, Inc.
+  - `CXM` (NYSE) Sprinklr, Inc.
+  - `DBD` (NYSE) Diebold Nixdorf, Incorporated
+  - `DFIN` (NYSE) Donnelley Financial Solutions, Inc.
+  - `DHX` (NYSE) DHI Group, Inc.
+  - `DT` (NYSE) Dynatrace, Inc.
+  - `ESTC` (NYSE) Elastic N.V.
+  - `FICO` (NYSE) Fair Isaac Corporation
+  - `FSLY` (NYSE) Fastly, Inc.
+  - `GRND` (NYSE) Grindr Inc.
+  - `GWRE` (NYSE) Guidewire Software, Inc.
+  - `HUBS` (NYSE) HubSpot, Inc.
+  - `INUV` (NYSE) Inuvo, Inc.
+  - `LAW` (NYSE) CS Disco, Inc.
+  - `NATL` (NYSE) NCR Atleos Corporation
+  - `NOW` (NYSE) ServiceNow, Inc.
+  - `NRDY` (NYSE) Nerdy Inc.
+  - `ONTF` (NYSE) ON24, Inc.
+  - `OOMA` (NYSE) Ooma, Inc.
+  - `PAR` (NYSE) PAR Technology Corporation
+  - `PAYC` (NYSE) Paycom Software, Inc.
+  - `PCOR` (NYSE) Procore Technologies, Inc.
+  - `PD` (NYSE) PagerDuty, Inc.
+  - `QTWO` (NYSE) Q2 Holdings, Inc.
+  - `RNG` (NYSE) RingCentral, Inc.
+  - `ROP` (NYSE) Roper Technologies, Inc.
+  - `SAP` (NYSE) SAP SE
+  - `SEMR` (NYSE) Semrush Holdings, Inc.
+  - `SHOP` (NYSE) Shopify Inc.
+  - `SMRT` (NYSE) SmartRent, Inc.
+  - `SNOW` (NYSE) Snowflake Inc.
+  - `TYL` (NYSE) Tyler Technologies, Inc.
+  - `U` (NYSE) Unity Software Inc.
+  - `UBER` (NYSE) Uber Technologies, Inc.
+  - `WDAY` (NYSE) Workday, Inc.
+  - `WK` (NYSE) Workiva Inc.
+  - `YOU` (NYSE) Clear Secure, Inc.
+- **Software - Infrastructure** — 31 companies
+  - `AEVA` (NYSE) Aeva Technologies, Inc.
+  - `AI` (NYSE) C3.ai, Inc.
+  - `ATEN` (NYSE) A10 Networks, Inc.
+  - `BKKT` (NYSE) Bakkt, Inc.
+  - `BOX` (NYSE) Box, Inc.
+  - `CALX` (NYSE) Calix, Inc.
+  - `DAVA` (NYSE) Endava plc
+  - `DOCN` (NYSE) DigitalOcean Holdings, Inc.
+  - `DOX` (NYSE) Amdocs Limited
+  - `EVTC` (NYSE) EVERTEC, Inc.
+  - `FOUR` (NYSE) Shift4 Payments, Inc.
+  - `GDDY` (NYSE) GoDaddy Inc.
+  - `GEN` (NYSE) Gen Digital Inc.
+  - `IOT` (NYSE) Samsara Inc.
+  - `NET` (NYSE) Cloudflare, Inc.
+  - `ORCL` (NYSE) Oracle Corporation
+  - `PAGS` (NYSE) PagSeguro Digital Ltd.
+  - `PANW` (NYSE) Palo Alto Networks, Inc.
+  - `PATH` (NYSE) UiPath, Inc.
+  - `PAY` (NYSE) Paymentus Holdings, Inc.
+  - `PLTR` (NYSE) Palantir Technologies Inc.
+  - `RAMP` (NYSE) LiveRamp Holdings, Inc.
+  - `S` (NYSE) SentinelOne, Inc.
+  - `SAIL` (NYSE) SailPoint, Inc.
+  - `TDC` (NYSE) Teradata Corporation
+  - `TOST` (NYSE) Toast, Inc.
+  - `TWLO` (NYSE) Twilio Inc.
+  - `VRSN` (NYSE) VeriSign, Inc.
+  - `WEX` (NYSE) WEX Inc.
+  - `YEXT` (NYSE) Yext, Inc.
+  - `ZETA` (NYSE) Zeta Global Holdings Corp.
+- **Information Technology Services** — 25 companies
+  - `ACN` (NYSE) Accenture plc
+  - `ASGN` (NYSE) ASGN Incorporated
+  - `BBAI` (NYSE) BigBear.ai Holdings, Inc.
+  - `BR` (NYSE) Broadridge Financial Solutions, Inc.
+  - `CACI` (NYSE) CACI International Inc
+  - `CLVT` (NYSE) Clarivate Plc
+  - `CNDT` (NYSE) Conduent Incorporated
+  - `DXC` (NYSE) DXC Technology Company
+  - `EPAM` (NYSE) EPAM Systems, Inc.
+  - `FIS` (NYSE) Fidelity National Information Services, Inc.
+  - `G` (NYSE) Genpact Limited
+  - `GIB` (NYSE) CGI Inc.
+  - `GLOB` (NYSE) Globant S.A.
+  - `IBM` (NYSE) International Business Machines Corporation
+  - `INFY` (NYSE) Infosys Limited
+  - `IT` (NYSE) Gartner, Inc.
+  - `KD` (NYSE) Kyndryl Holdings, Inc.
+  - `LDOS` (NYSE) Leidos Holdings, Inc.
+  - `NABL` (NYSE) N-able, Inc.
+  - `NOTE` (NYSE) FiscalNote Holdings, Inc.
+  - `PSN` (NYSE) Parsons Corporation
+  - `SAIC` (NYSE) Science Applications International Corporation
+  - `UIS` (NYSE) Unisys Corporation
+  - `WIT` (NYSE) Wipro Limited
+  - `WYY` (NYSE) WidePoint Corporation
+- **Electronic Components** — 13 companies
+  - `APH` (NYSE) Amphenol Corporation
+  - `BHE` (NYSE) Benchmark Electronics, Inc.
+  - `CLS` (NYSE) Celestica Inc.
+  - `CTS` (NYSE) CTS Corporation
+  - `FN` (NYSE) Fabrinet
+  - `GLW` (NYSE) Corning Incorporated
+  - `JBL` (NYSE) Jabil Inc.
+  - `KN` (NYSE) Knowles Corporation
+  - `KULR` (NYSE) KULR Technology Group, Inc.
+  - `MPTI` (NYSE) M-tron Industries, Inc.
+  - `OUST` (NYSE) Ouster, Inc.
+  - `ROG` (NYSE) Rogers Corporation
+  - `TEL` (NYSE) TE Connectivity plc
+- **Semiconductors** — 13 companies
+  - `ADI` (NYSE) Analog Devices, Inc.
+  - `AMD` (NYSE) Advanced Micro Devices, Inc.
+  - `ASX` (NYSE) ASE Technology Holding Co., Ltd.
+  - `MU` (NYSE) Micron Technology, Inc.
+  - `MX` (NYSE) Magnachip Semiconductor Corporation
+  - `MXL` (NYSE) MaxLinear, Inc.
+  - `SQNS` (NYSE) Sequans Communications S.A.
+  - `STM` (NYSE) STMicroelectronics N.V.
+  - `TSM` (NYSE) Taiwan Semiconductor Manufacturing Company Limited
+  - `UMC` (NYSE) United Microelectronics Corporation
+  - `VLN` (NYSE) Valens Semiconductor Ltd.
+  - `VSH` (NYSE) Vishay Intertechnology, Inc.
+  - `WOLF` (NYSE) Wolfspeed, Inc.
+- **Scientific & Technical Instruments** — 8 companies
+  - `ESE` (NYSE) ESCO Technologies Inc.
+  - `FTV` (NYSE) Fortive Corporation
+  - `KEYS` (NYSE) Keysight Technologies, Inc.
+  - `LGL` (NYSE) The LGL Group, Inc.
+  - `ST` (NYSE) Sensata Technologies Holding plc
+  - `TDY` (NYSE) Teledyne Technologies Incorporated
+  - `VNT` (NYSE) Vontier Corporation
+  - `VPG` (NYSE) Vishay Precision Group, Inc.
+- **Computer Hardware** — 7 companies
+  - `ANET` (NYSE) Arista Networks, Inc.
+  - `DELL` (NYSE) Dell Technologies Inc.
+  - `HPQ` (NYSE) HP Inc.
+  - `IONQ` (NYSE) IonQ, Inc.
+  - `PSTG` (NYSE) Everpure, Inc.
+  - `QBTS` (NYSE) D-Wave Quantum Inc.
+  - `UAVS` (NYSE) AgEagle Aerial Systems, Inc.
+- **Communication Equipment** — 6 companies
+  - `BDC` (NYSE) Belden Inc.
+  - `HPE` (NYSE) Hewlett Packard Enterprise Company
+  - `MITQ` (NYSE) Moving iMage Technologies, Inc.
+  - `MSI` (NYSE) Motorola Solutions, Inc.
+  - `NOK` (NYSE) Nokia Oyj
+  - `UI` (NYSE) Ubiquiti Inc.
+- **Consumer Electronics** — 3 companies
+  - `LPL` (NYSE) LG Display Co., Ltd.
+  - `MSN` (NYSE) Emerson Radio Corp.
+  - `ZEPP` (NYSE) Zepp Health Corporation
+- **Semiconductor Equipment & Materials** — 3 companies
+  - `DQ` (NYSE) Daqo New Energy Corp.
+  - `ONTO` (NYSE) Onto Innovation Inc.
+  - `TRT` (NYSE) Trio-Tech International
+- **Electronics & Computer Distribution** — 2 companies
+  - `ARW` (NYSE) Arrow Electronics, Inc.
+  - `SNX` (NYSE) TD SYNNEX Corporation
+- **Solar** — 2 companies
+  - `JKS` (NYSE) JinkoSolar Holding Co., Ltd.
+  - `SPRU` (NYSE) Spruce Power Holding Corporation
+
+## Utilities (61 companies)
+
+- **Utilities - Regulated Electric** — 32 companies
+  - `AEE` (NYSE) Ameren Corporation
+  - `AEP` (NYSE) American Electric Power Company, Inc.
+  - `CMS` (NYSE) CMS Energy Corporation
+  - `CNP` (NYSE) CenterPoint Energy, Inc.
+  - `D` (NYSE) Dominion Energy, Inc.
+  - `DTE` (NYSE) DTE Energy Company
+  - `DUK` (NYSE) Duke Energy Corporation
+  - `ED` (NYSE) Consolidated Edison, Inc.
+  - `EDN` (NYSE) Empresa Distribuidora y Comercializadora Norte Sociedad Anónima
+  - `EIX` (NYSE) Edison International
+  - `ENIC` (NYSE) Enel Chile S.A.
+  - `ES` (NYSE) Eversource Energy
+  - `ETR` (NYSE) Entergy Corporation
+  - `EVRG` (NYSE) Evergy, Inc.
+  - `EXC` (NYSE) Exelon Corporation
+  - `FE` (NYSE) FirstEnergy Corp.
+  - `GNE` (NYSE) Genie Energy Ltd.
+  - `HE` (NYSE) Hawaiian Electric Industries, Inc.
+  - `IDA` (NYSE) IDACORP, Inc.
+  - `LNT` (NYSE) Alliant Energy Corporation
+  - `NEE` (NYSE) NextEra Energy, Inc.
+  - `NGG` (NYSE) National Grid plc
+  - `NWE` (NYSE) NorthWestern Energy Group, Inc.
+  - `OGE` (NYSE) OGE Energy Corp.
+  - `PCG` (NYSE) PG&E Corporation
+  - `PEG` (NYSE) Public Service Enterprise Group Incorporated
+  - `PNW` (NYSE) Pinnacle West Capital Corporation
+  - `POR` (NYSE) Portland General Electric Company
+  - `PPL` (NYSE) PPL Corporation
+  - `SO` (NYSE) The Southern Company
+  - `WEC` (NYSE) WEC Energy Group, Inc.
+  - `XEL` (NYSE) Xcel Energy Inc.
+- **Utilities - Regulated Gas** — 12 companies
+  - `ATO` (NYSE) Atmos Energy Corporation
+  - `BKH` (NYSE) Black Hills Corporation
+  - `CPK` (NYSE) Chesapeake Utilities Corporation
+  - `MDU` (NYSE) MDU Resources Group, Inc.
+  - `NI` (NYSE) NiSource Inc.
+  - `NJR` (NYSE) New Jersey Resources Corporation
+  - `NWN` (NYSE) Northwest Natural Holding Company
+  - `OGS` (NYSE) ONE Gas, Inc.
+  - `SPH` (NYSE) Suburban Propane Partners, L.P.
+  - `SR` (NYSE) Spire Inc.
+  - `SWX` (NYSE) Southwest Gas Holdings, Inc.
+  - `UGI` (NYSE) UGI Corporation
+- **Utilities - Diversified** — 5 companies
+  - `AES` (NYSE) The AES Corporation
+  - `AVA` (NYSE) Avista Corporation
+  - `BIP` (NYSE) Brookfield Infrastructure Partners L.P.
+  - `CIG` (NYSE) Companhia Energética de Minas Gerais - CEMIG
+  - `UTL` (NYSE) Unitil Corporation
+- **Utilities - Regulated Water** — 5 companies
+  - `AWK` (NYSE) American Water Works Company, Inc.
+  - `AWR` (NYSE) American States Water Company
+  - `CWT` (NYSE) California Water Service Group
+  - `SBS` (NYSE) Companhia de Saneamento Básico do Estado de São Paulo - SABESP
+  - `WTRG` (NYSE) Essential Utilities, Inc.
+- **Utilities - Renewable** — 4 companies
+  - `CWEN` (NYSE) Clearway Energy, Inc.
+  - `NRGV` (NYSE) Energy Vault Holdings, Inc.
+  - `ORA` (NYSE) Ormat Technologies, Inc.
+  - `STEM` (NYSE) Stem, Inc.
+- **Utilities - Independent Power Producers** — 3 companies
+  - `KEN` (NYSE) Kenon Holdings Ltd.
+  - `NRG` (NYSE) NRG Energy, Inc.
+  - `VST` (NYSE) Vistra Corp.

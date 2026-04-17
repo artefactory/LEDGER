@@ -1,0 +1,502 @@
+# Industry peer groups — LSE
+
+## Basic Materials (23 companies)
+
+- **Specialty Chemicals** — 6 companies
+  - `ELM.L` (LSE) Elementis plc
+  - `FUL` (LSE) H.B. Fuller Company
+  - `LOOP` (LSE) Loop Industries, Inc.
+  - `PPG` (LSE) PPG Industries, Inc.
+  - `PRM` (LSE) Perimeter Solutions, Inc.
+  - `SSTY` (LSE) Sure Trace Security Corporation
+- **Gold** — 4 companies
+  - `DC` (LSE) Dakota Gold Corp.
+  - `IAG` (LSE) IAMGOLD Corporation
+  - `TRX` (LSE) TRX Gold Corporation
+  - `iag` (LSE) IAMGOLD Corporation
+- **Other Industrial Metals & Mining** — 4 companies
+  - `ALM` (LSE) Almonty Industries Inc.
+  - `BHP` (LSE) BHP Group Limited
+  - `IPX` (LSE) IperionX Limited
+  - `KP2.L` (LSE) Kore Potash plc
+- **Agricultural Inputs** — 3 companies
+  - `MOS` (LSE) The Mosaic Company
+  - `OGN.L` (LSE) Origin Enterprises plc
+  - `SEED` (LSE) Origin Agritech Limited
+- **Steel** — 2 companies
+  - `SIM` (LSE) Grupo Simec, S.A.B. de C.V.
+  - `VSVS.L` (LSE) Vesuvius plc
+- **Building Materials** — 1 companies
+  - `BREE.L` (LSE) Breedon Group plc
+- **Copper** — 1 companies
+  - `CAML.L` (LSE) Central Asia Metals plc
+- **Other Precious Metals & Mining** — 1 companies
+  - `HL` (LSE) Hecla Mining Company
+- **Paper & Paper Products** — 1 companies
+  - `MERC` (LSE) Mercer International Inc.
+
+## Communication Services (18 companies)
+
+- **Advertising Agencies** — 7 companies
+  - `ACCS` (LSE) ACCESS Newswire Inc.
+  - `APP` (LSE) AppLovin Corporation
+  - `CAU.L` (LSE) Centaur Media Plc
+  - `FOUR.L` (LSE) 4imprint Group plc
+  - `MIRI.L` (LSE) Mirriad Advertising plc
+  - `MYSL` (LSE) My Screen Mobile, Inc.
+  - `WPP` (LSE) WPP plc
+- **Entertainment** — 5 companies
+  - `AMC` (LSE) AMC Entertainment Holdings, Inc.
+  - `FOX` (LSE) Fox Corporation
+  - `MCS` (LSE) The Marcus Corporation
+  - `SONG` (LSE) Music Licensing, Inc.
+  - `TKO` (LSE) TKO Group Holdings, Inc.
+- **Telecom Services** — 4 companies
+  - `AAF.L` (LSE) Airtel Africa Plc
+  - `GAMA.L` (LSE) Gamma Communications plc
+  - `HTWS.L` (LSE) Helios Towers plc
+  - `VOD` (LSE) Vodafone Group Public Limited Company
+- **Broadcasting** — 1 companies
+  - `BBGI` (LSE) Beasley Broadcast Group, Inc.
+- **Electronic Gaming & Multimedia** — 1 companies
+  - `MGAM` (LSE) Mobile Global Esports Inc.
+
+## Consumer Cyclical (30 companies)
+
+- **Specialty Retail** — 7 companies
+  - `BARK` (LSE) BARK, Inc.
+  - `BBY` (LSE) Best Buy Co., Inc.
+  - `DFS.L` (LSE) DFS Furniture plc
+  - `EYE` (LSE) National Vision Holdings, Inc.
+  - `FIVE` (LSE) Five Below, Inc.
+  - `PETS.L` (LSE) Pets at Home Group Plc
+  - `TSCO` (LSE) Tractor Supply Company
+- **Auto Parts** — 3 companies
+  - `ABDP.L` (LSE) AB Dynamics plc
+  - `OPTI` (LSE) Optec International, Inc.
+  - `SMP` (LSE) Standard Motor Products, Inc.
+- **Furnishings, Fixtures & Appliances** — 3 companies
+  - `SGI` (LSE) Somnigroup International Inc.
+  - `SN` (LSE) SharkNinja, Inc.
+  - `WHR` (LSE) Whirlpool Corporation
+- **Apparel Retail** — 2 companies
+  - `AEO` (LSE) American Eagle Outfitters, Inc.
+  - `CAL` (LSE) Caleres, Inc.
+- **Packaging & Containers** — 2 companies
+  - `MACF.L` (LSE) Macfarlane Group PLC
+  - `SEE` (LSE) Sealed Air Corporation
+- **Residential Construction** — 2 companies
+  - `GLV.L` (LSE) Glenveagh Properties PLC
+  - `SKY` (LSE) Champion Homes, Inc.
+- **Restaurants** — 2 companies
+  - `GRG.L` (LSE) Greggs plc
+  - `WEN` (LSE) The Wendy's Company
+- **Auto & Truck Dealerships** — 1 companies
+  - `PAG` (LSE) Penske Automotive Group, Inc.
+- **Footwear & Accessories** — 1 companies
+  - `DOCS.L` (LSE) Dr. Martens plc
+- **Home Improvement Retail** — 1 companies
+  - `HVT` (LSE) Haverty Furniture Companies, Inc.
+- **Internet Retail** — 1 companies
+  - `JD` (LSE) JD.com, Inc.
+- **Leisure** — 1 companies
+  - `HAS` (LSE) Hasbro, Inc.
+- **Lodging** — 1 companies
+  - `CHH` (LSE) Choice Hotels International, Inc.
+- **Personal Services** — 1 companies
+  - `ROL` (LSE) Rollins, Inc.
+- **Resorts & Casinos** — 1 companies
+  - `RRR` (LSE) Red Rock Resorts, Inc.
+- **Travel Services** — 1 companies
+  - `HSW.L` (LSE) Hostelworld Group plc
+
+## Consumer Defensive (16 companies)
+
+- **Packaged Foods** — 4 companies
+  - `BAKK.L` (LSE) Bakkavor Group plc
+  - `CYAN` (LSE) Cyanotech Corporation
+  - `FLO` (LSE) Flowers Foods, Inc.
+  - `THS` (LSE) Treehouse Foods Inc
+- **Farm Products** — 3 companies
+  - `ADM` (LSE) Archer-Daniels-Midland Company
+  - `CAM.L` (LSE) Camellia Plc
+  - `FDP` (LSE) Fresh Del Monte Produce Inc.
+- **Beverages - Non-Alcoholic** — 2 companies
+  - `BAG.L` (LSE) A.G. BARR p.l.c.
+  - `FEVR.L` (LSE) Fevertree Drinks PLC
+- **Household & Personal Products** — 2 companies
+  - `CLX` (LSE) The Clorox Company
+  - `PZC.L` (LSE) PZ Cussons plc
+- **Beverages - Brewers** — 1 companies
+  - `CCR.L` (LSE) C&C Group plc
+- **Beverages - Wineries & Distilleries** — 1 companies
+  - `WINE.L` (LSE) Naked Wines plc
+- **Discount Stores** — 1 companies
+  - `COST` (LSE) Costco Wholesale Corporation
+- **Grocery Stores** — 1 companies
+  - `SBRY.L` (LSE) J Sainsbury plc
+- **Tobacco** — 1 companies
+  - `IMB.L` (LSE) Imperial Brands PLC
+
+## Energy (20 companies)
+
+- **Oil & Gas E&P** — 9 companies
+  - `CRC` (LSE) California Resources Corporation
+  - `ENQ.L` (LSE) EnQuest PLC
+  - `EOG` (LSE) EOG Resources, Inc.
+  - `EQT` (LSE) EQT Corporation
+  - `GENL.L` (LSE) Genel Energy plc
+  - `GKP.L` (LSE) Gulf Keystone Petroleum Limited
+  - `MTR` (LSE) Mesa Royalty Trust
+  - `NOG` (LSE) Northern Oil and Gas, Inc.
+  - `PHAR.L` (LSE) Pharos Energy plc
+- **Oil & Gas Refining & Marketing** — 5 companies
+  - `BERI` (LSE) Blue Earth Resources, Inc.
+  - `DCC.L` (LSE) DCC plc
+  - `DKL` (LSE) Delek Logistics Partners, LP
+  - `NWF.L` (LSE) NWF Group plc
+  - `SUN` (LSE) Sunoco LP
+- **Oil & Gas Integrated** — 3 companies
+  - `BP` (LSE) BP p.l.c.
+  - `DEC.L` (LSE) Diversified Energy Company
+  - `SLNG` (LSE) Stabilis Solutions, Inc.
+- **Oil & Gas Equipment & Services** — 2 companies
+  - `VAL` (LSE) Valaris Limited
+  - `WBI` (LSE) WaterBridge Infrastructure LLC
+- **Oil & Gas Midstream** — 1 companies
+  - `PXS` (LSE) Pyxis Tankers Inc.
+
+## Financial Services (78 companies)
+
+- **Asset Management** — 40 companies
+  - `ACP` (LSE) Abrdn Income Credit Strategies Fund
+  - `AJB.L` (LSE) AJ Bell plc
+  - `BCG` (LSE) Binah Capital Group, Inc.
+  - `BME` (LSE) BlackRock Health Sciences Trust
+  - `BRK.L` (LSE) Brooks Macdonald Group plc
+  - `BRW` (LSE) Saba Capital Income & Opportunities Fund
+  - `BUR.L` (LSE) Burford Capital Limited
+  - `CGO` (LSE) Calamos Global Total Return Fund
+  - `CNS` (LSE) Cohen & Steers, Inc.
+  - `CWD` (LSE) CaliberCos Inc.
+  - `ETX` (LSE) Eaton Vance Municipal Income 2028 Term Trust
+  - `EVG` (LSE) Eaton Vance Short Duration Diversified Income Fund
+  - `GLV` (LSE) Clough Global Dividend and Income Fund
+  - `GROW` (LSE) U.S. Global Investors, Inc.
+  - `HVPE.L` (LSE) HarbourVest Global Private Equity Ltd.
+  - `IDE` (LSE) Voya Infrastructure, Industrials and Materials Fund
+  - `IDEA` (LSE) Invent Ventures, Inc.
+  - `IGR` (LSE) CBRE Global Real Estate Income Fund
+  - `IHP.L` (LSE) IntegraFin Holdings plc
+  - `LIO.L` (LSE) Liontrust Asset Management PLC
+  - `LIV.L` (LSE) Livermore Investments Group Limited
+  - `MHN` (LSE) BlackRock MuniHoldings New York Quality Fund, Inc.
+  - `MIN` (LSE) MFS Intermediate Income Trust
+  - `NBB` (LSE) Nuveen Taxable Municipal Income Fund
+  - `NESF.L` (LSE) NextEnergy Solar Fund Limited
+  - `OCI.L` (LSE) Oakley Capital Investments Limited
+  - `OPP` (LSE) RiverNorth/DoubleLine Strategic Opportunity Fund, Inc.
+  - `PCF` (LSE) High Income Securities Fund
+  - `PFD` (LSE) Flaherty & Crumrine Preferred Income Fund Inc.
+  - `PFG` (LSE) Principal Financial Group, Inc.
+  - `PMO` (LSE) Putnam Municipal Opportunities Trust
+  - `PTY` (LSE) PIMCO Corporate & Income Opportunity Fund
+  - `QLT.L` (LSE) Quilter plc
+  - `RIV` (LSE) RiverNorth Opportunities Fund, Inc.
+  - `RMM` (LSE) Rivernorth Managed Duration Municipal Income Fund Inc.
+  - `SBI` (LSE) Western Asset Intermediate Muni Fund Inc.
+  - `SPE` (LSE) Special Opportunities Fund, Inc.
+  - `TPG` (LSE) TPG Inc.
+  - `TRIN` (LSE) Trinity Capital Inc.
+  - `UTG` (LSE) Reaves Utility Income Fund
+- **Banks - Regional** — 9 companies
+  - `AIBG.L` (LSE) AIB Group plc
+  - `FCAP` (LSE) First Capital, Inc.
+  - `HARL` (LSE) Harleysville Financial Corporation
+  - `KEFI` (LSE) Keweenaw Financial Corporation
+  - `MCB` (LSE) Metropolitan Bank Holding Corp.
+  - `MTRO.L` (LSE) Metro Bank Holdings PLC
+  - `NWG` (LSE) NatWest Group plc
+  - `SHG` (LSE) Shinhan Financial Group Co., Ltd.
+  - `TOWN` (LSE) TowneBank
+- **Capital Markets** — 6 companies
+  - `CMCX.L` (LSE) CMC Markets Plc
+  - `CRCL` (LSE) Circle Internet Group
+  - `EVR` (LSE) Evercore Inc.
+  - `FRP.L` (LSE) FRP Advisory Group plc
+  - `SOS` (LSE) SOS Limited
+  - `TW` (LSE) Tradeweb Markets Inc.
+- **Insurance - Property & Casualty** — 4 companies
+  - `ALL` (LSE) The Allstate Corporation
+  - `CNA` (LSE) CNA Financial Corporation
+  - `PGR` (LSE) The Progressive Corporation
+  - `THG` (LSE) The Hanover Insurance Group, Inc.
+- **Insurance - Specialty** — 4 companies
+  - `ACT` (LSE) Enact Holdings, Inc.
+  - `AXS` (LSE) AXIS Capital Holdings Limited
+  - `ESNT` (LSE) Essent Group Ltd.
+  - `LRE.L` (LSE) Lancashire Holdings Limited
+- **Credit Services** — 3 companies
+  - `ASAI.L` (LSE) ASA International Group PLC
+  - `FCH.L` (LSE) Funding Circle Holdings plc
+  - `LIT.L` (LSE) Litigation Capital Management Limited
+- **Mortgage Finance** — 3 companies
+  - `FCRM` (LSE) Franklin Credit Management Corporation
+  - `MAB1.L` (LSE) Mortgage Advice Bureau (Holdings) plc
+  - `VEL` (LSE) Velocity Financial, Inc.
+- **Shell Companies** — 3 companies
+  - `CEPS` (LSE) Cantor Equity Partners VI, Inc.
+  - `CHAR` (LSE) Charlton Aria Acquisition Corporation
+  - `TAVI` (LSE) Tavia Acquisition Corp.
+- **Insurance - Life** — 2 companies
+  - `ELLA.L` (LSE) Ecclesiastical Insurance Office plc
+  - `PRU` (LSE) Prudential Financial, Inc.
+- **Banks - Diversified** — 1 companies
+  - `ING` (LSE) ING Groep N.V.
+- **Financial Conglomerates** — 1 companies
+  - `CGEO.L` (LSE) Georgia Capital PLC
+- **Financial Data & Stock Exchanges** — 1 companies
+  - `TRU` (LSE) TransUnion
+- **Insurance - Diversified** — 1 companies
+  - `AEG` (LSE) Aegon Ltd.
+
+## Healthcare (48 companies)
+
+- **Biotechnology** — 17 companies
+  - `ARTL` (LSE) Artelo Biosciences, Inc.
+  - `AURA` (LSE) Aura Biosciences, Inc.
+  - `ERGO` (LSE) Entia Biosciences, Inc.
+  - `FARN.L` (LSE) Faron Pharmaceuticals Oy
+  - `FUM.L` (LSE) Futura Medical plc
+  - `GRI` (LSE) GRI Bio, Inc.
+  - `IRON` (LSE) Disc Medicine, Inc.
+  - `KOD` (LSE) Kodiak Sciences Inc.
+  - `MIST` (LSE) Milestone Pharmaceuticals Inc.
+  - `OKYO` (LSE) OKYO Pharma Limited
+  - `ONC` (LSE) BeOne Medicines AG
+  - `PHAR` (LSE) Pharming Group N.V.
+  - `PRTC` (LSE) PureTech Health plc
+  - `SLN` (LSE) Silence Therapeutics plc
+  - `TARS` (LSE) Tarsus Pharmaceuticals, Inc.
+  - `TERN` (LSE) Terns Pharmaceuticals, Inc.
+  - `VRCI` (LSE) Verde Science, Inc.
+- **Medical Devices** — 8 companies
+  - `BVS` (LSE) Bioventus Inc.
+  - `CREO.L` (LSE) Creo Medical Group PLC
+  - `ECOR` (LSE) electroCore, Inc.
+  - `EKF.L` (LSE) EKF Diagnostics Holdings plc
+  - `INSP` (LSE) Inspire Medical Systems, Inc.
+  - `MXCT` (LSE) MaxCyte, Inc.
+  - `PEN` (LSE) Penumbra, Inc.
+  - `SENS` (LSE) Senseonics Holdings, Inc.
+- **Drug Manufacturers - General** — 5 companies
+  - `AZN` (LSE) AstraZeneca PLC
+  - `BMY` (LSE) Bristol-Myers Squibb Company
+  - `GILD` (LSE) Gilead Sciences, Inc.
+  - `GSK` (LSE) GSK plc
+  - `MIRA` (LSE) MIRA Pharmaceuticals, Inc.
+- **Diagnostics & Research** — 4 companies
+  - `CRL` (LSE) Charles River Laboratories International, Inc.
+  - `IDHC.L` (LSE) Integrated Diagnostics Holdings plc
+  - `PRE` (LSE) Prenetics Global Limited
+  - `TMO` (LSE) Thermo Fisher Scientific Inc.
+- **Health Information Services** — 4 companies
+  - `DXRX.L` (LSE) Diaceutics PLC
+  - `SLP` (LSE) Simulations Plus, Inc.
+  - `SOPH` (LSE) SOPHiA GENETICS SA
+  - `TALK` (LSE) Talkspace, Inc.
+- **Drug Manufacturers - Specialty & Generic** — 3 companies
+  - `ANCR.L` (LSE) Animalcare Group plc
+  - `HLN` (LSE) Haleon plc
+  - `INDV` (LSE) Indivior Pharmaceuticals, Inc.
+- **Medical Care Facilities** — 3 companies
+  - `AGL` (LSE) agilon health, inc.
+  - `CHE` (LSE) Chemed Corporation
+  - `CVSG.L` (LSE) CVS Group plc
+- **Medical Instruments & Supplies** — 3 companies
+  - `AMS.L` (LSE) Advanced Medical Solutions Group plc
+  - `CTEC.L` (LSE) Convatec Group PLC
+  - `SPEC.L` (LSE) INSPECS Group plc
+- **Healthcare Plans** — 1 companies
+  - `HUM` (LSE) Humana Inc.
+
+## Industrials (57 companies)
+
+- **Specialty Industrial Machinery** — 10 companies
+  - `BOY.L` (LSE) Bodycote plc
+  - `DCI` (LSE) Donaldson Company, Inc.
+  - `EMR` (LSE) Emerson Electric Co.
+  - `EQT.L` (LSE) EQTEC PLC
+  - `GRC` (LSE) The Gorman-Rupp Company
+  - `ROR.L` (LSE) Rotork plc
+  - `ROSN` (LSE) Rosinbomb
+  - `RR` (LSE) Richtech Robotics Inc.
+  - `SYM` (LSE) Symbotic Inc.
+  - `THR` (LSE) Thermon Group Holdings, Inc.
+- **Specialty Business Services** — 9 companies
+  - `CRE` (LSE) Cre8 Enterprise Limited
+  - `FA` (LSE) First Advantage Corporation
+  - `FRAN.L` (LSE) Franchise Brands plc
+  - `KGH.L` (LSE) Knights Group Holdings plc
+  - `MIND.L` (LSE) Mind Gym plc
+  - `RST.L` (LSE) Restore plc
+  - `RTO` (LSE) Rentokil Initial plc
+  - `TRI` (LSE) Thomson Reuters Corporation
+  - `ULS` (LSE) UL Solutions Inc.
+- **Aerospace & Defense** — 4 companies
+  - `BA` (LSE) The Boeing Company
+  - `CHRT.L` (LSE) Cohort plc
+  - `QQ.L` (LSE) QinetiQ Group plc
+  - `RDW` (LSE) Redwire Corporation
+- **Airlines** — 4 companies
+  - `AAL` (LSE) American Airlines Group Inc.
+  - `DAL` (LSE) Delta Air Lines, Inc.
+  - `DAL` (LSE) Delta Air Lines, Inc.
+  - `PREM` (LSE) Premier Air Charter Holdings Inc.
+- **Consulting Services** — 3 companies
+  - `DATA.L` (LSE) GlobalData Plc
+  - `MANO.L` (LSE) Manolete Partners Plc
+  - `RGP` (LSE) Resources Connection, Inc.
+- **Electrical Equipment & Parts** — 3 companies
+  - `ASTO` (LSE) Astro Communications, Inc.
+  - `DIA.L` (LSE) Dialight plc
+  - `ESP` (LSE) Espey Mfg. & Electronics Corp.
+- **Engineering & Construction** — 3 companies
+  - `EME` (LSE) EMCOR Group, Inc.
+  - `NEXS.L` (LSE) Nexus Infrastructure plc
+  - `PRIM` (LSE) Primoris Services Corporation
+- **Industrial Distribution** — 3 companies
+  - `BRCK.L` (LSE) BRCK Group plc
+  - `FERG` (LSE) Ferguson Enterprises Inc.
+  - `FERG.L` (LSE) Ferguson Enterprises Inc.
+- **Rental & Leasing Services** — 3 companies
+  - `AVAP.L` (LSE) Avation PLC
+  - `CAR` (LSE) Avis Budget Group, Inc.
+  - `HRI` (LSE) Herc Holdings Inc.
+- **Security & Protection Services** — 3 companies
+  - `ADT` (LSE) ADT Inc.
+  - `MGNT` (LSE) Meganet Corporation
+  - `SNT` (LSE) Senstar Technologies Corporation
+- **Building Products & Equipment** — 2 companies
+  - `CARR` (LSE) Carrier Global Corporation
+  - `ROCK` (LSE) Gibraltar Industries, Inc.
+- **Conglomerates** — 2 companies
+  - `BOOM` (LSE) DMC Global Inc.
+  - `HLMA.L` (LSE) Halma plc
+- **Metal Fabrication** — 2 companies
+  - `CRS` (LSE) Carpenter Technology Corporation
+  - `MLI` (LSE) Mueller Industries, Inc.
+- **Pollution & Treatment Controls** — 2 companies
+  - `PRV.L` (LSE) Porvair plc
+  - `SPEC` (LSE) Spectaire Holdings Inc.
+- **Integrated Freight & Logistics** — 1 companies
+  - `INHC` (LSE) Innolog Holdings Corporation
+- **Marine Shipping** — 1 companies
+  - `GNK` (LSE) Genco Shipping & Trading Limited
+- **Railroads** — 1 companies
+  - `TRN` (LSE) Trinity Industries, Inc.
+- **Tools & Accessories** — 1 companies
+  - `EML` (LSE) The Eastern Company
+
+## Real Estate (23 companies)
+
+- **Real Estate Services** — 6 companies
+  - `AIRE` (LSE) reAlpha Tech Corp.
+  - `CWK` (LSE) Cushman & Wakefield Limited
+  - `GR1T.L` (LSE) Grit Real Estate Income Group Limited
+  - `IWG.L` (LSE) International Workplace Group plc
+  - `LSL.L` (LSE) LSL Property Services plc
+  - `MHPC` (LSE) Manufactured Housing Properties Inc.
+- **Real Estate - Development** — 5 companies
+  - `CCS` (LSE) Century Communities, Inc.
+  - `HWG.L` (LSE) Harworth Group plc
+  - `LPA` (LSE) Logistic Properties of the Americas
+  - `LRE` (LSE) Lead Real Estate Co., Ltd
+  - `RENX` (LSE) RenX Enterprises Corp.
+- **REIT - Diversified** — 4 companies
+  - `CTO` (LSE) CTO Realty Growth, Inc.
+  - `GOOD` (LSE) Gladstone Commercial Corporation
+  - `PCTN.L` (LSE) Picton Property Income Limited
+  - `SAFE` (LSE) Safehold Inc.
+- **REIT - Hotel & Motel** — 2 companies
+  - `AHT` (LSE) Ashford Hospitality Trust, Inc.
+  - `PEB` (LSE) Pebblebrook Hotel Trust
+- **REIT - Office** — 2 companies
+  - `BXP` (LSE) BXP, Inc.
+  - `RGL.L` (LSE) Regional REIT Limited
+- **REIT - Industrial** — 1 companies
+  - `EXR` (LSE) Extra Space Storage Inc.
+- **REIT - Mortgage** — 1 companies
+  - `DX` (LSE) Dynex Capital, Inc.
+- **REIT - Residential** — 1 companies
+  - `VRE` (LSE) Veris Residential, Inc.
+- **REIT - Specialty** — 1 companies
+  - `LAND` (LSE) Gladstone Land Corporation
+
+## Technology (44 companies)
+
+- **Software - Application** — 18 companies
+  - `ACSO.L` (LSE) accesso Technology Group plc
+  - `ALFA.L` (LSE) Alfa Financial Software Holdings PLC
+  - `BLND` (LSE) Blend Labs, Inc.
+  - `BSY` (LSE) Bentley Systems, Incorporated
+  - `BVC` (LSE) BitVentures Limited
+  - `CCC` (LSE) CCC Intelligent Solutions Holdings Inc.
+  - `CER.L` (LSE) Cerillion Plc
+  - `DOTD.L` (LSE) dotdigital Group Plc
+  - `ELCO` (LSE) Elcom International Inc.
+  - `INTU` (LSE) Intuit Inc.
+  - `LAW` (LSE) CS Disco, Inc.
+  - `MTC` (LSE) MMTec, Inc.
+  - `PLUS` (LSE) ePlus inc.
+  - `RM.L` (LSE) RM plc
+  - `SMRT` (LSE) SmartRent, Inc.
+  - `SPT` (LSE) Sprout Social, Inc.
+  - `TRAK` (LSE) ReposiTrak, Inc.
+  - `TRB.L` (LSE) Tribal Group plc
+- **Information Technology Services** — 6 companies
+  - `ARBB` (LSE) ARB IOT Group Limited
+  - `FCCN` (LSE) Spectral Capital Corporation
+  - `FDM.L` (LSE) FDM Group (Holdings) plc
+  - `GLE` (LSE) Global Engine Group Holding Limited
+  - `III` (LSE) Information Services Group, Inc.
+  - `VNET` (LSE) VNET Group, Inc.
+- **Software - Infrastructure** — 6 companies
+  - `BGO.L` (LSE) Bango PLC
+  - `BOKU.L` (LSE) Boku, Inc.
+  - `BYIT.L` (LSE) Bytes Technology Group plc
+  - `NET` (LSE) Cloudflare, Inc.
+  - `PATH` (LSE) UiPath, Inc.
+  - `PAYP` (LSE) PayPay Corporation
+- **Semiconductor Equipment & Materials** — 3 companies
+  - `AMAT` (LSE) Applied Materials, Inc.
+  - `IQE.L` (LSE) IQE plc
+  - `TRT` (LSE) Trio-Tech International
+- **Communication Equipment** — 2 companies
+  - `INSG` (LSE) Inseego Corp.
+  - `MSI` (LSE) Motorola Solutions, Inc.
+- **Scientific & Technical Instruments** — 2 companies
+  - `KEYS` (LSE) Keysight Technologies, Inc.
+  - `MIND` (LSE) MIND Technology, Inc.
+- **Semiconductors** — 2 companies
+  - `GFS` (LSE) GLOBALFOUNDRIES Inc.
+  - `STM` (LSE) STMicroelectronics N.V.
+- **Computer Hardware** — 1 companies
+  - `STX` (LSE) Seagate Technology Holdings plc
+- **Consumer Electronics** — 1 companies
+  - `CAPC` (LSE) Capstone Companies, Inc.
+- **Electronic Components** — 1 companies
+  - `APH` (LSE) Amphenol Corporation
+- **Electronics & Computer Distribution** — 1 companies
+  - `SNX` (LSE) TD SYNNEX Corporation
+- **Solar** — 1 companies
+  - `NXT` (LSE) Nextpower Inc.
+
+## Utilities (4 companies)
+
+- **Utilities - Diversified** — 2 companies
+  - `SRE` (LSE) Sempra
+  - `UTL` (LSE) Unitil Corporation
+- **Utilities - Regulated Electric** — 2 companies
+  - `AEP` (LSE) American Electric Power Company, Inc.
+  - `PEG` (LSE) Public Service Enterprise Group Incorporated

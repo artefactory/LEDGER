@@ -1,0 +1,258 @@
+{
+  "Basic Materials": {
+    "Agricultural Inputs": [
+      {
+        "ticker": "AVD",
+        "name": "American Vanguard Corporation",
+        "exchange": "AMEX"
+      }
+    ],
+    "Chemicals": [
+      {
+        "ticker": "LXU",
+        "name": "LSB Industries, Inc.",
+        "exchange": "AMEX"
+      }
+    ],
+    "Gold": [
+      {
+        "ticker": "EGO",
+        "name": "Eldorado Gold Corporation",
+        "exchange": "AMEX"
+      }
+    ],
+    "Other Industrial Metals & Mining": [
+      {
+        "ticker": "XPL",
+        "name": "Solitario Resources Corp.",
+        "exchange": "AMEX"
+      }
+    ],
+    "Other Precious Metals & Mining": [
+      {
+        "ticker": "GORO",
+        "name": "Gold Resource Corporation",
+        "exchange": "AMEX"
+      }
+    ],
+    "Steel": [
+      {
+        "ticker": "FRD",
+        "name": "Friedman Industries, Incorporated",
+        "exchange": "AMEX"
+      }
+    ]
+  },
+  "Consumer Cyclical": {
+    "Resorts & Casinos": [
+      {
+        "ticker": "FLL",
+        "name": "Full House Resorts, Inc.",
+        "exchange": "AMEX"
+      }
+    ]
+  },
+  "Consumer Defensive": {
+    "Education & Training Services": [
+      {
+        "ticker": "GV",
+        "name": "Visionary Holdings Inc.",
+        "exchange": "AMEX"
+      }
+    ]
+  },
+  "Energy": {
+    "Oil & Gas E&P": [
+      {
+        "ticker": "BRN",
+        "name": "Barnwell Industries, Inc.",
+        "exchange": "AMEX"
+      },
+      {
+        "ticker": "EPM",
+        "name": "Evolution Petroleum Corporation",
+        "exchange": "AMEX"
+      },
+      {
+        "ticker": "MXC",
+        "name": "Mexco Energy Corporation",
+        "exchange": "AMEX"
+      }
+    ],
+    "Oil & Gas Midstream": [
+      {
+        "ticker": "GEL",
+        "name": "Genesis Energy, L.P.",
+        "exchange": "AMEX"
+      },
+      {
+        "ticker": "LNG",
+        "name": "Cheniere Energy, Inc.",
+        "exchange": "AMEX"
+      }
+    ],
+    "Oil & Gas Drilling": [
+      {
+        "ticker": "NBR",
+        "name": "Nabors Industries Ltd.",
+        "exchange": "AMEX"
+      }
+    ],
+    "Oil & Gas Equipment & Services": [
+      {
+        "ticker": "NGS",
+        "name": "Natural Gas Services Group, Inc.",
+        "exchange": "AMEX"
+      }
+    ]
+  },
+  "Financial Services": {
+    "Banks - Regional": [
+      {
+        "ticker": "MPB",
+        "name": "Mid Penn Bancorp, Inc.",
+        "exchange": "AMEX"
+      },
+      {
+        "ticker": "PGC",
+        "name": "Peapack-Gladstone Financial Corporation",
+        "exchange": "AMEX"
+      }
+    ],
+    "Insurance - Property & Casualty": [
+      {
+        "ticker": "UVE",
+        "name": "Universal Insurance Holdings, Inc.",
+        "exchange": "AMEX"
+      }
+    ]
+  },
+  "Healthcare": {
+    "Biotechnology": [
+      {
+        "ticker": "CVM",
+        "name": "CEL-SCI Corporation",
+        "exchange": "AMEX"
+      },
+      {
+        "ticker": "PLX",
+        "name": "Protalix BioTherapeutics, Inc.",
+        "exchange": "AMEX"
+      },
+      {
+        "ticker": "RGRX",
+        "name": "RegeneRx Biopharmaceuticals, Inc.",
+        "exchange": "AMEX"
+      }
+    ],
+    "Medical Care Facilities": [
+      {
+        "ticker": "NHC",
+        "name": "National HealthCare Corporation",
+        "exchange": "AMEX"
+      }
+    ]
+  },
+  "Industrials": {
+    "Specialty Industrial Machinery": [
+      {
+        "ticker": "EMR",
+        "name": "Emerson Electric Co.",
+        "exchange": "AMEX"
+      },
+      {
+        "ticker": "GHM",
+        "name": "Graham Corporation",
+        "exchange": "AMEX"
+      }
+    ],
+    "Aerospace & Defense": [
+      {
+        "ticker": "SIF",
+        "name": "SIFCO Industries, Inc.",
+        "exchange": "AMEX"
+      }
+    ],
+    "Building Products & Equipment": [
+      {
+        "ticker": "APT",
+        "name": "Alpha Pro Tech, Ltd.",
+        "exchange": "AMEX"
+      }
+    ],
+    "Conglomerates": [
+      {
+        "ticker": "SEB",
+        "name": "Seaboard Corporation",
+        "exchange": "AMEX"
+      }
+    ],
+    "Electrical Equipment & Parts": [
+      {
+        "ticker": "ESP",
+        "name": "Espey Mfg. & Electronics Corp.",
+        "exchange": "AMEX"
+      }
+    ],
+    "Engineering & Construction": [
+      {
+        "ticker": "AGX",
+        "name": "Argan, Inc.",
+        "exchange": "AMEX"
+      }
+    ],
+    "Staffing & Employment Services": [
+      {
+        "ticker": "MHH",
+        "name": "Mastech Digital, Inc.",
+        "exchange": "AMEX"
+      }
+    ],
+    "Tools & Accessories": [
+      {
+        "ticker": "EML",
+        "name": "The Eastern Company",
+        "exchange": "AMEX"
+      }
+    ]
+  },
+  "Real Estate": {
+    "REIT - Diversified": [
+      {
+        "ticker": "CTO",
+        "name": "CTO Realty Growth, Inc.",
+        "exchange": "AMEX"
+      }
+    ],
+    "REIT - Healthcare Facilities": [
+      {
+        "ticker": "NHI",
+        "name": "National Health Investors, Inc.",
+        "exchange": "AMEX"
+      }
+    ],
+    "REIT - Mortgage": [
+      {
+        "ticker": "TWO",
+        "name": "Two Harbors Investment Corp.",
+        "exchange": "AMEX"
+      }
+    ],
+    "REIT - Residential": [
+      {
+        "ticker": "UMH",
+        "name": "UMH Properties, Inc.",
+        "exchange": "AMEX"
+      }
+    ]
+  },
+  "Technology": {
+    "Software - Application": [
+      {
+        "ticker": "IDN",
+        "name": "Intellicheck, Inc.",
+        "exchange": "AMEX"
+      }
+    ]
+  }
+}

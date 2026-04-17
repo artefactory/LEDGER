@@ -1,0 +1,2043 @@
+{
+  "Basic Materials": {
+    "Specialty Chemicals": [
+      {
+        "ticker": "ELM.L",
+        "name": "Elementis plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FUL",
+        "name": "H.B. Fuller Company",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "LOOP",
+        "name": "Loop Industries, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PPG",
+        "name": "PPG Industries, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PRM",
+        "name": "Perimeter Solutions, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SSTY",
+        "name": "Sure Trace Security Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Gold": [
+      {
+        "ticker": "DC",
+        "name": "Dakota Gold Corp.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "IAG",
+        "name": "IAMGOLD Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TRX",
+        "name": "TRX Gold Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "iag",
+        "name": "IAMGOLD Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Other Industrial Metals & Mining": [
+      {
+        "ticker": "ALM",
+        "name": "Almonty Industries Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BHP",
+        "name": "BHP Group Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "IPX",
+        "name": "IperionX Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "KP2.L",
+        "name": "Kore Potash plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Agricultural Inputs": [
+      {
+        "ticker": "MOS",
+        "name": "The Mosaic Company",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "OGN.L",
+        "name": "Origin Enterprises plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SEED",
+        "name": "Origin Agritech Limited",
+        "exchange": "LSE"
+      }
+    ],
+    "Steel": [
+      {
+        "ticker": "SIM",
+        "name": "Grupo Simec, S.A.B. de C.V.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "VSVS.L",
+        "name": "Vesuvius plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Building Materials": [
+      {
+        "ticker": "BREE.L",
+        "name": "Breedon Group plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Copper": [
+      {
+        "ticker": "CAML.L",
+        "name": "Central Asia Metals plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Other Precious Metals & Mining": [
+      {
+        "ticker": "HL",
+        "name": "Hecla Mining Company",
+        "exchange": "LSE"
+      }
+    ],
+    "Paper & Paper Products": [
+      {
+        "ticker": "MERC",
+        "name": "Mercer International Inc.",
+        "exchange": "LSE"
+      }
+    ]
+  },
+  "Communication Services": {
+    "Advertising Agencies": [
+      {
+        "ticker": "ACCS",
+        "name": "ACCESS Newswire Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "APP",
+        "name": "AppLovin Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CAU.L",
+        "name": "Centaur Media Plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FOUR.L",
+        "name": "4imprint Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MIRI.L",
+        "name": "Mirriad Advertising plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MYSL",
+        "name": "My Screen Mobile, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "WPP",
+        "name": "WPP plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Entertainment": [
+      {
+        "ticker": "AMC",
+        "name": "AMC Entertainment Holdings, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FOX",
+        "name": "Fox Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MCS",
+        "name": "The Marcus Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SONG",
+        "name": "Music Licensing, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TKO",
+        "name": "TKO Group Holdings, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Telecom Services": [
+      {
+        "ticker": "AAF.L",
+        "name": "Airtel Africa Plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GAMA.L",
+        "name": "Gamma Communications plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "HTWS.L",
+        "name": "Helios Towers plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "VOD",
+        "name": "Vodafone Group Public Limited Company",
+        "exchange": "LSE"
+      }
+    ],
+    "Broadcasting": [
+      {
+        "ticker": "BBGI",
+        "name": "Beasley Broadcast Group, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Electronic Gaming & Multimedia": [
+      {
+        "ticker": "MGAM",
+        "name": "Mobile Global Esports Inc.",
+        "exchange": "LSE"
+      }
+    ]
+  },
+  "Consumer Cyclical": {
+    "Specialty Retail": [
+      {
+        "ticker": "BARK",
+        "name": "BARK, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BBY",
+        "name": "Best Buy Co., Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "DFS.L",
+        "name": "DFS Furniture plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "EYE",
+        "name": "National Vision Holdings, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FIVE",
+        "name": "Five Below, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PETS.L",
+        "name": "Pets at Home Group Plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TSCO",
+        "name": "Tractor Supply Company",
+        "exchange": "LSE"
+      }
+    ],
+    "Auto Parts": [
+      {
+        "ticker": "ABDP.L",
+        "name": "AB Dynamics plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "OPTI",
+        "name": "Optec International, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SMP",
+        "name": "Standard Motor Products, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Furnishings, Fixtures & Appliances": [
+      {
+        "ticker": "SGI",
+        "name": "Somnigroup International Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SN",
+        "name": "SharkNinja, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "WHR",
+        "name": "Whirlpool Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Apparel Retail": [
+      {
+        "ticker": "AEO",
+        "name": "American Eagle Outfitters, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CAL",
+        "name": "Caleres, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Packaging & Containers": [
+      {
+        "ticker": "MACF.L",
+        "name": "Macfarlane Group PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SEE",
+        "name": "Sealed Air Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Residential Construction": [
+      {
+        "ticker": "GLV.L",
+        "name": "Glenveagh Properties PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SKY",
+        "name": "Champion Homes, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Restaurants": [
+      {
+        "ticker": "GRG.L",
+        "name": "Greggs plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "WEN",
+        "name": "The Wendy's Company",
+        "exchange": "LSE"
+      }
+    ],
+    "Auto & Truck Dealerships": [
+      {
+        "ticker": "PAG",
+        "name": "Penske Automotive Group, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Footwear & Accessories": [
+      {
+        "ticker": "DOCS.L",
+        "name": "Dr. Martens plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Home Improvement Retail": [
+      {
+        "ticker": "HVT",
+        "name": "Haverty Furniture Companies, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Internet Retail": [
+      {
+        "ticker": "JD",
+        "name": "JD.com, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Leisure": [
+      {
+        "ticker": "HAS",
+        "name": "Hasbro, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Lodging": [
+      {
+        "ticker": "CHH",
+        "name": "Choice Hotels International, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Personal Services": [
+      {
+        "ticker": "ROL",
+        "name": "Rollins, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Resorts & Casinos": [
+      {
+        "ticker": "RRR",
+        "name": "Red Rock Resorts, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Travel Services": [
+      {
+        "ticker": "HSW.L",
+        "name": "Hostelworld Group plc",
+        "exchange": "LSE"
+      }
+    ]
+  },
+  "Consumer Defensive": {
+    "Packaged Foods": [
+      {
+        "ticker": "BAKK.L",
+        "name": "Bakkavor Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CYAN",
+        "name": "Cyanotech Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FLO",
+        "name": "Flowers Foods, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "THS",
+        "name": "Treehouse Foods Inc",
+        "exchange": "LSE"
+      }
+    ],
+    "Farm Products": [
+      {
+        "ticker": "ADM",
+        "name": "Archer-Daniels-Midland Company",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CAM.L",
+        "name": "Camellia Plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FDP",
+        "name": "Fresh Del Monte Produce Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Beverages - Non-Alcoholic": [
+      {
+        "ticker": "BAG.L",
+        "name": "A.G. BARR p.l.c.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FEVR.L",
+        "name": "Fevertree Drinks PLC",
+        "exchange": "LSE"
+      }
+    ],
+    "Household & Personal Products": [
+      {
+        "ticker": "CLX",
+        "name": "The Clorox Company",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PZC.L",
+        "name": "PZ Cussons plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Beverages - Brewers": [
+      {
+        "ticker": "CCR.L",
+        "name": "C&C Group plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Beverages - Wineries & Distilleries": [
+      {
+        "ticker": "WINE.L",
+        "name": "Naked Wines plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Discount Stores": [
+      {
+        "ticker": "COST",
+        "name": "Costco Wholesale Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Grocery Stores": [
+      {
+        "ticker": "SBRY.L",
+        "name": "J Sainsbury plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Tobacco": [
+      {
+        "ticker": "IMB.L",
+        "name": "Imperial Brands PLC",
+        "exchange": "LSE"
+      }
+    ]
+  },
+  "Energy": {
+    "Oil & Gas E&P": [
+      {
+        "ticker": "CRC",
+        "name": "California Resources Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ENQ.L",
+        "name": "EnQuest PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "EOG",
+        "name": "EOG Resources, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "EQT",
+        "name": "EQT Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GENL.L",
+        "name": "Genel Energy plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GKP.L",
+        "name": "Gulf Keystone Petroleum Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MTR",
+        "name": "Mesa Royalty Trust",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "NOG",
+        "name": "Northern Oil and Gas, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PHAR.L",
+        "name": "Pharos Energy plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Oil & Gas Refining & Marketing": [
+      {
+        "ticker": "BERI",
+        "name": "Blue Earth Resources, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "DCC.L",
+        "name": "DCC plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "DKL",
+        "name": "Delek Logistics Partners, LP",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "NWF.L",
+        "name": "NWF Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SUN",
+        "name": "Sunoco LP",
+        "exchange": "LSE"
+      }
+    ],
+    "Oil & Gas Integrated": [
+      {
+        "ticker": "BP",
+        "name": "BP p.l.c.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "DEC.L",
+        "name": "Diversified Energy Company",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SLNG",
+        "name": "Stabilis Solutions, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Oil & Gas Equipment & Services": [
+      {
+        "ticker": "VAL",
+        "name": "Valaris Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "WBI",
+        "name": "WaterBridge Infrastructure LLC",
+        "exchange": "LSE"
+      }
+    ],
+    "Oil & Gas Midstream": [
+      {
+        "ticker": "PXS",
+        "name": "Pyxis Tankers Inc.",
+        "exchange": "LSE"
+      }
+    ]
+  },
+  "Financial Services": {
+    "Asset Management": [
+      {
+        "ticker": "ACP",
+        "name": "Abrdn Income Credit Strategies Fund",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "AJB.L",
+        "name": "AJ Bell plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BCG",
+        "name": "Binah Capital Group, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BME",
+        "name": "BlackRock Health Sciences Trust",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BRK.L",
+        "name": "Brooks Macdonald Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BRW",
+        "name": "Saba Capital Income & Opportunities Fund",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BUR.L",
+        "name": "Burford Capital Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CGO",
+        "name": "Calamos Global Total Return Fund",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CNS",
+        "name": "Cohen & Steers, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CWD",
+        "name": "CaliberCos Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ETX",
+        "name": "Eaton Vance Municipal Income 2028 Term Trust",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "EVG",
+        "name": "Eaton Vance Short Duration Diversified Income Fund",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GLV",
+        "name": "Clough Global Dividend and Income Fund",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GROW",
+        "name": "U.S. Global Investors, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "HVPE.L",
+        "name": "HarbourVest Global Private Equity Ltd.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "IDE",
+        "name": "Voya Infrastructure, Industrials and Materials Fund",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "IDEA",
+        "name": "Invent Ventures, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "IGR",
+        "name": "CBRE Global Real Estate Income Fund",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "IHP.L",
+        "name": "IntegraFin Holdings plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "LIO.L",
+        "name": "Liontrust Asset Management PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "LIV.L",
+        "name": "Livermore Investments Group Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MHN",
+        "name": "BlackRock MuniHoldings New York Quality Fund, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MIN",
+        "name": "MFS Intermediate Income Trust",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "NBB",
+        "name": "Nuveen Taxable Municipal Income Fund",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "NESF.L",
+        "name": "NextEnergy Solar Fund Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "OCI.L",
+        "name": "Oakley Capital Investments Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "OPP",
+        "name": "RiverNorth/DoubleLine Strategic Opportunity Fund, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PCF",
+        "name": "High Income Securities Fund",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PFD",
+        "name": "Flaherty & Crumrine Preferred Income Fund Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PFG",
+        "name": "Principal Financial Group, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PMO",
+        "name": "Putnam Municipal Opportunities Trust",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PTY",
+        "name": "PIMCO Corporate & Income Opportunity Fund",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "QLT.L",
+        "name": "Quilter plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "RIV",
+        "name": "RiverNorth Opportunities Fund, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "RMM",
+        "name": "Rivernorth Managed Duration Municipal Income Fund Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SBI",
+        "name": "Western Asset Intermediate Muni Fund Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SPE",
+        "name": "Special Opportunities Fund, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TPG",
+        "name": "TPG Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TRIN",
+        "name": "Trinity Capital Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "UTG",
+        "name": "Reaves Utility Income Fund",
+        "exchange": "LSE"
+      }
+    ],
+    "Banks - Regional": [
+      {
+        "ticker": "AIBG.L",
+        "name": "AIB Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FCAP",
+        "name": "First Capital, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "HARL",
+        "name": "Harleysville Financial Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "KEFI",
+        "name": "Keweenaw Financial Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MCB",
+        "name": "Metropolitan Bank Holding Corp.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MTRO.L",
+        "name": "Metro Bank Holdings PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "NWG",
+        "name": "NatWest Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SHG",
+        "name": "Shinhan Financial Group Co., Ltd.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TOWN",
+        "name": "TowneBank",
+        "exchange": "LSE"
+      }
+    ],
+    "Capital Markets": [
+      {
+        "ticker": "CMCX.L",
+        "name": "CMC Markets Plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CRCL",
+        "name": "Circle Internet Group",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "EVR",
+        "name": "Evercore Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FRP.L",
+        "name": "FRP Advisory Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SOS",
+        "name": "SOS Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TW",
+        "name": "Tradeweb Markets Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Insurance - Property & Casualty": [
+      {
+        "ticker": "ALL",
+        "name": "The Allstate Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CNA",
+        "name": "CNA Financial Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PGR",
+        "name": "The Progressive Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "THG",
+        "name": "The Hanover Insurance Group, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Insurance - Specialty": [
+      {
+        "ticker": "ACT",
+        "name": "Enact Holdings, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "AXS",
+        "name": "AXIS Capital Holdings Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ESNT",
+        "name": "Essent Group Ltd.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "LRE.L",
+        "name": "Lancashire Holdings Limited",
+        "exchange": "LSE"
+      }
+    ],
+    "Credit Services": [
+      {
+        "ticker": "ASAI.L",
+        "name": "ASA International Group PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FCH.L",
+        "name": "Funding Circle Holdings plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "LIT.L",
+        "name": "Litigation Capital Management Limited",
+        "exchange": "LSE"
+      }
+    ],
+    "Mortgage Finance": [
+      {
+        "ticker": "FCRM",
+        "name": "Franklin Credit Management Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MAB1.L",
+        "name": "Mortgage Advice Bureau (Holdings) plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "VEL",
+        "name": "Velocity Financial, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Shell Companies": [
+      {
+        "ticker": "CEPS",
+        "name": "Cantor Equity Partners VI, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CHAR",
+        "name": "Charlton Aria Acquisition Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TAVI",
+        "name": "Tavia Acquisition Corp.",
+        "exchange": "LSE"
+      }
+    ],
+    "Insurance - Life": [
+      {
+        "ticker": "ELLA.L",
+        "name": "Ecclesiastical Insurance Office plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PRU",
+        "name": "Prudential Financial, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Banks - Diversified": [
+      {
+        "ticker": "ING",
+        "name": "ING Groep N.V.",
+        "exchange": "LSE"
+      }
+    ],
+    "Financial Conglomerates": [
+      {
+        "ticker": "CGEO.L",
+        "name": "Georgia Capital PLC",
+        "exchange": "LSE"
+      }
+    ],
+    "Financial Data & Stock Exchanges": [
+      {
+        "ticker": "TRU",
+        "name": "TransUnion",
+        "exchange": "LSE"
+      }
+    ],
+    "Insurance - Diversified": [
+      {
+        "ticker": "AEG",
+        "name": "Aegon Ltd.",
+        "exchange": "LSE"
+      }
+    ]
+  },
+  "Healthcare": {
+    "Biotechnology": [
+      {
+        "ticker": "ARTL",
+        "name": "Artelo Biosciences, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "AURA",
+        "name": "Aura Biosciences, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ERGO",
+        "name": "Entia Biosciences, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FARN.L",
+        "name": "Faron Pharmaceuticals Oy",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FUM.L",
+        "name": "Futura Medical plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GRI",
+        "name": "GRI Bio, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "IRON",
+        "name": "Disc Medicine, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "KOD",
+        "name": "Kodiak Sciences Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MIST",
+        "name": "Milestone Pharmaceuticals Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "OKYO",
+        "name": "OKYO Pharma Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ONC",
+        "name": "BeOne Medicines AG",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PHAR",
+        "name": "Pharming Group N.V.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PRTC",
+        "name": "PureTech Health plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SLN",
+        "name": "Silence Therapeutics plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TARS",
+        "name": "Tarsus Pharmaceuticals, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TERN",
+        "name": "Terns Pharmaceuticals, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "VRCI",
+        "name": "Verde Science, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Medical Devices": [
+      {
+        "ticker": "BVS",
+        "name": "Bioventus Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CREO.L",
+        "name": "Creo Medical Group PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ECOR",
+        "name": "electroCore, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "EKF.L",
+        "name": "EKF Diagnostics Holdings plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "INSP",
+        "name": "Inspire Medical Systems, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MXCT",
+        "name": "MaxCyte, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PEN",
+        "name": "Penumbra, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SENS",
+        "name": "Senseonics Holdings, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Drug Manufacturers - General": [
+      {
+        "ticker": "AZN",
+        "name": "AstraZeneca PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BMY",
+        "name": "Bristol-Myers Squibb Company",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GILD",
+        "name": "Gilead Sciences, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GSK",
+        "name": "GSK plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MIRA",
+        "name": "MIRA Pharmaceuticals, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Diagnostics & Research": [
+      {
+        "ticker": "CRL",
+        "name": "Charles River Laboratories International, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "IDHC.L",
+        "name": "Integrated Diagnostics Holdings plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PRE",
+        "name": "Prenetics Global Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TMO",
+        "name": "Thermo Fisher Scientific Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Health Information Services": [
+      {
+        "ticker": "DXRX.L",
+        "name": "Diaceutics PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SLP",
+        "name": "Simulations Plus, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SOPH",
+        "name": "SOPHiA GENETICS SA",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TALK",
+        "name": "Talkspace, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Drug Manufacturers - Specialty & Generic": [
+      {
+        "ticker": "ANCR.L",
+        "name": "Animalcare Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "HLN",
+        "name": "Haleon plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "INDV",
+        "name": "Indivior Pharmaceuticals, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Medical Care Facilities": [
+      {
+        "ticker": "AGL",
+        "name": "agilon health, inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CHE",
+        "name": "Chemed Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CVSG.L",
+        "name": "CVS Group plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Medical Instruments & Supplies": [
+      {
+        "ticker": "AMS.L",
+        "name": "Advanced Medical Solutions Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CTEC.L",
+        "name": "Convatec Group PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SPEC.L",
+        "name": "INSPECS Group plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Healthcare Plans": [
+      {
+        "ticker": "HUM",
+        "name": "Humana Inc.",
+        "exchange": "LSE"
+      }
+    ]
+  },
+  "Industrials": {
+    "Specialty Industrial Machinery": [
+      {
+        "ticker": "BOY.L",
+        "name": "Bodycote plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "DCI",
+        "name": "Donaldson Company, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "EMR",
+        "name": "Emerson Electric Co.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "EQT.L",
+        "name": "EQTEC PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GRC",
+        "name": "The Gorman-Rupp Company",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ROR.L",
+        "name": "Rotork plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ROSN",
+        "name": "Rosinbomb",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "RR",
+        "name": "Richtech Robotics Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SYM",
+        "name": "Symbotic Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "THR",
+        "name": "Thermon Group Holdings, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Specialty Business Services": [
+      {
+        "ticker": "CRE",
+        "name": "Cre8 Enterprise Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FA",
+        "name": "First Advantage Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FRAN.L",
+        "name": "Franchise Brands plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "KGH.L",
+        "name": "Knights Group Holdings plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MIND.L",
+        "name": "Mind Gym plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "RST.L",
+        "name": "Restore plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "RTO",
+        "name": "Rentokil Initial plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TRI",
+        "name": "Thomson Reuters Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ULS",
+        "name": "UL Solutions Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Aerospace & Defense": [
+      {
+        "ticker": "BA",
+        "name": "The Boeing Company",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CHRT.L",
+        "name": "Cohort plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "QQ.L",
+        "name": "QinetiQ Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "RDW",
+        "name": "Redwire Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Airlines": [
+      {
+        "ticker": "AAL",
+        "name": "American Airlines Group Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "DAL",
+        "name": "Delta Air Lines, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "DAL",
+        "name": "Delta Air Lines, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PREM",
+        "name": "Premier Air Charter Holdings Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Consulting Services": [
+      {
+        "ticker": "DATA.L",
+        "name": "GlobalData Plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MANO.L",
+        "name": "Manolete Partners Plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "RGP",
+        "name": "Resources Connection, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Electrical Equipment & Parts": [
+      {
+        "ticker": "ASTO",
+        "name": "Astro Communications, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "DIA.L",
+        "name": "Dialight plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ESP",
+        "name": "Espey Mfg. & Electronics Corp.",
+        "exchange": "LSE"
+      }
+    ],
+    "Engineering & Construction": [
+      {
+        "ticker": "EME",
+        "name": "EMCOR Group, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "NEXS.L",
+        "name": "Nexus Infrastructure plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PRIM",
+        "name": "Primoris Services Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Industrial Distribution": [
+      {
+        "ticker": "BRCK.L",
+        "name": "BRCK Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FERG",
+        "name": "Ferguson Enterprises Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FERG.L",
+        "name": "Ferguson Enterprises Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Rental & Leasing Services": [
+      {
+        "ticker": "AVAP.L",
+        "name": "Avation PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CAR",
+        "name": "Avis Budget Group, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "HRI",
+        "name": "Herc Holdings Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Security & Protection Services": [
+      {
+        "ticker": "ADT",
+        "name": "ADT Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MGNT",
+        "name": "Meganet Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SNT",
+        "name": "Senstar Technologies Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Building Products & Equipment": [
+      {
+        "ticker": "CARR",
+        "name": "Carrier Global Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ROCK",
+        "name": "Gibraltar Industries, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Conglomerates": [
+      {
+        "ticker": "BOOM",
+        "name": "DMC Global Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "HLMA.L",
+        "name": "Halma plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Metal Fabrication": [
+      {
+        "ticker": "CRS",
+        "name": "Carpenter Technology Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MLI",
+        "name": "Mueller Industries, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Pollution & Treatment Controls": [
+      {
+        "ticker": "PRV.L",
+        "name": "Porvair plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SPEC",
+        "name": "Spectaire Holdings Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Integrated Freight & Logistics": [
+      {
+        "ticker": "INHC",
+        "name": "Innolog Holdings Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Marine Shipping": [
+      {
+        "ticker": "GNK",
+        "name": "Genco Shipping & Trading Limited",
+        "exchange": "LSE"
+      }
+    ],
+    "Railroads": [
+      {
+        "ticker": "TRN",
+        "name": "Trinity Industries, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Tools & Accessories": [
+      {
+        "ticker": "EML",
+        "name": "The Eastern Company",
+        "exchange": "LSE"
+      }
+    ]
+  },
+  "Real Estate": {
+    "Real Estate Services": [
+      {
+        "ticker": "AIRE",
+        "name": "reAlpha Tech Corp.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CWK",
+        "name": "Cushman & Wakefield Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GR1T.L",
+        "name": "Grit Real Estate Income Group Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "IWG.L",
+        "name": "International Workplace Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "LSL.L",
+        "name": "LSL Property Services plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MHPC",
+        "name": "Manufactured Housing Properties Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Real Estate - Development": [
+      {
+        "ticker": "CCS",
+        "name": "Century Communities, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "HWG.L",
+        "name": "Harworth Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "LPA",
+        "name": "Logistic Properties of the Americas",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "LRE",
+        "name": "Lead Real Estate Co., Ltd",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "RENX",
+        "name": "RenX Enterprises Corp.",
+        "exchange": "LSE"
+      }
+    ],
+    "REIT - Diversified": [
+      {
+        "ticker": "CTO",
+        "name": "CTO Realty Growth, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GOOD",
+        "name": "Gladstone Commercial Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PCTN.L",
+        "name": "Picton Property Income Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SAFE",
+        "name": "Safehold Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "REIT - Hotel & Motel": [
+      {
+        "ticker": "AHT",
+        "name": "Ashford Hospitality Trust, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PEB",
+        "name": "Pebblebrook Hotel Trust",
+        "exchange": "LSE"
+      }
+    ],
+    "REIT - Office": [
+      {
+        "ticker": "BXP",
+        "name": "BXP, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "RGL.L",
+        "name": "Regional REIT Limited",
+        "exchange": "LSE"
+      }
+    ],
+    "REIT - Industrial": [
+      {
+        "ticker": "EXR",
+        "name": "Extra Space Storage Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "REIT - Mortgage": [
+      {
+        "ticker": "DX",
+        "name": "Dynex Capital, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "REIT - Residential": [
+      {
+        "ticker": "VRE",
+        "name": "Veris Residential, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "REIT - Specialty": [
+      {
+        "ticker": "LAND",
+        "name": "Gladstone Land Corporation",
+        "exchange": "LSE"
+      }
+    ]
+  },
+  "Technology": {
+    "Software - Application": [
+      {
+        "ticker": "ACSO.L",
+        "name": "accesso Technology Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ALFA.L",
+        "name": "Alfa Financial Software Holdings PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BLND",
+        "name": "Blend Labs, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BSY",
+        "name": "Bentley Systems, Incorporated",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BVC",
+        "name": "BitVentures Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CCC",
+        "name": "CCC Intelligent Solutions Holdings Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "CER.L",
+        "name": "Cerillion Plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "DOTD.L",
+        "name": "dotdigital Group Plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "ELCO",
+        "name": "Elcom International Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "INTU",
+        "name": "Intuit Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "LAW",
+        "name": "CS Disco, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MTC",
+        "name": "MMTec, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PLUS",
+        "name": "ePlus inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "RM.L",
+        "name": "RM plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SMRT",
+        "name": "SmartRent, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "SPT",
+        "name": "Sprout Social, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TRAK",
+        "name": "ReposiTrak, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TRB.L",
+        "name": "Tribal Group plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Information Technology Services": [
+      {
+        "ticker": "ARBB",
+        "name": "ARB IOT Group Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FCCN",
+        "name": "Spectral Capital Corporation",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "FDM.L",
+        "name": "FDM Group (Holdings) plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "GLE",
+        "name": "Global Engine Group Holding Limited",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "III",
+        "name": "Information Services Group, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "VNET",
+        "name": "VNET Group, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Software - Infrastructure": [
+      {
+        "ticker": "BGO.L",
+        "name": "Bango PLC",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BOKU.L",
+        "name": "Boku, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "BYIT.L",
+        "name": "Bytes Technology Group plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "NET",
+        "name": "Cloudflare, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PATH",
+        "name": "UiPath, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PAYP",
+        "name": "PayPay Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Semiconductor Equipment & Materials": [
+      {
+        "ticker": "AMAT",
+        "name": "Applied Materials, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "IQE.L",
+        "name": "IQE plc",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "TRT",
+        "name": "Trio-Tech International",
+        "exchange": "LSE"
+      }
+    ],
+    "Communication Equipment": [
+      {
+        "ticker": "INSG",
+        "name": "Inseego Corp.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MSI",
+        "name": "Motorola Solutions, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Scientific & Technical Instruments": [
+      {
+        "ticker": "KEYS",
+        "name": "Keysight Technologies, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "MIND",
+        "name": "MIND Technology, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Semiconductors": [
+      {
+        "ticker": "GFS",
+        "name": "GLOBALFOUNDRIES Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "STM",
+        "name": "STMicroelectronics N.V.",
+        "exchange": "LSE"
+      }
+    ],
+    "Computer Hardware": [
+      {
+        "ticker": "STX",
+        "name": "Seagate Technology Holdings plc",
+        "exchange": "LSE"
+      }
+    ],
+    "Consumer Electronics": [
+      {
+        "ticker": "CAPC",
+        "name": "Capstone Companies, Inc.",
+        "exchange": "LSE"
+      }
+    ],
+    "Electronic Components": [
+      {
+        "ticker": "APH",
+        "name": "Amphenol Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Electronics & Computer Distribution": [
+      {
+        "ticker": "SNX",
+        "name": "TD SYNNEX Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Solar": [
+      {
+        "ticker": "NXT",
+        "name": "Nextpower Inc.",
+        "exchange": "LSE"
+      }
+    ]
+  },
+  "Utilities": {
+    "Utilities - Diversified": [
+      {
+        "ticker": "SRE",
+        "name": "Sempra",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "UTL",
+        "name": "Unitil Corporation",
+        "exchange": "LSE"
+      }
+    ],
+    "Utilities - Regulated Electric": [
+      {
+        "ticker": "AEP",
+        "name": "American Electric Power Company, Inc.",
+        "exchange": "LSE"
+      },
+      {
+        "ticker": "PEG",
+        "name": "Public Service Enterprise Group Incorporated",
+        "exchange": "LSE"
+      }
+    ]
+  }
+}
