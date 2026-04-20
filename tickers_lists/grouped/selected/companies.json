@@ -5,16 +5,6 @@
         "ticker": "ABDP.L",
         "name": "AB Dynamics plc",
         "exchange": "LSE"
-      },
-      {
-        "ticker": "OPTI",
-        "name": "Optec International, Inc.",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "SMP",
-        "name": "Standard Motor Products, Inc.",
-        "exchange": "LSE"
       }
     ],
     "NASDAQ": [
@@ -136,11 +126,6 @@
         "exchange": "NYSE"
       },
       {
-        "ticker": "AXL",
-        "name": "Dauch Corporation",
-        "exchange": "NYSE"
-      },
-      {
         "ticker": "AZO",
         "name": "AutoZone, Inc.",
         "exchange": "NYSE"
@@ -166,23 +151,8 @@
         "exchange": "NYSE"
       },
       {
-        "ticker": "GT",
-        "name": "The Goodyear Tire & Rubber Company",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "GTX",
-        "name": "Garrett Motion Inc.",
-        "exchange": "NYSE"
-      },
-      {
         "ticker": "HLLY",
         "name": "Holley Inc.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "HYLN",
-        "name": "Hyliion Holdings Corp.",
         "exchange": "NYSE"
       },
       {
@@ -211,11 +181,6 @@
         "exchange": "NYSE"
       },
       {
-        "ticker": "QS",
-        "name": "QuantumScape Corporation",
-        "exchange": "NYSE"
-      },
-      {
         "ticker": "SES",
         "name": "SES AI Corporation",
         "exchange": "NYSE"
@@ -229,11 +194,6 @@
         "ticker": "SRI",
         "name": "Stoneridge, Inc.",
         "exchange": "NYSE"
-      },
-      {
-        "ticker": "VC",
-        "name": "Visteon Corporation",
-        "exchange": "NYSE"
       }
     ]
   },
@@ -242,31 +202,6 @@
       {
         "ticker": "ELM.L",
         "name": "Elementis plc",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "FUL",
-        "name": "H.B. Fuller Company",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "LOOP",
-        "name": "Loop Industries, Inc.",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "PPG",
-        "name": "PPG Industries, Inc.",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "PRM",
-        "name": "Perimeter Solutions, Inc.",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "SSTY",
-        "name": "Sure Trace Security Corporation",
         "exchange": "LSE"
       }
     ],
@@ -289,11 +224,6 @@
       {
         "ticker": "CLMT",
         "name": "Calumet, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "CRKN",
-        "name": "Crown Electrokinetics Corp.",
         "exchange": "NASDAQ"
       },
       {
@@ -342,11 +272,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "TORM",
-        "name": "TOR Minerals International, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "WDFC",
         "name": "WD-40 Company",
         "exchange": "NASDAQ"
@@ -386,11 +311,6 @@
       {
         "ticker": "CC",
         "name": "The Chemours Company",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "CMT",
-        "name": "Core Molding Technologies, Inc.",
         "exchange": "NYSE"
       },
       {
@@ -436,11 +356,6 @@
       {
         "ticker": "KRO",
         "name": "Kronos Worldwide, Inc.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "LIN",
-        "name": "Linde plc",
         "exchange": "NYSE"
       },
       {
@@ -536,28 +451,6 @@
     ]
   },
   "Consumer Defensive / Packaged Foods": {
-    "LSE": [
-      {
-        "ticker": "BAKK.L",
-        "name": "Bakkavor Group plc",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "CYAN",
-        "name": "Cyanotech Corporation",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "FLO",
-        "name": "Flowers Foods, Inc.",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "THS",
-        "name": "Treehouse Foods Inc",
-        "exchange": "LSE"
-      }
-    ],
     "NASDAQ": [
       {
         "ticker": "BRID",
@@ -577,11 +470,6 @@
       {
         "ticker": "CLNN",
         "name": "Clene Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "CYAN",
-        "name": "Cyanotech Corporation",
         "exchange": "NASDAQ"
       },
       {
@@ -655,11 +543,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "RIBT",
-        "name": "RiceBran Technologies",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "RKDA",
         "name": "Arcadia Biosciences, Inc.",
         "exchange": "NASDAQ"
@@ -672,11 +555,6 @@
       {
         "ticker": "SMPL",
         "name": "The Simply Good Foods Company",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "USNA",
-        "name": "USANA Health Sciences, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -704,11 +582,6 @@
       {
         "ticker": "CAG",
         "name": "Conagra Brands, Inc.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "CPB",
-        "name": "The Campbell's Company",
         "exchange": "NYSE"
       },
       {
@@ -742,11 +615,6 @@
         "exchange": "NYSE"
       },
       {
-        "ticker": "LSF",
-        "name": "Laird Superfood, Inc.",
-        "exchange": "NYSE"
-      },
-      {
         "ticker": "LW",
         "name": "Lamb Weston Holdings, Inc.",
         "exchange": "NYSE"
@@ -764,11 +632,6 @@
       {
         "ticker": "POST",
         "name": "Post Holdings, Inc.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "THS",
-        "name": "Treehouse Foods Inc",
         "exchange": "NYSE"
       },
       {
@@ -798,23 +661,8 @@
     ],
     "LSE": [
       {
-        "ticker": "CRC",
-        "name": "California Resources Corporation",
-        "exchange": "LSE"
-      },
-      {
         "ticker": "ENQ.L",
         "name": "EnQuest PLC",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "EOG",
-        "name": "EOG Resources, Inc.",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "EQT",
-        "name": "EQT Corporation",
         "exchange": "LSE"
       },
       {
@@ -825,16 +673,6 @@
       {
         "ticker": "GKP.L",
         "name": "Gulf Keystone Petroleum Limited",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "MTR",
-        "name": "Mesa Royalty Trust",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "NOG",
-        "name": "Northern Oil and Gas, Inc.",
         "exchange": "LSE"
       },
       {
@@ -870,11 +708,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "GPOR",
-        "name": "Gulfport Energy Corporation",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "HPK",
         "name": "HighPeak Energy, Inc.",
         "exchange": "NASDAQ"
@@ -902,18 +735,8 @@
         "exchange": "NYSE"
       },
       {
-        "ticker": "APA",
-        "name": "APA Corporation",
-        "exchange": "NYSE"
-      },
-      {
         "ticker": "AR",
         "name": "Antero Resources Corporation",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "BATL",
-        "name": "Battalion Oil Corporation",
         "exchange": "NYSE"
       },
       {
@@ -924,11 +747,6 @@
       {
         "ticker": "BTE",
         "name": "Baytex Energy Corp.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "CIVI",
-        "name": "Civitas Resources, Inc.",
         "exchange": "NYSE"
       },
       {
@@ -1037,11 +855,6 @@
         "exchange": "NYSE"
       },
       {
-        "ticker": "PED",
-        "name": "PEDEVCO Corp.",
-        "exchange": "NYSE"
-      },
-      {
         "ticker": "PR",
         "name": "Permian Resources Corporation",
         "exchange": "NYSE"
@@ -1054,16 +867,6 @@
       {
         "ticker": "PVL",
         "name": "Permianville Royalty Trust",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "REI",
-        "name": "Ring Energy, Inc.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "REPX",
-        "name": "Riley Exploration Permian, Inc.",
         "exchange": "NYSE"
       },
       {
@@ -1114,25 +917,6 @@
     ]
   },
   "Energy / Oil & Gas Equipment & Services": {
-    "AMEX": [
-      {
-        "ticker": "NGS",
-        "name": "Natural Gas Services Group, Inc.",
-        "exchange": "AMEX"
-      }
-    ],
-    "LSE": [
-      {
-        "ticker": "VAL",
-        "name": "Valaris Limited",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "WBI",
-        "name": "WaterBridge Infrastructure LLC",
-        "exchange": "LSE"
-      }
-    ],
     "NASDAQ": [
       {
         "ticker": "ACDC",
@@ -1197,18 +981,8 @@
         "exchange": "NYSE"
       },
       {
-        "ticker": "BKR",
-        "name": "Baker Hughes Company",
-        "exchange": "NYSE"
-      },
-      {
         "ticker": "CLB",
         "name": "Core Laboratories Inc.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "ENSV",
-        "name": "Enservco Corporation",
         "exchange": "NYSE"
       },
       {
@@ -1249,11 +1023,6 @@
       {
         "ticker": "LBRT",
         "name": "Liberty Energy Inc.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "NINE",
-        "name": "Nine Energy Service, Inc.",
         "exchange": "NYSE"
       },
       {
@@ -1334,18 +1103,6 @@
     ]
   },
   "Financial Services / Banks - Regional": {
-    "AMEX": [
-      {
-        "ticker": "MPB",
-        "name": "Mid Penn Bancorp, Inc.",
-        "exchange": "AMEX"
-      },
-      {
-        "ticker": "PGC",
-        "name": "Peapack-Gladstone Financial Corporation",
-        "exchange": "AMEX"
-      }
-    ],
     "LSE": [
       {
         "ticker": "AIBG.L",
@@ -1353,52 +1110,12 @@
         "exchange": "LSE"
       },
       {
-        "ticker": "FCAP",
-        "name": "First Capital, Inc.",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "HARL",
-        "name": "Harleysville Financial Corporation",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "KEFI",
-        "name": "Keweenaw Financial Corporation",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "MCB",
-        "name": "Metropolitan Bank Holding Corp.",
-        "exchange": "LSE"
-      },
-      {
         "ticker": "MTRO.L",
         "name": "Metro Bank Holdings PLC",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "NWG",
-        "name": "NatWest Group plc",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "SHG",
-        "name": "Shinhan Financial Group Co., Ltd.",
-        "exchange": "LSE"
-      },
-      {
-        "ticker": "TOWN",
-        "name": "TowneBank",
         "exchange": "LSE"
       }
     ],
     "NASDAQ": [
-      {
-        "ticker": "ABCB",
-        "name": "Ameris Bancorp",
-        "exchange": "NASDAQ"
-      },
       {
         "ticker": "ACNB",
         "name": "ACNB Corporation",
@@ -1432,11 +1149,6 @@
       {
         "ticker": "ATLO",
         "name": "Ames National Corporation",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "AUB",
-        "name": "Atlantic Union Bankshares Corporation",
         "exchange": "NASDAQ"
       },
       {
@@ -1475,16 +1187,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "BCOW",
-        "name": "1895 Bancorp of Wisconsin, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "BCTF",
-        "name": "Bancorp 34, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "BFC",
         "name": "Bank First Corporation",
         "exchange": "NASDAQ"
@@ -1502,11 +1204,6 @@
       {
         "ticker": "BHRB",
         "name": "Burke & Herbert Financial Services Corp.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "BKSC",
-        "name": "Bank of South Carolina Corporation",
         "exchange": "NASDAQ"
       },
       {
@@ -1570,11 +1267,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "CARV",
-        "name": "Carver Bancorp, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "CASH",
         "name": "Pathward Financial, Inc.",
         "exchange": "NASDAQ"
@@ -1582,11 +1274,6 @@
       {
         "ticker": "CATY",
         "name": "Cathay General Bancorp",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "CBAN",
-        "name": "Colony Bankcorp, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -1640,11 +1327,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "CIZN",
-        "name": "Citizens Holding Company",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "CLBK",
         "name": "Columbia Financial, Inc.",
         "exchange": "NASDAQ"
@@ -1690,11 +1372,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "DCOM",
-        "name": "Dime Community Bancshares, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "EBC",
         "name": "Eastern Bankshares, Inc.",
         "exchange": "NASDAQ"
@@ -1717,11 +1394,6 @@
       {
         "ticker": "EGBN",
         "name": "Eagle Bancorp, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "EQBK",
-        "name": "Equity Bancshares, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -1765,11 +1437,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "FFBW",
-        "name": "FFBW, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "FFIC",
         "name": "Flushing Financial Corporation",
         "exchange": "NASDAQ"
@@ -1777,11 +1444,6 @@
       {
         "ticker": "FFIN",
         "name": "First Financial Bankshares, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "FFWM",
-        "name": "First Foundation Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -1817,11 +1479,6 @@
       {
         "ticker": "FMBH",
         "name": "First Mid Bancshares, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "FMCB",
-        "name": "Farmers & Merchants Bancorp",
         "exchange": "NASDAQ"
       },
       {
@@ -1900,11 +1557,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "GBCI",
-        "name": "Glacier Bancorp, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "GCBC",
         "name": "Greene County Bancorp, Inc.",
         "exchange": "NASDAQ"
@@ -1917,11 +1569,6 @@
       {
         "ticker": "HAFC",
         "name": "Hanmi Financial Corporation",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "HARL",
-        "name": "Harleysville Financial Corporation",
         "exchange": "NASDAQ"
       },
       {
@@ -1957,11 +1604,6 @@
       {
         "ticker": "HNVR",
         "name": "Hanover Bancorp, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "HOMB",
-        "name": "Home BancShares, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -2045,11 +1687,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "LOB",
-        "name": "Live Oak Bancshares, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "LSBK",
         "name": "Lake Shore Bancorp, Inc.",
         "exchange": "NASDAQ"
@@ -2077,11 +1714,6 @@
       {
         "ticker": "MNSB",
         "name": "MainStreet Bancshares, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "MOFG",
-        "name": "MidWestOne Financial Group, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -2155,18 +1787,8 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "OFED",
-        "name": "Oconee Federal Financial Corp.",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "OPBK",
         "name": "OP Bancorp",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "OPHC",
-        "name": "OptimumBank Holdings, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -2177,11 +1799,6 @@
       {
         "ticker": "OSBC",
         "name": "Old Second Bancorp, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "OTTW",
-        "name": "Ottawa Bancorp, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -2197,11 +1814,6 @@
       {
         "ticker": "OZK",
         "name": "Bank OZK",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "PB",
-        "name": "Prosperity Bancshares, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -2240,11 +1852,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "PFBX",
-        "name": "Peoples Financial Corporation",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "PFIS",
         "name": "Peoples Financial Services Corp.",
         "exchange": "NASDAQ"
@@ -2267,11 +1874,6 @@
       {
         "ticker": "PNBK",
         "name": "Patriot National Bancorp, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "PNFP",
-        "name": "Pinnacle Financial Partners, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -2305,11 +1907,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "RNST",
-        "name": "Renasant Corporation",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "RRBI",
         "name": "Red River Bancshares, Inc.",
         "exchange": "NASDAQ"
@@ -2327,16 +1924,6 @@
       {
         "ticker": "SBFG",
         "name": "SB Financial Group, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "SBNY",
-        "name": "Signature Bank",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "SBSI",
-        "name": "Southside Bancshares, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -2365,11 +1952,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "SMBK",
-        "name": "SmartFinancial, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "SPFI",
         "name": "South Plains Financial, Inc.",
         "exchange": "NASDAQ"
@@ -2382,11 +1964,6 @@
       {
         "ticker": "SRCE",
         "name": "1st Source Corporation",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "SSB",
-        "name": "SouthState Bank Corporation",
         "exchange": "NASDAQ"
       },
       {
@@ -2407,11 +1984,6 @@
       {
         "ticker": "TCBI",
         "name": "Texas Capital Bancshares, Inc.",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "TFIN",
-        "name": "Triumph Financial, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -2452,11 +2024,6 @@
       {
         "ticker": "UBFO",
         "name": "United Security Bancshares",
-        "exchange": "NASDAQ"
-      },
-      {
-        "ticker": "UBOH",
-        "name": "United Bancshares, Inc.",
         "exchange": "NASDAQ"
       },
       {
@@ -2530,11 +2097,6 @@
         "exchange": "NASDAQ"
       },
       {
-        "ticker": "WVFC",
-        "name": "WVS Financial Corp.",
-        "exchange": "NASDAQ"
-      },
-      {
         "ticker": "ZION",
         "name": "Zions Bancorporation, National Association",
         "exchange": "NASDAQ"
@@ -2559,11 +2121,6 @@
       {
         "ticker": "BAP",
         "name": "Credicorp Ltd.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "BHB",
-        "name": "Bar Harbor Bankshares",
         "exchange": "NYSE"
       },
       {
@@ -2592,11 +2149,6 @@
         "exchange": "NYSE"
       },
       {
-        "ticker": "CADE",
-        "name": "Cadence Bank",
-        "exchange": "NYSE"
-      },
-      {
         "ticker": "CBU",
         "name": "Community Financial System, Inc.",
         "exchange": "NYSE"
@@ -2609,11 +2161,6 @@
       {
         "ticker": "CPF",
         "name": "Central Pacific Financial Corp.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "CZFS",
-        "name": "Citizens Financial Services, Inc.",
         "exchange": "NYSE"
       },
       {
@@ -2639,11 +2186,6 @@
       {
         "ticker": "FNB",
         "name": "F.N.B. Corporation",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "HBAN",
-        "name": "Huntington Bancshares Incorporated",
         "exchange": "NYSE"
       },
       {
@@ -2707,11 +2249,6 @@
         "exchange": "NYSE"
       },
       {
-        "ticker": "ONB",
-        "name": "Old National Bancorp",
-        "exchange": "NYSE"
-      },
-      {
         "ticker": "PFS",
         "name": "Provident Financial Services, Inc.",
         "exchange": "NYSE"
@@ -2719,11 +2256,6 @@
       {
         "ticker": "PNC",
         "name": "The PNC Financial Services Group, Inc.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "PRK",
-        "name": "Park National Corporation",
         "exchange": "NYSE"
       },
       {
@@ -2747,18 +2279,8 @@
         "exchange": "NYSE"
       },
       {
-        "ticker": "TMP",
-        "name": "Tompkins Financial Corporation",
-        "exchange": "NYSE"
-      },
-      {
         "ticker": "USB",
         "name": "U.S. Bancorp",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "VLY",
-        "name": "Valley National Bancorp",
         "exchange": "NYSE"
       },
       {
@@ -2779,20 +2301,6 @@
     ]
   },
   "Real Estate / REIT - Mortgage": {
-    "AMEX": [
-      {
-        "ticker": "TWO",
-        "name": "Two Harbors Investment Corp.",
-        "exchange": "AMEX"
-      }
-    ],
-    "LSE": [
-      {
-        "ticker": "DX",
-        "name": "Dynex Capital, Inc.",
-        "exchange": "LSE"
-      }
-    ],
     "NASDAQ": [
       {
         "ticker": "AFCG",
@@ -2944,11 +2452,6 @@
       {
         "ticker": "RWT",
         "name": "Redwood Trust, Inc.",
-        "exchange": "NYSE"
-      },
-      {
-        "ticker": "SACH",
-        "name": "Sachem Capital Corp.",
         "exchange": "NYSE"
       },
       {

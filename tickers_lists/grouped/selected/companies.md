@@ -1,12 +1,10 @@
 # Selected industries
 
-## Consumer Cyclical / Auto Parts (46 companies)
+## Consumer Cyclical / Auto Parts (38 companies)
 
-### LSE (3 companies)
+### LSE (1 companies)
 
 - `ABDP.L` AB Dynamics plc
-- `OPTI` Optec International, Inc.
-- `SMP` Standard Motor Products, Inc.
 
 ### NASDAQ (17 companies)
 
@@ -28,7 +26,7 @@
 - `THRM` Gentherm Incorporated
 - `XPEL` XPEL, Inc.
 
-### NYSE (26 companies)
+### NYSE (20 companies)
 
 - `AAP` Advance Auto Parts, Inc.
 - `ADNT` Adient plc
@@ -36,45 +34,33 @@
 - `ALV` Autoliv, Inc.
 - `APTV` Aptiv PLC
 - `ATMU` Atmus Filtration Technologies Inc.
-- `AXL` Dauch Corporation
 - `AZO` AutoZone, Inc.
 - `BWA` BorgWarner Inc.
 - `CPS` Cooper-Standard Holdings Inc.
 - `DAN` Dana Incorporated
 - `GPC` Genuine Parts Company
-- `GT` The Goodyear Tire & Rubber Company
-- `GTX` Garrett Motion Inc.
 - `HLLY` Holley Inc.
-- `HYLN` Hyliion Holdings Corp.
 - `LEA` Lear Corporation
 - `MLR` Miller Industries, Inc.
 - `MOD` Modine Manufacturing Company
 - `PHIN` PHINIA Inc.
 - `PLOW` Douglas Dynamics, Inc.
-- `QS` QuantumScape Corporation
 - `SES` SES AI Corporation
 - `SMP` Standard Motor Products, Inc.
 - `SRI` Stoneridge, Inc.
-- `VC` Visteon Corporation
 
-## Basic Materials / Specialty Chemicals (58 companies)
+## Basic Materials / Specialty Chemicals (49 companies)
 
-### LSE (6 companies)
+### LSE (1 companies)
 
 - `ELM.L` Elementis plc
-- `FUL` H.B. Fuller Company
-- `LOOP` Loop Industries, Inc.
-- `PPG` PPG Industries, Inc.
-- `PRM` Perimeter Solutions, Inc.
-- `SSTY` Sure Trace Security Corporation
 
-### NASDAQ (16 companies)
+### NASDAQ (14 companies)
 
 - `ALTO` Alto Ingredients, Inc.
 - `AMTX` Aemetis, Inc.
 - `BCPC` Balchem Corporation
 - `CLMT` Calumet, Inc.
-- `CRKN` Crown Electrokinetics Corp.
 - `FEAM` 5E Advanced Materials, Inc.
 - `GEVO` Gevo, Inc.
 - `HDSN` Hudson Technologies, Inc.
@@ -84,10 +70,9 @@
 - `MNTK` Montauk Renewables, Inc.
 - `NTIC` Northern Technologies International Corporation
 - `SNES` SenesTech, Inc.
-- `TORM` TOR Minerals International, Inc.
 - `WDFC` WD-40 Company
 
-### NYSE (36 companies)
+### NYSE (34 companies)
 
 - `ALB` Albemarle Corporation
 - `APD` Air Products and Chemicals, Inc.
@@ -96,7 +81,6 @@
 - `AXTA` Axalta Coating Systems Ltd.
 - `CBT` Cabot Corporation
 - `CC` The Chemours Company
-- `CMT` Core Molding Technologies, Inc.
 - `DD` DuPont de Nemours, Inc.
 - `ECL` Ecolab Inc.
 - `ECVT` Ecovyst Inc.
@@ -106,7 +90,6 @@
 - `IFF` International Flavors & Fragrances Inc.
 - `KOP` Koppers Holdings Inc.
 - `KRO` Kronos Worldwide, Inc.
-- `LIN` Linde plc
 - `LYB` LyondellBasell Industries N.V.
 - `MATV` Mativ Holdings, Inc.
 - `MTX` Minerals Technologies Inc.
@@ -126,22 +109,14 @@
 - `TSE` Trinseo PLC
 - `WLK` Westlake Corporation
 
-## Consumer Defensive / Packaged Foods (47 companies)
+## Consumer Defensive / Packaged Foods (37 companies)
 
-### LSE (4 companies)
-
-- `BAKK.L` Bakkavor Group plc
-- `CYAN` Cyanotech Corporation
-- `FLO` Flowers Foods, Inc.
-- `THS` Treehouse Foods Inc
-
-### NASDAQ (25 companies)
+### NASDAQ (22 companies)
 
 - `BRID` Bridgford Foods Corporation
 - `BYND` Beyond Meat, Inc.
 - `CENT` Central Garden & Pet Company
 - `CLNN` Clene Inc.
-- `CYAN` Cyanotech Corporation
 - `FAMI` Farmmi, Inc.
 - `FARM` Farmer Bros. Co.
 - `FRPT` Freshpet, Inc.
@@ -156,35 +131,30 @@
 - `NAII` Natural Alternatives International, Inc.
 - `NATR` Nature's Sunshine Products, Inc.
 - `PPC` Pilgrim's Pride Corporation
-- `RIBT` RiceBran Technologies
 - `RKDA` Arcadia Biosciences, Inc.
 - `SENEA` Seneca Foods Corporation
 - `SMPL` The Simply Good Foods Company
-- `USNA` USANA Health Sciences, Inc.
 - `WEST` Westrock Coffee Company
 
-### NYSE (18 companies)
+### NYSE (15 companies)
 
 - `BGS` B&G Foods, Inc.
 - `BRBR` BellRing Brands, Inc.
 - `BRCC` BRC Inc.
 - `CAG` Conagra Brands, Inc.
-- `CPB` The Campbell's Company
 - `DAR` Darling Ingredients Inc.
 - `FLO` Flowers Foods, Inc.
 - `GIS` General Mills, Inc.
 - `HLF` Herbalife Ltd.
 - `HRL` Hormel Foods Corporation
 - `INGR` Ingredion Incorporated
-- `LSF` Laird Superfood, Inc.
 - `LW` Lamb Weston Holdings, Inc.
 - `MKC` McCormick & Company, Incorporated
 - `NOMD` Nomad Foods Limited
 - `POST` Post Holdings, Inc.
-- `THS` Treehouse Foods Inc
 - `UTZ` Utz Brands, Inc.
 
-## Energy / Oil & Gas E&P (65 companies)
+## Energy / Oil & Gas E&P (53 companies)
 
 ### AMEX (3 companies)
 
@@ -192,40 +162,31 @@
 - `EPM` Evolution Petroleum Corporation
 - `MXC` Mexco Energy Corporation
 
-### LSE (9 companies)
+### LSE (4 companies)
 
-- `CRC` California Resources Corporation
 - `ENQ.L` EnQuest PLC
-- `EOG` EOG Resources, Inc.
-- `EQT` EQT Corporation
 - `GENL.L` Genel Energy plc
 - `GKP.L` Gulf Keystone Petroleum Limited
-- `MTR` Mesa Royalty Trust
-- `NOG` Northern Oil and Gas, Inc.
 - `PHAR.L` Pharos Energy plc
 
-### NASDAQ (10 companies)
+### NASDAQ (9 companies)
 
 - `APA` APA Corporation
 - `CHRD` Chord Energy Corporation
 - `DMLP` Dorchester Minerals, L.P.
 - `EPSN` Epsilon Energy Ltd.
 - `FANG` Diamondback Energy, Inc.
-- `GPOR` Gulfport Energy Corporation
 - `HPK` HighPeak Energy, Inc.
 - `PNRG` PrimeEnergy Resources Corporation
 - `PROP` Prairie Operating Co., LLC
 - `USEG` U.S. Energy Corp.
 
-### NYSE (43 companies)
+### NYSE (37 companies)
 
 - `AMPY` Amplify Energy Corp.
-- `APA` APA Corporation
 - `AR` Antero Resources Corporation
-- `BATL` Battalion Oil Corporation
 - `BSM` Black Stone Minerals, L.P.
 - `BTE` Baytex Energy Corp.
-- `CIVI` Civitas Resources, Inc.
 - `CNX` CNX Resources Corporation
 - `COP` ConocoPhillips
 - `CRC` California Resources Corporation
@@ -247,12 +208,9 @@
 - `NOG` Northern Oil and Gas, Inc.
 - `NRT` North European Oil Royalty Trust
 - `OXY` Occidental Petroleum Corporation
-- `PED` PEDEVCO Corp.
 - `PR` Permian Resources Corporation
 - `PRT` PermRock Royalty Trust
 - `PVL` Permianville Royalty Trust
-- `REI` Ring Energy, Inc.
-- `REPX` Riley Exploration Permian, Inc.
 - `RRC` Range Resources Corporation
 - `SD` SandRidge Energy, Inc.
 - `SJT` San Juan Basin Royalty Trust
@@ -263,16 +221,7 @@
 - `WDS` Woodside Energy Group Ltd
 - `WTI` W&T Offshore, Inc.
 
-## Energy / Oil & Gas Equipment & Services (42 companies)
-
-### AMEX (1 companies)
-
-- `NGS` Natural Gas Services Group, Inc.
-
-### LSE (2 companies)
-
-- `VAL` Valaris Limited
-- `WBI` WaterBridge Infrastructure LLC
+## Energy / Oil & Gas Equipment & Services (36 companies)
 
 ### NASDAQ (10 companies)
 
@@ -287,13 +236,11 @@
 - `RCON` Recon Technology, Ltd.
 - `SND` Smart Sand, Inc.
 
-### NYSE (29 companies)
+### NYSE (26 companies)
 
 - `AESI` Atlas Energy Solutions Inc.
 - `AROC` Archrock, Inc.
-- `BKR` Baker Hughes Company
 - `CLB` Core Laboratories Inc.
-- `ENSV` Enservco Corporation
 - `FET` Forum Energy Technologies, Inc.
 - `FTI` TechnipFMC plc
 - `FTK` Flotek Industries, Inc.
@@ -302,7 +249,6 @@
 - `KGS` Kodiak Gas Services, Inc.
 - `LB` LandBridge Company LLC
 - `LBRT` Liberty Energy Inc.
-- `NINE` Nine Energy Service, Inc.
 - `NOV` NOV Inc.
 - `OII` Oceaneering International, Inc.
 - `OIS` Oil States International, Inc.
@@ -319,28 +265,15 @@
 - `WTTR` Select Water Solutions, Inc.
 - `XPRO` Expro Group Holdings N.V.
 
-## Financial Services / Banks - Regional (287 companies)
+## Financial Services / Banks - Regional (238 companies)
 
-### AMEX (2 companies)
-
-- `MPB` Mid Penn Bancorp, Inc.
-- `PGC` Peapack-Gladstone Financial Corporation
-
-### LSE (9 companies)
+### LSE (2 companies)
 
 - `AIBG.L` AIB Group plc
-- `FCAP` First Capital, Inc.
-- `HARL` Harleysville Financial Corporation
-- `KEFI` Keweenaw Financial Corporation
-- `MCB` Metropolitan Bank Holding Corp.
 - `MTRO.L` Metro Bank Holdings PLC
-- `NWG` NatWest Group plc
-- `SHG` Shinhan Financial Group Co., Ltd.
-- `TOWN` TowneBank
 
-### NASDAQ (229 companies)
+### NASDAQ (197 companies)
 
-- `ABCB` Ameris Bancorp
 - `ACNB` ACNB Corporation
 - `AFBI` Affinity Bancshares, Inc.
 - `ALRS` Alerus Financial Corporation
@@ -348,7 +281,6 @@
 - `AROW` Arrow Financial Corporation
 - `ASRV` AmeriServ Financial, Inc.
 - `ATLO` Ames National Corporation
-- `AUB` Atlantic Union Bankshares Corporation
 - `AUBN` Auburn National Bancorporation, Inc.
 - `BAFN` BayFirst Financial Corp.
 - `BANF` BancFirst Corporation
@@ -356,13 +288,10 @@
 - `BCAL` California BanCorp
 - `BCBP` BCB Bancorp, Inc.
 - `BCML` BayCom Corp
-- `BCOW` 1895 Bancorp of Wisconsin, Inc.
-- `BCTF` Bancorp 34, Inc.
 - `BFC` Bank First Corporation
 - `BFIN` BankFinancial Corporation
 - `BFST` Business First Bancshares, Inc.
 - `BHRB` Burke & Herbert Financial Services Corp.
-- `BKSC` Bank of South Carolina Corporation
 - `BLFY` Blue Foundry Bancorp
 - `BMRC` Bank of Marin Bancorp
 - `BOKF` BOK Financial Corporation
@@ -375,10 +304,8 @@
 - `BWFG` Bankwell Financial Group, Inc.
 - `CAC` Camden National Corporation
 - `CARE` Carter Bankshares, Inc.
-- `CARV` Carver Bancorp, Inc.
 - `CASH` Pathward Financial, Inc.
 - `CATY` Cathay General Bancorp
-- `CBAN` Colony Bankcorp, Inc.
 - `CBNK` Capital Bancorp, Inc.
 - `CBSH` Commerce Bancshares, Inc.
 - `CCB` Coastal Financial Corporation
@@ -389,7 +316,6 @@
 - `CHCO` City Holding Company
 - `CHMG` Chemung Financial Corporation
 - `CIVB` Civista Bancshares, Inc.
-- `CIZN` Citizens Holding Company
 - `CLBK` Columbia Financial, Inc.
 - `CLST` Catalyst Bancorp, Inc.
 - `CNOB` ConnectOne Bancorp, Inc.
@@ -399,13 +325,11 @@
 - `CWBC` Community West Bancshares
 - `CZNC` Citizens & Northern Corporation
 - `CZWI` Citizens Community Bancorp, Inc.
-- `DCOM` Dime Community Bancshares, Inc.
 - `EBC` Eastern Bankshares, Inc.
 - `EBMT` Eagle Bancorp Montana, Inc.
 - `ECBK` ECB Bancorp, Inc.
 - `EFSC` Enterprise Financial Services Corp
 - `EGBN` Eagle Bancorp, Inc.
-- `EQBK` Equity Bancshares, Inc.
 - `ESQ` Esquire Financial Holdings, Inc.
 - `EWBC` East West Bancorp, Inc.
 - `FBIZ` First Business Financial Services, Inc.
@@ -414,10 +338,8 @@
 - `FCNCA` First Citizens BancShares, Inc.
 - `FDBC` Fidelity D & D Bancorp, Inc.
 - `FFBC` First Financial Bancorp.
-- `FFBW` FFBW, Inc.
 - `FFIC` Flushing Financial Corporation
 - `FFIN` First Financial Bankshares, Inc.
-- `FFWM` First Foundation Inc.
 - `FGBI` First Guaranty Bancshares, Inc.
 - `FHB` First Hawaiian, Inc.
 - `FIBK` First Interstate BancSystem, Inc.
@@ -425,7 +347,6 @@
 - `FISI` Financial Institutions, Inc.
 - `FITB` Fifth Third Bancorp
 - `FMBH` First Mid Bancshares, Inc.
-- `FMCB` Farmers & Merchants Bancorp
 - `FMNB` Farmers National Banc Corp.
 - `FNLC` The First Bancorp, Inc.
 - `FNWB` First Northwest Bancorp
@@ -441,11 +362,9 @@
 - `FUSB` First US Bancshares, Inc.
 - `FVCB` FVCBankcorp, Inc.
 - `GABC` German American Bancorp, Inc.
-- `GBCI` Glacier Bancorp, Inc.
 - `GCBC` Greene County Bancorp, Inc.
 - `GSBC` Great Southern Bancorp, Inc.
 - `HAFC` Hanmi Financial Corporation
-- `HARL` Harleysville Financial Corporation
 - `HBCP` Home Bancorp, Inc.
 - `HBNC` Horizon Bancorp, Inc.
 - `HBT` HBT Financial, Inc.
@@ -453,7 +372,6 @@
 - `HFWA` Heritage Financial Corporation
 - `HIFS` Hingham Institution for Savings
 - `HNVR` Hanover Bancorp, Inc.
-- `HOMB` Home BancShares, Inc.
 - `HOPE` Hope Bancorp, Inc.
 - `HTBK` Heritage Commerce Corp
 - `HWBK` Hawthorn Bancshares, Inc.
@@ -470,14 +388,12 @@
 - `LCNB` LCNB Corp.
 - `LKFN` Lakeland Financial Corporation
 - `LNKB` LINKBANCORP, Inc.
-- `LOB` Live Oak Bancshares, Inc.
 - `LSBK` Lake Shore Bancorp, Inc.
 - `MBCN` Middlefield Banc Corp
 - `MBIN` Merchants Bancorp
 - `MBWM` Mercantile Bank Corporation
 - `MGYR` Magyar Bancorp, Inc.
 - `MNSB` MainStreet Bancshares, Inc.
-- `MOFG` MidWestOne Financial Group, Inc.
 - `MSBI` Midland States Bancorp, Inc.
 - `MYFW` First Western Financial, Inc.
 - `NBBK` NB Bancorp, Inc.
@@ -492,16 +408,12 @@
 - `NWFL` Norwood Financial Corp.
 - `OBT` Orange County Bancorp, Inc.
 - `OCFC` OceanFirst Financial Corp.
-- `OFED` Oconee Federal Financial Corp.
 - `OPBK` OP Bancorp
-- `OPHC` OptimumBank Holdings, Inc.
 - `ORRF` Orrstown Financial Services, Inc.
 - `OSBC` Old Second Bancorp, Inc.
-- `OTTW` Ottawa Bancorp, Inc.
 - `OVBC` Ohio Valley Banc Corp.
 - `OVLY` Oak Valley Bancorp
 - `OZK` Bank OZK
-- `PB` Prosperity Bancshares, Inc.
 - `PBFS` Pioneer Bancorp, Inc.
 - `PBHC` Pathfinder Bancorp, Inc.
 - `PCB` PCB Bancorp
@@ -509,41 +421,33 @@
 - `PEBK` Peoples Bancorp of North Carolina, Inc.
 - `PEBO` Peoples Bancorp Inc.
 - `PFBC` Preferred Bank
-- `PFBX` Peoples Financial Corporation
 - `PFIS` Peoples Financial Services Corp.
 - `PGC` Peapack-Gladstone Financial Corporation
 - `PKBK` Parke Bancorp, Inc.
 - `PLBC` Plumas Bancorp
 - `PNBK` Patriot National Bancorp, Inc.
-- `PNFP` Pinnacle Financial Partners, Inc.
 - `PROV` Provident Financial Holdings, Inc.
 - `QCRH` QCR Holdings, Inc.
 - `RBB` RBB Bancorp
 - `RBCAA` Republic Bancorp, Inc.
 - `RBKB` Rhinebeck Bancorp, Inc.
 - `RMBI` Richmond Mutual Bancorporation, Inc.
-- `RNST` Renasant Corporation
 - `RRBI` Red River Bancshares, Inc.
 - `RVSB` Riverview Bancorp, Inc.
 - `SBCF` Seacoast Banking Corporation of Florida
 - `SBFG` SB Financial Group, Inc.
-- `SBNY` Signature Bank
-- `SBSI` Southside Bancshares, Inc.
 - `SFBC` Sound Financial Bancorp, Inc.
 - `SFNC` Simmons First National Corporation
 - `SFST` Southern First Bancshares, Inc.
 - `SHBI` Shore Bancshares, Inc.
 - `SMBC` Southern Missouri Bancorp, Inc.
-- `SMBK` SmartFinancial, Inc.
 - `SPFI` South Plains Financial, Inc.
 - `SRBK` SR Bancorp, Inc.
 - `SRCE` 1st Source Corporation
-- `SSB` SouthState Bank Corporation
 - `SSBI` Summit State Bank
 - `STBA` S&T Bancorp, Inc.
 - `SYBT` Stock Yards Bancorp, Inc.
 - `TCBI` Texas Capital Bancshares, Inc.
-- `TFIN` Triumph Financial, Inc.
 - `TFSL` TFS Financial Corporation
 - `THFF` First Financial Corporation
 - `TOWN` TowneBank
@@ -552,7 +456,6 @@
 - `TSBK` Timberland Bancorp, Inc.
 - `UBCP` United Bancorp, Inc.
 - `UBFO` United Security Bancshares
-- `UBOH` United Bancshares, Inc.
 - `UBSI` United Bankshares, Inc.
 - `UMBF` UMB Financial Corporation
 - `UNB` Union Bankshares, Inc.
@@ -567,32 +470,27 @@
 - `WSFS` WSFS Financial Corporation
 - `WTBA` West Bancorporation, Inc.
 - `WTFC` Wintrust Financial Corporation
-- `WVFC` WVS Financial Corp.
 - `ZION` Zions Bancorporation, National Association
 
-### NYSE (47 companies)
+### NYSE (39 companies)
 
 - `ASB` Associated Banc-Corp
 - `AX` Axos Financial, Inc.
 - `BANC` Banc of California, Inc.
 - `BAP` Credicorp Ltd.
-- `BHB` Bar Harbor Bankshares
 - `BKU` BankUnited, Inc.
 - `BLX` Banco Latinoamericano de Comercio Exterior, S. A.
 - `BOH` Bank of Hawaii Corporation
 - `BSAC` Banco Santander-Chile
 - `BY` Byline Bancorp, Inc.
-- `CADE` Cadence Bank
 - `CBU` Community Financial System, Inc.
 - `CFG` Citizens Financial Group, Inc.
 - `CPF` Central Pacific Financial Corp.
-- `CZFS` Citizens Financial Services, Inc.
 - `DB` Deutsche Bank Aktiengesellschaft
 - `FBK` FB Financial Corporation
 - `FBP` First BanCorp.
 - `FCF` First Commonwealth Financial Corporation
 - `FNB` F.N.B. Corporation
-- `HBAN` Huntington Bancshares Incorporated
 - `HDB` HDFC Bank Limited
 - `IBN` ICICI Bank Limited
 - `KB` KB Financial Group Inc.
@@ -605,30 +503,18 @@
 - `NU` Nu Holdings Ltd.
 - `NWG` NatWest Group plc
 - `OFG` OFG Bancorp
-- `ONB` Old National Bancorp
 - `PFS` Provident Financial Services, Inc.
 - `PNC` The PNC Financial Services Group, Inc.
-- `PRK` Park National Corporation
 - `SHG` Shinhan Financial Group Co., Ltd.
 - `STEL` Stellar Bancorp, Inc.
 - `SUPV` Grupo Supervielle S.A.
 - `TFC` Truist Financial Corporation
-- `TMP` Tompkins Financial Corporation
 - `USB` U.S. Bancorp
-- `VLY` Valley National Bancorp
 - `WAL` Western Alliance Bancorporation
 - `WBS` Webster Financial Corporation
 - `WF` Woori Financial Group Inc.
 
-## Real Estate / REIT - Mortgage (35 companies)
-
-### AMEX (1 companies)
-
-- `TWO` Two Harbors Investment Corp.
-
-### LSE (1 companies)
-
-- `DX` Dynex Capital, Inc.
+## Real Estate / REIT - Mortgage (32 companies)
 
 ### NASDAQ (6 companies)
 
@@ -639,7 +525,7 @@
 - `SEVN` Seven Hills Realty Trust
 - `SUNS` Sunrise Realty Trust, Inc.
 
-### NYSE (27 companies)
+### NYSE (26 companies)
 
 - `ABR` Arbor Realty Trust, Inc.
 - `ACR` ACRES Commercial Realty Corp.
@@ -665,6 +551,5 @@
 - `RC` Ready Capital Corporation
 - `RITM` Rithm Capital Corp.
 - `RWT` Redwood Trust, Inc.
-- `SACH` Sachem Capital Corp.
 - `STWD` Starwood Property Trust, Inc.
 - `TRTX` TPG RE Finance Trust, Inc.

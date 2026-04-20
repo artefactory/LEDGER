@@ -4,6 +4,7 @@ AAL,American Airlines Group Inc.,Industrials,Airlines,NasdaqGS
 AAME,Atlantic American Corporation,Financial Services,Insurance - Life,NasdaqGM
 AAOI,"Applied Optoelectronics, Inc.",Technology,Communication Equipment,NasdaqGM
 ABAT,American Battery Technology Company,Industrials,Waste Management,NasdaqCM
+ABCB,Ameris Bancorp,Financial Services,Banks - Regional,NYSE
 ABCL,AbCellera Biologics Inc.,Healthcare,Biotechnology,NasdaqGS
 ABEO,Abeona Therapeutics Inc.,Healthcare,Biotechnology,NasdaqCM
 ABNB,"Airbnb, Inc.",Consumer Cyclical,Travel Services,NasdaqGS
@@ -25,6 +26,8 @@ ACRS,"Aclaris Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
 ACRV,"Acrivon Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
 ACT,"Enact Holdings, Inc.",Financial Services,Insurance - Specialty,NasdaqGS
 ACTG,Acacia Research Corporation,Industrials,Business Equipment & Supplies,NasdaqGS
+ACUR,"Acura Pharmaceuticals, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,OTC Markets OTCPK
+ACVA,ACV Auctions Inc.,Consumer Cyclical,Auto & Truck Dealerships,NYSE
 ACXP,"Acurx Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqCM
 ADBE,Adobe Inc.,Technology,Software - Application,NasdaqGS
 ADEA,Adeia Inc.,Technology,Software - Application,NasdaqGS
@@ -40,9 +43,11 @@ AEHR,"Aehr Test Systems, Inc.",Technology,Semiconductor Equipment & Materials,Na
 AEIS,"Advanced Energy Industries, Inc.",Industrials,Electrical Equipment & Parts,NasdaqGS
 AEMD,"Aethlon Medical, Inc.",Healthcare,Medical Devices,NasdaqCM
 AENT,Alliance Entertainment Holding Corporation,Communication Services,Entertainment,NasdaqCM
+AER,AerCap Holdings N.V.,Industrials,Rental & Leasing Services,NYSE
 AEYE,"AudioEye, Inc.",Technology,Software - Application,NasdaqCM
 AFBI,"Affinity Bancshares, Inc.",Financial Services,Banks - Regional,NasdaqCM
 AFCG,Advanced Flower Capital Inc.,Real Estate,REIT - Mortgage,NasdaqGM
+AFIB,"Acutus Medical, Inc.",Healthcare,Medical Devices,OTC Markets OTCPK
 AFRI,Forafric Global PLC,Consumer Defensive,Farm Products,NasdaqCM
 AFRM,"Affirm Holdings, Inc.",Financial Services,Credit Services,NasdaqGS
 AFYA,Afya Limited,Consumer Defensive,Education & Training Services,NasdaqGS
@@ -54,6 +59,7 @@ AGNC,AGNC Investment Corp.,Real Estate,REIT - Mortgage,NasdaqGS
 AGYS,"Agilysys, Inc.",Technology,Software - Application,NasdaqGS
 AHCO,AdaptHealth Corp.,Healthcare,Medical Devices,NasdaqCM
 AIHS,Senmiao Technology Limited,Industrials,Rental & Leasing Services,NasdaqCM
+AILE,"iLearningEngines, Inc.",Technology,Software - Infrastructure,N/A
 AIP,"Arteris, Inc.",Technology,Semiconductors,NasdaqGM
 AIRG,"Airgain, Inc.",Technology,Communication Equipment,NasdaqCM
 AIRS,"AirSculpt Technologies, Inc.",Healthcare,Medical Care Facilities,NasdaqGM
@@ -66,6 +72,7 @@ AKTX,"Akari Therapeutics, Plc",Healthcare,Biotechnology,NasdaqCM
 ALCO,"Alico, Inc.",Consumer Defensive,Farm Products,NasdaqGS
 ALDX,"Aldeyra Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 ALEC,"Alector, Inc.",Healthcare,Biotechnology,NasdaqGS
+ALEX,Alexander & Baldwin Inc,Real Estate,REIT - Retail,NYQ
 ALGM,"Allegro MicroSystems, Inc.",Technology,Semiconductors,NasdaqGS
 ALGN,"Align Technology, Inc.",Healthcare,Medical Instruments & Supplies,NasdaqGS
 ALGS,"Aligos Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
@@ -99,11 +106,13 @@ AMRN,Amarin Corporation plc,Healthcare,Drug Manufacturers - General,NasdaqCM
 AMSC,American Superconductor Corporation,Industrials,Specialty Industrial Machinery,NasdaqGS
 AMSF,"AMERISAFE, Inc.",Financial Services,Insurance - Specialty,NasdaqGS
 AMST,Amesite Inc.,Technology,Software - Application,NasdaqCM
+AMTD,AMTD IDEA Group,Financial Services,Asset Management,NYSE
 AMTX,"Aemetis, Inc.",Basic Materials,Specialty Chemicals,NasdaqGM
 AMWD,American Woodmark Corporation,Consumer Cyclical,"Furnishings, Fixtures & Appliances",NasdaqGS
 AMZN,"Amazon.com, Inc.",Consumer Cyclical,Internet Retail,NasdaqGS
 ANAB,"AnaptysBio, Inc.",Healthcare,Biotechnology,NasdaqGS
 ANDE,"The Andersons, Inc.",Consumer Defensive,Food Distribution,NasdaqGS
+ANEB,"Anebulo Pharmaceuticals, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 ANGI,Angi Inc.,Communication Services,Internet Content & Information,NasdaqGS
 ANGO,"AngioDynamics, Inc.",Healthcare,Medical Instruments & Supplies,NasdaqGS
 ANIK,"Anika Therapeutics, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGS
@@ -115,9 +124,11 @@ ANY,Sphere 3D Corp.,Financial Services,Capital Markets,NasdaqCM
 AOSL,Alpha and Omega Semiconductor Limited,Technology,Semiconductors,NasdaqGS
 AOUT,"American Outdoor Brands, Inc.",Consumer Cyclical,Leisure,NasdaqGS
 APA,APA Corporation,Energy,Oil & Gas E&P,NasdaqGS
+APCX,AppTech Payments Corp.,Technology,Software - Infrastructure,OTC Markets OTCQB
 APEI,"American Public Education, Inc.",Consumer Defensive,Education & Training Services,NasdaqGS
 APLD,Applied Digital Corporation,Technology,Information Technology Services,NasdaqGS
 APLS,"Apellis Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
+APLT,"Applied Therapeutics, Inc.",Healthcare,Biotechnology,N/A
 APM,Aptorum Group Limited,Healthcare,Biotechnology,NasdaqCM
 APOG,"Apogee Enterprises, Inc.",Industrials,Building Products & Equipment,NasdaqGS
 APP,AppLovin Corporation,Communication Services,Advertising Agencies,NasdaqGS
@@ -133,6 +144,7 @@ AQMS,"Aqua Metals, Inc.",Industrials,Waste Management,NasdaqCM
 AQST,"Aquestive Therapeutics, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGM
 ARAY,Accuray Incorporated,Healthcare,Medical Devices,NasdaqGS
 ARCT,Arcturus Therapeutics Holdings Inc.,Healthcare,Biotechnology,NasdaqGM
+ARDS,"Aridis Pharmaceuticals, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 ARDX,"Ardelyx, Inc.",Healthcare,Biotechnology,NasdaqGM
 AREC,American Resources Corporation,Basic Materials,Coking Coal,NasdaqCM
 ARGX,argenx SE,Healthcare,Biotechnology,NasdaqGS
@@ -156,6 +168,7 @@ ASNS,"Actelis Networks, Inc.",Technology,Communication Equipment,NasdaqCM
 ASO,"Academy Sports and Outdoors, Inc.",Consumer Cyclical,Specialty Retail,NasdaqGS
 ASPI,ASP Isotopes Inc.,Basic Materials,Chemicals,NasdaqCM
 ASPS,Altisource Portfolio Solutions S.A.,Real Estate,Real Estate Services,NasdaqGS
+ASPU,"Aspen Group, Inc.",Consumer Defensive,Education & Training Services,OTC Markets OTCQB
 ASRT,"Assertio Holdings, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqCM
 ASRV,"AmeriServ Financial, Inc.",Financial Services,Banks - Regional,NasdaqGM
 ASST,"Strive Asset Management, LLC",Financial Services,Asset Management,NasdaqGM
@@ -179,6 +192,9 @@ ATOM,Atomera Incorporated,Technology,Semiconductor Equipment & Materials,NasdaqC
 ATOM,Atomera Incorporated,Technology,Semiconductor Equipment & Materials,NasdaqCM
 ATRC,"AtriCure, Inc.",Healthcare,Medical Instruments & Supplies,NasdaqGM
 ATRO,Astronics Corporation,Industrials,Aerospace & Defense,NasdaqGS
+ATXI,"Avenue Therapeutics, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
+ATXS,"Astria Therapeutics, Inc.",Healthcare,Biotechnology,N/A
+AUB,Atlantic Union Bankshares Corporation,Financial Services,Banks - Regional,NYSE
 AUBN,"Auburn National Bancorporation, Inc.",Financial Services,Banks - Regional,NasdaqGM
 AUDC,AudioCodes Ltd.,Technology,Communication Equipment,NasdaqGS
 AUID,authID Inc.,Technology,Software - Infrastructure,NasdaqCM
@@ -190,6 +206,7 @@ AUUD,Auddia Inc.,Technology,Software - Application,NasdaqCM
 AVAH,Aveanna Healthcare Holdings Inc.,Healthcare,Medical Care Facilities,NasdaqGS
 AVAV,"AeroVironment, Inc.",Industrials,Aerospace & Defense,NasdaqGS
 AVBP,"ArriVent BioPharma, Inc.",Healthcare,Biotechnology,NasdaqGM
+AVDL,Avadel Pharmaceuticals PLC,Healthcare,Drug Manufacturers - Specialty & Generic,N/A
 AVGO,Broadcom Inc.,Technology,Semiconductors,NasdaqGS
 AVIR,"Atea Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
 AVNW,"Aviat Networks, Inc.",Technology,Communication Equipment,NasdaqGS
@@ -212,17 +229,22 @@ BANX,ArrowMark Financial Corp.,Financial Services,Asset Management,NasdaqGM
 BATRA,"Atlanta Braves Holdings, Inc.",Communication Services,Entertainment,NasdaqGS
 BBCP,"Concrete Pumping Holdings, Inc.",Industrials,Engineering & Construction,NasdaqCM
 BBGI,"Beasley Broadcast Group, Inc.",Communication Services,Broadcasting,NasdaqCM
+BBIG,"Vinco Ventures, Inc.",Consumer Cyclical,Leisure,OTC Markets OTCPK
 BBIO,"BridgeBio Pharma, Inc.",Healthcare,Biotechnology,NasdaqGS
 BBSI,"Barrett Business Services, Inc.",Industrials,Staffing & Employment Services,NasdaqGS
 BCAB,"BioAtla, Inc.",Healthcare,Biotechnology,NasdaqCM
 BCAL,California BanCorp,Financial Services,Banks - Regional,NasdaqCM
 BCBP,"BCB Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGM
 BCDA,"BioCardia, Inc.",Healthcare,Biotechnology,NasdaqCM
+BCLI,Brainstorm Cell Therapeutics Inc.,Healthcare,Biotechnology,OTC Markets OTCQB
 BCML,BayCom Corp,Financial Services,Banks - Regional,NasdaqGS
+BCOW,"1895 Bancorp of Wisconsin, Inc.",Financial Services,Banks - Regional,OTC Markets OTCQX
 BCPC,Balchem Corporation,Basic Materials,Specialty Chemicals,NasdaqGS
 BCRX,"BioCryst Pharmaceuticals, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGS
+BCTF,"Bancorp 34, Inc.",Financial Services,Banks - Regional,OTC Markets OTCPK
 BCTX,BriaCell Therapeutics Corp.,Healthcare,Biotechnology,NasdaqCM
 BCYC,Bicycle Therapeutics plc,Healthcare,Biotechnology,NasdaqGS
+BDCO,Blue Dolphin Energy Company,Energy,Oil & Gas Refining & Marketing,OTC Markets OTCQX
 BDRX,Biodexa Pharmaceuticals Plc,Healthcare,Biotechnology,NasdaqCM
 BDSX,"Biodesix, Inc.",Healthcare,Diagnostics & Research,NasdaqGM
 BDTX,"Black Diamond Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
@@ -232,6 +254,7 @@ BELFB,Bel Fuse Inc.,Technology,Electronic Components,NasdaqGS
 BFC,Bank First Corporation,Financial Services,Banks - Regional,NasdaqCM
 BFIN,BankFinancial Corporation,Financial Services,Banks - Regional,NasdaqGS
 BFST,"Business First Bancshares, Inc.",Financial Services,Banks - Regional,NasdaqGS
+BGXX,Bright Green Corporation,Healthcare,Drug Manufacturers - Specialty & Generic,N/A
 BHAT,Blue Hat Interactive Entertainment Technology,Communication Services,Electronic Gaming & Multimedia,NGM
 BHF,"Brighthouse Financial, Inc.",Financial Services,Insurance - Life,NasdaqGS
 BHRB,Burke & Herbert Financial Services Corp.,Financial Services,Banks - Regional,NasdaqCM
@@ -239,11 +262,13 @@ BIAF,"bioAffinity Technologies, Inc.",Healthcare,Diagnostics & Research,NasdaqCM
 BIDU,"Baidu, Inc.",Communication Services,Internet Content & Information,NasdaqGS
 BIIB,Biogen Inc.,Healthcare,Drug Manufacturers - General,NasdaqGS
 BILI,Bilibili Inc.,Communication Services,Internet Content & Information,NasdaqGS
+BIOR,"Biora Therapeutics, Inc.",Healthcare,Biotechnology,N/A
 BIOX,Bioceres Crop Solutions Corp.,Basic Materials,Agricultural Inputs,NasdaqGS
 BIRD,"Allbirds, Inc.",Consumer Cyclical,Apparel Retail,NasdaqGS
 BIVI,BioVie Inc.,Healthcare,Biotechnology,NasdaqCM
 BJRI,"BJ's Restaurants, Inc.",Consumer Cyclical,Restaurants,NasdaqGS
 BKNG,Booking Holdings Inc.,Consumer Cyclical,Travel Services,NasdaqGS
+BKSC,Bank of South Carolina Corporation,Financial Services,Banks - Regional,OTC Markets OTCQX
 BKYI,"BIO-key International, Inc.",Industrials,Security & Protection Services,NasdaqCM
 BL,"BlackLine, Inc.",Technology,Software - Application,NasdaqGS
 BLBD,Blue Bird Corporation,Industrials,Farm & Heavy Construction Machinery,NasdaqGM
@@ -267,6 +292,7 @@ BOKF,BOK Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
 BOLT,"Bolt Biotherapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 BOXL,Boxlight Corporation,Technology,Consumer Electronics,NasdaqCM
 BPOP,"Popular, Inc.",Financial Services,Banks - Regional,NasdaqGS
+BPTH,"Bio-Path Holdings, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 BRFH,"Barfresh Food Group, Inc.",Consumer Defensive,Beverages - Non-Alcoholic,NasdaqCM
 BRID,Bridgford Foods Corporation,Consumer Defensive,Packaged Foods,NasdaqGM
 BRKR,Bruker Corporation,Healthcare,Medical Devices,NasdaqGS
@@ -282,6 +308,7 @@ BSY,"Bentley Systems, Incorporated",Technology,Software - Application,NasdaqGS
 BTAI,"BioXcel Therapeutics, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqCM
 BTMD,biote Corp.,Healthcare,Medical Care Facilities,NasdaqGM
 BTSG,"BrightSpring Health Services, Inc.",Healthcare,Health Information Services,NasdaqGS
+BTTX,"Better Therapeutics, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 BUSE,First Busey Corporation,Financial Services,Banks - Regional,NasdaqGS
 BVS,Bioventus Inc.,Healthcare,Medical Devices,NasdaqGS
 BWAY,BrainsWay Ltd.,Healthcare,Medical Devices,NasdaqGM
@@ -300,6 +327,7 @@ CAC,Camden National Corporation,Financial Services,Banks - Regional,NasdaqGS
 CACC,Credit Acceptance Corporation,Financial Services,Credit Services,NasdaqGS
 CADL,"Candel Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
 CAKE,The Cheesecake Factory Incorporated,Consumer Cyclical,Restaurants,NasdaqGS
+CALA,"Calithera Biosciences, Inc.",Financial Services,Shell Companies,OTC Markets OTCPK
 CALC,"CalciMedica, Inc.",Healthcare,Biotechnology,NasdaqCM
 CALM,"Cal-Maine Foods, Inc.",Consumer Defensive,Farm Products,NasdaqGS
 CAN,Canaan Inc.,Technology,Computer Hardware,NasdaqGM
@@ -307,13 +335,16 @@ CAPR,"Capricor Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
 CAR,"Avis Budget Group, Inc.",Industrials,Rental & Leasing Services,NasdaqGS
 CARE,"Carter Bankshares, Inc.",Financial Services,Banks - Regional,NasdaqGS
 CARG,"CarGurus, Inc.",Consumer Cyclical,Auto & Truck Dealerships,NasdaqGS
+CARV,"Carver Bancorp, Inc.",Financial Services,Banks - Regional,OTC Markets OTCQB
 CASH,"Pathward Financial, Inc.",Financial Services,Banks - Regional,NasdaqGS
 CASI,CASI Pharmaceuticals Inc,Healthcare,Biotechnology,NGM
 CASS,"Cass Information Systems, Inc.",Industrials,Specialty Business Services,NasdaqGS
 CASY,"Casey's General Stores, Inc.",Consumer Cyclical,Specialty Retail,NasdaqGS
 CATY,Cathay General Bancorp,Financial Services,Banks - Regional,NasdaqGS
+CBAN,"Colony Bankcorp, Inc.",Financial Services,Banks - Regional,NYSE
 CBAT,"CBAK Energy Technology, Inc.",Industrials,Electrical Equipment & Parts,NasdaqCM
 CBNK,"Capital Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
+CBOE,"Cboe Global Markets, Inc.",Financial Services,Financial Data & Stock Exchanges,Cboe US
 CBRL,"Cracker Barrel Old Country Store, Inc.",Consumer Cyclical,Restaurants,NasdaqGS
 CBSH,"Commerce Bancshares, Inc.",Financial Services,Banks - Regional,NasdaqGS
 CBUS,"Cibus, Inc.",Healthcare,Biotechnology,NasdaqCM
@@ -345,6 +376,7 @@ CFBK,CF Bankshares Inc.,Financial Services,Banks - Regional,NasdaqCM
 CFFI,C&F Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
 CFFN,"Capitol Federal Financial, Inc.",Financial Services,Banks - Regional,NasdaqGS
 CFLT,"Confluent, Inc.",Technology,Software - Infrastructure,NMS
+CFNB,California First Leasing Corporation,Financial Services,Asset Management,OTC Markets OTCPK
 CG,The Carlyle Group Inc.,Financial Services,Asset Management,NasdaqGS
 CGBD,"Carlyle Secured Lending, Inc.",Financial Services,Asset Management,NasdaqGS
 CGEM,"Cullinan Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
@@ -367,6 +399,7 @@ CINF,Cincinnati Financial Corporation,Financial Services,Insurance - Property & 
 CING,Cingulate Inc.,Healthcare,Biotechnology,NasdaqCM
 CISO,CISO Global Inc.,Technology,Software - Infrastructure,NasdaqCM
 CIVB,"Civista Bancshares, Inc.",Financial Services,Banks - Regional,NasdaqCM
+CIZN,Citizens Holding Company,Financial Services,Banks - Regional,OTC Markets OTCQX
 CLAR,Clarus Corporation,Consumer Cyclical,Leisure,NasdaqGS
 CLBK,"Columbia Financial, Inc.",Financial Services,Banks - Regional,NasdaqGS
 CLDX,"Celldex Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
@@ -386,17 +419,20 @@ CLRO,"ClearOne, Inc.",Technology,Communication Equipment,NasdaqCM
 CLSD,"Clearside Biomedical, Inc.",Healthcare,Biotechnology,NGM
 CLSK,"CleanSpark, Inc.",Financial Services,Capital Markets,NasdaqCM
 CLST,"Catalyst Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
+CLVR,Clever Leaves Holdings Inc.,Healthcare,Drug Manufacturers - Specialty & Generic,OTC Markets OTCPK
 CMBM,Cambium Networks Corporation,Technology,Communication Equipment,NGM
 CMCO,Columbus McKinnon Corporation,Industrials,Farm & Heavy Construction Machinery,NasdaqGS
 CMCSA,Comcast Corporation,Communication Services,Telecom Services,NasdaqGS
 CMCT,Creative Media & Community Trust Corporation,Real Estate,REIT - Office,NasdaqCM
 CME,CME Group Inc.,Financial Services,Financial Data & Stock Exchanges,NasdaqGS
 CMMB,Chemomab Therapeutics Ltd.,Healthcare,Biotechnology,NasdaqCM
+CMPO,"GPGI, Inc.",Industrials,Metal Fabrication,N/A
 CMPR,Cimpress plc,Industrials,Specialty Business Services,NasdaqGS
 CMPS,COMPASS Pathways plc,Healthcare,Medical Care Facilities,NasdaqGS
 CMPX,"Compass Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 CMTL,Comtech Telecommunications Corp.,Technology,Communication Equipment,NasdaqGS
 CNET,ZW Data Action Technologies Inc.,Communication Services,Advertising Agencies,NasdaqCM
+CNMD,CONMED Corporation,Healthcare,Medical Devices,NYSE
 CNOB,"ConnectOne Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
 CNSP,"CNS Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqCM
 CNTA,Centessa Pharmaceuticals plc,Healthcare,Biotechnology,NasdaqGS
@@ -407,15 +443,18 @@ CNXC,Concentrix Corporation,Technology,Information Technology Services,NasdaqGS
 COCO,"The Vita Coco Company, Inc.",Consumer Defensive,Beverages - Non-Alcoholic,NasdaqGS
 COCP,"Cocrystal Pharma, Inc.",Healthcare,Biotechnology,NasdaqCM
 CODA,"Coda Octopus Group, Inc.",Industrials,Aerospace & Defense,NasdaqCM
+CODI,Compass Diversified,Industrials,Conglomerates,NYSE
 CODX,"Co-Diagnostics, Inc.",Healthcare,Medical Devices,NasdaqCM
 COEP,"Coeptis Therapeutics Holdings, Inc.",Healthcare,Biotechnology,NasdaqCM
 COGT,"Cogent Biosciences, Inc.",Healthcare,Biotechnology,NasdaqGS
+COHR,Coherent Corp.,Technology,Scientific & Technical Instruments,NYSE
 COHU,"Cohu, Inc.",Technology,Semiconductor Equipment & Materials,NasdaqGS
 COIN,"Coinbase Global, Inc.",Financial Services,Financial Data & Stock Exchanges,NasdaqGS
 COKE,"Coca-Cola Consolidated, Inc.",Consumer Defensive,Beverages - Non-Alcoholic,NasdaqGS
 COLB,"Columbia Banking System, Inc.",Financial Services,Banks - Regional,NasdaqGS
 COLL,"Collegium Pharmaceutical, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGS
 COLM,Columbia Sportswear Company,Consumer Cyclical,Apparel Manufacturing,NasdaqGS
+COMS,COMSovereign Holding Corp.,Technology,Communication Equipment,OTC Markets OTCPK
 CORZ,"Core Scientific, Inc.",Technology,Software - Infrastructure,NasdaqGS
 COST,Costco Wholesale Corporation,Consumer Defensive,Discount Stores,NasdaqGS
 CPHC,Canterbury Park Holding Corporation,Consumer Cyclical,Resorts & Casinos,NasdaqGM
@@ -431,6 +470,7 @@ CRDF,"Cardiff Oncology, Inc.",Healthcare,Biotechnology,NasdaqCM
 CRDO,Credo Technology Group Holding Ltd,Technology,Semiconductors,NasdaqGS
 CREX,"Creative Realities, Inc.",Technology,Software - Application,NasdaqCM
 CRIS,"Curis, Inc.",Healthcare,Biotechnology,NasdaqCM
+CRKN,Crown Electrokinetics Corp.,Basic Materials,Specialty Chemicals,OTC Markets OTCPK
 CRML,Critical Metals Corp.,Basic Materials,Other Industrial Metals & Mining,NasdaqGM
 CRMT,"America's Car-Mart, Inc.",Consumer Cyclical,Auto & Truck Dealerships,NasdaqGS
 CRNC,Cerence Inc.,Technology,Software - Application,NasdaqGS
@@ -456,15 +496,18 @@ CSWC,Capital Southwest Corporation,Financial Services,Asset Management,NasdaqGS
 CSX,CSX Corporation,Industrials,Railroads,NasdaqGS
 CTAS,Cintas Corporation,Industrials,Specialty Business Services,NasdaqGS
 CTBI,"Community Trust Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
+CTHR,Charles & Colvard Ltd,Consumer Cyclical,Luxury Goods,PNK
 CTKB,"Cytek Biosciences, Inc.",Healthcare,Medical Devices,NasdaqGS
 CTLP,"Cantaloupe, Inc.",Technology,Software - Infrastructure,NasdaqGS
 CTMX,"CytomX Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
+CTRE,"CareTrust REIT, Inc.",Real Estate,REIT - Healthcare Facilities,NYSE
 CTRM,Castor Maritime Inc.,Industrials,Marine Shipping,NasdaqCM
 CTRN,"Citi Trends, Inc.",Consumer Cyclical,Apparel Retail,NasdaqGS
 CTSH,Cognizant Technology Solutions Corporation,Technology,Information Technology Services,NasdaqGS
 CTSO,Cytosorbents Corporation,Healthcare,Medical Devices,NasdaqCM
 CTXR,"Citius Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqCM
 CUE,"Cue Biopharma, Inc.",Healthcare,Biotechnology,NasdaqCM
+CUEN,Cuentas Inc.,Technology,Software - Application,OTC Markets OTCQB
 CURI,CuriosityStream Inc.,Communication Services,Broadcasting,NasdaqCM
 CVBF,CVB Financial Corp.,Financial Services,Banks - Regional,NasdaqGS
 CVCO,"Cavco Industries, Inc.",Consumer Cyclical,Residential Construction,NasdaqGS
@@ -479,6 +522,8 @@ CWCO,Consolidated Water Co. Ltd.,Utilities,Utilities - Regulated Water,NasdaqGS
 CWST,"Casella Waste Systems, Inc.",Industrials,Waste Management,NasdaqGS
 CXAI,CXApp Inc.,Technology,Software - Application,NasdaqCM
 CXDO,"Crexendo, Inc.",Communication Services,Telecom Services,NasdaqCM
+CYAN,Cyanotech Corporation,Consumer Defensive,Packaged Foods,OTC Markets OTCPK
+CYBR,CyberArk Software Ltd,Technology,Software - Infrastructure,N/A
 CYCN,"Cyclerion Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 CYN,Cyngn Inc.,Technology,Software - Application,NasdaqCM
 CYRX,"Cryoport, Inc.",Industrials,Integrated Freight & Logistics,NasdaqCM
@@ -489,13 +534,18 @@ CZWI,"Citizens Community Bancorp, Inc.",Financial Services,Banks - Regional,Nasd
 DAIO,Data I/O Corporation,Technology,Electronic Components,NasdaqCM
 DAKT,"Daktronics, Inc.",Technology,Electronic Components,NasdaqGS
 DARE,"Daré Bioscience, Inc.",Healthcare,Biotechnology,NasdaqCM
+DASTY,Dassault Systèmes SE,Technology,Software - Application,OTC Markets OTCPK
 DAVE,Dave Inc.,Technology,Software - Application,NasdaqGM
 DAWN,"Day One Biopharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
 DBVT,DBV Technologies S.A.,Healthcare,Biotechnology,NasdaqCM
 DBX,"Dropbox, Inc.",Technology,Software - Infrastructure,NasdaqGS
 DCGO,DocGo Inc.,Healthcare,Medical Care Facilities,NasdaqCM
+DCOM,"Dime Community Bancshares, Inc.",Financial Services,Banks - Regional,NYSE
 DCTH,"Delcath Systems, Inc.",Healthcare,Medical Devices,NasdaqCM
+DDD,3D Systems Corporation,Technology,Computer Hardware,NYSE
 DDOG,"Datadog, Inc.",Technology,Software - Application,NasdaqGS
+DECK,Deckers Outdoor Corporation,Consumer Cyclical,Footwear & Accessories,NYSE
+DENN,Denny's Corporation,Consumer Cyclical,Restaurants,N/A
 DERM,Journey Medical Corporation,Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqCM
 DFLI,Dragonfly Energy Holdings Corp.,Industrials,Electrical Equipment & Parts,NasdaqCM
 DGICA,Donegal Group Inc.,Financial Services,Insurance - Property & Casualty,NasdaqGS
@@ -537,11 +587,14 @@ DTST,Data Storage Corporation,Technology,Information Technology Services,NasdaqC
 DUO,Fangdd Network Group Ltd.,Real Estate,Real Estate Services,NasdaqCM
 DUOL,"Duolingo, Inc.",Technology,Software - Application,NasdaqGS
 DUOT,"Duos Technologies Group, Inc.",Technology,Software - Application,NasdaqCM
+DVAX,Dynavax Technologies Corp,Healthcare,Drug Manufacturers - Specialty & Generic,N/A
 DWSN,Dawson Geophysical Company,Energy,Oil & Gas Equipment & Services,NasdaqGS
 DXCM,"DexCom, Inc.",Healthcare,Medical Devices,NasdaqGS
 DXLG,"Destination XL Group, Inc.",Consumer Cyclical,Apparel Retail,NasdaqGM
 DXPE,"DXP Enterprises, Inc.",Industrials,Industrial Distribution,NasdaqGS
 DYN,"Dyne Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
+DYNT,Dynatronics Corporation,Healthcare,Medical Devices,N/A
+DZSI,DZS Inc.,Technology,Communication Equipment,N/A
 EA,Electronic Arts Inc.,Communication Services,Electronic Gaming & Multimedia,NasdaqGS
 EBAY,eBay Inc.,Consumer Cyclical,Internet Retail,NasdaqGS
 EBC,"Eastern Bankshares, Inc.",Financial Services,Banks - Regional,NasdaqGS
@@ -558,18 +611,23 @@ EDUC,Educational Development Corporation,Communication Services,Publishing,Nasda
 EEFT,"Euronet Worldwide, Inc.",Technology,Software - Infrastructure,NasdaqGS
 EFOI,"Energy Focus, Inc.",Consumer Cyclical,"Furnishings, Fixtures & Appliances",NasdaqCM
 EFSC,Enterprise Financial Services Corp,Financial Services,Banks - Regional,NasdaqGS
+EFTR,"eFFECTOR Therapeutics, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 EGAN,eGain Corporation,Technology,Software - Application,NasdaqCM
 EGBN,"Eagle Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
 EGHT,"8x8, Inc.",Technology,Software - Application,NasdaqGS
+EGRX,"Eagle Pharmaceuticals, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,OTC Markets OTCPK
 EH,EHang Holdings Limited,Industrials,Aerospace & Defense,NasdaqGM
 EHTH,"eHealth, Inc.",Financial Services,Insurance Brokers,NasdaqGS
 EKSO,"Ekso Bionics Holdings, Inc.",Healthcare,Medical Instruments & Supplies,NasdaqCM
 ELDN,"Eledon Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqCM
+ELOX,"Eloxx Pharmaceuticals, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 ELSE,"Electro-Sensors, Inc.",Technology,Scientific & Technical Instruments,NasdaqCM
 ELTK,Eltek Ltd.,Technology,Electronic Components,NasdaqCM
 ELUT,Elutia Inc.,Healthcare,Medical Devices,NasdaqCM
 ELVN,"Enliven Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
+ELYS,"Elys BMG Group, Inc.",Consumer Cyclical,Gambling,OTC Markets OTCPK
 EMBC,Embecta Corp.,Healthcare,Medical Instruments & Supplies,NasdaqGS
+EMMS,Emmis Corporation,Communication Services,Broadcasting,OTC Markets OTCPK
 ENPH,"Enphase Energy, Inc.",Technology,Solar,NasdaqGM
 ENSC,"Ensysce Biosciences, Inc.",Healthcare,Biotechnology,NasdaqCM
 ENSG,"The Ensign Group, Inc.",Healthcare,Medical Care Facilities,NasdaqGS
@@ -577,10 +635,12 @@ ENTA,"Enanta Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
 ENTG,"Entegris, Inc.",Technology,Semiconductor Equipment & Materials,NasdaqGS
 ENTX,Entera Bio Ltd.,Healthcare,Biotechnology,NasdaqCM
 ENVX,Enovix Corporation,Industrials,Electrical Equipment & Parts,NasdaqGS
+ENZN,"Enzon Pharmaceuticals, Inc.",Healthcare,Biotechnology,PNK
 EOLS,"Evolus, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGM
 EOSE,"Eos Energy Enterprises, Inc.",Industrials,Electrical Equipment & Parts,NasdaqCM
 EPSN,Epsilon Energy Ltd.,Energy,Oil & Gas E&P,NasdaqGM
 EQ,"Equillium, Inc.",Healthcare,Biotechnology,NasdaqCM
+EQBK,"Equity Bancshares, Inc.",Financial Services,Banks - Regional,NYSE
 EQIX,"Equinix, Inc.",Real Estate,REIT - Specialty,NasdaqGS
 ERAS,"Erasca, Inc.",Healthcare,Biotechnology,NasdaqGS
 ERIC,Telefonaktiebolaget LM Ericsson (publ),Technology,Communication Equipment,NasdaqGS
@@ -590,15 +650,21 @@ ERNA,Ernexa Therapeutics Inc.,Healthcare,Biotechnology,NasdaqCM
 ESCA,"Escalade, Incorporated",Consumer Cyclical,Leisure,NasdaqGM
 ESEA,Euroseas Ltd.,Industrials,Marine Shipping,NasdaqCM
 ESLT,Elbit Systems Ltd.,Industrials,Aerospace & Defense,NasdaqGS
+ESMC,Escalon Medical Corp.,Healthcare,Medical Devices,OTC Markets OTCQB
 ESPR,"Esperion Therapeutics, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGM
 ESQ,"Esquire Financial Holdings, Inc.",Financial Services,Banks - Regional,NasdaqCM
 ESTA,Establishment Labs Holdings Inc.,Healthcare,Medical Devices,NasdaqCM
 ETON,"Eton Pharmaceuticals, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGM
+ETSY,"Etsy, Inc.",Consumer Cyclical,Internet Retail,NYSE
 EVCM,EverCommerce Inc.,Technology,Software - Infrastructure,NasdaqGS
 EVER,"EverQuote, Inc.",Communication Services,Internet Content & Information,NasdaqGM
+EVEX,"Eve Holding, Inc.",Industrials,Aerospace & Defense,NYSE
+EVFM,"Evofem Biosciences, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 EVGN,Evogene Ltd.,Healthcare,Biotechnology,NasdaqCM
 EVGO,"EVgo, Inc.",Consumer Cyclical,Specialty Retail,NasdaqGS
+EVLO,"Evelo Biosciences, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 EVLV,"Evolv Technologies Holdings, Inc.",Industrials,Security & Protection Services,NasdaqCM
+EVOL,"Symbolic Logic, Inc.",Technology,Software - Application,OTC Markets OTCPK
 EVTV,"Envirotech Vehicles, Inc.",Consumer Cyclical,Auto Manufacturers,NasdaqCM
 EWBC,"East West Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
 EWCZ,"European Wax Center, Inc.",Consumer Defensive,Household & Personal Products,NasdaqGS
@@ -607,6 +673,7 @@ EXAS,Exact Sciences Corporation,Healthcare,Diagnostics & Research,NCM
 EXEL,"Exelixis, Inc.",Healthcare,Biotechnology,NasdaqGS
 EXFY,"Expensify, Inc.",Technology,Software - Application,NasdaqGS
 EXLS,"ExlService Holdings, Inc.",Technology,Information Technology Services,NasdaqGS
+EXPD,"Expeditors International of Washington, Inc.",Industrials,Integrated Freight & Logistics,NYSE
 EXPO,"Exponent, Inc.",Industrials,Engineering & Construction,NasdaqGS
 EXTR,"Extreme Networks, Inc.",Technology,Communication Equipment,NasdaqGS
 EYE,"National Vision Holdings, Inc.",Consumer Cyclical,Specialty Retail,NasdaqGS
@@ -617,6 +684,7 @@ FAMI,"Farmmi, Inc.",Consumer Defensive,Packaged Foods,NasdaqCM
 FANG,"Diamondback Energy, Inc.",Energy,Oil & Gas E&P,NasdaqGS
 FARM,Farmer Bros. Co.,Consumer Defensive,Packaged Foods,NasdaqGS
 FAST,Fastenal Company,Industrials,Industrial Distribution,NasdaqGS
+FAT,FAT Brands Inc.,Consumer Cyclical,Restaurants,N/A
 FATE,"Fate Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
 FBIO,"Fortress Biotech, Inc.",Healthcare,Biotechnology,NasdaqCM
 FBIZ,"First Business Financial Services, Inc.",Financial Services,Banks - Regional,NasdaqGS
@@ -634,9 +702,11 @@ FEIM,"Frequency Electronics, Inc.",Technology,Communication Equipment,NasdaqGM
 FELE,"Franklin Electric Co., Inc.",Industrials,Specialty Industrial Machinery,NasdaqGS
 FENC,Fennec Pharmaceuticals Inc.,Healthcare,Biotechnology,NasdaqCM
 FFBC,First Financial Bancorp.,Financial Services,Banks - Regional,NasdaqGS
+FFBW,"FFBW, Inc.",Financial Services,Banks - Regional,OTC Markets OTCQX
 FFIC,Flushing Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
 FFIN,"First Financial Bankshares, Inc.",Financial Services,Banks - Regional,NasdaqGS
 FFIV,"F5, Inc.",Technology,Software - Infrastructure,NasdaqGS
+FFWM,First Foundation Inc.,Financial Services,Banks - Regional,NYQ
 FGBI,"First Guaranty Bancshares, Inc.",Financial Services,Banks - Regional,NasdaqGM
 FHB,"First Hawaiian, Inc.",Financial Services,Banks - Regional,NasdaqGS
 FHTX,Foghorn Therapeutics Inc.,Healthcare,Biotechnology,NasdaqGM
@@ -652,11 +722,14 @@ FLEX,Flex Ltd.,Technology,Electronic Components,NasdaqGS
 FLGT,"Fulgent Genetics, Inc.",Healthcare,Diagnostics & Research,NasdaqGM
 FLNC,"Fluence Energy, Inc.",Utilities,Utilities - Renewable,NasdaqGS
 FLNT,"Fluent, Inc.",Communication Services,Advertising Agencies,NasdaqCM
+FLS,Flowserve Corporation,Industrials,Specialty Industrial Machinery,NYSE
 FLUX,"Flux Power Holdings, Inc.",Industrials,Electrical Equipment & Parts,NasdaqCM
 FLWS,"1-800-FLOWERS.COM, Inc.",Consumer Cyclical,Specialty Retail,NasdaqGS
 FLYW,Flywire Corporation,Technology,Software - Infrastructure,NasdaqGS
 FMBH,"First Mid Bancshares, Inc.",Financial Services,Banks - Regional,NasdaqGM
+FMCB,Farmers & Merchants Bancorp,Financial Services,Banks - Regional,OTC Markets OTCQX
 FMNB,Farmers National Banc Corp.,Financial Services,Banks - Regional,NasdaqCM
+FNCH,"Finch Therapeutics Group, Inc.",Healthcare,Biotechnology,PNK
 FNGR,"FingerMotion, Inc.",Communication Services,Telecom Services,NasdaqCM
 FNKO,"Funko, Inc.",Consumer Cyclical,Leisure,NasdaqGS
 FNLC,"The First Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
@@ -704,7 +777,9 @@ GALT,Galectin Therapeutics Inc.,Healthcare,Biotechnology,NasdaqCM
 GAMB,Gambling.com Group Limited,Consumer Cyclical,Gambling,NasdaqGM
 GANX,"Gain Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
 GASS,StealthGas Inc.,Industrials,Marine Shipping,NasdaqGS
+GBCI,"Glacier Bancorp, Inc.",Financial Services,Banks - Regional,NYSE
 GBDC,"Golub Capital BDC, Inc.",Financial Services,Asset Management,NasdaqGS
+GBIO,Generation Bio Co.,Healthcare,Biotechnology,N/A
 GBLI,"Global Indemnity Group, LLC",Financial Services,Insurance - Property & Casualty,NasdaqGS
 GCBC,"Greene County Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
 GCMG,GCM Grosvenor Inc.,Financial Services,Asset Management,NasdaqGM
@@ -717,11 +792,13 @@ GECC,Great Elm Capital Corp.,Financial Services,Asset Management,NasdaqGM
 GEG,"Great Elm Group, Inc.",Financial Services,Asset Management,NasdaqGS
 GEHC,GE HealthCare Technologies Inc.,Healthcare,Medical Devices,NasdaqGS
 GEN,Gen Digital Inc.,Technology,Software - Infrastructure,NasdaqGS
+GENC,"Gencor Industries, Inc.",Industrials,Farm & Heavy Construction Machinery,NYSE American
 GEOS,Geospace Technologies Corporation,Energy,Oil & Gas Equipment & Services,NasdaqGS
 GERN,Geron Corporation,Healthcare,Biotechnology,NasdaqGS
 GEVO,"Gevo, Inc.",Basic Materials,Specialty Chemicals,NasdaqCM
 GFS,GLOBALFOUNDRIES Inc.,Technology,Semiconductors,NasdaqGS
 GH,"Guardant Health, Inc.",Healthcare,Diagnostics & Research,NasdaqGS
+GIFI,"Gulf Island Fabrication, Inc.",Industrials,Metal Fabrication,N/A
 GIGM,GigaMedia Limited,Communication Services,Electronic Gaming & Multimedia,NasdaqCM
 GIII,"G-III Apparel Group, Ltd.",Consumer Cyclical,Apparel Manufacturing,NasdaqGS
 GILD,"Gilead Sciences, Inc.",Healthcare,Drug Manufacturers - General,NasdaqGS
@@ -744,15 +821,20 @@ GNLX,Genelux Corporation,Healthcare,Biotechnology,NasdaqCM
 GNPX,"Genprex, Inc.",Healthcare,Biotechnology,NasdaqCM
 GO,Grocery Outlet Holding Corp.,Consumer Defensive,Grocery Stores,NasdaqGS
 GOCO,"GoHealth, Inc.",Financial Services,Insurance Brokers,NasdaqCM
+GOEV,Canoo Inc.,Consumer Cyclical,Auto Manufacturers,N/A
 GOGO,Gogo Inc.,Communication Services,Telecom Services,NasdaqGS
 GOOD,Gladstone Commercial Corporation,Real Estate,REIT - Diversified,NasdaqGS
 GOOG,Alphabet Inc.,Communication Services,Internet Content & Information,NasdaqGS
 GOSS,"Gossamer Bio, Inc.",Healthcare,Biotechnology,NasdaqGS
 GPCR,Structure Therapeutics Inc.,Healthcare,Biotechnology,NasdaqGM
+GPOR,Gulfport Energy Corporation,Energy,Oil & Gas E&P,NYSE
 GPRE,Green Plains Inc.,Basic Materials,Chemicals,NasdaqGS
+GRBK,"Green Brick Partners, Inc.",Consumer Cyclical,Residential Construction,NYSE
 GRI,"GRI Bio, Inc.",Healthcare,Biotechnology,NasdaqCM
+GRMN,Garmin Ltd.,Technology,Scientific & Technical Instruments,NYSE
 GRNQ,Greenpro Capital Corp.,Industrials,Consulting Services,NasdaqCM
 GRPN,"Groupon, Inc.",Communication Services,Internet Content & Information,NasdaqGS
+GRTX,"Galera Therapeutics, Inc.",Healthcare,Biotechnology,OTC Markets OTCQB
 GRWG,GrowGeneration Corp.,Consumer Cyclical,Specialty Retail,NasdaqCM
 GSAT,"Globalstar, Inc.",Communication Services,Telecom Services,NasdaqGS
 GSBC,"Great Southern Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
@@ -763,6 +845,7 @@ GTBP,"GT Biopharma, Inc.",Healthcare,Biotechnology,NasdaqCM
 GTEC,Greenland Technologies Holding Corporation,Consumer Cyclical,Auto Parts,NasdaqCM
 GTIM,Good Times Restaurants Inc.,Consumer Cyclical,Restaurants,NasdaqCM
 GTLB,GitLab Inc.,Technology,Software - Infrastructure,NasdaqGS
+GTLS,"Chart Industries, Inc.",Industrials,Specialty Industrial Machinery,NYSE
 GURE,"Gulf Resources, Inc.",Basic Materials,Chemicals,NasdaqCM
 GUTS,"Fractyl Health, Inc.",Healthcare,Biotechnology,NasdaqGM
 GWRS,"Global Water Resources, Inc.",Utilities,Utilities - Regulated Water,NasdaqGM
@@ -770,7 +853,9 @@ GYRE,"Gyre Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 GYRO,"Gyrodyne, LLC",Real Estate,Real Estate Services,NasdaqCM
 HAFC,Hanmi Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
 HAIN,"The Hain Celestial Group, Inc.",Consumer Defensive,Packaged Foods,NasdaqGS
+HALL,"Hallmark Financial Services, Inc.",Financial Services,Insurance - Property & Casualty,OTC Markets OTCPK
 HALO,"Halozyme Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
+HARL,Harleysville Financial Corporation,Financial Services,Banks - Regional,OTC Markets OTCQX
 HBCP,"Home Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
 HBIO,"Harvard Bioscience, Inc.",Healthcare,Medical Instruments & Supplies,NasdaqCM
 HBNC,"Horizon Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
@@ -783,6 +868,7 @@ HCTI,"Healthcare Triangle, Inc.",Healthcare,Health Information Services,NasdaqCM
 HCWB,HCW Biologics Inc.,Healthcare,Biotechnology,NasdaqCM
 HDSN,"Hudson Technologies, Inc.",Basic Materials,Specialty Chemicals,NasdaqCM
 HELE,Helen of Troy Limited,Consumer Defensive,Household & Personal Products,NasdaqGS
+HEPA,"Hepion Pharmaceuticals, Inc.",Healthcare,Biotechnology,OTC Markets OTCQB
 HFBL,"Home Federal Bancorp, Inc. of Louisiana",Financial Services,Banks - Regional,NasdaqCM
 HFFG,HF Foods Group Inc.,Consumer Defensive,Food Distribution,NasdaqCM
 HFWA,Heritage Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
@@ -799,7 +885,9 @@ HNST,"The Honest Company, Inc.",Consumer Defensive,Household & Personal Products
 HNVR,"Hanover Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
 HOFT,Hooker Furnishings Corporation,Consumer Cyclical,"Furnishings, Fixtures & Appliances",NasdaqGS
 HOLX,"Hologic, Inc.",Healthcare,Medical Instruments & Supplies,NMS
+HOMB,"Home BancShares, Inc.",Financial Services,Banks - Regional,NYSE
 HOOD,"Robinhood Markets, Inc.",Financial Services,Capital Markets,NasdaqGS
+HOOK,HOOKIPA Pharma Inc.,Healthcare,Biotechnology,OTC Markets OTCPK
 HOPE,"Hope Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
 HOTH,"Hoth Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 HOUR,"Hour Loop, Inc.",Consumer Cyclical,Internet Retail,NasdaqCM
@@ -816,6 +904,7 @@ HSDT,Solana Company,Financial Services,Asset Management,NasdaqCM
 HSIC,"Henry Schein, Inc.",Healthcare,Medical Distribution,NasdaqGS
 HSTM,"HealthStream, Inc.",Healthcare,Health Information Services,NasdaqGS
 HTBK,Heritage Commerce Corp,Financial Services,Banks - Regional,NasdaqGS
+HTGC,"Hercules Capital, Inc.",Financial Services,Asset Management,NYSE
 HTHT,H World Group Limited,Consumer Cyclical,Lodging,NasdaqGS
 HTLD,"Heartland Express, Inc.",Industrials,Trucking,NasdaqGS
 HUBG,"Hub Group, Inc.",Industrials,Integrated Freight & Logistics,NasdaqGS
@@ -845,6 +934,7 @@ ICUI,"ICU Medical, Inc.",Healthcare,Medical Instruments & Supplies,NasdaqGS
 IDAI,T Stamp Inc.,Technology,Software - Application,NasdaqCM
 IDCC,"InterDigital, Inc.",Technology,Software - Application,NasdaqGS
 IDN,"Intellicheck, Inc.",Technology,Software - Application,NasdaqGM
+IDXG,"Interpace Biosciences, Inc.",Healthcare,Diagnostics & Research,OTC Markets OTCPK
 IDXX,"IDEXX Laboratories, Inc.",Healthcare,Diagnostics & Research,NasdaqGS
 IDYA,"IDEAYA Biosciences, Inc.",Healthcare,Biotechnology,NasdaqGS
 IEP,Icahn Enterprises L.P.,Energy,Oil & Gas Refining & Marketing,NasdaqGS
@@ -852,6 +942,7 @@ IFRX,InflaRx N.V.,Healthcare,Biotechnology,NasdaqGS
 IGIC,International General Insurance Holdings Ltd.,Financial Services,Insurance - Diversified,NasdaqCM
 IHRT,"iHeartMedia, Inc.",Communication Services,Broadcasting,NasdaqGS
 III,"Information Services Group, Inc.",Technology,Information Technology Services,NasdaqGM
+IIIN,Insteel Industries Inc.,Industrials,Metal Fabrication,NYSE
 IKT,"Inhibikase Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 ILMN,"Illumina, Inc.",Healthcare,Diagnostics & Research,NasdaqGS
 ILPT,Industrial Logistics Properties Trust,Real Estate,REIT - Industrial,NasdaqGS
@@ -889,6 +980,8 @@ INSM,Insmed Incorporated,Healthcare,Biotechnology,NasdaqGS
 INTA,"Intapp, Inc.",Technology,Software - Application,NasdaqGS
 INTC,Intel Corporation,Technology,Semiconductors,NasdaqGS
 INTG,The InterGroup Corporation,Consumer Cyclical,Lodging,NasdaqCM
+INTH,Innotech Corporation,Communication Services,Internet Content & Information,OTC Markets OTCPK
+INTT,inTEST Corporation,Technology,Semiconductor Equipment & Materials,NYSE American
 INVE,"Identiv, Inc.",Industrials,Building Products & Equipment,NasdaqCM
 IOBT,"IO Biotech, Inc.",Healthcare,Biotechnology,NMS
 IONS,"Ionis Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
@@ -909,6 +1002,7 @@ IRON,"Disc Medicine, Inc.",Healthcare,Biotechnology,NasdaqGM
 IROQ,"IF Bancorp, Inc.",Financial Services,Banks - Regional,NCM
 IRTC,"iRhythm Holdings, Inc.",Healthcare,Medical Devices,NasdaqGS
 IRWD,"Ironwood Pharmaceuticals, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGS
+ISPO,Inspirato Incorporated,Consumer Cyclical,Travel Services,N/A
 ISRG,"Intuitive Surgical, Inc.",Healthcare,Medical Instruments & Supplies,NasdaqGS
 ISSC,"Innovative Aerosystems, Inc.",Industrials,Aerospace & Defense,NasdaqGS
 ISTR,Investar Holding Corporation,Financial Services,Banks - Regional,NasdaqGM
@@ -921,6 +1015,7 @@ IZEA,"IZEA Worldwide, Inc.",Communication Services,Internet Content & Informatio
 JACK,Jack in the Box Inc,Consumer Cyclical,Restaurants,NasdaqGS
 JAGX,"Jaguar Health, Inc.",Healthcare,Biotechnology,NasdaqCM
 JAKK,"JAKKS Pacific, Inc.",Consumer Cyclical,Leisure,NasdaqGS
+JAMF,Jamf Holding Corp,Technology,Software - Application,N/A
 JANX,"Janux Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
 JAZZ,Jazz Pharmaceuticals plc,Healthcare,Biotechnology,NasdaqGS
 JBHT,"J.B. Hunt Transport Services, Inc.",Industrials,Integrated Freight & Logistics,NasdaqGS
@@ -936,28 +1031,37 @@ JMSB,"John Marshall Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
 JOUT,Johnson Outdoors Inc.,Consumer Cyclical,Leisure,NasdaqGS
 JRSH,"Jerash Holdings (US), Inc.",Consumer Cyclical,Apparel Manufacturing,NasdaqCM
 JRVR,"James River Group Holdings, Inc.",Financial Services,Insurance - Specialty,NasdaqGS
+JSDA,Jones Soda Co.,Consumer Defensive,Beverages - Non-Alcoholic,OTC Markets OTCQB
 JSPR,"Jasper Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 JVA,"Coffee Holding Co., Inc.",Consumer Defensive,Packaged Foods,NasdaqCM
 JYNT,The Joint Corp.,Healthcare,Medical Care Facilities,NasdaqCM
 KALA,"KALA BIO, Inc.",Healthcare,Biotechnology,NasdaqCM
 KALU,Kaiser Aluminum Corporation,Basic Materials,Aluminum,NasdaqGS
 KALV,"KalVista Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGM
+KAVL,"Kaival Brands Innovations Group, Inc.",Consumer Defensive,Tobacco,OTC Markets OTCQB
+KBNT,"Kubient, Inc.",Technology,Software - Application,OTC Markets OTCPK
+KCLI,Kansas City Life Insurance Company,Financial Services,Insurance - Life,OTC Markets OTCQX
 KDP,Keurig Dr Pepper Inc.,Consumer Defensive,Beverages - Non-Alcoholic,NasdaqGS
 KE,"Kimball Electronics, Inc.",Industrials,Electrical Equipment & Parts,NasdaqGS
 KELYA,"Kelly Services, Inc.",Industrials,Staffing & Employment Services,NasdaqGS
 KEQU,Kewaunee Scientific Corporation,Consumer Cyclical,"Furnishings, Fixtures & Appliances",NasdaqGM
+KFRC,Kforce Inc.,Industrials,Staffing & Employment Services,NYSE
+KGJI,"Kingold Jewelry, Inc.",Consumer Cyclical,Luxury Goods,OTC Markets OTCPK
 KHC,The Kraft Heinz Company,Consumer Defensive,Packaged Foods,NasdaqGS
 KIDS,OrthoPediatrics Corp.,Healthcare,Medical Devices,NasdaqGM
 KINS,"Kingstone Companies, Inc.",Financial Services,Insurance - Property & Casualty,NasdaqCM
 KITT,"Nauticus Robotics, Inc.",Industrials,Aerospace & Defense,NasdaqCM
 KLAC,KLA Corporation,Technology,Semiconductor Equipment & Materials,NasdaqGS
+KLDO,"Kaleido Biosciences, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 KLIC,"Kulicke and Soffa Industries, Inc.",Technology,Semiconductor Equipment & Materials,NasdaqGS
 KLTR,"Kaltura, Inc.",Technology,Software - Application,NasdaqGS
 KLXE,"KLX Energy Services Holdings, Inc.",Energy,Oil & Gas Equipment & Services,NasdaqGS
 KMDA,Kamada Ltd.,Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGS
 KNDI,"Kandi Technologies Group, Inc.",Consumer Cyclical,Recreational Vehicles,NasdaqGS
 KNSA,"Kiniksa Pharmaceuticals International, plc",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGS
+KNSL,"Kinsale Capital Group, Inc.",Financial Services,Insurance - Property & Casualty,NYSE
 KOD,Kodiak Sciences Inc.,Healthcare,Biotechnology,NasdaqGM
+KODK,Eastman Kodak Company,Industrials,Specialty Business Services,NYSE
 KOPN,Kopin Corporation,Technology,Electronic Components,NasdaqCM
 KOSS,Koss Corporation,Technology,Consumer Electronics,NasdaqCM
 KPLT,"Katapult Holdings, Inc.",Technology,Software - Infrastructure,NasdaqGM
@@ -1005,7 +1109,9 @@ LFMD,"LifeMD, Inc.",Healthcare,Health Information Services,NasdaqGM
 LFST,"LifeStance Health Group, Inc.",Healthcare,Medical Care Facilities,NasdaqGS
 LFUS,"Littelfuse, Inc.",Technology,Electronic Components,NasdaqGS
 LFVN,LifeVantage Corporation,Consumer Defensive,Packaged Foods,NasdaqCM
+LGCY,Legacy Education Inc.,Consumer Defensive,Education & Training Services,NYSE American
 LGIH,"LGI Homes, Inc.",Consumer Cyclical,Residential Construction,NasdaqGS
+LGMK,"LogicMark, Inc.",Healthcare,Health Information Services,OTC Markets OTCPK
 LGND,Ligand Pharmaceuticals Incorporated,Healthcare,Biotechnology,NasdaqGM
 LGVN,Longeveron Inc.,Healthcare,Biotechnology,NasdaqCM
 LIDR,"AEye, Inc.",Technology,Software - Infrastructure,NasdaqCM
@@ -1014,6 +1120,7 @@ LILA,Liberty Latin America Ltd.,Communication Services,Telecom Services,NasdaqGS
 LINC,Lincoln Educational Services Corporation,Consumer Defensive,Education & Training Services,NasdaqGS
 LIND,"Lindblad Expeditions Holdings, Inc.",Consumer Cyclical,Travel Services,NasdaqCM
 LINE,"Lineage, Inc.",Real Estate,REIT - Industrial,NasdaqGS
+LIPO,Lipella Pharmaceuticals Inc.,Healthcare,Biotechnology,OTC Markets OTCPK
 LITE,Lumentum Holdings Inc.,Technology,Communication Equipment,NasdaqGS
 LIVE,Live Ventures Incorporated,Consumer Cyclical,Home Improvement Retail,NasdaqCM
 LIVN,LivaNova PLC,Healthcare,Medical Devices,NasdaqGS
@@ -1024,12 +1131,15 @@ LMAT,"LeMaitre Vascular, Inc.",Healthcare,Medical Instruments & Supplies,NasdaqG
 LMB,"Limbach Holdings, Inc.",Industrials,Building Products & Equipment,NasdaqCM
 LMFA,"LM Funding America, Inc.",Financial Services,Credit Services,NasdaqCM
 LMNR,Limoneira Company,Consumer Defensive,Farm Products,NasdaqGS
+LMPX,"LMP Automotive Holdings, Inc.",Consumer Cyclical,Auto & Truck Dealerships,OTC Markets OTCPK
 LNKB,"LINKBANCORP, Inc.",Financial Services,Banks - Regional,NasdaqCM
 LNSR,"LENSAR, Inc.",Healthcare,Medical Devices,NasdaqCM
 LNTH,"Lantheus Holdings, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGM
 LNZA,"LanzaTech Global, Inc.",Industrials,Waste Management,NasdaqCM
 LOAN,"Manhattan Bridge Capital, Inc.",Real Estate,REIT - Mortgage,NasdaqCM
+LOB,"Live Oak Bancshares, Inc.",Financial Services,Banks - Regional,NYSE
 LOCO,"El Pollo Loco Holdings, Inc.",Consumer Cyclical,Restaurants,NasdaqGS
+LOGC,ContextLogic Holdings Inc.,Consumer Cyclical,Internet Retail,OTC Markets OTCQB
 LOGI,Logitech International S.A.,Technology,Computer Hardware,NasdaqGS
 LOOP,"Loop Industries, Inc.",Basic Materials,Specialty Chemicals,NasdaqGM
 LOPE,"Grand Canyon Education, Inc.",Consumer Defensive,Education & Training Services,NasdaqGS
@@ -1049,10 +1159,12 @@ LSCC,Lattice Semiconductor Corporation,Technology,Semiconductors,NasdaqGS
 LSTA,"Lisata Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 LSTR,"Landstar System, Inc.",Industrials,Integrated Freight & Logistics,NasdaqGS
 LTBR,Lightbridge Corporation,Industrials,Electrical Equipment & Parts,NasdaqCM
+LTRE,"Learning Tree International, Inc.",Consumer Defensive,Education & Training Services,OTC Markets OTCPK
 LTRN,Lantern Pharma Inc.,Healthcare,Biotechnology,NasdaqCM
 LTRX,"Lantronix, Inc.",Technology,Communication Equipment,NasdaqCM
 LUCD,Lucid Diagnostics Inc.,Healthcare,Medical Devices,NasdaqCM
 LULU,lululemon athletica inc.,Consumer Cyclical,Apparel Retail,NasdaqGS
+LUNA,Luna Innovations Incorporated,Technology,Scientific & Technical Instruments,OTC Markets OTCPK
 LUNG,Pulmonx Corporation,Healthcare,Medical Devices,NasdaqGS
 LUNR,"Intuitive Machines, Inc.",Industrials,Aerospace & Defense,NasdaqGM
 LVLU,"Lulu's Fashion Lounge Holdings, Inc.",Consumer Cyclical,Apparel Retail,NasdaqCM
@@ -1063,6 +1175,7 @@ LXEO,"Lexeo Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
 LXRX,"Lexicon Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqCM
 LYEL,"Lyell Immunopharma, Inc.",Healthcare,Biotechnology,NasdaqGS
 LYFT,"Lyft, Inc.",Technology,Software - Application,NasdaqGS
+LYRA,"Lyra Therapeutics, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 LYTS,LSI Industries Inc.,Technology,Electronic Components,NasdaqGS
 LZ,"LegalZoom.com, Inc.",Industrials,Specialty Business Services,NasdaqGS
 MAMA,"Mama's Creations, Inc.",Consumer Defensive,Packaged Foods,NasdaqCM
@@ -1070,6 +1183,7 @@ MANH,"Manhattan Associates, Inc.",Technology,Software - Application,NasdaqGS
 MAPS,"WM Technology, Inc.",Technology,Software - Application,NasdaqGS
 MAR,"Marriott International, Inc.",Consumer Cyclical,Lodging,NasdaqGS
 MARA,"MARA Holdings, Inc.",Financial Services,Capital Markets,NasdaqCM
+MARK,"Remark Holdings, Inc.",Technology,Software - Infrastructure,OTC Markets OTCPK
 MASI,Masimo Corporation,Healthcare,Medical Devices,NasdaqGS
 MASS,908 Devices Inc.,Healthcare,Medical Devices,NasdaqGM
 MAT,"Mattel, Inc.",Consumer Cyclical,Leisure,NasdaqGS
@@ -1093,6 +1207,7 @@ MDB,"MongoDB, Inc.",Technology,Software - Infrastructure,NasdaqGM
 MDGL,"Madrigal Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
 MDLZ,"Mondelez International, Inc.",Consumer Defensive,Confectioners,NasdaqGS
 MDRR,"Medalist Diversified, Inc.",Real Estate,Real Estate Services,NasdaqCM
+MDRX,Veradigm Inc.,Healthcare,Health Information Services,OTC Markets OTCPK
 MDWD,MediWound Ltd.,Healthcare,Biotechnology,NasdaqGM
 MDXG,"MiMedx Group, Inc.",Healthcare,Biotechnology,NasdaqCM
 MEDP,"Medpace Holdings, Inc.",Healthcare,Diagnostics & Research,NasdaqGS
@@ -1132,8 +1247,12 @@ MNSB,"MainStreet Bancshares, Inc.",Financial Services,Banks - Regional,NasdaqCM
 MNST,Monster Beverage Corporation,Consumer Defensive,Beverages - Non-Alcoholic,NasdaqGS
 MNTK,"Montauk Renewables, Inc.",Basic Materials,Specialty Chemicals,NasdaqCM
 MNTS,Momentus Inc.,Industrials,Aerospace & Defense,NasdaqCM
+MOBQ,"Mobiquity Technologies, Inc.",Communication Services,Advertising Agencies,OTC Markets OTCQB
+MOFG,"MidWestOne Financial Group, Inc.",Financial Services,Banks - Regional,N/A
 MOMO,Hello Group Inc.,Communication Services,Internet Content & Information,NasdaqGS
+MOND,"Mondee Holdings, Inc.",Consumer Cyclical,Travel Services,OTC Markets OTCPK
 MORN,"Morningstar, Inc.",Financial Services,Financial Data & Stock Exchanges,NasdaqGS
+MOTS,"Motus GI Holdings, Inc.",Healthcare,Medical Devices,OTC Markets OTCPK
 MOVE,Movano Inc.,Healthcare,Medical Devices,NasdaqCM
 MPAA,"Motorcar Parts of America, Inc.",Consumer Cyclical,Auto Parts,NasdaqGS
 MPWR,"Monolithic Power Systems, Inc.",Technology,Semiconductors,NasdaqGS
@@ -1156,6 +1275,7 @@ MTLS,Materialise NV,Technology,Software - Application,NasdaqGS
 MTRX,Matrix Service Company,Industrials,Engineering & Construction,NasdaqGS
 MTSI,"MACOM Technology Solutions Holdings, Inc.",Technology,Semiconductors,NasdaqGS
 MVIS,"MicroVision, Inc.",Technology,Scientific & Technical Instruments,NasdaqGM
+MVLA,Movella Holdings Inc.,Technology,Software - Application,OTC Markets OTCPK
 MVST,"Microvast Holdings, Inc.",Consumer Cyclical,Auto Parts,NasdaqCM
 MYFW,"First Western Financial, Inc.",Financial Services,Banks - Regional,NasdaqGS
 MYGN,"Myriad Genetics, Inc.",Healthcare,Diagnostics & Research,NasdaqGS
@@ -1171,6 +1291,7 @@ NBBK,"NB Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
 NBIX,"Neurocrine Biosciences, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGS
 NBN,Northeast Bank,Financial Services,Banks - Regional,NasdaqGM
 NBTB,NBT Bancorp Inc.,Financial Services,Banks - Regional,NasdaqGS
+NCLH,Norwegian Cruise Line Holdings Ltd.,Consumer Cyclical,Travel Services,NYSE
 NCMI,"National CineMedia, Inc.",Communication Services,Advertising Agencies,NasdaqGS
 NCNA,NuCana plc,Healthcare,Biotechnology,NasdaqCM
 NCNO,"nCino, Inc.",Technology,Software - Application,NasdaqGS
@@ -1199,11 +1320,13 @@ NKTR,Nektar Therapeutics,Healthcare,Biotechnology,NasdaqCM
 NKTX,"Nkarta, Inc.",Healthcare,Biotechnology,NasdaqGS
 NMIH,"NMI Holdings, Inc.",Financial Services,Insurance - Specialty,NasdaqGM
 NMRA,"Neumora Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
+NMRD,Nemaura Medical Inc.,Healthcare,Medical Devices,OTC Markets OTCPK
 NMRK,"Newmark Group, Inc.",Real Estate,Real Estate Services,NasdaqGS
 NN,NextNav Inc.,Technology,Software - Infrastructure,NasdaqCM
 NNBR,"NN, Inc.",Industrials,Conglomerates,NasdaqGS
 NNDM,Nano Dimension Ltd.,Technology,Computer Hardware,NasdaqCM
 NNOX,Nano-X Imaging Ltd.,Healthcare,Medical Devices,NasdaqGM
+NOBH,"Nobility Homes, Inc.",Consumer Cyclical,Residential Construction,OTC Markets OTCQX
 NODK,"NI Holdings, Inc.",Financial Services,Insurance - Property & Casualty,NasdaqCM
 NOTV,"Inotiv, Inc.",Healthcare,Diagnostics & Research,NasdaqCM
 NOVT,Novanta Inc.,Technology,Scientific & Technical Instruments,NasdaqGS
@@ -1249,12 +1372,14 @@ OBIO,"Orchestra BioMed Holdings, Inc.",Healthcare,Biotechnology,NasdaqGM
 OBT,"Orange County Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
 OCC,Optical Cable Corporation,Technology,Communication Equipment,NasdaqGM
 OCCI,"OFS Credit Company, Inc.",Financial Services,Asset Management,NasdaqGM
+OCEA,"Ocean Biomedical, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 OCFC,OceanFirst Financial Corp.,Financial Services,Banks - Regional,NasdaqGS
 OCGN,"Ocugen, Inc.",Healthcare,Biotechnology,NasdaqCM
 OCSL,Oaktree Specialty Lending Corporation,Financial Services,Asset Management,NasdaqGS
 OCUL,"Ocular Therapeutix, Inc.",Healthcare,Biotechnology,NasdaqGM
 ODFL,"Old Dominion Freight Line, Inc.",Industrials,Trucking,NasdaqGS
 OESX,"Orion Energy Systems, Inc.",Industrials,Electrical Equipment & Parts,NasdaqCM
+OFED,Oconee Federal Financial Corp.,Financial Services,Banks - Regional,OTC Markets OTCQX
 OFIX,Orthofix Medical Inc.,Healthcare,Medical Devices,NasdaqGS
 OFLX,"Omega Flex, Inc.",Industrials,Specialty Industrial Machinery,NasdaqGM
 OFS,OFS Capital Corporation,Financial Services,Asset Management,NasdaqGS
@@ -1275,9 +1400,12 @@ OPAL,OPAL Fuels Inc.,Utilities,Utilities - Regulated Gas,NasdaqCM
 OPBK,OP Bancorp,Financial Services,Banks - Regional,NasdaqGM
 OPCH,"Option Care Health, Inc.",Healthcare,Medical Care Facilities,NasdaqGS
 OPEN,Opendoor Technologies Inc.,Real Estate,Real Estate Services,NasdaqGS
+OPGN,CapForce Inc,Financial Services,Capital Markets,PNK
+OPHC,"OptimumBank Holdings, Inc.",Financial Services,Banks - Regional,NYSE American
 OPRA,Opera Limited,Communication Services,Internet Content & Information,NasdaqGS
 OPRT,Oportun Financial Corporation,Financial Services,Credit Services,NasdaqGS
 OPRX,OptimizeRx Corporation,Healthcare,Health Information Services,NasdaqCM
+OPTT,"Ocean Power Technologies, Inc.",Industrials,Specialty Industrial Machinery,NYSE American
 OPXS,"Optex Systems Holdings, Inc",Industrials,Aerospace & Defense,NasdaqCM
 ORGN,"Origin Materials, Inc.",Basic Materials,Chemicals,NasdaqCM
 ORIC,"ORIC Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
@@ -1292,6 +1420,7 @@ OSUR,"OraSure Technologies, Inc.",Healthcare,Medical Instruments & Supplies,Nasd
 OTEX,Open Text Corporation,Technology,Software - Application,NasdaqGS
 OTLK,"Outlook Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 OTTR,Otter Tail Corporation,Industrials,Conglomerates,NasdaqGS
+OTTW,"Ottawa Bancorp, Inc.",Financial Services,Banks - Regional,OTC Markets OTCQX
 OVBC,Ohio Valley Banc Corp.,Financial Services,Banks - Regional,NasdaqGM
 OVID,Ovid Therapeutics Inc.,Healthcare,Biotechnology,NasdaqCM
 OVLY,Oak Valley Bancorp,Financial Services,Banks - Regional,NasdaqCM
@@ -1308,8 +1437,11 @@ PAX,Patria Investments Limited,Financial Services,Asset Management,NasdaqGS
 PAYO,Payoneer Global Inc.,Technology,Software - Infrastructure,NasdaqGM
 PAYS,"Paysign, Inc.",Technology,Software - Infrastructure,NasdaqCM
 PAYX,"Paychex, Inc.",Technology,Software - Application,NasdaqGS
+PB,"Prosperity Bancshares, Inc.",Financial Services,Banks - Regional,NYSE
 PBFS,"Pioneer Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
 PBHC,"Pathfinder Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
+PBIO,"Pressure BioSciences, Inc.",Healthcare,Medical Devices,OTC Markets OTCPK
+PBLA,"Panbela Therapeutics, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 PCAR,PACCAR Inc,Industrials,Farm & Heavy Construction Machinery,NasdaqGS
 PCB,PCB Bancorp,Financial Services,Banks - Regional,NasdaqGS
 PCRX,"Pacira BioSciences, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGS
@@ -1334,8 +1466,10 @@ PERI,Perion Network Ltd.,Communication Services,Internet Content & Information,N
 PESI,"Perma-Fix Environmental Services, Inc.",Industrials,Waste Management,NasdaqCM
 PETS,"PetMed Express, Inc.",Healthcare,Pharmaceutical Retailers,NasdaqGS
 PFBC,Preferred Bank,Financial Services,Banks - Regional,NasdaqGS
+PFBX,Peoples Financial Corporation,Financial Services,Banks - Regional,OTC Markets OTCQX
 PFG,"Principal Financial Group, Inc.",Financial Services,Asset Management,NasdaqGS
 PFIS,Peoples Financial Services Corp.,Financial Services,Banks - Regional,NasdaqGS
+PFLT,PennantPark Floating Rate Capital Ltd.,Financial Services,Asset Management,NYSE
 PFX,PhenixFIN Corporation,Financial Services,Asset Management,NasdaqGM
 PGC,Peapack-Gladstone Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
 PGEN,"Precigen, Inc.",Healthcare,Biotechnology,NasdaqGS
@@ -1363,6 +1497,8 @@ PMCB,"PharmaCyte Biotech, Inc.",Healthcare,Biotechnology,NasdaqCM
 PMTS,CPI Card Group Inc.,Financial Services,Credit Services,NasdaqGM
 PMVP,"PMV Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
 PNBK,"Patriot National Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGM
+PNFP,"Pinnacle Financial Partners, Inc.",Financial Services,Banks - Regional,NYSE
+PNNT,PennantPark Investment Corporation,Financial Services,Asset Management,NYSE
 PNRG,PrimeEnergy Resources Corporation,Energy,Oil & Gas E&P,NasdaqCM
 PNTG,"The Pennant Group, Inc.",Healthcare,Medical Care Facilities,NasdaqGS
 PODD,Insulet Corporation,Healthcare,Medical Devices,NasdaqGS
@@ -1376,20 +1512,26 @@ PPC,Pilgrim's Pride Corporation,Consumer Defensive,Packaged Foods,NasdaqGS
 PPIH,"Perma-Pipe International Holdings, Inc.",Industrials,Building Products & Equipment,NasdaqGM
 PPSI,"Pioneer Power Solutions, Inc.",Industrials,Electrical Equipment & Parts,NasdaqCM
 PPTA,Perpetua Resources Corp.,Basic Materials,Other Precious Metals & Mining,NasdaqCM
+PPYAU,Papaya Growth Opportunity Corp. I,Financial Services,Shell Companies,OTC Markets OTCPK
 PRAA,"PRA Group, Inc.",Financial Services,Credit Services,NasdaqGS
 PRAX,"Praxis Precision Medicines, Inc.",Healthcare,Biotechnology,NasdaqGS
 PRCH,"Porch Group, Inc.",Financial Services,Insurance - Property & Casualty,NasdaqCM
 PRCT,PROCEPT BioRobotics Corporation,Healthcare,Medical Devices,NasdaqGM
 PRDO,Perdoceo Education Corporation,Consumer Defensive,Education & Training Services,NasdaqGS
+PRGO,Perrigo Company plc,Healthcare,Drug Manufacturers - Specialty & Generic,NYSE
 PRGS,Progress Software Corporation,Technology,Software - Infrastructure,NasdaqGS
+PRIM,Primoris Services Corporation,Industrials,Engineering & Construction,NYSE
+PRKR,"ParkerVision, Inc.",Technology,Semiconductors,OTC Markets OTCQB
 PRME,"Prime Medicine, Inc.",Healthcare,Biotechnology,NasdaqGM
 PROK,ProKidney Corp.,Healthcare,Biotechnology,NasdaqCM
 PROP,"Prairie Operating Co., LLC",Energy,Oil & Gas E&P,NasdaqCM
 PROV,"Provident Financial Holdings, Inc.",Financial Services,Banks - Regional,NasdaqGS
+PRPH,"ProPhase Labs, Inc.",Healthcare,Diagnostics & Research,OTC Markets OTCPK
 PRPL,"Purple Innovation, Inc.",Consumer Cyclical,"Furnishings, Fixtures & Appliances",NasdaqGS
 PRPO,"Precipio, Inc.",Healthcare,Diagnostics & Research,NasdaqCM
 PRQR,ProQR Therapeutics N.V.,Healthcare,Biotechnology,NasdaqCM
 PRSO,Peraso Inc.,Technology,Semiconductors,NasdaqCM
+PRST,Presto Automation Inc.,Technology,Software - Application,OTC Markets OTCPK
 PRTA,Prothena Corporation plc,Healthcare,Biotechnology,NasdaqGS
 PRTH,"Priority Technology Holdings, Inc.",Technology,Software - Infrastructure,NasdaqCM
 PRTS,"CarParts.com, Inc.",Consumer Cyclical,Auto Parts,NasdaqCM
@@ -1399,16 +1541,20 @@ PSHG,Performance Shipping Inc.,Industrials,Marine Shipping,NasdaqCM
 PSMT,"PriceSmart, Inc.",Consumer Defensive,Discount Stores,NasdaqGS
 PSNL,"Personalis, Inc.",Healthcare,Diagnostics & Research,NasdaqGM
 PSTV,"Plus Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
+PT,J and Friends Holdings Limited,Financial Services,Credit Services,N/A
 PTC,PTC Inc.,Technology,Software - Application,NasdaqGS
 PTCT,"PTC Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
 PTEN,"Patterson-UTI Energy, Inc.",Energy,Oil & Gas Drilling,NasdaqGS
 PTGX,"Protagonist Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
+PTIX,"Protagenic Therapeutics, Inc.",Healthcare,Biotechnology,OTC Markets OTCQB
 PTLO,Portillo's Inc.,Consumer Cyclical,Restaurants,NasdaqGS
 PTON,"Peloton Interactive, Inc.",Consumer Cyclical,Leisure,NasdaqGS
+PTPI,"Petros Pharmaceuticals, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,OTC Markets OTCPK
 PUBM,"PubMatic, Inc.",Technology,Software - Application,NasdaqGM
 PULM,"Pulmatrix, Inc.",Healthcare,Biotechnology,NasdaqCM
 PWP,Perella Weinberg Partners,Financial Services,Capital Markets,NasdaqGS
 PXLW,"Pixelworks, Inc.",Technology,Semiconductors,NasdaqCM
+PXMD,"PaxMedica, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 PXS,Pyxis Tankers Inc.,Energy,Oil & Gas Midstream,NasdaqCM
 PYPL,"PayPal Holdings, Inc.",Financial Services,Credit Services,NasdaqGS
 PYXS,"Pyxis Oncology, Inc.",Healthcare,Biotechnology,NasdaqGS
@@ -1417,6 +1563,7 @@ QCOM,QUALCOMM Incorporated,Technology,Semiconductors,NasdaqGS
 QCRH,"QCR Holdings, Inc.",Financial Services,Banks - Regional,NasdaqGM
 QDEL,QuidelOrtho Corporation,Healthcare,Medical Devices,NasdaqGS
 QFIN,"Qfin Holdings, Inc.",Financial Services,Credit Services,NasdaqGS
+QGEN,Qiagen N.V.,Healthcare,Diagnostics & Research,NYSE
 QIPT,Quipt Home Medical Corp.,Healthcare,Medical Distribution,NGM
 QLYS,"Qualys, Inc.",Technology,Software - Infrastructure,NasdaqGS
 QNCX,"Quince Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
@@ -1438,6 +1585,7 @@ RAVE,"Rave Restaurant Group, Inc.",Consumer Cyclical,Restaurants,NasdaqCM
 RBB,RBB Bancorp,Financial Services,Banks - Regional,NasdaqGS
 RBBN,Ribbon Communications Inc.,Technology,Software - Application,NasdaqGS
 RBCAA,"Republic Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
+RBCN,"Rubicon Technology, Inc.",Technology,Semiconductor Equipment & Materials,OTC Markets OTCPK
 RBKB,"Rhinebeck Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
 RCAT,"Red Cat Holdings, Inc.",Industrials,Aerospace & Defense,NasdaqCM
 RCEL,"AVITA Medical, Inc.",Healthcare,Medical Devices,NasdaqCM
@@ -1453,10 +1601,12 @@ RDWR,Radware Ltd.,Technology,Software - Infrastructure,NasdaqGS
 RDZN,"Roadzen, Inc.",Technology,Software - Application,NasdaqGM
 REAL,"The RealReal, Inc.",Consumer Cyclical,Luxury Goods,NasdaqGS
 REAX,The Real Brokerage Inc.,Real Estate,Real Estate Services,NasdaqCM
+REED,"Reed's, Inc.",Consumer Defensive,Beverages - Non-Alcoholic,NYSE American
 REFI,"Chicago Atlantic Real Estate Finance, Inc.",Real Estate,REIT - Mortgage,NasdaqGM
 REFR,Research Frontiers Incorporated,Technology,Electronic Components,NasdaqCM
 REGN,"Regeneron Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
 REKR,"Rekor Systems, Inc.",Technology,Software - Infrastructure,NasdaqCM
+RELI,"Reliance Global Group, Inc.",Financial Services,Insurance Brokers,N/A
 RELY,"Remitly Global, Inc.",Technology,Software - Infrastructure,NasdaqGS
 RENT,"Rent the Runway, Inc.",Consumer Cyclical,Apparel Retail,NasdaqGM
 REPL,"Replimune Group, Inc.",Healthcare,Biotechnology,NasdaqGS
@@ -1468,6 +1618,7 @@ RGLD,"Royal Gold, Inc.",Basic Materials,Gold,NasdaqGS
 RGNX,REGENXBIO Inc.,Healthcare,Biotechnology,NasdaqGS
 RGP,"Resources Connection, Inc.",Industrials,Consulting Services,NasdaqGS
 RGTI,"Rigetti Computing, Inc.",Technology,Computer Hardware,NasdaqCM
+RIBT,RiceBran Technologies,Consumer Defensive,Packaged Foods,OTC Markets OTCPK
 RICK,"RCI Hospitality Holdings, Inc.",Consumer Cyclical,Restaurants,NasdaqGM
 RIGL,"Rigel Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
 RILY,"BRC Group Holdings, Inc.",Financial Services,Financial Conglomerates,NasdaqGM
@@ -1486,6 +1637,7 @@ RMTI,"Rockwell Medical, Inc.",Healthcare,Drug Manufacturers - Specialty & Generi
 RNA,"Atrium Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
 RNAC,"Cartesian Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
 RNAZ,"TransCode Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
+RNST,Renasant Corporation,Financial Services,Banks - Regional,NYSE
 RNXT,"RenovoRx, Inc.",Healthcare,Biotechnology,NasdaqCM
 ROAD,"Construction Partners, Inc.",Industrials,Engineering & Construction,NasdaqGS
 ROCK,"Gibraltar Industries, Inc.",Industrials,Building Products & Equipment,NasdaqGS
@@ -1495,6 +1647,7 @@ ROST,"Ross Stores, Inc.",Consumer Cyclical,Apparel Retail,NasdaqGS
 RPAY,Repay Holdings Corporation,Technology,Software - Infrastructure,NasdaqCM
 RPD,"Rapid7, Inc.",Technology,Software - Infrastructure,NasdaqGM
 RPRX,Royalty Pharma plc,Healthcare,Biotechnology,NasdaqGS
+RPTX,Repare Therapeutics Inc.,Healthcare,Biotechnology,N/A
 RRBI,"Red River Bancshares, Inc.",Financial Services,Banks - Regional,NasdaqGS
 RRGB,"Red Robin Gourmet Burgers, Inc.",Consumer Cyclical,Restaurants,NasdaqGS
 RRR,"Red Rock Resorts, Inc.",Consumer Cyclical,Resorts & Casinos,NasdaqGS
@@ -1513,20 +1666,28 @@ RYAAY,Ryanair Holdings plc,Industrials,Airlines,NasdaqGS
 RYTM,"Rhythm Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGM
 SABR,Sabre Corporation,Technology,Software - Infrastructure,NasdaqGS
 SAFT,"Safety Insurance Group, Inc.",Financial Services,Insurance - Property & Casualty,NasdaqGS
+SAH,"Sonic Automotive, Inc.",Consumer Cyclical,Auto & Truck Dealerships,NYSE
 SAIA,"Saia, Inc.",Industrials,Trucking,NasdaqGS
+SALM,"Salem Media Group, Inc.",Communication Services,Broadcasting,OTC Markets OTCQX
 SAMG,Silvercrest Asset Management Group Inc.,Financial Services,Asset Management,NasdaqGM
 SANA,"Sana Biotechnology, Inc.",Healthcare,Biotechnology,NasdaqGS
 SANM,Sanmina Corporation,Technology,Electronic Components,NasdaqGS
+SANW,S&W Seed Company,Basic Materials,Agricultural Inputs,OTC Markets OTCPK
 SATS,EchoStar Corporation,Communication Services,Telecom Services,NasdaqGS
 SAVA,Cassava Sciences Inc,Healthcare,Biotechnology,NCM
 SBAC,SBA Communications Corporation,Real Estate,REIT - Specialty,NasdaqGS
 SBCF,Seacoast Banking Corporation of Florida,Financial Services,Banks - Regional,NasdaqGS
 SBFG,"SB Financial Group, Inc.",Financial Services,Banks - Regional,NasdaqCM
 SBGI,"Sinclair, Inc.",Communication Services,Broadcasting,NasdaqGS
+SBIG,"SpringBig Holdings, Inc.",Technology,Software - Application,OTC Markets OTCQB
 SBLK,Star Bulk Carriers Corp.,Industrials,Marine Shipping,NasdaqGS
+SBNY,Signature Bank,Financial Services,Banks - Regional,OTC Markets OTCPK
 SBRA,"Sabra Health Care REIT, Inc.",Real Estate,REIT - Healthcare Facilities,NasdaqGS
+SBSI,"Southside Bancshares, Inc.",Financial Services,Banks - Regional,NYSE
 SBUX,Starbucks Corporation,Consumer Cyclical,Restaurants,NasdaqGS
+SCCO,Southern Copper Corporation,Basic Materials,Copper,NYSE
 SCHL,Scholastic Corporation,Communication Services,Publishing,NasdaqGS
+SCHW,The Charles Schwab Corporation,Financial Services,Capital Markets,NYSE
 SCLX,Scilex Holding Company,Healthcare,Drug Manufacturers - General,NasdaqCM
 SCOR,"comScore, Inc.",Technology,Software - Application,NasdaqGS
 SCSC,"ScanSource, Inc.",Technology,Electronics & Computer Distribution,NasdaqGS
@@ -1534,6 +1695,7 @@ SCVL,"Shoe Carnival, Inc.",Consumer Cyclical,Apparel Retail,NasdaqGS
 SCWO,374Water Inc.,Industrials,Pollution & Treatment Controls,NasdaqCM
 SCYX,"SCYNEXIS, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqCM
 SDGR,"Schrödinger, Inc.",Healthcare,Health Information Services,NasdaqGS
+SEAC,"SeaChange International, Inc.",Technology,Software - Application,OTC Markets OTCPK
 SEAT,Vivid Seats Inc.,Communication Services,Internet Content & Information,NasdaqGS
 SEDG,"SolarEdge Technologies, Inc.",Technology,Solar,NasdaqGS
 SEED,Origin Agritech Limited,Basic Materials,Agricultural Inputs,NasdaqCM
@@ -1547,6 +1709,8 @@ SFBC,"Sound Financial Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqC
 SFM,"Sprouts Farmers Market, Inc.",Consumer Defensive,Grocery Stores,NasdaqGS
 SFNC,Simmons First National Corporation,Financial Services,Banks - Regional,NasdaqGS
 SFST,"Southern First Bancshares, Inc.",Financial Services,Banks - Regional,NasdaqGM
+SG,"Sweetgreen, Inc.",Consumer Cyclical,Restaurants,NYSE
+SGBX,Olenox Industries Inc.,Industrials,Metal Fabrication,N/A
 SGC,"Superior Group of Companies, Inc.",Consumer Cyclical,Apparel Manufacturing,NasdaqGM
 SGHT,"Sight Sciences, Inc.",Healthcare,Medical Devices,NasdaqGS
 SGMO,"Sangamo Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
@@ -1584,16 +1748,21 @@ SLP,"Simulations Plus, Inc.",Healthcare,Health Information Services,NasdaqGS
 SLRC,SLR Investment Corp.,Financial Services,Asset Management,NasdaqGS
 SLS,"SELLAS Life Sciences Group, Inc.",Healthcare,Biotechnology,NasdaqCM
 SMBC,"Southern Missouri Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGM
+SMBK,"SmartFinancial, Inc.",Financial Services,Banks - Regional,NYSE
 SMCI,"Super Micro Computer, Inc.",Technology,Computer Hardware,NasdaqGS
 SMID,Smith-Midland Corporation,Basic Materials,Building Materials,NasdaqCM
+SMIT,"Schmitt Industries, Inc.",Technology,Scientific & Technical Instruments,OTC Markets OTCPK
+SMLR,"Semler Scientific, Inc.",Healthcare,Medical Devices,N/A
 SMMT,Summit Therapeutics Inc.,Healthcare,Biotechnology,NasdaqGM
 SMPL,The Simply Good Foods Company,Consumer Defensive,Packaged Foods,NasdaqCM
+SMRT,"SmartRent, Inc.",Technology,Software - Application,NYSE
 SMSI,"Smith Micro Software, Inc.",Technology,Software - Application,NasdaqCM
 SMTC,Semtech Corporation,Technology,Semiconductors,NasdaqGS
 SMTI,Sanara MedTech Inc.,Healthcare,Medical Instruments & Supplies,NasdaqCM
 SMXT,"SolarMax Technology, Inc.",Technology,Solar,NasdaqCM
 SNAL,"Snail, Inc.",Communication Services,Electronic Gaming & Multimedia,NasdaqCM
 SNBR,Sleep Number Corporation,Consumer Cyclical,"Furnishings, Fixtures & Appliances",NasdaqGS
+SNCR,"Synchronoss Technologies, Inc.",Technology,Software - Infrastructure,N/A
 SNCY,"Sun Country Airlines Holdings, Inc.",Industrials,Airlines,NasdaqGS
 SND,"Smart Sand, Inc.",Energy,Oil & Gas Equipment & Services,NasdaqGS
 SNDX,"Syndax Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
@@ -1606,6 +1775,8 @@ SNPS,"Synopsys, Inc.",Technology,Software - Infrastructure,NasdaqGS
 SNTI,"Senti Biosciences, Inc.",Healthcare,Biotechnology,NasdaqCM
 SOBR,"SOBR Safe, Inc.",Technology,Scientific & Technical Instruments,NasdaqCM
 SOFI,"SoFi Technologies, Inc.",Financial Services,Credit Services,NasdaqGS
+SOFO,"Sonic Foundry, Inc.",Technology,Software - Application,OTC Markets OTCPK
+SOHO,Sotherly Hotels Inc.,Real Estate,REIT - Hotel & Motel,N/A
 SOHU,Sohu.com Limited,Communication Services,Electronic Gaming & Multimedia,NasdaqGS
 SONM,"DNA X, Inc.",Technology,Software - Infrastructure,NasdaqCM
 SONO,"Sonos, Inc.",Technology,Consumer Electronics,NasdaqGS
@@ -1622,13 +1793,16 @@ SPT,"Sprout Social, Inc.",Technology,Software - Application,NasdaqCM
 SPWH,"Sportsman's Warehouse Holdings, Inc.",Consumer Cyclical,Specialty Retail,NasdaqGS
 SPWR,SunPower Inc.,Technology,Solar,NasdaqGM
 SQFT,"Presidio Property Trust, Inc.",Real Estate,REIT - Diversified,NasdaqCM
+SRAX,"SRAX, Inc.",Technology,Software - Application,OTC Markets OTCPK
 SRBK,"SR Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
 SRCE,1st Source Corporation,Financial Services,Banks - Regional,NasdaqGS
 SRPT,"Sarepta Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
 SRRK,Scholar Rock Holding Corporation,Healthcare,Biotechnology,NasdaqGS
 SRTS,"Sensus Healthcare, Inc.",Healthcare,Medical Devices,NasdaqCM
 SRZN,"Surrozen, Inc.",Healthcare,Biotechnology,NasdaqCM
+SSB,SouthState Bank Corporation,Financial Services,Banks - Regional,NYSE
 SSBI,Summit State Bank,Financial Services,Banks - Regional,NasdaqGM
+SSKN,"STRATA Skin Sciences, Inc.",Healthcare,Medical Devices,OTC Markets OTCPK
 SSNC,"SS&C Technologies Holdings, Inc.",Technology,Software - Application,NasdaqGS
 SSRM,SSR Mining Inc.,Basic Materials,Gold,NasdaqGS
 SSYS,Stratasys Ltd.,Technology,Computer Hardware,NasdaqGS
@@ -1641,6 +1815,7 @@ STIM,"Neuronetics, Inc.",Healthcare,Medical Devices,NasdaqGM
 STKL,SunOpta Inc.,Consumer Defensive,Beverages - Non-Alcoholic,NasdaqGS
 STKS,"The ONE Group Hospitality, Inc.",Consumer Cyclical,Restaurants,NasdaqCM
 STLD,"Steel Dynamics, Inc.",Basic Materials,Steel,NasdaqGS
+STLY,"HG Holdings, Inc.",Financial Services,Insurance - Specialty,OTC Markets OTCQB
 STNE,StoneCo Ltd.,Technology,Software - Infrastructure,NasdaqGS
 STOK,"Stoke Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
 STRA,"Strategic Education, Inc.",Consumer Defensive,Education & Training Services,NasdaqGS
@@ -1663,21 +1838,29 @@ SWKH,SWK Holdings Corporation,Financial Services,Asset Management,NGM
 SWKS,"Skyworks Solutions, Inc.",Technology,Semiconductors,NasdaqGS
 SY,So-Young International Inc.,Healthcare,Health Information Services,NasdaqCM
 SYBT,"Stock Yards Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGS
+SYBX,"Synlogic, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 SYM,Symbotic Inc.,Industrials,Specialty Industrial Machinery,NasdaqGM
 SYNA,Synaptics Incorporated,Technology,Semiconductors,NasdaqGS
 SYPR,"Sypris Solutions, Inc.",Consumer Cyclical,Auto Parts,NasdaqGM
 SYRE,"Spyre Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
+SYRS,"Syros Pharmaceuticals, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
+T,AT&T Inc.,Communication Services,Telecom Services,NYSE
 TACO,Berto Acquisition Corp.,Financial Services,Shell Companies,NasdaqGM
 TACT,TransAct Technologies Incorporated,Technology,Computer Hardware,NasdaqGM
+TAIT,Taitron Components Incorporated,Technology,Electronics & Computer Distribution,OTC Markets OTCPK
 TALK,"Talkspace, Inc.",Healthcare,Health Information Services,NasdaqCM
 TANH,Tantech Holdings Ltd,Consumer Defensive,Household & Personal Products,NasdaqCM
+TAPM,"Trade School Go, Inc.",Communication Services,Electronic Gaming & Multimedia,PNK
 TARA,"Protara Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
 TASK,"TaskUs, Inc.",Technology,Information Technology Services,NasdaqGS
 TATT,TAT Technologies Ltd.,Industrials,Aerospace & Defense,NasdaqGM
+TBIO,"Telesis Bio, Inc.",Healthcare,Medical Devices,OTC Markets OTCPK
 TBLA,Taboola.com Ltd.,Communication Services,Internet Content & Information,NasdaqGS
+TBLT,"ToughBuilt Industries, Inc.",Industrials,Tools & Accessories,OTC Markets OTCPK
 TBPH,"Theravance Biopharma, Inc.",Healthcare,Biotechnology,NasdaqGM
 TC,Token Cat Limited,Communication Services,Advertising Agencies,NasdaqCM
 TCBI,"Texas Capital Bancshares, Inc.",Financial Services,Banks - Regional,NasdaqGS
+TCCO,Technical Communications Corporation,Technology,Communication Equipment,OTC Markets OTCPK
 TCMD,"Tactile Systems Technology, Inc.",Healthcare,Medical Devices,NasdaqGM
 TCOM,Trip.com Group Limited,Consumer Cyclical,Travel Services,NasdaqGS
 TCPC,BlackRock TCP Capital Corp.,Financial Services,Asset Management,NasdaqGS
@@ -1690,20 +1873,27 @@ TENB,"Tenable Holdings, Inc.",Technology,Software - Infrastructure,NasdaqGS
 TENX,"Tenax Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 TER,"Teradyne, Inc.",Technology,Semiconductor Equipment & Materials,NasdaqGS
 TERN,"Terns Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGS
+TEVA,Teva Pharmaceutical Industries Limited,Healthcare,Drug Manufacturers - Specialty & Generic,NYSE
+TFIN,"Triumph Financial, Inc.",Financial Services,Banks - Regional,NYSE
 TFSL,TFS Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
+TGEN,Tecogen Inc.,Industrials,Electrical Equipment & Parts,NYSE American
+TGLS,Tecnoglass Inc.,Basic Materials,Building Materials,NYSE
 TGTX,"TG Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 TH,Target Hospitality Corp.,Industrials,Specialty Business Services,NasdaqCM
 THFF,First Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
+THMO,"ThermoGenesis Holdings, Inc.",Healthcare,Medical Devices,OTC Markets OTCPK
 THRM,Gentherm Incorporated,Consumer Cyclical,Auto Parts,NasdaqGS
 THRY,"Thryv Holdings, Inc.",Technology,Software - Application,NasdaqCM
 TIGO,Millicom International Cellular S.A.,Communication Services,Telecom Services,NasdaqGS
 TIGR,UP Fintech Holding Limited,Financial Services,Capital Markets,NasdaqGS
 TIL,"Instil Bio, Inc.",Healthcare,Biotechnology,NasdaqCM
 TIPT,Tiptree Inc.,Financial Services,Insurance - Specialty,NasdaqCM
+TISI,"Team, Inc.",Industrials,Specialty Business Services,NYSE
 TITN,Titan Machinery Inc.,Industrials,Industrial Distribution,NasdaqGS
 TIVC,"Tivic Health Systems, Inc.",Healthcare,Medical Devices,NasdaqCM
 TKNO,"Alpha Teknova, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGM
 TLF,"Tandy Leather Factory, Inc.",Consumer Cyclical,Specialty Retail,NasdaqCM
+TLIS,Talis Biomedical Corporation,Healthcare,Medical Devices,N/A
 TLPH,"Talphera, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqCM
 TLRY,"Tilray Brands, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGS
 TLS,Telos Corporation,Technology,Software - Infrastructure,NasdaqGM
@@ -1720,6 +1910,8 @@ TNXP,Tonix Pharmaceuticals Holding Corp.,Healthcare,Biotechnology,NasdaqGS
 TNYA,"Tenaya Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
 TOI,"The Oncology Institute, Inc.",Healthcare,Medical Care Facilities,NasdaqCM
 TOMZ,"TOMI Environmental Solutions, Inc.",Industrials,Pollution & Treatment Controls,NasdaqCM
+TOPS,Top Ships Inc.,Energy,Oil & Gas Midstream,NYSE American
+TORM,"TOR Minerals International, Inc.",Basic Materials,Specialty Chemicals,OTC Markets OTCPK
 TOUR,Tuniu Corporation,Consumer Cyclical,Travel Services,NasdaqCM
 TOWN,TowneBank,Financial Services,Banks - Regional,NasdaqGS
 TPG,TPG Inc.,Financial Services,Asset Management,NasdaqGS
@@ -1735,9 +1927,11 @@ TRNS,"Transcat, Inc.",Industrials,Specialty Business Services,NasdaqGM
 TROO,"TROOPS, Inc.",Financial Services,Credit Services,NasdaqCM
 TROW,"T. Rowe Price Group, Inc.",Financial Services,Asset Management,NasdaqGS
 TRST,TrustCo Bank Corp NY,Financial Services,Banks - Regional,NasdaqGS
+TRUE,"TrueCar, Inc.",Communication Services,Internet Content & Information,N/A
 TRUP,"Trupanion, Inc.",Financial Services,Insurance - Property & Casualty,NasdaqGM
 TRVG,trivago N.V.,Communication Services,Internet Content & Information,NasdaqGS
 TRVI,"Trevi Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
+TRVN,"Trevena, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 TSBK,"Timberland Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGM
 TSCO,Tractor Supply Company,Consumer Cyclical,Specialty Retail,NasdaqGS
 TSEM,Tower Semiconductor Ltd.,Technology,Semiconductors,NasdaqGS
@@ -1748,10 +1942,12 @@ TTEC,"TTEC Holdings, Inc.",Technology,Information Technology Services,NasdaqGS
 TTEK,"Tetra Tech, Inc.",Industrials,Engineering & Construction,NasdaqGS
 TTGT,"TechTarget, Inc.",Technology,Information Technology Services,NasdaqGS
 TTMI,"TTM Technologies, Inc.",Technology,Electronic Components,NasdaqGS
+TTOO,"T2 Biosystems, Inc.",Healthcare,Diagnostics & Research,OTC Markets OTCPK
 TTWO,"Take-Two Interactive Software, Inc.",Communication Services,Electronic Gaming & Multimedia,NasdaqGS
 TUSK,"Mammoth Energy Services, Inc.",Industrials,Conglomerates,NasdaqGS
 TVTX,"Travere Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
 TW,Tradeweb Markets Inc.,Financial Services,Capital Markets,NasdaqGS
+TWER,Towerstream Corporation,Communication Services,Telecom Services,OTC Markets OTCPK
 TWIN,"Twin Disc, Incorporated",Industrials,Specialty Industrial Machinery,NasdaqGS
 TWST,Twist Bioscience Corporation,Healthcare,Diagnostics & Research,NasdaqGS
 TXG,"10x Genomics, Inc.",Healthcare,Health Information Services,NasdaqGS
@@ -1762,6 +1958,7 @@ TZOO,Travelzoo,Communication Services,Internet Content & Information,NasdaqGS
 UAL,"United Airlines Holdings, Inc.",Industrials,Airlines,NasdaqGS
 UBCP,"United Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqCM
 UBFO,United Security Bancshares,Financial Services,Banks - Regional,NMS
+UBOH,"United Bancshares, Inc.",Financial Services,Banks - Regional,OTC Markets OTCQX
 UBSI,"United Bankshares, Inc.",Financial Services,Banks - Regional,NasdaqGS
 UCTT,"Ultra Clean Holdings, Inc.",Technology,Semiconductor Equipment & Materials,NasdaqGS
 UDMY,"Udemy, Inc.",Consumer Defensive,Education & Training Services,NasdaqGS
@@ -1771,6 +1968,7 @@ UFPI,"UFP Industries, Inc.",Basic Materials,Lumber & Wood Production,NasdaqGS
 UFPT,"UFP Technologies, Inc.",Healthcare,Medical Devices,NasdaqCM
 UG,"United-Guardian, Inc.",Consumer Defensive,Household & Personal Products,NasdaqGM
 UGRO,"urban-gro, Inc.",Industrials,Farm & Heavy Construction Machinery,NasdaqCM
+UHAL,U-Haul Holding Company,Industrials,Rental & Leasing Services,NYSE
 UHG,"United Homes Group, Inc.",Consumer Cyclical,Residential Construction,NasdaqGM
 ULBI,Ultralife Corporation,Industrials,Electrical Equipment & Parts,NasdaqGM
 ULCC,"Frontier Group Holdings, Inc.",Industrials,Airlines,NasdaqGS
@@ -1779,6 +1977,7 @@ ULTA,"Ulta Beauty, Inc.",Consumer Cyclical,Specialty Retail,NasdaqGS
 UMBF,UMB Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
 UNB,"Union Bankshares, Inc.",Financial Services,Banks - Regional,NasdaqGM
 UNCY,"Unicycive Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
+UNFI,"United Natural Foods, Inc.",Consumer Defensive,Food Distribution,NYSE
 UNIT,Uniti Group Inc.,Real Estate,REIT - Specialty,NasdaqGS
 UNTY,"Unity Bancorp, Inc.",Financial Services,Banks - Regional,NasdaqGM
 UONE,"Urban One, Inc.",Communication Services,Broadcasting,NasdaqCM
@@ -1793,6 +1992,7 @@ USAU,U.S. Gold Corp.,Basic Materials,Gold,NasdaqCM
 USEG,U.S. Energy Corp.,Energy,Oil & Gas E&P,NasdaqCM
 USIO,"Usio, Inc.",Technology,Software - Infrastructure,NasdaqGM
 USLM,"United States Lime & Minerals, Inc.",Basic Materials,Building Materials,NasdaqGS
+USNA,"USANA Health Sciences, Inc.",Consumer Defensive,Packaged Foods,NYSE
 UTHR,United Therapeutics Corporation,Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGS
 UTMD,"Utah Medical Products, Inc.",Healthcare,Medical Instruments & Supplies,NasdaqGS
 UVSP,Univest Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
@@ -1800,7 +2000,9 @@ UXIN,Uxin Limited,Consumer Cyclical,Auto & Truck Dealerships,NasdaqGS
 VABK,Virginia National Bankshares Corporation,Financial Services,Banks - Regional,NasdaqCM
 VALU,"Value Line, Inc.",Financial Services,Financial Data & Stock Exchanges,NasdaqCM
 VANI,"Vivani Medical, Inc.",Healthcare,Biotechnology,NasdaqCM
+VAXX,"Vaxxinity, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 VCEL,Vericel Corporation,Healthcare,Biotechnology,NasdaqGM
+VCNX,"Vaccinex, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 VCTR,"Victory Capital Holdings, Inc.",Financial Services,Asset Management,NasdaqGS
 VCYT,"Veracyte, Inc.",Healthcare,Diagnostics & Research,NasdaqGM
 VECO,Veeco Instruments Inc.,Technology,Semiconductor Equipment & Materials,NasdaqGS
@@ -1808,15 +2010,20 @@ VEEE,Twin Vee Powercats Co.,Consumer Cyclical,Recreational Vehicles,NasdaqCM
 VEON,VEON Ltd.,Communication Services,Telecom Services,NasdaqGS
 VERA,"Vera Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGM
 VERI,"Veritone, Inc.",Technology,Software - Infrastructure,NasdaqGM
+VERO,Venus Concept Inc.,Healthcare,Medical Devices,PNK
 VERU,Veru Inc.,Healthcare,Biotechnology,NasdaqCM
 VERX,"Vertex, Inc.",Technology,Software - Application,NasdaqGM
 VGAS,"Verde Clean Fuels, Inc.",Utilities,Utilities - Renewable,NasdaqCM
 VIAV,Viavi Solutions Inc.,Technology,Communication Equipment,NasdaqGS
 VICR,Vicor Corporation,Technology,Electronic Components,NasdaqGS
+VINC,"Vincerx Pharma, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 VIOT,"Viomi Technology Co., Ltd",Consumer Cyclical,"Furnishings, Fixtures & Appliances",NasdaqGS
 VIR,"Vir Biotechnology, Inc.",Healthcare,Biotechnology,NasdaqGS
 VIRC,Virco Mfg. Corporation,Consumer Cyclical,"Furnishings, Fixtures & Appliances",NasdaqGM
+VIRT,"Virtu Financial, Inc.",Financial Services,Capital Markets,NYSE
+VISL,"Vislink Technologies, Inc.",Technology,Communication Equipment,OTC Markets OTCPK
 VITL,"Vital Farms, Inc.",Consumer Defensive,Farm Products,NasdaqGM
+VIVE,"Viveve Medical, Inc.",Healthcare,Medical Devices,OTC Markets OTCPK
 VKTX,"Viking Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqCM
 VMD,"Viemed Healthcare, Inc.",Healthcare,Medical Devices,NasdaqCM
 VNDA,Vanda Pharmaceuticals Inc.,Healthcare,Biotechnology,NasdaqGM
@@ -1830,8 +2037,10 @@ VREX,Varex Imaging Corporation,Healthcare,Medical Devices,NasdaqGS
 VRM,"Vroom, Inc.",Financial Services,Credit Services,NasdaqGM
 VRNS,"Varonis Systems, Inc.",Technology,Software - Infrastructure,NasdaqGS
 VRNT,Verint Systems Inc.,Technology,Software - Infrastructure,NasdaqGS
+VRPX,"Virpax Pharmaceuticals, Inc.",Healthcare,Biotechnology,OTC Markets OTCPK
 VRRM,Verra Mobility Corporation,Technology,Information Technology Services,NasdaqCM
 VRSK,"Verisk Analytics, Inc.",Industrials,Consulting Services,NasdaqGS
+VRTS,"Virtus Investment Partners, Inc.",Financial Services,Asset Management,NYSE
 VRTX,Vertex Pharmaceuticals Incorporated,Healthcare,Biotechnology,NasdaqGS
 VSAT,"Viasat, Inc.",Technology,Communication Equipment,NasdaqGS
 VSEC,VSE Corporation,Industrials,Aerospace & Defense,NasdaqGS
@@ -1843,6 +2052,7 @@ VTYX,Ventyx Biosciences Inc,Healthcare,Biotechnology,NMS
 VUZI,Vuzix Corporation,Technology,Consumer Electronics,NasdaqCM
 VVOS,"Vivos Therapeutics, Inc.",Healthcare,Medical Devices,NasdaqCM
 VVPR,Vivopower International PLC,Technology,Software - Infrastructure,NCM
+VXRT,"Vaxart, Inc.",Healthcare,Biotechnology,OTC Markets OTCQX
 VYGR,"Voyager Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
 WABC,Westamerica Bancorporation,Financial Services,Banks - Regional,NasdaqGS
 WAFD,"WaFd, Inc.",Financial Services,Banks - Regional,NasdaqGS
@@ -1859,6 +2069,7 @@ WEYS,"Weyco Group, Inc.",Consumer Cyclical,Footwear & Accessories,NasdaqGS
 WFCF,"Where Food Comes From, Inc.",Industrials,Specialty Business Services,NasdaqCM
 WGS,GeneDx Holdings Corp.,Healthcare,Diagnostics & Research,NasdaqGS
 WHF,"WhiteHorse Finance, Inc.",Financial Services,Asset Management,NasdaqGS
+WHLM,"Wilhelmina International, Inc.",Industrials,Specialty Business Services,OTC Markets OTCPK
 WHLR,"Wheeler Real Estate Investment Trust, Inc.",Real Estate,REIT - Retail,NasdaqCM
 WIMI,WiMi Hologram Cloud Inc.,Communication Services,Advertising Agencies,NasdaqGM
 WING,Wingstop Inc.,Consumer Cyclical,Restaurants,NasdaqGS
@@ -1873,19 +2084,23 @@ WORX,SCWorx Corp.,Healthcare,Health Information Services,NasdaqCM
 WRLD,World Acceptance Corporation,Financial Services,Credit Services,NasdaqGS
 WSBC,"WesBanco, Inc.",Financial Services,Banks - Regional,NasdaqGS
 WSFS,WSFS Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
+WSTL,"Westell Technologies, Inc.",Technology,Communication Equipment,OTC Markets OTCPK
 WTBA,"West Bancorporation, Inc.",Financial Services,Banks - Regional,NasdaqGS
 WTFC,Wintrust Financial Corporation,Financial Services,Banks - Regional,NasdaqGS
 WULF,TeraWulf Inc.,Financial Services,Capital Markets,NasdaqCM
 WVE,Wave Life Sciences Ltd.,Healthcare,Biotechnology,NasdaqGM
+WVFC,WVS Financial Corp.,Financial Services,Banks - Regional,OTC Markets OTCQX
 WVVI,"Willamette Valley Vineyards, Inc.",Consumer Defensive,Beverages - Wineries & Distilleries,NasdaqCM
 WW,"WW International, Inc.",Healthcare,Medical Care Facilities,NasdaqGM
 WWD,"Woodward, Inc.",Industrials,Aerospace & Defense,NasdaqGS
+WWR,"Westwater Resources, Inc.",Basic Materials,Other Industrial Metals & Mining,NYSE American
 WYNN,"Wynn Resorts, Limited",Consumer Cyclical,Resorts & Casinos,NasdaqGS
 XAIR,"Beyond Air, Inc.",Healthcare,Medical Devices,NasdaqCM
 XBIO,"Xenetic Biosciences, Inc.",Healthcare,Biotechnology,NasdaqCM
 XBIT,XBiotech Inc.,Healthcare,Biotechnology,NasdaqGS
 XCUR,"Exicure, Inc.",Healthcare,Biotechnology,NasdaqCM
 XEL,Xcel Energy Inc.,Utilities,Utilities - Regulated Electric,NasdaqGS
+XELA,"Exela Technologies, Inc.",Technology,Software - Application,OTC Markets OTCPK
 XELB,"Xcel Brands, Inc.",Consumer Cyclical,Apparel Manufacturing,NasdaqCM
 XENE,Xenon Pharmaceuticals Inc.,Healthcare,Biotechnology,NasdaqGM
 XERS,"Xeris Biopharma Holdings, Inc.",Healthcare,Biotechnology,NasdaqGS
@@ -1896,6 +2111,7 @@ XNET,Xunlei Limited,Technology,Software - Infrastructure,NasdaqGS
 XOMA,XOMA Royalty Corporation,Healthcare,Biotechnology,NasdaqGM
 XP,XP Inc.,Financial Services,Capital Markets,NasdaqGS
 XPEL,"XPEL, Inc.",Consumer Cyclical,Auto Parts,NasdaqCM
+XPER,Xperi Inc.,Technology,Software - Application,NYSE
 XTIA,"XTI Aerospace, Inc.",Industrials,Aerospace & Defense,NasdaqCM
 XWEL,"XWELL, Inc.",Healthcare,Diagnostics & Research,NasdaqCM
 YI,"111, Inc.",Healthcare,Medical Distribution,NasdaqGM
@@ -1905,6 +2121,7 @@ Z,"Zillow Group, Inc.",Communication Services,Internet Content & Information,Nas
 ZBRA,Zebra Technologies Corporation,Technology,Communication Equipment,NasdaqGS
 ZD,"Ziff Davis, Inc.",Communication Services,Advertising Agencies,NasdaqGS
 ZION,"Zions Bancorporation, National Association",Financial Services,Banks - Regional,NasdaqGS
+ZIVO,"ZIVO Bioscience, Inc.",Healthcare,Biotechnology,OTC Markets OTCQB
 ZKIN,"ZK International Group Co., Ltd.",Basic Materials,Steel,NasdaqCM
 ZLAB,Zai Lab Limited,Healthcare,Biotechnology,NasdaqGM
 ZM,"Zoom Communications, Inc.",Technology,Software - Application,NasdaqGS
@@ -1912,7 +2129,9 @@ ZNTL,"Zentalis Pharmaceuticals, Inc.",Healthcare,Biotechnology,NasdaqGM
 ZS,"Zscaler, Inc.",Technology,Software - Infrastructure,NasdaqGS
 ZUMZ,Zumiez Inc.,Consumer Cyclical,Apparel Retail,NasdaqGS
 ZURA,Zura Bio Limited,Healthcare,Biotechnology,NasdaqCM
+ZVIA,Zevia PBC,Consumer Defensive,Beverages - Non-Alcoholic,NYSE
 ZVRA,"Zevra Therapeutics, Inc.",Healthcare,Biotechnology,NasdaqGS
+ZVSA,"ZyVersa Therapeutics, Inc.",Healthcare,Biotechnology,OTC Markets OTCQB
 flws,"1-800-FLOWERS.COM, Inc.",Consumer Cyclical,Specialty Retail,NasdaqGS
 lnth,"Lantheus Holdings, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,NasdaqGM
 mdlz,"Mondelez International, Inc.",Consumer Defensive,Confectioners,NasdaqGS
