@@ -12,7 +12,7 @@ This project uses `uv` for dependency management (Python 3.13).
 
 ```bash
 uv run python tickers_lists/scripts/extract.py       # Extract tickers from file_list.txt
-uv run python tickers_lists/scripts/map_tickers.py   # Enrich tickers with yfinance metadata (edit EXCHANGE in the script)
+uv run python tickers_lists/scripts/map_tickers.py LSE  # Enrich tickers with yfinance metadata (pass exchange name)
 uv run python tickers_lists/scripts/clean_mapped.py  # Drop rows with N/A / Error / empty cells
 uv run python tickers_lists/scripts/group_industries.py  # Group cleaned rows by Sector → Industry
 uv add <package>                                     # Add a dependency
@@ -36,7 +36,7 @@ Four scripts chain together. All resolve paths relative to `tickers_lists/`, so 
 
 1. **`extract.py`** — Parses `file_list.txt` and writes `tickers/{EXCHANGE}_tickers.txt`. Supported exchanges include NYSE, NASDAQ, AMEX, LSE, AIM, ASX, TSX, TSX-V, OTC.
 
-2. **`map_tickers.py`** — Reads `tickers/{EXCHANGE}_tickers.txt`, fetches `longName`, `sector`, and `industry` via `yfinance`, and appends row-by-row to `mapped/{EXCHANGE}_mapped.csv`. Designed for resumability: appends incrementally so a restart won't lose progress, but **will duplicate already-fetched rows** if re-run — delete or move the output first. 1 s sleep between requests. The target exchange is set by the `EXCHANGE` constant at the top of the file.
+2. **`map_tickers.py`** — Takes an exchange name as a CLI argument, reads `tickers/{EXCHANGE}_tickers.txt`, fetches `longName`, `sector`, `industry`, and `fullExchangeName` via `yfinance`, and appends row-by-row to `mapped/{EXCHANGE}_mapped.csv`. Designed for resumability: appends incrementally so a restart won't lose progress, but **will duplicate already-fetched rows** if re-run — delete or move the output first. 1 s sleep between requests. The `Exchange (Yahoo)` column lets you detect cases where yfinance redirects a ticker to a different exchange (e.g. LSE → NYSE).
 
 3. **`clean_mapped.py`** — Reads every `mapped/*_mapped.csv` and writes `cleaned/*_mapped_clean.csv` with rows dropped when any cell is `N/A`, `Error`, or empty.
 
