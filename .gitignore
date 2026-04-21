@@ -13,3 +13,10 @@ wheels/
 # Claude code
 .claude/
 CLAUDE.md
+
+#Sample data
+sample_data/
+
+# KPI_analysis artifacts
+KPI_analysis/cache/
+KPI_analysis/output/

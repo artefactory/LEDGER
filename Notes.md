@@ -95,6 +95,7 @@ Then for the query generation part, theres 3 different pipelines.
 
 1 synthetic query generation, directly from one summary. (they used the nvidia nema data designer pipeline, but do we need an API key absolutely ?).
 
+
 ## Relevence to our plan
 
 For specific information extraction, this is great. Also for multi-hop across one document, the summary approach will surely wrok great.
@@ -102,3 +103,5 @@ For specific information extraction, this is great. Also for multi-hop across on
 But: we need to re-think the plan to allow for sector-wise, multi-document queries + analysis across different years.
 
 Also, we better start from the uses-cases we have (and create a generic sets of queries), and check if the documents/summaries are relevant ? 
+
+For our queries generated, we need to check manually that the queries are shite or not. This is a simple annotation tasks.

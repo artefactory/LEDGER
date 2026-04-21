@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Purpose
 
-`ardian-dataset-bench` builds a structured dataset from OCRed financial reports (~6000 reports in an external database). The goal is to cluster companies by sector and identify competitive peer groups for benchmarking tasks. The pipeline starts with ticker extraction → Yahoo Finance enrichment → sector clustering → LLM-based competition validation.
+`ardian-dataset-bench` builds a structured dataset from OCRed financial reports (~100,000 reports in an external database). The goal is to cluster companies by sector and identify competitive peer groups for benchmarking tasks. The pipeline starts with ticker extraction → Yahoo Finance enrichment → sector clustering → LLM-based competition validation.
 
 ## Commands
 
