@@ -200,46 +200,137 @@ def _best_stock_entry_for_year(
     return max(candidates, key=lambda e: (e.get("end", ""), e.get("filed", "")))
 
 
+# Relative difference threshold above which two candidate-tag values are
+# considered "scope-mismatched" (not just rounding/synonym noise).
+AMBIGUITY_REL_THRESHOLD = 0.001  # 0.1%
+
+
+def _rel_diff(a: float, b: float) -> float:
+    denom = max(abs(a), abs(b))
+    if denom == 0:
+        return 0.0
+    return abs(a - b) / denom
+
+
 def extract_kpis_for_years(
     companyfacts: dict[str, Any],
     years: Iterable[int],
     kpi_defs: Iterable[KpiDef] = KPI_DEFS,
-) -> tuple[dict[str, dict[int, float]], dict[str, str]]:
-    """Return (values_by_kpi_year, tag_used_by_kpi).
+) -> tuple[
+    dict[str, dict[int, float]],
+    dict[str, str],
+    dict[str, dict[int, dict[str, float]]],
+]:
+    """Return (values, tag_used, ambiguous).
 
-    values[kpi_key][year] = numeric value.
-    tag_used[kpi_key] = first XBRL tag that yielded any data (for audit).
+    values[kpi_key][year] = chosen numeric value.
+    tag_used[kpi_key] = the XBRL tag (or synthetic "sum:<a>+<b>") the value came from.
+    ambiguous[kpi_key][year] = {tag: val} when >=2 candidate tags gave materially
+        different values for the same period — for audit only.
     """
     years_list = list(years)
+    years_set = set(years_list)
     values: dict[str, dict[int, float]] = {}
     tag_used: dict[str, str] = {}
+    ambiguous: dict[str, dict[int, dict[str, float]]] = {}
     picker = {
         "flow": _best_flow_entry_for_year,
         "stock": _best_stock_entry_for_year,
     }
+
     for kpi in kpi_defs:
         pick = picker[kpi.kind]
         per_year: dict[int, float] = {}
-        chosen_tag: str | None = None
+        per_year_tag: dict[int, str] = {}
+        # Survey: for each candidate tag, collect year -> value even if we
+        # ultimately pick a different tag. Used both for value selection
+        # (waterfall) and ambiguity detection.
+        survey: dict[str, dict[int, float]] = {}
         for tag in kpi.tags:
             entries = _iter_unit_entries(companyfacts, tag, kpi.unit)
             if not entries:
                 continue
             for year in years_list:
-                if year in per_year:
-                    continue
                 hit = pick(entries, year)
                 if hit is not None:
-                    per_year[year] = float(hit["val"])
-                    if chosen_tag is None:
-                        chosen_tag = tag
-            # If we've covered every requested year via this tag, stop early.
-            if len(per_year) == len(years_list):
+                    survey.setdefault(tag, {})[year] = float(hit["val"])
+
+        # Waterfall selection: first tag in `tags` that has data for a given
+        # year wins that year.
+        for tag in kpi.tags:
+            vals = survey.get(tag)
+            if not vals:
+                continue
+            for year, v in vals.items():
+                if year not in per_year:
+                    per_year[year] = v
+                    per_year_tag[year] = tag
+
+        # Summation fallback for years still missing. Each tag in a component
+        # set may be prefixed with "-" to indicate subtraction, allowing
+        # balance-sheet identities like `Assets - Equity = Liabilities`.
+        for component_set in kpi.sum_components:
+            missing = [y for y in years_list if y not in per_year]
+            if not missing:
                 break
+            # Parse signs.
+            signed: list[tuple[int, str]] = [
+                ((-1, c[1:]) if c.startswith("-") else (1, c)) for c in component_set
+            ]
+            # Build survey for each underlying tag so we can check "all present".
+            comp_survey: dict[str, dict[int, float]] = {}
+            for _sign, c_tag in signed:
+                entries = _iter_unit_entries(companyfacts, c_tag, kpi.unit)
+                if not entries:
+                    continue
+                for year in missing:
+                    hit = pick(entries, year)
+                    if hit is not None:
+                        comp_survey.setdefault(c_tag, {})[year] = float(hit["val"])
+            for year in missing:
+                if all(
+                    c_tag in comp_survey and year in comp_survey[c_tag]
+                    for _sign, c_tag in signed
+                ):
+                    total = sum(
+                        sign * comp_survey[c_tag][year] for sign, c_tag in signed
+                    )
+                    per_year[year] = total
+                    expr = "".join(
+                        ("-" if sign < 0 else ("+" if i else "")) + c_tag
+                        for i, (sign, c_tag) in enumerate(signed)
+                    )
+                    per_year_tag[year] = "sum:" + expr
+
+        # Ambiguity detection: for each year where >=2 candidate tags gave
+        # a value, flag if they disagree beyond the threshold.
+        for year in years_set:
+            hits = {tag: vals[year] for tag, vals in survey.items() if year in vals}
+            if len(hits) < 2:
+                continue
+            chosen = per_year.get(year)
+            if chosen is None:
+                continue
+            # Normalize against the chosen value.
+            disagree = {
+                tag: val
+                for tag, val in hits.items()
+                if _rel_diff(val, chosen) > AMBIGUITY_REL_THRESHOLD
+            }
+            if disagree:
+                # Include the chosen tag+value alongside the disagreeing ones.
+                entry = {per_year_tag[year]: chosen, **disagree}
+                ambiguous.setdefault(kpi.key, {})[year] = entry
+
         if per_year:
             values[kpi.key] = per_year
-            tag_used[kpi.key] = chosen_tag or kpi.tags[0]
-    return values, tag_used
+            # `tag_used` records the tag of the first year populated (stable
+            # picked definition). `per_year_tag` in the survey has the exact
+            # per-year tag for fine-grained audit if ever needed.
+            first_year = min(per_year_tag)
+            tag_used[kpi.key] = per_year_tag[first_year]
+
+    return values, tag_used, ambiguous
 
 
 def fetch_kpis_for_ticker(
@@ -249,17 +340,18 @@ def fetch_kpis_for_ticker(
     mapping: dict[str, str] | None = None,
     refresh: bool = False,
 ) -> dict[str, Any] | None:
-    """High-level: ticker -> {'cik', 'kpis', 'tag_used'} or None if not on EDGAR."""
+    """High-level: ticker -> dict with cik/kpis/tag_used/ambiguous_tags, or None."""
     cik = ticker_to_cik(ticker, mapping=mapping)
     if cik is None:
         return None
     facts = fetch_companyfacts(cik, refresh=refresh)
     if facts is None:
         return None
-    values, tags = extract_kpis_for_years(facts, years)
+    values, tags, ambiguous = extract_kpis_for_years(facts, years)
     return {
         "cik": cik,
         "entity_name": facts.get("entityName"),
         "kpis": values,
         "tag_used": tags,
+        "ambiguous_tags": ambiguous,
     }

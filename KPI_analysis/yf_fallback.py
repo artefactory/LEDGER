@@ -19,6 +19,8 @@ import yfinance as yf
 
 # Map yfinance label -> our KPI key. yfinance has slightly different labels for
 # different statement types; keys reflect what we've observed for recent filings.
+# yfinance labels are scope-ambiguous in the same way as XBRL tags; the mapping
+# below commits to specific scopes — see edgar.py / tags.py for the conventions.
 _LABEL_MAP: dict[str, str] = {
     # Income statement
     "Total Revenue": "revenue",
@@ -29,7 +31,7 @@ _LABEL_MAP: dict[str, str] = {
     "Operating Income": "operating_income",
     "Interest Expense": "interest_expense",
     "Tax Provision": "income_tax_expense",
-    "Net Income": "net_income",
+    "Net Income": "net_income",  # yfinance reports parent-attributable by default
     "Basic EPS": "eps_basic",
     "Diluted EPS": "eps_diluted",
     # Balance sheet
@@ -37,8 +39,10 @@ _LABEL_MAP: dict[str, str] = {
     "Total Liabilities Net Minority Interest": "total_liabilities",
     "Stockholders Equity": "stockholders_equity",
     "Cash And Cash Equivalents": "cash_and_equivalents",
-    "Long Term Debt": "long_term_debt",
-    "Current Debt": "short_term_debt",
+    # yfinance "Long Term Debt" = noncurrent portion; "Current Debt" = current
+    # portion of long-term debt. Matches the split we defined in tags.py.
+    "Long Term Debt": "long_term_debt_noncurrent",
+    "Current Debt": "long_term_debt_current",
     "Inventory": "inventory",
     "Accounts Receivable": "accounts_receivable",
     "Accounts Payable": "accounts_payable",

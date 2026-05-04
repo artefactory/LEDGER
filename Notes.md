@@ -105,3 +105,19 @@ But: we need to re-think the plan to allow for sector-wise, multi-document queri
 Also, we better start from the uses-cases we have (and create a generic sets of queries), and check if the documents/summaries are relevant ? 
 
 For our queries generated, we need to check manually that the queries are shite or not. This is a simple annotation tasks.
+
+
+## KPI extraction and analysis
+
+The format used for financial reports is XBRL. So we need a dictionnary to translate from human readable KPI to the very specific tags of XBRL. 
+"Revenue" does not mean the same thing for everyone: may vary with the sector/industry.
+
+One unresolved problem is if company files different types of revenue in the 10K report --> In this case we only get the first on our list (ASC 606 complient I think).
+
+I added two mechanisms : 
+ - I splitted some KPI that may have a different scope into different entities.
+ - I added a sum/substraction logic when only components of one aggregates are given.
+
+ In the end we should get the same information as in the 10-K report, but it's better to have more granularity.
+
+ The edgar database failed to provide KPIs for a dozen of companies : SQM SSL BTE GPRK VIST WDS LB TS SUNS CAAS and NRT, so I forced yfinance usage for those (and only got one or two years).
