@@ -45,9 +45,7 @@ EXPECTED: dict[str, set[str]] = {
 
 
 def filter_exchange(exchange: str, dry_run: bool) -> int:
-    verified_path = os.path.join(
-        CLEANED_DIR, f"{exchange}_mapped_clean_verified.csv"
-    )
+    verified_path = os.path.join(CLEANED_DIR, f"{exchange}_mapped_clean_verified.csv")
     output_path = os.path.join(CLEANED_DIR, f"{exchange}_mapped_clean.csv")
 
     if not os.path.exists(verified_path):

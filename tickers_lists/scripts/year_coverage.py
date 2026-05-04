@@ -25,7 +25,7 @@ import re
 from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DEFAULT_PDFS = "/data/raw_data/argimi_corpuses/annual_reports_pdfs_selected"
+DEFAULT_PDFS = "/data/raw_data/argimi_corpuses/annual_reports_pdfs_selected_checked"
 OUT_DIR = os.path.join(ROOT, "grouped", "selected")
 JSON_PATH = os.path.join(OUT_DIR, "year_coverage.json")
 MD_PATH = os.path.join(OUT_DIR, "year_coverage.md")
@@ -77,9 +77,7 @@ def best_window_per_k(
         for a in range(y_min, y_max - k + 2):
             b = a + k - 1
             window = set(range(a, b + 1))
-            count = sum(
-                1 for years in company_years.values() if window.issubset(years)
-            )
+            count = sum(1 for years in company_years.values() if window.issubset(years))
             if count > best_count or (
                 count == best_count and best_window is not None and a > best_window[0]
             ):
@@ -112,16 +110,18 @@ def render_histogram(hist: dict[int, int], width: int = 40) -> list[str]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--pdfs", default=DEFAULT_PDFS,
-                        help="Root containing one subdirectory per industry.")
+    parser.add_argument(
+        "--pdfs",
+        default=DEFAULT_PDFS,
+        help="Root containing one subdirectory per industry.",
+    )
     args = parser.parse_args()
 
     if not os.path.isdir(args.pdfs):
         raise SystemExit(f"PDF root not found: {args.pdfs}")
 
     industries = sorted(
-        d for d in os.listdir(args.pdfs)
-        if os.path.isdir(os.path.join(args.pdfs, d))
+        d for d in os.listdir(args.pdfs) if os.path.isdir(os.path.join(args.pdfs, d))
     )
 
     report: dict[str, dict] = {}
@@ -146,7 +146,9 @@ def main() -> None:
         }
 
         # Pick a suggested window: highest docs, break ties by larger k.
-        suggestion = max(windows, key=lambda w: (w["docs"], w["k"])) if windows else None
+        suggestion = (
+            max(windows, key=lambda w: (w["docs"], w["k"])) if windows else None
+        )
 
         # Console block per industry.
         print(f"\n=== {industry} ===")

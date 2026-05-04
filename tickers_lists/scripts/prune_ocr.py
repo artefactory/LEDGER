@@ -37,7 +37,9 @@ from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_SELECTION = os.path.join(ROOT, "grouped", "selected", "companies.json")
-DEFAULT_PDFS_ROOT = "/data/raw_data/argimi_corpuses/annual_reports_pdfs_selected"
+DEFAULT_PDFS_ROOT = (
+    "/data/raw_data/argimi_corpuses/annual_reports_pdfs_selected_checked"
+)
 
 DIRNAME_RE = re.compile(r"^([A-Z0-9-]+)_(.+)_(\d{4})(?:_[a-f0-9]{8,})?$")
 PDF_RE = re.compile(r"^([A-Z0-9-]+)_(.+)_(\d{4})\.pdf$")
@@ -59,17 +61,22 @@ def company_years_in_pdfs(pdfs_dir: str) -> dict[tuple[str, str], set[int]]:
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description=__doc__,
-                                formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--industry", required=True,
-                   help='Industry key, e.g. "Consumer Cyclical / Auto Parts"')
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    p.add_argument(
+        "--industry",
+        required=True,
+        help='Industry key, e.g. "Consumer Cyclical / Auto Parts"',
+    )
     p.add_argument("--start", type=int, required=True)
     p.add_argument("--end", type=int, required=True)
     p.add_argument("--ocr-dir", required=True)
     p.add_argument("--selection", default=DEFAULT_SELECTION)
     p.add_argument("--pdfs-root", default=DEFAULT_PDFS_ROOT)
-    p.add_argument("--execute", action="store_true",
-                   help="Actually delete. Default is dry-run.")
+    p.add_argument(
+        "--execute", action="store_true", help="Actually delete. Default is dry-run."
+    )
     args = p.parse_args()
 
     if not os.path.isdir(args.ocr_dir):
@@ -92,8 +99,7 @@ def main() -> int:
         print(f"Available: {sorted(selected)}", file=sys.stderr)
         return 1
     post_filter: set[tuple[str, str]] = {
-        (c["exchange"], c["ticker"])
-        for comps in by_exchange.values() for c in comps
+        (c["exchange"], c["ticker"]) for comps in by_exchange.values() for c in comps
     }
 
     pdf_years = company_years_in_pdfs(pdfs_dir)
@@ -144,22 +150,27 @@ def main() -> int:
     print(f"With full {args.start}-{args.end} PDF coverage: {len(full_coverage)}")
     print(f"Kept (intersection):                 {len(kept_companies)}")
     print()
-    print(f"OCR entries: total={len(entries)} "
-          f"keep={len(to_keep)} remove={len(to_remove)} "
-          f"unrecognized={len(unrecognized)}")
+    print(
+        f"OCR entries: total={len(entries)} "
+        f"keep={len(to_keep)} remove={len(to_remove)} "
+        f"unrecognized={len(unrecognized)}"
+    )
     print(f"  reasons for removal: {reason_counts}")
     print()
     print("Kept companies:")
     for exch, tkr in sorted(kept_companies):
         name_lookup = {
             (c["exchange"], c["ticker"]): c["name"]
-            for comps in by_exchange.values() for c in comps
+            for comps in by_exchange.values()
+            for c in comps
         }
         print(f"  {exch:<8} {tkr:<10} {name_lookup.get((exch, tkr), '')}")
     if unrecognized:
         print()
-        print(f"Unrecognized (left alone): {unrecognized[:10]}"
-              + (" ..." if len(unrecognized) > 10 else ""))
+        print(
+            f"Unrecognized (left alone): {unrecognized[:10]}"
+            + (" ..." if len(unrecognized) > 10 else "")
+        )
     print()
     print(f"Sample to remove (first 15 of {len(to_remove)}):")
     for d in to_remove[:15]:

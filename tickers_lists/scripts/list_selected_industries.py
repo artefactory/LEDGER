@@ -27,14 +27,16 @@ SELECTED: list[tuple[str, str]] = [
     ("Consumer Defensive", "Packaged Foods"),
     ("Energy", "Oil & Gas E&P"),
     ("Energy", "Oil & Gas Equipment & Services"),
-    ("Financial Services", "Banks - Regional"),
+    #    ("Financial Services", "Banks - Regional"), # too much things.
     ("Real Estate", "REIT - Mortgage"),
 ]
 
 
 def discover_exchanges() -> list[str]:
     exchanges: list[str] = []
-    for path in sorted(glob.glob(os.path.join(GROUPED_DIR, "*", "companies_by_industry.json"))):
+    for path in sorted(
+        glob.glob(os.path.join(GROUPED_DIR, "*", "companies_by_industry.json"))
+    ):
         name = os.path.basename(os.path.dirname(path))
         if name != "all" and name != "selected":
             exchanges.append(name)
@@ -94,7 +96,9 @@ def main() -> None:
         f.write("\n".join(lines))
 
     # Console summary.
-    print(f"{'Industry':<55} " + " ".join(f"{e:>7}" for e in exchanges) + f" {'Total':>7}")
+    print(
+        f"{'Industry':<55} " + " ".join(f"{e:>7}" for e in exchanges) + f" {'Total':>7}"
+    )
     print("-" * (56 + 8 * (len(exchanges) + 1)))
     for industry_key, by_exchange in result.items():
         counts = [len(by_exchange.get(e, [])) for e in exchanges]

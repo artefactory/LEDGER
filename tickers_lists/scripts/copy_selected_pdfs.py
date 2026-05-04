@@ -30,7 +30,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_SELECTION = os.path.join(ROOT, "grouped", "selected", "companies.json")
 DEFAULT_SOURCE = "/data/raw_data/argimi_corpuses/annual_reports_pdfs_deduplicated"
-DEFAULT_DEST = "/data/raw_data/argimi_corpuses/annual_reports_pdfs_selected"
+DEFAULT_DEST = "/data/raw_data/argimi_corpuses/annual_reports_pdfs_selected_checked"
 
 
 def slugify(text: str) -> str:
@@ -58,14 +58,20 @@ def find_pdfs(source: str, exchange: str, ticker: str) -> list[str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source", default=DEFAULT_SOURCE,
-                        help="Root of the per-exchange PDF tree.")
-    parser.add_argument("--dest", default=DEFAULT_DEST,
-                        help="Destination directory (industry subdirs created).")
-    parser.add_argument("--selection", default=DEFAULT_SELECTION,
-                        help="Path to selection JSON.")
-    parser.add_argument("--dry-run", action="store_true",
-                        help="Plan only; do not copy any files.")
+    parser.add_argument(
+        "--source", default=DEFAULT_SOURCE, help="Root of the per-exchange PDF tree."
+    )
+    parser.add_argument(
+        "--dest",
+        default=DEFAULT_DEST,
+        help="Destination directory (industry subdirs created).",
+    )
+    parser.add_argument(
+        "--selection", default=DEFAULT_SELECTION, help="Path to selection JSON."
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Plan only; do not copy any files."
+    )
     args = parser.parse_args()
 
     if not os.path.isdir(args.source):
