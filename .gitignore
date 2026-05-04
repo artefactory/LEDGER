@@ -29,3 +29,7 @@ KPI_analysis/output/
 
 # VSCode settings
 .vscode/settings.json
+
+# API keys explicitely
+
+KPI_analysis/alpha_venture_API_keys.txt
