@@ -14,9 +14,18 @@ wheels/
 .claude/
 CLAUDE.md
 
-#Sample data
+#OCR data and generated (large) files
+
 sample_data/
+DeepSeekOCR_Ardian_pruned_1k/
+doc_text_processing/CEO_word_extraction/extractions/
+
+*.json
+*.txt
 
 # KPI_analysis artifacts
 KPI_analysis/cache/
 KPI_analysis/output/
+
+# VSCode settings
+.vscode/settings.json
