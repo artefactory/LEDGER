@@ -22,8 +22,10 @@ doc_text_processing/CEO_word_extraction/extractions/
 doc_text_processing/CEO_word_extraction/extractions_full/
 doc_text_processing/CEO_word_extraction/cleaning_extractions/cleaned/
 
+# raw data files, we keep summaries as md files
 *.json
 *.txt
+*.csv
 
 # KPI_analysis artifacts
 KPI_analysis/cache/
@@ -32,7 +34,7 @@ KPI_analysis/output/
 # VSCode settings
 .vscode/settings.json
 
-# API keys explicitely
+# API keys explicitely even if in .txt files
 
 KPI_analysis/alpha_venture_API_keys.txt
 TODO.md

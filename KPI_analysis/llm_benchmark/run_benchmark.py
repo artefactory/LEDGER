@@ -1,0 +1,359 @@
+"""Main orchestrator: run the LLM KPI extraction benchmark.
+
+For each (ticker, year) that has both an OCR'd report and ground-truth KPIs
+in ``kpis_long.csv``, this script:
+
+1. Loads the ``.mmd`` and renders it with ``[Page N]`` markers.
+2. Calls the LLM (OpenAI-compatible, vLLM-served) with the schema-constrained
+   prompt from ``prompts.py``.
+3. Validates the response against the ``ReportExtraction`` Pydantic model.
+4. Writes a per-report JSON record to ``--output-dir/raw/{TICKER}_{YEAR}.json``.
+
+Smoke-test pattern (the user-specified default):
+    uv run python KPI_analysis/llm_benchmark/run_benchmark.py \\
+        --model Qwen/Qwen2.5-72B-Instruct --limit 8
+
+Scoring is a separate step — see ``score_benchmark.py``.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import sys
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import asdict
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+KPI_ANALYSIS_DIR = HERE.parent
+REPO_ROOT = KPI_ANALYSIS_DIR.parent
+
+sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(KPI_ANALYSIS_DIR))
+
+from client import call_extraction, make_client  # noqa: E402
+from document import LoadedDocument, ReportInfo, discover_reports, load_document  # noqa: E402
+from prompts import build_messages  # noqa: E402
+
+
+DEFAULT_OCR_ROOT = REPO_ROOT / "sample_data" / "subset_auto_parts_2017_2022"
+DEFAULT_GROUND_TRUTH = KPI_ANALYSIS_DIR / "output" / "kpis_long.csv"
+DEFAULT_OUTPUT_DIR = HERE / "output"
+DEFAULT_IS_10K = REPO_ROOT / "doc_text_processing" / "10K_or_not" / "is_10k.txt"
+
+
+def load_ground_truth_pairs(csv_path: Path) -> set[tuple[str, int]]:
+    """Return the set of (ticker, year) pairs present in ``kpis_long.csv``."""
+    pairs: set[tuple[str, int]] = set()
+    with csv_path.open(newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            ticker = row.get("ticker", "").strip()
+            try:
+                year = int(row.get("year", "").strip())
+            except ValueError:
+                continue
+            if ticker:
+                pairs.add((ticker, year))
+    return pairs
+
+
+def load_us_10k_dirnames(path: Path) -> set[str]:
+    """Read the list of report directory names flagged as US 10-Ks."""
+    if not path.is_file():
+        return set()
+    return {line.strip() for line in path.read_text().splitlines() if line.strip()}
+
+
+def write_record(out_path: Path, record: dict) -> None:
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = out_path.with_suffix(out_path.suffix + ".tmp")
+    tmp.write_text(json.dumps(record, indent=2, default=str))
+    tmp.replace(out_path)
+
+
+def existing_ok(out_path: Path) -> bool:
+    if not out_path.is_file():
+        return False
+    try:
+        return json.loads(out_path.read_text()).get("status") == "ok"
+    except Exception:
+        return False
+
+
+def run_one(
+    report: ReportInfo,
+    *,
+    raw_dir: Path,
+    client,
+    model: str,
+    max_chars: int | None,
+    few_shot: bool,
+    max_tokens: int,
+    temperature: float,
+    enable_thinking: bool,
+    retries: int,
+) -> dict:
+    out_path = raw_dir / f"{report.exchange}_{report.ticker}_{report.year}.json"
+    started = time.monotonic()
+    try:
+        doc: LoadedDocument = load_document(report.mmd_path, max_chars=max_chars)
+        messages = build_messages(doc.text, ticker=report.ticker, few_shot=few_shot)
+        result = call_extraction(
+            client,
+            model=model,
+            messages=messages,
+            max_tokens=max_tokens,
+            temperature=temperature,
+            enable_thinking=enable_thinking,
+            retries=retries,
+        )
+    except Exception as e:  # noqa: BLE001 — we want any error captured
+        record = {
+            "ticker": report.ticker,
+            "year": report.year,
+            "exchange": report.exchange,
+            "report_name": report.name,
+            "mmd_path": str(report.mmd_path),
+            "model": model,
+            "status": "error",
+            "error": f"{type(e).__name__}: {e}",
+            "elapsed_s": time.monotonic() - started,
+        }
+        write_record(out_path, record)
+        return record
+
+    status = "ok" if result.extraction is not None else "failed"
+    record = {
+        "ticker": report.ticker,
+        "year": report.year,
+        "exchange": report.exchange,
+        "report_name": report.name,
+        "mmd_path": str(report.mmd_path),
+        "model": model,
+        "status": status,
+        "attempts": result.attempts,
+        "latency_s": result.latency_s,
+        "prompt_tokens": result.prompt_tokens,
+        "completion_tokens": result.completion_tokens,
+        "n_pages": doc.n_pages,
+        "n_pages_kept": doc.n_pages_kept,
+        "n_chars": doc.n_chars,
+        "truncated": doc.truncated,
+        "few_shot": few_shot,
+        "extraction": result.extraction.model_dump() if result.extraction else None,
+        "error": result.error,
+        "raw_response": result.raw_response if status != "ok" else None,
+        "elapsed_s": time.monotonic() - started,
+    }
+    write_record(out_path, record)
+    return record
+
+
+def main() -> None:
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument(
+        "--root",
+        type=Path,
+        default=DEFAULT_OCR_ROOT,
+        help="OCR'd reports root directory.",
+    )
+    p.add_argument(
+        "--ground-truth",
+        type=Path,
+        default=DEFAULT_GROUND_TRUTH,
+        help="Path to kpis_long.csv (defines which reports we benchmark).",
+    )
+    p.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    p.add_argument(
+        "--model",
+        required=True,
+        help="vLLM model name, e.g. Qwen/Qwen2.5-72B-Instruct.",
+    )
+    p.add_argument("--base-url", default="http://localhost:8000/v1")
+    p.add_argument("--api-key", default="EMPTY")
+    p.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Process at most N reports (sorted by ticker, year). "
+        "Default: process all.",
+    )
+    p.add_argument(
+        "--concurrency",
+        type=int,
+        default=2,
+        help="Parallel in-flight LLM requests. Default 2 — long "
+        "contexts dominate KV cache.",
+    )
+    p.add_argument(
+        "--max-chars",
+        type=int,
+        default=380_000,
+        help="Soft cap on rendered document length (chars). "
+        "Translates to roughly 95k tokens at chars/4 — sized for "
+        "a 128k-context model with headroom. Set to 0 to disable.",
+    )
+    p.add_argument(
+        "--max-tokens",
+        type=int,
+        default=4096,
+        help="LLM completion max_tokens. Default 4096 — generous "
+        "for the slim values-only schema.",
+    )
+    p.add_argument("--temperature", type=float, default=0.0)
+    p.add_argument("--retries", type=int, default=3)
+    p.add_argument(
+        "--enable-thinking",
+        action="store_true",
+        help="Enable Qwen3 thinking mode (raises latency).",
+    )
+    p.add_argument(
+        "--few-shot",
+        action="store_true",
+        help="Prepend a snippet-level few-shot pair to the messages.",
+    )
+    p.add_argument(
+        "--us-only",
+        action="store_true",
+        help="Restrict to reports flagged as US 10-Ks via "
+        "doc_text_processing/10K_or_not/is_10k.txt.",
+    )
+    p.add_argument("--is-10k-list", type=Path, default=DEFAULT_IS_10K)
+    p.add_argument(
+        "--resume",
+        action="store_true",
+        help="Skip reports whose output JSON already exists with status=ok.",
+    )
+    args = p.parse_args()
+
+    raw_dir = args.output_dir / "raw"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+
+    gt_pairs = load_ground_truth_pairs(args.ground_truth)
+    sys.stderr.write(f"[setup] {len(gt_pairs)} (ticker, year) pairs in ground truth\n")
+
+    reports = discover_reports(args.root)
+    sys.stderr.write(
+        f"[setup] {len(reports)} OCR'd reports discovered under {args.root}\n"
+    )
+
+    reports = [r for r in reports if (r.ticker, r.year) in gt_pairs]
+    sys.stderr.write(f"[setup] {len(reports)} reports overlap with ground truth\n")
+
+    if args.us_only:
+        us_set = load_us_10k_dirnames(args.is_10k_list)
+        reports = [r for r in reports if r.name in us_set]
+        sys.stderr.write(f"[setup] {len(reports)} reports after --us-only filter\n")
+
+    reports.sort(key=lambda r: (r.ticker, r.year))
+    if args.limit is not None:
+        reports = reports[: args.limit]
+        sys.stderr.write(f"[setup] limiting to first {len(reports)} after --limit\n")
+
+    if args.resume:
+        before = len(reports)
+        reports = [
+            r
+            for r in reports
+            if not existing_ok(raw_dir / f"{r.exchange}_{r.ticker}_{r.year}.json")
+        ]
+        sys.stderr.write(
+            f"[setup] --resume: {before - len(reports)} already done, "
+            f"{len(reports)} to run\n"
+        )
+
+    if not reports:
+        sys.stderr.write("[setup] nothing to do\n")
+        return
+
+    client = make_client(args.base_url, args.api_key)
+    max_chars = args.max_chars if args.max_chars > 0 else None
+
+    started = time.monotonic()
+    sys.stderr.write(
+        f"[run] {len(reports)} reports, model={args.model}, "
+        f"concurrency={args.concurrency}, max_chars={max_chars}\n"
+    )
+
+    n_done = 0
+    n_ok = 0
+    n_failed = 0
+    n_error = 0
+    with ThreadPoolExecutor(max_workers=args.concurrency) as ex:
+        fut_to_report = {
+            ex.submit(
+                run_one,
+                r,
+                raw_dir=raw_dir,
+                client=client,
+                model=args.model,
+                max_chars=max_chars,
+                few_shot=args.few_shot,
+                max_tokens=args.max_tokens,
+                temperature=args.temperature,
+                enable_thinking=args.enable_thinking,
+                retries=args.retries,
+            ): r
+            for r in reports
+        }
+        for fut in as_completed(fut_to_report):
+            r = fut_to_report[fut]
+            n_done += 1
+            try:
+                rec = fut.result()
+            except Exception as e:  # noqa: BLE001
+                n_error += 1
+                sys.stderr.write(
+                    f"[{n_done}/{len(reports)}] EXC {r.name}: {type(e).__name__}: {e}\n"
+                )
+                continue
+            status = rec.get("status")
+            if status == "ok":
+                n_ok += 1
+                tag = "OK"
+            elif status == "failed":
+                n_failed += 1
+                tag = "FAIL"
+            else:
+                n_error += 1
+                tag = "ERR"
+            sys.stderr.write(
+                f"[{n_done}/{len(reports)}] {tag} {r.name} "
+                f"({rec.get('latency_s', 0):.1f}s, "
+                f"in={rec.get('prompt_tokens')}, out={rec.get('completion_tokens')}, "
+                f"trunc={rec.get('truncated')})\n"
+            )
+
+    elapsed = time.monotonic() - started
+    sys.stderr.write(
+        f"\n[done] {n_done} reports in {elapsed:.1f}s — "
+        f"ok={n_ok}, failed={n_failed}, error={n_error}\n"
+    )
+
+    # Write a small run-meta summary alongside the raw outputs.
+    meta = {
+        "model": args.model,
+        "base_url": args.base_url,
+        "few_shot": args.few_shot,
+        "us_only": args.us_only,
+        "max_chars": max_chars,
+        "max_tokens": args.max_tokens,
+        "temperature": args.temperature,
+        "enable_thinking": args.enable_thinking,
+        "concurrency": args.concurrency,
+        "retries": args.retries,
+        "n_reports": len(reports),
+        "n_ok": n_ok,
+        "n_failed": n_failed,
+        "n_error": n_error,
+        "elapsed_s": elapsed,
+    }
+    (args.output_dir / "run_meta.json").write_text(json.dumps(meta, indent=2))
+
+
+if __name__ == "__main__":
+    main()
