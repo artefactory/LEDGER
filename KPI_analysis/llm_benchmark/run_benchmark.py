@@ -9,7 +9,10 @@ in ``kpis_long.csv``, this script:
 3. Validates the response against the ``ReportExtraction`` Pydantic model.
 4. Writes a per-report JSON record to ``--output-dir/raw/{TICKER}_{YEAR}.json``.
 
-Smoke-test pattern (the user-specified default):
+Default OCR root is ``DeepSeekOCR_Ardian_pruned_1k/`` (~994 reports, ~980
+overlap with ``kpis_long.csv``). Override with ``--root``.
+
+Smoke-test pattern:
     uv run python KPI_analysis/llm_benchmark/run_benchmark.py \\
         --model Qwen/Qwen2.5-72B-Instruct --limit 8
 
@@ -27,6 +30,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict
 from pathlib import Path
 
+from tqdm import tqdm
+
 HERE = Path(__file__).resolve().parent
 KPI_ANALYSIS_DIR = HERE.parent
 REPO_ROOT = KPI_ANALYSIS_DIR.parent
@@ -39,10 +44,24 @@ from document import LoadedDocument, ReportInfo, discover_reports, load_document
 from prompts import build_messages  # noqa: E402
 
 
-DEFAULT_OCR_ROOT = REPO_ROOT / "sample_data" / "subset_auto_parts_2017_2022"
+DEFAULT_OCR_ROOT = REPO_ROOT / "DeepSeekOCR_Ardian_pruned_1k"
 DEFAULT_GROUND_TRUTH = KPI_ANALYSIS_DIR / "output" / "kpis_long.csv"
-DEFAULT_OUTPUT_DIR = HERE / "output"
+DEFAULT_OUTPUT_BASE = HERE / "output"
 DEFAULT_IS_10K = REPO_ROOT / "doc_text_processing" / "10K_or_not" / "is_10k.txt"
+
+
+def model_slug(model: str) -> str:
+    """Filesystem-safe slug for a model id (e.g. ``openai/gpt-oss-20b`` ->
+    ``openai__gpt-oss-20b``)."""
+    safe = []
+    for ch in model:
+        if ch.isalnum() or ch in ("-", "_", "."):
+            safe.append(ch)
+        elif ch == "/":
+            safe.append("__")
+        else:
+            safe.append("_")
+    return "".join(safe).strip("_") or "model"
 
 
 def load_ground_truth_pairs(csv_path: Path) -> set[tuple[str, int]]:
@@ -94,7 +113,8 @@ def run_one(
     few_shot: bool,
     max_tokens: int,
     temperature: float,
-    enable_thinking: bool,
+    enable_thinking: bool | None,
+    reasoning_effort: str | None,
     retries: int,
 ) -> dict:
     out_path = raw_dir / f"{report.exchange}_{report.ticker}_{report.year}.json"
@@ -109,6 +129,7 @@ def run_one(
             max_tokens=max_tokens,
             temperature=temperature,
             enable_thinking=enable_thinking,
+            reasoning_effort=reasoning_effort,
             retries=retries,
         )
     except Exception as e:  # noqa: BLE001 — we want any error captured
@@ -167,7 +188,14 @@ def main() -> None:
         default=DEFAULT_GROUND_TRUTH,
         help="Path to kpis_long.csv (defines which reports we benchmark).",
     )
-    p.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    p.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="Output directory. Default: "
+        "KPI_analysis/llm_benchmark/output/<model-slug>/ — keeps per-model "
+        "results separate so --resume across models is safe.",
+    )
     p.add_argument(
         "--model",
         required=True,
@@ -208,8 +236,24 @@ def main() -> None:
     p.add_argument("--retries", type=int, default=3)
     p.add_argument(
         "--enable-thinking",
+        dest="enable_thinking",
         action="store_true",
-        help="Enable Qwen3 thinking mode (raises latency).",
+        default=None,
+        help="Enable thinking mode for templates that support it "
+        "(Qwen3, Nemotron Nano 3). Default: do not send the kwarg.",
+    )
+    p.add_argument(
+        "--no-thinking",
+        dest="enable_thinking",
+        action="store_false",
+        help="Explicitly disable thinking mode (sends enable_thinking=False).",
+    )
+    p.add_argument(
+        "--reasoning-effort",
+        choices=["low", "medium", "high"],
+        default=None,
+        help="Reasoning effort for gpt-oss (Harmony template). "
+        "Default: do not send the kwarg.",
     )
     p.add_argument(
         "--few-shot",
@@ -229,6 +273,10 @@ def main() -> None:
         help="Skip reports whose output JSON already exists with status=ok.",
     )
     args = p.parse_args()
+
+    if args.output_dir is None:
+        args.output_dir = DEFAULT_OUTPUT_BASE / model_slug(args.model)
+        sys.stderr.write(f"[setup] output_dir defaulted to {args.output_dir}\n")
 
     raw_dir = args.output_dir / "raw"
     raw_dir.mkdir(parents=True, exist_ok=True)
@@ -279,7 +327,6 @@ def main() -> None:
         f"concurrency={args.concurrency}, max_chars={max_chars}\n"
     )
 
-    n_done = 0
     n_ok = 0
     n_failed = 0
     n_error = 0
@@ -296,20 +343,24 @@ def main() -> None:
                 max_tokens=args.max_tokens,
                 temperature=args.temperature,
                 enable_thinking=args.enable_thinking,
+                reasoning_effort=args.reasoning_effort,
                 retries=args.retries,
             ): r
             for r in reports
         }
-        for fut in as_completed(fut_to_report):
+        pbar = tqdm(
+            as_completed(fut_to_report),
+            total=len(reports),
+            desc=args.model,
+            unit="report",
+        )
+        for fut in pbar:
             r = fut_to_report[fut]
-            n_done += 1
             try:
                 rec = fut.result()
             except Exception as e:  # noqa: BLE001
                 n_error += 1
-                sys.stderr.write(
-                    f"[{n_done}/{len(reports)}] EXC {r.name}: {type(e).__name__}: {e}\n"
-                )
+                pbar.write(f"EXC {r.name}: {type(e).__name__}: {e}")
                 continue
             status = rec.get("status")
             if status == "ok":
@@ -321,16 +372,17 @@ def main() -> None:
             else:
                 n_error += 1
                 tag = "ERR"
-            sys.stderr.write(
-                f"[{n_done}/{len(reports)}] {tag} {r.name} "
+            pbar.set_postfix(ok=n_ok, fail=n_failed, err=n_error)
+            pbar.write(
+                f"{tag} {r.name} "
                 f"({rec.get('latency_s', 0):.1f}s, "
                 f"in={rec.get('prompt_tokens')}, out={rec.get('completion_tokens')}, "
-                f"trunc={rec.get('truncated')})\n"
+                f"trunc={rec.get('truncated')})"
             )
 
     elapsed = time.monotonic() - started
     sys.stderr.write(
-        f"\n[done] {n_done} reports in {elapsed:.1f}s — "
+        f"\n[done] {len(reports)} reports in {elapsed:.1f}s — "
         f"ok={n_ok}, failed={n_failed}, error={n_error}\n"
     )
 
@@ -344,6 +396,7 @@ def main() -> None:
         "max_tokens": args.max_tokens,
         "temperature": args.temperature,
         "enable_thinking": args.enable_thinking,
+        "reasoning_effort": args.reasoning_effort,
         "concurrency": args.concurrency,
         "retries": args.retries,
         "n_reports": len(reports),
