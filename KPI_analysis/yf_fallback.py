@@ -16,6 +16,8 @@ from typing import Any, Iterable
 import pandas as pd
 import yfinance as yf
 
+from _fiscal import filer_fy_from_period_end
+
 
 # Map yfinance label -> our KPI key. yfinance has slightly different labels for
 # different statement types; keys reflect what we've observed for recent filings.
@@ -69,8 +71,16 @@ def _extract_from_frame(
         row = df.loc[label]
         bucket = out.setdefault(key, {})
         for col, val in row.items():
-            year = getattr(col, "year", None)
-            if year is None or year not in years:
+            # `col` is typically a pandas Timestamp at the period-end date.
+            # Convert to filer-labelled FY (matches edgar.py / kpis_long.csv).
+            try:
+                period_end = col.date() if hasattr(col, "date") else None
+            except Exception:
+                period_end = None
+            if period_end is None:
+                continue
+            year = filer_fy_from_period_end(period_end)
+            if year not in years:
                 continue
             if pd.isna(val):
                 continue

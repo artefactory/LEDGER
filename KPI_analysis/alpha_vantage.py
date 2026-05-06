@@ -30,6 +30,8 @@ from typing import Any, Iterable
 
 import requests
 
+from _fiscal import filer_fy_from_string as _filer_fy_from_string
+
 HERE = Path(__file__).resolve().parent
 CACHE_ROOT = HERE / "cache"
 CACHE_DIR = CACHE_ROOT / "alphavantage"
@@ -336,12 +338,12 @@ def _parse_value(raw: Any) -> float | None:
 
 
 def _year_from_period_end(period: str | None) -> int | None:
-    if not period:
-        return None
-    try:
-        return datetime.strptime(period, "%Y-%m-%d").year
-    except ValueError:
-        return None
+    """Map AV's ``fiscalDateEnding`` to the filer's labelled FY.
+
+    Delegates to ``_fiscal.filer_fy_from_string`` so we stay consistent with
+    the EDGAR / yfinance ingestion paths (period-end Jan 2 2021 → FY2020 etc.).
+    """
+    return _filer_fy_from_string(period)
 
 
 def extract_kpis_for_years(

@@ -25,6 +25,7 @@ from typing import Any, Iterable
 
 import requests
 
+from _fiscal import filer_fy_from_string as _filer_fy_from_string
 from tags import KPI_DEFS, KpiDef
 
 CACHE_DIR = Path(__file__).resolve().parent / "cache"
@@ -157,32 +158,27 @@ def _span_days(entry: dict[str, Any]) -> int | None:
     return (d1 - d0).days
 
 
-def _end_year(entry: dict[str, Any]) -> int | None:
-    end = entry.get("end")
-    if not end:
-        return None
-    try:
-        return datetime.strptime(end, "%Y-%m-%d").year
-    except ValueError:
-        return None
+def _filer_fy(entry: dict[str, Any]) -> int | None:
+    """Return the filer's labelled FY for a fact, derived from its period-end.
 
-
-# IMPORTANT: EDGAR's `fy` field is the fiscal year of the FILING that reported
-# a given fact, not the fiscal year covered by the fact itself. When a 10-K
-# includes prior-year comparatives, those comparatives inherit the filing's
-# `fy`. We must therefore key on `end`-date year (the period the fact actually
-# covers), not `fy`.
+    See ``KPI_analysis/_fiscal.py`` for the rule. We deliberately do NOT use
+    EDGAR's ``fy`` field: that's the fiscal year of the FILING that reported
+    the fact, so a comparative prior-year line in a 10-K inherits the
+    filing's ``fy`` rather than its own period's FY label. Deriving from
+    ``end`` via the shared helper sidesteps that ambiguity.
+    """
+    return _filer_fy_from_string(entry.get("end"))
 
 
 def _best_flow_entry_for_year(
     entries: list[dict[str, Any]], year: int
 ) -> dict[str, Any] | None:
-    """Full-year flow entry whose period ends in `year`. Latest filed wins."""
+    """Full-year flow entry whose period belongs to filer-FY ``year``. Latest filed wins."""
     candidates = [
         e
         for e in entries
         if _is_annual_filing(e)
-        and _end_year(e) == year
+        and _filer_fy(e) == year
         and 340 <= (_span_days(e) or 0) <= 400
     ]
     if not candidates:
@@ -193,8 +189,8 @@ def _best_flow_entry_for_year(
 def _best_stock_entry_for_year(
     entries: list[dict[str, Any]], year: int
 ) -> dict[str, Any] | None:
-    """Balance-sheet entry as of an annual-report date in `year`. Latest filed wins."""
-    candidates = [e for e in entries if _is_annual_filing(e) and _end_year(e) == year]
+    """Balance-sheet entry as of an annual-report date in filer-FY ``year``. Latest filed wins."""
+    candidates = [e for e in entries if _is_annual_filing(e) and _filer_fy(e) == year]
     if not candidates:
         return None
     return max(candidates, key=lambda e: (e.get("end", ""), e.get("filed", "")))

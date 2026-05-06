@@ -171,7 +171,7 @@ def main() -> None:
     p.add_argument(
         "--model",
         required=True,
-        help="vLLM model name, e.g. Qwen/Qwen2.5-72B-Instruct.",
+        help="vLLM model name, e.g. Qwen/Qwen3.5-27B-FP8.",
     )
     p.add_argument("--base-url", default="http://localhost:8000/v1")
     p.add_argument("--api-key", default="EMPTY")

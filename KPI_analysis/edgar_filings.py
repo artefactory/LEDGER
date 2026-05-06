@@ -36,6 +36,7 @@ from zoneinfo import ZoneInfo
 
 import requests
 
+from _fiscal import filer_fy_from_string as _filer_fy_from_string
 from edgar import CACHE_DIR, _headers, _limiter
 
 ET = ZoneInfo("America/New_York")
@@ -165,30 +166,27 @@ def all_annual_filings(cik: str, *, refresh: bool = False) -> list[Filing]:
 def find_original_10k(
     filings: list[Filing], fiscal_year: int
 ) -> tuple[Filing | None, bool]:
-    """Pick the original 10-K (or 20-F) for `fiscal_year`, where year is
-    keyed on the calendar year of the period-of-report (matching
-    `fetch_kpis.py`'s convention).
+    """Pick the original 10-K (or 20-F) for filer-labelled ``fiscal_year``.
 
     Returns (filing, has_amendment).
 
-    Selection rule (must stay consistent with `_best_*_entry_for_year` in
-    `edgar.py`, otherwise filing_returns.csv and kpis_long.csv get
-    mis-joined for 52/53-week filers):
-      1. Filter originals to those whose `report_date` year matches.
-      2. Pick the *latest* `report_date` — for filers where two fiscal
-         years end in the same calendar year (e.g. AAP's fiscal-2021
-         ending 2022-01-01 and fiscal-2022 ending 2022-12-31), the KPI
-         picker uses the later period-end, so we mirror that choice.
-      3. Within the same `report_date` (i.e. true re-filings of one
-         period), pick the *earliest* acceptance — that is the genuine
-         first publication.
+    Year keying matches the rest of the pipeline (`edgar.py:_filer_fy`,
+    `_fiscal.filer_fy_from_period_end`): the `report_date` is converted to
+    the filer's labelled FY (e.g. AAP's `report_date=2022-01-01` → FY2021).
+    With this convention, two consecutive 52/53-week fiscal years no longer
+    collide on the same key (FY2021 stays FY2021; FY2022 stays FY2022) —
+    each `(ticker, fiscal_year)` has at most one original 10-K.
+
+    Selection rule:
+      1. Filter originals (10-K / 20-F, not amendments) to those whose
+         filer-FY equals ``fiscal_year``.
+      2. Within that set, pick the *earliest* acceptance — that is the
+         genuine first publication, before any restatements.
     """
     matching: list[Filing] = []
     has_amendment = False
     for f in filings:
-        if not f.report_date or len(f.report_date) < 4 or not f.report_date[:4].isdigit():
-            continue
-        if int(f.report_date[:4]) != fiscal_year:
+        if _filer_fy_from_string(f.report_date) != fiscal_year:
             continue
         if f.form in ORIGINAL_ANNUAL_FORMS:
             matching.append(f)
@@ -196,9 +194,7 @@ def find_original_10k(
             has_amendment = True
     if not matching:
         return None, has_amendment
-    latest_report_date = max(f.report_date for f in matching)
-    candidates = [f for f in matching if f.report_date == latest_report_date]
-    candidates.sort(key=lambda f: f.acceptance_dt_utc)
+    candidates = sorted(matching, key=lambda f: f.acceptance_dt_utc)
     return candidates[0], has_amendment
 
 
