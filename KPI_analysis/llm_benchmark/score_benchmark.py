@@ -324,13 +324,29 @@ def _md_table(rows: list[dict], *, key: str) -> str:
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--ground-truth", type=Path, default=DEFAULT_GROUND_TRUTH)
-    p.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    p.add_argument(
+        "--model",
+        default=None,
+        help="If given, scores output/<model-slug>/. Mutually compatible with "
+        "--output-dir; --output-dir wins if both are passed.",
+    )
+    p.add_argument("--output-dir", type=Path, default=None)
     p.add_argument("--tolerance", type=float, default=0.01,
                    help="Match if |pred-gt| / |gt| <= tolerance. Default 1%%.")
     p.add_argument("--zero-eps", type=float, default=0.5,
                    help="Absolute eps when ground-truth value is 0 "
                         "(e.g. zero dividends). Default 0.5 single units.")
     args = p.parse_args()
+
+    if args.output_dir is None:
+        if args.model is None:
+            sys.stderr.write(
+                "[score] pass --model <id> or --output-dir <path>\n"
+            )
+            sys.exit(2)
+        sys.path.insert(0, str(HERE))
+        from run_benchmark import model_slug  # noqa: E402
+        args.output_dir = DEFAULT_OUTPUT_DIR / model_slug(args.model)
 
     raw_dir = args.output_dir / "raw"
     if not raw_dir.is_dir():
