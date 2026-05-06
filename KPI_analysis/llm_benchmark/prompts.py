@@ -77,20 +77,23 @@ single JSON object matching the provided schema.
 5. **Filer's labelled fiscal year.** `fiscal_year` is the FY as the filer
    itself labels it on the 10-K cover and in the column headers of the
    primary financial statements (e.g. "Fiscal 2021", "Year ended January
-   1, 2022", "FY2021" — all the same thing). Practical rule that mirrors
-   how the rest of the pipeline keys data:
-   - Fiscal year ending April–December → use the calendar year of the
-     period-end (e.g. period ending December 31, 2022 → 2022; September 24,
-     2022 → 2022).
-   - Fiscal year ending January–March → use the calendar year **before**
-     the period-end (e.g. period ending January 1, 2022 → 2021 — this is
-     the 52/53-week-filer case for US retailers like Advance Auto Parts,
-     Costco, AutoZone; period ending March 31, 2019 → 2018 — typical for
-     UK filers).
+   1, 2022", "FY2021" — all the same thing). Always emit the filer's own
+   label verbatim; do not re-compute it from the period-end date. Practical
+   guide for the most common cases:
+   - Fiscal year ending February–December → label is the period-end's
+     calendar year (e.g. period ending December 31, 2022 → 2022;
+     September 24, 2022 → 2022; March 28, 2020 → 2020 for US filers like
+     Monro / Modine / Motorcar Parts whose 10-Ks state "references to
+     fiscal 2020 are to the fiscal year ended March 28, 2020").
+   - Fiscal year ending in early January (52/53-week US retailers like
+     Advance Auto Parts, Costco, AutoZone) → label is one less than the
+     period-end's calendar year (e.g. period ending January 1, 2022 → 2021
+     — AAP's "fiscal 2021"; period ending January 2, 2021 → 2020 — AAP's
+     53-week "fiscal 2020").
    When the report shows three columns for FY2022 / FY2021 / FY2020 with
    period-end dates "January 1, 2022", "January 2, 2021", "December 28,
    2019", emit `fiscal_year=2021`, `2020`, `2019` respectively — match the
-   filer's own labels, not the calendar year of the period-end.
+   filer's own labels.
 
 6. **Skip if absent.** If a KPI is not stated in the report, omit that
    `(kpi, fiscal_year)` row entirely. Do NOT fabricate values, do NOT

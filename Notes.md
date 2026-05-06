@@ -121,3 +121,12 @@ I added two mechanisms :
  In the end we should get the same information as in the 10-K report, but it's better to have more granularity.
 
  The edgar database failed to provide KPIs for a dozen of companies : SQM SSL BTE GPRK VIST WDS LB TS SUNS CAAS and NRT, so I forced yfinance usage for those (and only got one or two years).
+
+ ## On the alpha / return as a good measure
+
+ We plan to see if the market return on the date of the SEC filing can be traced back to the performance indicators that we extract from the reports/SEC filing. 
+ The thing is usually the market reacts to what is expected, so we should check if we can get a measure of those expectations.
+
+ ## Fical year mismatch
+
+ We have to choose a sensible fiscal year naming convention, because some reports to the date April or March 2020 say that this is the fiscal year 2020 
