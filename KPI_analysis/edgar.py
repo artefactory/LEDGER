@@ -9,7 +9,7 @@ https://www.sec.gov/os/accessing-edgar-data) and enforces a 10 req/s limit.
 
 This module:
   - caches ticker->CIK and companyfacts JSON on disk (cheap re-runs)
-  - rate-limits to ~9 req/s
+  - rate-limits to ~3 req/s
   - extracts a configurable set of KPIs for a requested year range
 """
 
