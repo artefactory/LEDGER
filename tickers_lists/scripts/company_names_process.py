@@ -8,14 +8,13 @@ def clean_company_name(company_name):
     Simple cleaning of the end of the company (Co., Inc., etc)
     """
 
-    suffixes = ['Inc', 'PLC', 'Group', 'Corporation', 'Corp', 'Co', 'Company', 'plc', 'S.A.', 'L.P.', 'Ltd.', '.', ',']
-
-    end_company_name = company_name[-10:]
+    suffixes = ['.', 'Inc', 'PLC', 'plc', 'Group', 'Corporation', 'Corp', 'Co', 'Company', 'S.A', 'L.P', 'Ltd', 'Limited', 'Group', ', ']
+    company_name = company_name.strip()
     for suffix in suffixes:
-        end_company_name = end_company_name.replace(suffix, '')
-    end_company_name = end_company_name.strip()
+        if company_name.endswith(suffix):
+            company_name = company_name[:-len(suffix)]
 
-    return company_name[:-10] + end_company_name
+    return company_name.strip()
 
 
 def get_wikipedia_redirects(company_name):
@@ -56,8 +55,10 @@ def get_wikipedia_redirects(company_name):
             # List of titles that redirect to this canonical page
             redirects = [r["title"] for r in content.get("redirects", [])
                          if not ('Wikipedia talk' in r["title"]
+                                 or '(' in r['title'] # Typically avoid (disambiguation) pages
                                  or r['title'].startswith('User:')
-                                 or r['title'].startswith('Draft:'))]
+                                 or r['title'].startswith('Draft:'))
+                        ]
             company_names.extend(redirects)
             print('redirects', redirects)
     else:
@@ -76,18 +77,9 @@ def get_company_dbpedia_names(resource_name):
     # Don't take dbo:wikiPageRedirects from DBpedia: 
     # https://dbpedia.org/page/Allison_Transmission has shit redirects...
     url = "https://dbpedia.org/sparql"
-    
-    # query for rdfs:label and foaf:name
-    query = f"""
-    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT ?label ?name WHERE {{
-      <http://dbpedia.org/resource/{resource_name}> rdfs:label ?label .
-      OPTIONAL {{ <http://dbpedia.org/resource/{resource_name}> foaf:name ?name }} .
-      FILTER (lang(?label) = "en")
-    }}
-    """
 
+    # Possibility to filter on entity type with: ?company a ?type . (on dbo:company)
+    # But not so efficient in my quick tests. To dig further if too much noisy names
     query = f"""
     PREFIX foaf: <http://xmlns.com/foaf/0.1/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -131,7 +123,8 @@ def get_company_dbpedia_names(resource_name):
             name = results.get(key, {}).get('value', '')
             if name:
                 if key == 'redirects':
-                    names.extend(name.replace('http://dbpedia.org/resource/', '').replace('_', ' ').split('|'))
+                    new_names = name.replace('http://dbpedia.org/resource/', '').replace('_', ' ').split('|')
+                    names.extend([name for name in new_names if not '(' in name])
                 else:
                     names.append(name)
 
@@ -148,7 +141,8 @@ def find_overlaps(base_name, alt_names, threshold=50):
         base_name, 
         alt_names, 
         scorer=fuzz.WRatio, # WRatio handles case and partial strings well
-        score_cutoff=threshold
+        score_cutoff=threshold,
+        limit=None
     )
     
     return [name for name, _, _ in results]
