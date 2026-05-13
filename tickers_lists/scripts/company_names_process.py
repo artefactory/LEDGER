@@ -54,7 +54,10 @@ def get_wikipedia_redirects(company_name):
             urls.append(content.get("canonicalurl"))
             title = content.get("title")
             # List of titles that redirect to this canonical page
-            redirects = [r["title"] for r in content.get("redirects", [])  if not 'Wikipedia talk' in r["title"]]
+            redirects = [r["title"] for r in content.get("redirects", [])
+                         if not ('Wikipedia talk' in r["title"]
+                                 or r['title'].startswith('User:')
+                                 or r['title'].startswith('Draft:'))]
             company_names.extend(redirects)
             print('redirects', redirects)
     else:
