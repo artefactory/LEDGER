@@ -128,7 +128,7 @@ def get_company_dbpedia_names(resource_name):
             name = results.get(key, {}).get('value', '')
             if name:
                 if key == 'redirects':
-                    names.extend(name.replace('http://dbpedia.org/resource/', '').split('|'))
+                    names.extend(name.replace('http://dbpedia.org/resource/', '').replace('_', ' ').split('|'))
                 else:
                     names.append(name)
 
@@ -139,6 +139,7 @@ def find_overlaps(base_name, alt_names, threshold=50):
     """
     Using base name, filter the alternative names to remove noisy string that are too different.
     """
+
     # process.extract returns (match, score, index)
     results = process.extract(
         base_name, 
