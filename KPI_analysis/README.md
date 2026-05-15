@@ -50,10 +50,11 @@ KPI_analysis/
 ├── cache/                        # ticker->CIK map, cached SEC + AV responses, AV budget (gitignored)
 │   ├── ticker_cik.json
 │   ├── companyfacts/CIK*.json
-│   ├── submissions/CIK*.json     # EDGAR submissions JSON (+ older shards) for filing dates
-│   ├── prices/{TICKER}.csv       # cached yfinance daily OHLC for filing-returns
+│   ├── submissions/CIK*.json
+│   ├── prices/{TICKER}.csv
+│   ├── industry_indicators/*.csv # cached industry-average indicator DataFrames
 │   ├── alphavantage/{SYMBOL}__{ENDPOINT}.json
-│   └── alphavantage_budget.json  # per-key per-UTC-day call counts
+│   └── alphavantage_budget.json
 └── output/
     ├── raw/                      # one JSON per ticker
     ├── kpis_long.csv             # (ticker, year, kpi, value) long form
@@ -733,3 +734,93 @@ what we dropped. Summed-fallback values are tagged `"sum:A+B"` in
   should consider aligning to calendar year if needed.
 - **Restatements**: we keep the most recently filed value for each (ticker,
   year), so amended 10-K/A filings supersede originals.
+
+## Fiscal-year mapping (`_fiscal.py`)
+
+Single source of truth for converting a period-end date to the filer's
+labelled fiscal year: `FY = end.year - 1 if end.month <= 3 else end.year`.
+Imported by `edgar.py`, `edgar_filings.py`, `alpha_vantage.py`, and
+`yf_fallback.py`. Handles 52/53-week filers (AAP/COST/AZO whose fiscal years
+end in early January → mapped to prior year) and March-ending UK/EU filers.
+
+## Sentiment analysis pipeline
+
+Three scripts form a pipeline that classifies CEO/shareholder letter sentiment
+and correlates it with market behaviour around 10-K publication dates.
+
+### `FinancialIndicators.py`
+
+Computes per-ticker trading indicators from yfinance daily prices:
+- **Returns**: daily log-returns, unbiased (market-adjusted) returns
+- **Volatility**: 20-day rolling standard deviation of returns
+- **Volume**: volume-to-average ratio (Volume ATS)
+- Industry-level averages for benchmarking
+
+Also provides `annual_publication_dates()` to retrieve 10-K filing dates from
+`filing_returns.csv`.
+
+### `evaluation.py`
+
+Classifies CEO letter sentiment using a local LLM (Qwen3.5-9B served via
+vLLM on port 8001). Reads cleaned CEO letter extractions, sends them with a
+prompt focused on reported financial metrics and hedging language (not tone),
+and outputs `sentiments.json` with per-company per-year classifications
+(`positive` / `negative` / `neutral` / `null`).
+
+### `sentiment_vs_indicators.py`
+
+Main analysis script. Loads `sentiments.json` and `filing_returns.csv`, then
+produces ~30 plots under `output/plots/sentiment_summary/`:
+- **Bar charts**: mean of each indicator grouped by sentiment
+- **Event studies**: J-10 to J+10 trading-day windows with 95% CI bands
+- **Distributions**: histograms per metric per sentiment class
+
+Includes outlier removal (configurable doc-level exclusions) and pre-event
+window analysis (days -10 to -7).
+
+### `_check_outliers.py`
+
+Helper script that identifies outlier documents in the pre-event unbiased
+volatility distribution for negative-sentiment 10-Ks. Ranks documents by
+mean volatility using IQR-based detection.
+
+## LLM KPI extraction benchmark (`llm_benchmark/`)
+
+End-to-end benchmark that evaluates how well an LLM can extract KPI values
+from OCR'd annual reports, scored against ground-truth from EDGAR/yfinance.
+
+### Pipeline
+
+1. **`run_benchmark.py`** — Loads OCR'd reports from the sample data tree,
+   sends each to an LLM (vLLM/OpenAI-compatible API) with a structured
+   prompt containing the full KPI catalogue and extraction rules. Uses
+   xgrammar-guided JSON decoding to enforce the output schema. Writes one
+   JSON per report under `llm_benchmark/output/`.
+
+2. **`score_benchmark.py`** — Joins LLM predictions against ground-truth
+   `kpis_long.csv`, classifying each (ticker, year, KPI) into
+   matched / wrong / missing / extra buckets. Generates scoring CSVs and a
+   summary report.
+
+### Supporting modules
+
+- **`client.py`** — Chat client wrapping the OpenAI-compatible API with
+  retry logic and Pydantic response validation.
+- **`document.py`** — Loads `.mmd` files from `{EX}_{TICKER}_{YEAR}/`
+  subdirs, parses directory names, and renders pages with `[Page N]` markers.
+- **`kpi_catalogue.py`** — Generates a reference catalogue of all 31
+  canonical KPI definitions with scope, sign, and unit descriptions.
+- **`prompts.py`** — Builds the system prompt and user messages, injecting
+  the KPI catalogue and rules (raw-unit scaling, reporting currency, sign
+  conventions).
+- **`schema.py`** — Pydantic model defining the closed set of 31 KPI keys
+  that xgrammar enforces at inference time.
+
+## Utility scripts
+
+- **`cron_av_fetch.sh`** — Bash wrapper for daily cron-scheduled Alpha
+  Vantage gap-filling. Re-runs the EDGAR/yfinance passes then consumes the
+  day's AV quota.
+- **`filing_returns_validation.md`** — Validation notes documenting how
+  `filing_returns.csv` correctness was verified, with three real-world event
+  studies (2020 oil crash, 2022 Ukraine invasion, 10-K/A amendments).
