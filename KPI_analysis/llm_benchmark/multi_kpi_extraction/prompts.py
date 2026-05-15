@@ -173,7 +173,9 @@ def build_messages(
         {"role": "system", "content": SYSTEM_PROMPT},
     ]
     if few_shot:
-        messages.append({"role": "user", "content": _wrap_user(FEW_SHOT_USER, ticker="ACME")})
+        messages.append(
+            {"role": "user", "content": _wrap_user(FEW_SHOT_USER, ticker="ACME")}
+        )
         messages.append(
             {"role": "assistant", "content": json.dumps(FEW_SHOT_ASSISTANT_OBJ)}
         )
