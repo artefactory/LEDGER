@@ -87,8 +87,8 @@ def call_extraction(
     top_k: int = 20,
     min_p: float = 0.0,
     repetition_penalty: float = 1.0,
-    enable_thinking: bool | None = None,
-    reasoning_effort: str | None = None,
+    presence_penalty: float = 1.5,
+    enable_thinking: bool = False,
     retries: int = 3,
     schema_name: str = "ReportExtraction",
 ) -> CallResult:
@@ -111,19 +111,10 @@ def call_extraction(
         "min_p": min_p,
         "repetition_penalty": repetition_penalty,
     }
-    # ``chat_template_kwargs`` is template-specific. Only emit keys that the
-    # caller explicitly set, so we don't push an unknown kwarg into a
-    # template that doesn't expect it.
-    # - Qwen3 / Nemotron Nano 3 understand ``enable_thinking`` (True/False).
-    # - gpt-oss (Harmony) understands ``reasoning_effort`` ("low"/"medium"/"high").
-    # - Mistral templates have no thinking toggle — leave both unset.
-    template_kwargs: dict[str, Any] = {}
-    if enable_thinking is not None:
-        template_kwargs["enable_thinking"] = enable_thinking
-    if reasoning_effort is not None:
-        template_kwargs["reasoning_effort"] = reasoning_effort
-    if template_kwargs:
-        extra_body["chat_template_kwargs"] = template_kwargs
+    # Only pass chat_template_kwargs when thinking mode is explicitly enabled
+    # (Qwen3-style). Mistral tokenizers reject any chat_template_kwargs.
+    if enable_thinking:
+        extra_body["chat_template_kwargs"] = {"enable_thinking": True}
 
     history: list[str] = []
     last_error: str | None = None
