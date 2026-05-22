@@ -10,7 +10,7 @@ from typing import Any
 
 import bleach
 import markdown as markdown_lib
-from flask import Flask, abort, jsonify, render_template, request, send_file
+from flask import Flask, abort, jsonify, redirect, render_template, request, send_file
 
 from ocr_index import DEFAULT_OCR_ROOT, DEFAULT_RAW_ROOT, build_queue, load_pages
 from store import (
@@ -27,7 +27,6 @@ from store import (
 
 HERE = Path(__file__).resolve().parent
 IMAGE_REF_RE = re.compile(r"(!\[[^\]]*\]\()((?:\./)?images/[^)\s]+)(\))")
-HTML_IMAGE_SRC_RE = re.compile(r'(<img\b[^>]*\bsrc=["\'])(images/[^"\']+)(["\'])', re.I)
 
 ALLOWED_TAGS = set(bleach.sanitizer.ALLOWED_TAGS).union(
     {
@@ -130,8 +129,13 @@ def cached_pages(mmd_path: str) -> tuple[str, ...]:
     return tuple(load_pages(Path(mmd_path)))
 
 
+@lru_cache(maxsize=16)
+def cached_manifest(session_id: str) -> tuple[dict[str, Any], ...]:
+    return tuple(load_manifest(session_id))
+
+
 def get_item_or_404(session_id: str, index: int) -> dict[str, Any]:
-    manifest = load_manifest(session_id)
+    manifest = cached_manifest(session_id)
     if index < 0 or index >= len(manifest):
         abort(404, description="item index out of range")
     return manifest[index]
@@ -145,6 +149,12 @@ def item_page_text(item: dict[str, Any]) -> str:
     return pages[page_index]
 
 
+def omit_markdown_image_refs(markdown_text: str) -> str:
+    return IMAGE_REF_RE.sub(
+        lambda match: f"_[image omitted: {match.group(2)}]_", markdown_text
+    )
+
+
 def rewrite_markdown_image_refs(markdown_text: str, session_id: str, index: int) -> str:
     def replace_md(match: re.Match[str]) -> str:
         rel_path = match.group(2).lstrip("./")
@@ -154,23 +164,22 @@ def rewrite_markdown_image_refs(markdown_text: str, session_id: str, index: int)
     return IMAGE_REF_RE.sub(replace_md, markdown_text)
 
 
-def rewrite_html_image_refs(html: str, session_id: str, index: int) -> str:
-    def replace_html(match: re.Match[str]) -> str:
-        rel_path = match.group(2).lstrip("./")
-        src = f"/api/session/{session_id}/item/{index}/inline-image/{rel_path}"
-        return f"{match.group(1)}{src}{match.group(3)}"
-
-    return HTML_IMAGE_SRC_RE.sub(replace_html, html)
-
-
-def render_markdown_page(markdown_text: str, session_id: str, index: int) -> str:
-    rewritten = rewrite_markdown_image_refs(markdown_text, session_id, index)
+def render_markdown_page(
+    markdown_text: str,
+    *,
+    session_id: str,
+    index: int,
+    show_inline_images: bool,
+) -> str:
+    if show_inline_images:
+        rewritten = rewrite_markdown_image_refs(markdown_text, session_id, index)
+    else:
+        rewritten = omit_markdown_image_refs(markdown_text)
     html = markdown_lib.markdown(
         rewritten,
         extensions=["tables", "fenced_code", "sane_lists", "nl2br"],
         output_format="html5",
     )
-    html = rewrite_html_image_refs(html, session_id, index)
     return bleach.clean(
         html,
         tags=ALLOWED_TAGS,
@@ -192,7 +201,7 @@ def safe_child_path(root: Path, relative_path: str) -> Path:
 
 def progress_payload(session_id: str) -> dict[str, Any]:
     metadata = load_metadata(session_id)
-    manifest = load_manifest(session_id)
+    manifest = cached_manifest(session_id)
     current = load_current_annotations(session_id)
     status_counts: dict[str, int] = {}
     for item in manifest:
@@ -214,19 +223,30 @@ def progress_payload(session_id: str) -> dict[str, Any]:
     }
 
 
-def create_app(default_session_id: str, build_defaults: dict[str, Any]) -> Flask:
+def create_app(default_session_id: str | None, build_defaults: dict[str, Any]) -> Flask:
     app = Flask(__name__, template_folder="templates", static_folder="static")
     app.config["DEFAULT_SESSION_ID"] = default_session_id
     app.config["BUILD_DEFAULTS"] = build_defaults
 
     @app.get("/")
-    def index() -> str:
-        return render_template("index.html", default_session_id=default_session_id)
+    def index() -> Any:
+        # If ?session=<id> in URL, serve the annotation UI for that session
+        session_from_url = request.args.get("session")
+        if session_from_url:
+            return render_template("index.html", session_id=session_from_url)
+        # If server was started with a pre-created session, redirect to it
+        if default_session_id:
+            return redirect(f"/?session={default_session_id}")
+        # Otherwise show the landing / session picker page
+        return render_template("landing.html")
 
     @app.get("/api/sessions")
     def api_sessions() -> Any:
         return jsonify(
-            {"sessions": list_sessions(), "default_session_id": default_session_id}
+            {
+                "sessions": list_sessions(),
+                "default_session_id": default_session_id or None,
+            }
         )
 
     @app.post("/api/sessions")
@@ -261,6 +281,7 @@ def create_app(default_session_id: str, build_defaults: dict[str, Any]) -> Flask
             index_summary=index_summary,
             config=config,
         )
+        cached_manifest.cache_clear()
         return jsonify(
             {"metadata": metadata, "progress": progress_payload(metadata["session_id"])}
         )
@@ -271,18 +292,30 @@ def create_app(default_session_id: str, build_defaults: dict[str, Any]) -> Flask
 
     @app.get("/api/session/<session_id>/item/<int:index>")
     def api_item(session_id: str, index: int) -> Any:
+        manifest = cached_manifest(session_id)
         item = get_item_or_404(session_id, index)
         text = item_page_text(item)
         annotations = load_current_annotations(session_id)
+        show_inline_images = request.args.get("inline_images", "1") != "0"
+        next_image_url = None
+        if index + 1 < len(manifest) and manifest[index + 1].get("raw_png_path"):
+            next_image_url = f"/api/session/{session_id}/item/{index + 1}/raw-image"
         return jsonify(
             {
                 "index": index,
-                "item_count": len(load_manifest(session_id)),
+                "item_count": len(manifest),
                 "item": item,
                 "annotation": annotations.get(item["item_id"]),
                 "page_text": text,
-                "markdown_html": render_markdown_page(text, session_id, index),
+                "markdown_html": render_markdown_page(
+                    text,
+                    session_id=session_id,
+                    index=index,
+                    show_inline_images=show_inline_images,
+                ),
+                "inline_images": show_inline_images,
                 "image_url": f"/api/session/{session_id}/item/{index}/raw-image",
+                "next_image_url": next_image_url,
             }
         )
 
@@ -298,7 +331,7 @@ def create_app(default_session_id: str, build_defaults: dict[str, Any]) -> Flask
             abort(400, description="raw image outside raw root")
         if not target.is_file():
             abort(404, description="raw page image missing")
-        return send_file(target)
+        return send_file(target, conditional=True, max_age=86400)
 
     @app.get("/api/session/<session_id>/item/<int:index>/inline-image/<path:rel_path>")
     def api_inline_image(session_id: str, index: int, rel_path: str) -> Any:
@@ -307,7 +340,7 @@ def create_app(default_session_id: str, build_defaults: dict[str, Any]) -> Flask
         target = safe_child_path(report_dir, rel_path)
         if not target.is_file():
             abort(404, description="inline OCR image missing")
-        return send_file(target)
+        return send_file(target, conditional=True, max_age=86400)
 
     @app.post("/api/session/<session_id>/annotation")
     def api_save_annotation(session_id: str) -> Any:
@@ -344,7 +377,15 @@ def create_app(default_session_id: str, build_defaults: dict[str, Any]) -> Flask
 
 def main(argv: list[str] | None = None) -> int:
     args = build_arg_parser().parse_args(argv)
-    session_id = prepare_session(args)
+    # Session creation is now optional — if no --session-id given and
+    # --session-name is the default placeholder, start headless so users
+    # can create/resume sessions from the browser landing page.
+    session_id: str | None = None
+    if args.session_id:
+        session_id = prepare_session(args)
+    elif args.annotator != "anonymous" or args.session_name != "OCR annotation session":
+        session_id = prepare_session(args)
+
     build_defaults = {
         "ocr_root": str(args.ocr_root),
         "raw_root": str(args.raw_root),
@@ -355,7 +396,12 @@ def main(argv: list[str] | None = None) -> int:
         "limit_reports": args.limit_reports,
     }
     app = create_app(session_id, build_defaults)
-    print(f"Annotation session: {session_id}")
+    if session_id:
+        print(f"Annotation session: {session_id}")
+    else:
+        print(
+            "Starting in headless mode — users will create sessions from the browser."
+        )
     print(f"Open: http://{args.host}:{args.port}")
     app.run(host=args.host, port=args.port, debug=args.debug)
     return 0

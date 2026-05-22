@@ -4,6 +4,21 @@ Browser interface for comparing raw OCR page images with the corresponding Markd
 
 ## Run
 
+### Headless mode (recommended for multi-user)
+
+Start the server with no session arguments — annotators create/resume sessions
+from the browser landing page:
+
+```bash
+uv run python annotation_OCR/server.py --host 0.0.0.0 --port 5050
+```
+
+Then open `http://HOST:5050`. The landing page lets each user enter their name,
+create a new session, or resume an existing one. No CLI or Python knowledge
+needed on the annotator side.
+
+### Pre-created session (single-user / scripted)
+
 From the repository root:
 
 ```bash
@@ -42,6 +57,8 @@ ssh -L 5050:127.0.0.1:5050 USER@SERVER
 
 Then open `http://127.0.0.1:5050` locally.
 
+The extracted-content pane shows inline OCR images by default. Turn off `Inline images` if you want a lighter placeholder-only Markdown preview.
+
 ## Data Sources
 
 Defaults:
@@ -71,14 +88,11 @@ uv run python annotation_OCR/ocr_index.py \
 
 ## Keyboard
 
-- `a`: mark OK, save, advance
-- `r`: mark Not OK, save, advance
+- `a`: mark Yes, save, advance
+- `r`: mark No, save, advance
 - `u`: mark Uncertain, save, advance
 - `j` / right arrow: next page
 - `k` / left arrow: previous page
-- `t`: toggle broken table
-- `c`: toggle merged columns
-- `m`: toggle missing text
 - `+`, `-`, `0`: zoom controls
 - `?`: shortcut dialog
 
@@ -93,7 +107,7 @@ Each session writes to `annotation_OCR/sessions/{session_id}/`:
 - `annotations.jsonl`: append-only event log, one saved annotation per line.
 - `current_annotations.json`: latest annotation per item, written atomically.
 - `summary.csv`: one row per queued page, including unreviewed pages.
-- `summary.md`: status and issue-count overview.
+- `summary.md`: status-count overview.
 
 Regenerate summaries:
 
@@ -107,9 +121,7 @@ uv run python annotation_OCR/summarize.py --all
 Primary fields:
 
 - `overall_status`: `ok`, `not_ok`, `uncertain`, or `unreviewed`
-- `subchecks`: `text_content`, `table_content`, `table_structure`, `page_alignment`
-- `issue_tags`: `missing_text`, `extra_text`, `wrong_reading_order`, `merged_columns`, `shifted_rows`, `missing_columns`, `broken_table`, `wrong_page`, `image_missing`, `low_confidence`
-- `notes`: free text
+- `notes`: optional free text
 
 Identity fields include `industry_slug`, `report_name`, `exchange`, `ticker`, `year`, `page_index`, `page_number`, `mmd_path`, `raw_png_path`, and `page_text_sha256`.
 
