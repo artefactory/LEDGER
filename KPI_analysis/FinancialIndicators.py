@@ -21,45 +21,61 @@ def getIndustryInfoFromTicker(ticker: str, bench_start: date, bench_end: date) -
 	industry = find_ticker_industry(ticker)
 	tickers_industry = tickers_from_selected(industry)
 	tickers_industry = [e['ticker'] for e in tickers_industry]
-	dfs = [fetch_prices(t, bench_start, bench_end) for t in tickers_industry]
+	print(f"  [Industry] Fetching prices for {len(tickers_industry)} tickers in '{industry}'...")
+	dfs = []
+	for j, t in enumerate(tickers_industry):
+		print(f"    [{j+1}/{len(tickers_industry)}] {t}", end=" ", flush=True)
+		df = fetch_prices(t, bench_start, bench_end)
+		print("ok" if df is not None and not df.empty else "empty")
+		dfs.append(df)
 	return dfs
 
-def GetIndicatorsForPrices(prices:pd.DataFrame,) -> pd.DataFrame:
+def GetIndicatorsForPrices(prices:pd.DataFrame, max_lag: int = 10) -> pd.DataFrame:
 	prices = prices.copy()
+
+	# Drop any pre-existing computed columns to avoid duplicates on re-read from cache
+	existing_return_cols = [c for c in prices.columns if c.startswith("return_t")]
+	if existing_return_cols:
+		prices = prices.drop(columns=existing_return_cols)
+	for col in ("Volume_ATS", "returns", "Volatility"):
+		if col in prices.columns:
+			prices = prices.drop(columns=[col])
 
 	prices['Volume_ATS'] = prices['Volume'] / prices['Volume'].mean()
 	prices['returns'] = prices['Close'].pct_change()
 	prices['Volatility'] = prices['Close'].pct_change().rolling(window=20).std()
 
-	# Cumulative returns from t-10 to t+10 relative to each day
-	for lag in range(-10, 11):
+	# Cumulative returns from t-max_lag to t+max_lag relative to each day
+	# return_t{d} = Close[t+d] / Close[t] - 1  (anchored at day 0 = 0)
+	new_cols = {}
+	for lag in range(-max_lag, max_lag + 1):
+		col_name = f'return_t{lag}'
 		if lag == 0:
-			prices[f'return_t{lag}'] = 0.0
-		elif lag > 0:
-			# return from day 0 to day +lag: Close[t+lag]/Close[t] - 1
-			prices[f'return_t{lag}'] = prices['Close'].shift(-lag) / prices['Close'] - 1
+			new_cols[col_name] = pd.Series(0.0, index=prices.index)
 		else:
-			# return from day lag to day 0: Close[t]/Close[t+|lag|] - 1
-			prices[f'return_t{lag}'] = prices['Close'] / prices['Close'].shift(-lag) - 1
+			new_cols[col_name] = prices['Close'].shift(-lag) / prices['Close'] - 1
+	prices = pd.concat([prices, pd.DataFrame(new_cols, index=prices.index)], axis=1)
 
 	return prices
 
-def GetIndustryIndicatorByDate(list_prices: list[pd.DataFrame | None]) -> pd.DataFrame:
+def GetIndustryIndicatorByDate(list_prices: list[pd.DataFrame | None], max_lag: int = 10) -> pd.DataFrame:
 	returns = []
 	volumes = []
 	volatility = []
 	raw_volumes = []  # for computing weights
-	cum_returns = {lag: [] for lag in range(-10, 11)}  # return_t{lag} per ticker
+	cum_returns = {lag: [] for lag in range(-max_lag, max_lag + 1)}  # return_t{lag} per ticker
+	n_valid = 0
 	for prices in list_prices:
 		if prices is None or prices.empty or "Close" not in prices:
 			continue
-
-		prices = GetIndicatorsForPrices(prices)
+		n_valid += 1
+		print(f"  [Industry indicators] Processing ticker {n_valid}...", flush=True)
+		prices = GetIndicatorsForPrices(prices, max_lag=max_lag)
 		returns.append(prices["returns"])
 		volumes.append(prices["Volume_ATS"])
 		volatility.append(prices["Volatility"])
 		raw_volumes.append(prices["Volume"])
-		for lag in range(-10, 11):
+		for lag in range(-max_lag, max_lag + 1):
 			cum_returns[lag].append(prices[f"return_t{lag}"])
 
 	# Equal-weighted averages
@@ -74,7 +90,7 @@ def GetIndustryIndicatorByDate(list_prices: list[pd.DataFrame | None]) -> pd.Dat
 
 	# cum return
 	mean_cum_returns = []
-	for lag in range(-10, 11):
+	for lag in range(-max_lag, max_lag + 1):
 		cr_df = pd.concat(cum_returns[lag], axis=1)
 		mean_cum_returns.append(cr_df.mean(axis=1, skipna=True))
 		mean_cum_returns[-1].name = f"return_t{lag}"
@@ -102,9 +118,9 @@ def GetIndustryIndicatorByDate(list_prices: list[pd.DataFrame | None]) -> pd.Dat
 	weighted_volatility = sum(w * volat_df.iloc[:, i].fillna(0) for i, w in enumerate(weights))
 	weighted_volatility.name = "volatility_vw"
 
-	# Weighted cumulative returns for each horizon t-10..t+10
+	# Weighted cumulative returns for each horizon
 	weighted_cum_returns = []
-	for lag in range(-10, 11):
+	for lag in range(-max_lag, max_lag + 1):
 		cr_df = pd.concat(cum_returns[lag], axis=1)
 		wcr = sum(w * cr_df.iloc[:, i].fillna(0) for i, w in enumerate(weights))
 		wcr.name = f"return_t{lag}_vw"
@@ -119,7 +135,7 @@ def _industry_cache_path(industry: str) -> Path:
 	return INDUSTRY_CACHE / f"{safe}.csv"
 
 
-def GetIndustryDataFrame(ticker: str, bench_start: date, bench_end: date, *, refresh: bool = False) -> pd.DataFrame:
+def GetIndustryDataFrame(ticker: str, bench_start: date, bench_end: date, *, refresh: bool = False, max_lag: int = 10) -> pd.DataFrame:
 	industry = find_ticker_industry(ticker)
 	if industry is None:
 		return pd.DataFrame(columns=["returns", "volumes", "volatility"])
@@ -131,13 +147,21 @@ def GetIndustryDataFrame(ticker: str, bench_start: date, bench_end: date, *, ref
 		try:
 			df = pd.read_csv(path, index_col=0, parse_dates=True)
 			if not df.empty:
-				return df
+				# Check if cached df has the required lag columns
+				if f"return_t{max_lag}" in df.columns and f"return_t{-max_lag}" in df.columns:
+					print(f"  [Industry] Using cache for '{industry}' (max_lag={max_lag})")
+					return df
+				else:
+					print(f"  [Industry] Cache outdated for '{industry}' (missing lag {max_lag}), recomputing...")
 		except Exception:
 			pass
+	else:
+		print(f"  [Industry] No cache for '{industry}', computing (max_lag={max_lag})...")
 
 	dfs = getIndustryInfoFromTicker(ticker, bench_start, bench_end)
-	industry_df = GetIndustryIndicatorByDate(dfs)
+	industry_df = GetIndustryIndicatorByDate(dfs, max_lag=max_lag)
 	industry_df.to_csv(path)
+	print(f"  [Industry] Saved cache for '{industry}'")
 	return industry_df
 
 

@@ -8,6 +8,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -30,12 +31,17 @@ SENTIMENTS_JSON = (
     / "cleaned"
     / "sentiments.json"
 )
-OUTPUT_DIR = HERE / "output" / "plots" / "sentiment_summary"
+OUTPUT_DIR = HERE / "output" / "plots" / "sentiment_summary_augmented_lag"
 
 BENCH_START = date(2016, 6, 1)
 BENCH_END = date(2023, 6, 30)
 WINDOW = 5  # trading days around publication to average over
-EVENT_HALF_WINDOW = 10  # trading days before/after publication for event study
+EVENT_HALF_WINDOW = 90  # trading days before/after publication for event study
+
+# Days to sample: every 10 days from -90 to -20, then daily -10 to +10, then every 10 days from +20 to +90
+EVENT_DAYS = list(range(-90, -10, 10)) + list(range(-10, 11)) + list(range(20, 91, 10))
+# Map real day values to evenly-spaced positions for plotting
+_DAY_TO_POS = {d: i for i, d in enumerate(EVENT_DAYS)}
 
 
 def load_sentiments() -> list[dict]:
@@ -96,8 +102,8 @@ def _window_mean(series: pd.Series, target_date: pd.Timestamp, window: int) -> f
     return chunk.mean()
 
 
-def _event_window_values(series: pd.Series, target_date: pd.Timestamp, half_window: int) -> dict[int, float]:
-    """Return {relative_day: value} for trading days in [-half_window, +half_window] around target_date."""
+def _event_window_values(series: pd.Series, target_date: pd.Timestamp, half_window: int, days: list[int] | None = None) -> dict[int, float]:
+    """Return {relative_day: value} for selected trading days around target_date."""
     series = series.dropna()
     if series.empty:
         return {}
@@ -107,7 +113,8 @@ def _event_window_values(series: pd.Series, target_date: pd.Timestamp, half_wind
     t0_idx = series.index[mask][0]
     t0_pos = series.index.get_loc(t0_idx)
     result = {}
-    for d in range(-half_window, half_window + 1):
+    iter_days = days if days is not None else range(-half_window, half_window + 1)
+    for d in iter_days:
         pos = t0_pos + d
         if 0 <= pos < len(series):
             result[d] = series.iloc[pos]
@@ -144,8 +151,8 @@ def main():
                 print("no prices")
                 processed_tickers[ticker] = (None, None)
                 continue
-            prices = GetIndicatorsForPrices(prices)
-            industry_df = GetIndustryDataFrame(ticker, BENCH_START, BENCH_END)
+            prices = GetIndicatorsForPrices(prices, max_lag=EVENT_HALF_WINDOW)
+            industry_df = GetIndustryDataFrame(ticker, BENCH_START, BENCH_END, max_lag=EVENT_HALF_WINDOW)
             processed_tickers[ticker] = (prices, industry_df)
         else:
             prices, industry_df = processed_tickers[ticker]
@@ -177,25 +184,29 @@ def main():
 
         pub_date_ts = pd.Timestamp(pub_date)
 
-        cum_ret_1 = prices.loc[pub_date_ts, "return_t1"] if pub_date_ts in prices.index and "return_t1" in prices.columns else None
-        cum_ret_5 = prices.loc[pub_date_ts, "return_t5"] if pub_date_ts in prices.index and "return_t5" in prices.columns else None
-        cum_ret_1_unbiased = (cum_ret_1 - ind_aligned.loc[pub_date_ts, "return_t1"]) if (cum_ret_1 is not None and pub_date_ts in ind_aligned.index and "return_t1" in ind_aligned.columns) else None
-        cum_ret_5_unbiased = (cum_ret_5 - ind_aligned.loc[pub_date_ts, "return_t5"]) if (cum_ret_5 is not None and pub_date_ts in ind_aligned.index and "return_t5" in ind_aligned.columns) else None
-        cum_ret_1_unbiased_vw = (cum_ret_1 - ind_aligned.loc[pub_date_ts, "return_t1_vw"]) if (cum_ret_1 is not None and pub_date_ts in ind_aligned.index and "return_t1_vw" in ind_aligned.columns) else None
-        cum_ret_5_unbiased_vw = (cum_ret_5 - ind_aligned.loc[pub_date_ts, "return_t5_vw"]) if (cum_ret_5 is not None and pub_date_ts in ind_aligned.index and "return_t5_vw" in ind_aligned.columns) else None
+        cum_ret_1 = prices.loc[pub_date_ts, "return_t1"] if pub_date_ts in prices.index else None
+        cum_ret_5 = prices.loc[pub_date_ts, "return_t5"] if pub_date_ts in prices.index else None
+        ind_ret_1 = ind_aligned.loc[pub_date_ts, "return_t1"] if (pub_date_ts in ind_aligned.index and "return_t1" in ind_aligned.columns) else None
+        ind_ret_5 = ind_aligned.loc[pub_date_ts, "return_t5"] if (pub_date_ts in ind_aligned.index and "return_t5" in ind_aligned.columns) else None
+        ind_ret_1_vw = ind_aligned.loc[pub_date_ts, "return_t1_vw"] if (pub_date_ts in ind_aligned.index and "return_t1_vw" in ind_aligned.columns) else None
+        ind_ret_5_vw = ind_aligned.loc[pub_date_ts, "return_t5_vw"] if (pub_date_ts in ind_aligned.index and "return_t5_vw" in ind_aligned.columns) else None
+        cum_ret_1_unbiased = (cum_ret_1 - ind_ret_1) if (cum_ret_1 is not None and ind_ret_1 is not None) else None
+        cum_ret_5_unbiased = (cum_ret_5 - ind_ret_5) if (cum_ret_5 is not None and ind_ret_5 is not None) else None
+        cum_ret_1_unbiased_vw = (cum_ret_1 - ind_ret_1_vw) if (cum_ret_1 is not None and ind_ret_1_vw is not None) else None
+        cum_ret_5_unbiased_vw = (cum_ret_5 - ind_ret_5_vw) if (cum_ret_5 is not None and ind_ret_5_vw is not None) else None
 
 
         # Collect event-window day-by-day values
-        v_evt = _event_window_values(unbiased_vol, pub_date, EVENT_HALF_WINDOW)
-        vol_evt = _event_window_values(unbiased_volume, pub_date, EVENT_HALF_WINDOW)
-        rv_evt = _event_window_values(raw_vol, pub_date, EVENT_HALF_WINDOW)
-        rvol_evt = _event_window_values(raw_volume, pub_date, EVENT_HALF_WINDOW)
-        rp_evt = _event_window_values(raw_price, pub_date, EVENT_HALF_WINDOW)
+        v_evt = _event_window_values(unbiased_vol, pub_date, EVENT_HALF_WINDOW, EVENT_DAYS)
+        vol_evt = _event_window_values(unbiased_volume, pub_date, EVENT_HALF_WINDOW, EVENT_DAYS)
+        rv_evt = _event_window_values(raw_vol, pub_date, EVENT_HALF_WINDOW, EVENT_DAYS)
+        rvol_evt = _event_window_values(raw_volume, pub_date, EVENT_HALF_WINDOW, EVENT_DAYS)
+        rp_evt = _event_window_values(raw_price, pub_date, EVENT_HALF_WINDOW, EVENT_DAYS)
         # Industry-level indicators for the same event window
-        ind_v_evt = _event_window_values(industry_df["volatility"], pub_date, EVENT_HALF_WINDOW)
-        ind_vol_evt = _event_window_values(industry_df["volumes"], pub_date, EVENT_HALF_WINDOW)
+        ind_v_evt = _event_window_values(industry_df["volatility"], pub_date, EVENT_HALF_WINDOW, EVENT_DAYS)
+        ind_vol_evt = _event_window_values(industry_df["volumes"], pub_date, EVENT_HALF_WINDOW, EVENT_DAYS)
         # Volume-weighted industry indicators
-        ind_vol_vw_evt = _event_window_values(ind_aligned["volumes_vw"], pub_date, EVENT_HALF_WINDOW) if "volumes_vw" in ind_aligned.columns else {}
+        ind_vol_vw_evt = _event_window_values(ind_aligned["volumes_vw"], pub_date, EVENT_HALF_WINDOW, EVENT_DAYS) if "volumes_vw" in ind_aligned.columns else {}
         # Normalize price to J0 = 1 so tickers are comparable
         p0 = rp_evt.get(0)
         if p0 and p0 != 0:
@@ -217,33 +228,20 @@ def main():
 
 
 
-        # Industry VW cumulative return from J0: read return_t{d}_vw directly from industry df
-        ind_cum_ret_vw_evt = {}
-        for d in range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1):
-            col_name = f"return_t{d}_vw"
-            if col_name in ind_aligned.columns and pub_date_ts in ind_aligned.index:
-                val = ind_aligned.loc[pub_date_ts, col_name]
-                ind_cum_ret_vw_evt[d] = val if pd.notna(val) else None
-            else:
-                ind_cum_ret_vw_evt[d] = None
+        
 
         # Volume unbiased VW dict (raw_volume - industry_volume_vw) then normalize
-        vol_ub_vw_evt = {d: (rvol_evt.get(d) - ind_vol_vw_evt.get(d)) if (rvol_evt.get(d) is not None and ind_vol_vw_evt.get(d) is not None) else None for d in range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1)}
+        vol_ub_vw_evt = {d: (rvol_evt.get(d) - ind_vol_vw_evt.get(d)) if (rvol_evt.get(d) is not None and ind_vol_vw_evt.get(d) is not None) else None for d in EVENT_DAYS}
         vol_ub_vw_evt_norm = _normalize_to_day0(vol_ub_vw_evt)
 
-        for d in range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1):
+        for d in EVENT_DAYS:
             if d in v_evt or d in vol_evt:
                 # Cumulative return from J0 to day d (from FinancialIndicators)
                 cum_ret_col = f"return_t{d}"
                 cum_ret_col_vw = f"return_t{d}_vw"
-                cum_ret = None
-                cum_ret_ind = None
-                if pub_date_ts in prices.index and cum_ret_col in prices.columns:
-                    cum_ret = prices.loc[pub_date_ts, cum_ret_col]
-                if pub_date_ts in ind_aligned.index and cum_ret_col in ind_aligned.columns:
-                    cum_ret_ind = ind_aligned.loc[pub_date_ts, cum_ret_col]
-                if pub_date_ts in ind_aligned.index and cum_ret_col_vw in ind_aligned.columns:
-                    cum_ret_ind_vw = ind_aligned.loc[pub_date_ts, cum_ret_col_vw]
+                cum_ret = prices.loc[pub_date_ts, cum_ret_col] if (pub_date_ts in prices.index and cum_ret_col in prices.columns) else None
+                cum_ret_ind = ind_aligned.loc[pub_date_ts, cum_ret_col] if (pub_date_ts in ind_aligned.index and cum_ret_col in ind_aligned.columns) else None
+                cum_ret_ind_vw = ind_aligned.loc[pub_date_ts, cum_ret_col_vw] if (pub_date_ts in ind_aligned.index and cum_ret_col_vw in ind_aligned.columns) else None
 
                 event_rows.append(
                     {
@@ -313,7 +311,13 @@ def main():
                 "cum_return_1d", "cum_return_5d",
                 "cum_return_1d_unbiased", "cum_return_5d_unbiased",
                 "cum_return_1d_unbiased_vw", "cum_return_5d_unbiased_vw"]
-    print(df.groupby("sentiment")[all_cols].mean())
+
+    # Save dataframes for inspection
+    df.to_csv(OUTPUT_DIR.parent / "sentiment_records.csv", index=False)
+    print(f"Saved {OUTPUT_DIR.parent / 'sentiment_records.csv'}")
+    print(df.groupby("sentiment")[all_cols].mean().to_string())
+    sys.stdout.flush()
+
 
     # --- Plot ---
     # Clean output directory structure
@@ -432,14 +436,12 @@ def main():
             sems = grouped.sem()
             n_docs = subset.drop_duplicates(subset=["ticker", "year"]).shape[0]
             days = means.index.values
-            ax.plot(days, means.values, color=colors[s], label=f"{s} (n={n_docs} docs)", linewidth=1.5, marker='o', markersize=4)
-            ax.fill_between(
-                days,
-                (means - 1.96 * sems).values,
-                (means + 1.96 * sems).values,
-                color=colors[s],
-                alpha=0.15,
-            )
+            positions = [_DAY_TO_POS[d] for d in days if d in _DAY_TO_POS]
+            vals = [means[d] for d in days if d in _DAY_TO_POS]
+            lo_ci = [(means[d] - 1.96 * sems[d]) for d in days if d in _DAY_TO_POS]
+            hi_ci = [(means[d] + 1.96 * sems[d]) for d in days if d in _DAY_TO_POS]
+            ax.plot(positions, vals, color=colors[s], label=f"{s} (n={n_docs} docs)", linewidth=1.5, marker='o', markersize=4)
+            ax.fill_between(positions, lo_ci, hi_ci, color=colors[s], alpha=0.15)
         # Count observations per sentiment per day
         n_per_day = {}
         for s in sentiments_order:
@@ -449,17 +451,17 @@ def main():
             else:
                 n_per_day[s] = pd.Series(dtype=int)
         tick_labels = []
-        for d in range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1):
+        for d in EVENT_DAYS:
             parts = [str(d)]
             for s in sentiments_order:
                 parts.append(str(int(n_per_day[s].get(d, 0))))
             tick_labels.append("\n".join(parts))
-        ax.axvline(0, color="black", linewidth=1, linestyle="--", alpha=0.7, label="Publication day")
+        ax.axvline(_DAY_TO_POS[0], color="black", linewidth=1, linestyle="--", alpha=0.7, label="Publication day")
         if col == "raw_price_norm":
             ax.axhline(1, color="grey", linewidth=0.5, linestyle=":")
         else:
             ax.axhline(0, color="grey", linewidth=0.5, linestyle=":")
-        ax.set_xticks(range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1))
+        ax.set_xticks(range(len(EVENT_DAYS)))
         ax.set_xticklabels(tick_labels, fontsize=7)
         sent_labels = " / ".join(sentiments_order)
         ax.set_xlabel(f"Trading days relative to publication\n(n: {sent_labels})", fontsize=10)
@@ -504,12 +506,15 @@ def main():
                     continue
                 has_data = True
                 days = means.index.values
+                positions = [_DAY_TO_POS[d] for d in days if d in _DAY_TO_POS]
+                vals = [means[d] for d in days if d in _DAY_TO_POS]
+                lo_ci = [(means[d] - 1.96 * sems[d]) for d in days if d in _DAY_TO_POS]
+                hi_ci = [(means[d] + 1.96 * sems[d]) for d in days if d in _DAY_TO_POS]
                 ls = sent_linestyles.get(s, "-")
-                ax.plot(days, means.values, color=c, linestyle=ls,
+                ax.plot(positions, vals, color=c, linestyle=ls,
                         label=f"{industry} / {s} (n={n_docs} docs)",
                         linewidth=1.5, marker='o', markersize=3)
-                ax.fill_between(days, (means - 1.96 * sems).values,
-                                (means + 1.96 * sems).values, color=c, alpha=0.07)
+                ax.fill_between(positions, lo_ci, hi_ci, color=c, alpha=0.07)
         if not has_data:
             plt.close(fig)
             continue
@@ -522,14 +527,14 @@ def main():
             else:
                 n_per_day[s] = pd.Series(dtype=int)
         tick_labels = []
-        for d in range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1):
+        for d in EVENT_DAYS:
             parts = [str(d)]
             for s in sentiments_order:
                 parts.append(str(int(n_per_day[s].get(d, 0))))
             tick_labels.append("\n".join(parts))
-        ax.axvline(0, color="black", linewidth=1, linestyle="--", alpha=0.7, label="Publication day")
+        ax.axvline(_DAY_TO_POS[0], color="black", linewidth=1, linestyle="--", alpha=0.7, label="Publication day")
         ax.axhline(0, color="grey", linewidth=0.5, linestyle=":")
-        ax.set_xticks(range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1))
+        ax.set_xticks(range(len(EVENT_DAYS)))
         ax.set_xticklabels(tick_labels, fontsize=7)
         sent_labels = " / ".join(sentiments_order)
         ax.set_xlabel(f"Trading days relative to publication\n(n: {sent_labels})", fontsize=10)
@@ -575,17 +580,23 @@ def main():
                     continue
                 has_data = True
                 days = means.index.values
-                ax.plot(days, means.values, color=colors[s], label=f"{s} (n={n_docs} docs)",
+                positions = [_DAY_TO_POS[d] for d in days if d in _DAY_TO_POS]
+                vals = [means[d] for d in days if d in _DAY_TO_POS]
+                lo_ci = [(means[d] - 1.96 * sems[d]) for d in days if d in _DAY_TO_POS]
+                hi_ci = [(means[d] + 1.96 * sems[d]) for d in days if d in _DAY_TO_POS]
+                ax.plot(positions, vals, color=colors[s], label=f"{s} (n={n_docs} docs)",
                         linewidth=1.5, marker='o', markersize=4)
-                ax.fill_between(days, (means - 1.96 * sems).values,
-                                (means + 1.96 * sems).values, color=colors[s], alpha=0.15)
+                ax.fill_between(positions, lo_ci, hi_ci, color=colors[s], alpha=0.15)
             # Plot industry average for raw metrics
             ind_col = raw_to_industry_col.get(col)
             if ind_col and ind_col in ind_edf.columns:
                 ind_grouped = ind_edf.groupby("relative_day")[ind_col]
                 ind_means = ind_grouped.mean()
                 if not ind_means.dropna().empty:
-                    ax.plot(ind_means.index.values, ind_means.values, color="blue",
+                    ind_days = ind_means.index.values
+                    ind_positions = [_DAY_TO_POS[d] for d in ind_days if d in _DAY_TO_POS]
+                    ind_vals = [ind_means[d] for d in ind_days if d in _DAY_TO_POS]
+                    ax.plot(ind_positions, ind_vals, color="blue",
                             linestyle=":", linewidth=2, alpha=0.7, label="Industry avg")
             if not has_data:
                 plt.close(fig)
@@ -600,15 +611,15 @@ def main():
                 else:
                     n_per_day[s] = pd.Series(dtype=int)
             tick_labels = []
-            for d in range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1):
+            for d in EVENT_DAYS:
                 parts = [str(d)]
                 for s in sentiments_order:
                     n = int(n_per_day[s].get(d, 0))
                     parts.append(f"{n}")
                 tick_labels.append("\n".join(parts))
-            ax.axvline(0, color="black", linewidth=1, linestyle="--", alpha=0.7, label="Publication day")
+            ax.axvline(_DAY_TO_POS[0], color="black", linewidth=1, linestyle="--", alpha=0.7, label="Publication day")
             ax.axhline(0, color="grey", linewidth=0.5, linestyle=":")
-            ax.set_xticks(range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1))
+            ax.set_xticks(range(len(EVENT_DAYS)))
             ax.set_xticklabels(tick_labels, fontsize=7)
             # Legend for tick sub-labels
             sent_labels = " / ".join(sentiments_order)
@@ -738,15 +749,13 @@ def main():
                 sems = grouped.sem()
                 n_docs = subset.drop_duplicates(subset=["ticker", "year"]).shape[0]
                 days = means.index.values
-                ax.plot(days, means.values, color=colors[s], label=f"{s} (n={n_docs} docs)",
+                positions = [_DAY_TO_POS[d] for d in days if d in _DAY_TO_POS]
+                vals = [means[d] for d in days if d in _DAY_TO_POS]
+                lo_ci = [(means[d] - 1.96 * sems[d]) for d in days if d in _DAY_TO_POS]
+                hi_ci = [(means[d] + 1.96 * sems[d]) for d in days if d in _DAY_TO_POS]
+                ax.plot(positions, vals, color=colors[s], label=f"{s} (n={n_docs} docs)",
                         linewidth=1.5, marker='o', markersize=4)
-                ax.fill_between(
-                    days,
-                    (means - 1.96 * sems).values,
-                    (means + 1.96 * sems).values,
-                    color=colors[s],
-                    alpha=0.15,
-                )
+                ax.fill_between(positions, lo_ci, hi_ci, color=colors[s], alpha=0.15)
             # Count observations per sentiment per day (outlier-cleaned)
             n_per_day = {}
             for s in sentiments_order:
@@ -756,14 +765,14 @@ def main():
                 else:
                     n_per_day[s] = pd.Series(dtype=int)
             tick_labels = []
-            for d in range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1):
+            for d in EVENT_DAYS:
                 parts = [str(d)]
                 for s in sentiments_order:
                     parts.append(str(int(n_per_day[s].get(d, 0))))
                 tick_labels.append("\n".join(parts))
-            ax.axvline(0, color="black", linewidth=1, linestyle="--", alpha=0.7, label="Publication day")
+            ax.axvline(_DAY_TO_POS[0], color="black", linewidth=1, linestyle="--", alpha=0.7, label="Publication day")
             ax.axhline(0, color="grey", linewidth=0.5, linestyle=":")
-            ax.set_xticks(range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1))
+            ax.set_xticks(range(len(EVENT_DAYS)))
             ax.set_xticklabels(tick_labels, fontsize=7)
             sent_labels = " / ".join(sentiments_order)
             ax.set_xlabel(f"Trading days relative to publication\n(n: {sent_labels})", fontsize=10)
