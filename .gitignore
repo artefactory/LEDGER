@@ -31,6 +31,9 @@ doc_text_processing/CEO_word_extraction/cleaning_extractions/cleaned/
 KPI_analysis/cache/
 KPI_analysis/output/
 
+# OCR annotation artifacts
+annotation_OCR/sessions/
+
 # VSCode settings
 .vscode/settings.json
 
