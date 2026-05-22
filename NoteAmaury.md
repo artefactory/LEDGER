@@ -298,3 +298,227 @@ Cela visualise la **variation relative** de chaque grandeur par rapport à son n
 L'étape suivante consiste à demander au LLM de juger la qualité / pertinence des KPIs extraits par OCR (revenue, net income, etc.) pour chaque rapport annuel. Le LLM doit évaluer si les valeurs extraites sont correctes, cohérentes et exploitables.
 
 Une fois ce label de qualité obtenu par document, on refait exactement la même analyse d'event study (mêmes indicateurs : volatilité, volume, rendements cumulés, métriques unbiased/VW/normalisées) mais en conditionnant cette fois sur le jugement KPI du LLM (bon / mauvais / ambigu) au lieu du sentiment CEO letter. Cela permettra de tester si la qualité des résultats financiers (tels que perçus par le LLM à partir des données OCR) génère un signal de marché plus net que le ton de la lettre CEO.
+
+---
+
+## 11. Analyse par stock individuel : effet des publications sur les indicateurs
+
+On cherche à vérifier, pour un stock donné, si les publications des rapports annuels ont effectivement un effet sur les indicateurs de marché (returns, volatilité, volume). Pour chaque ticker, on plot un event study avec **une courbe par fiscal year** (FY2017–FY2022) ainsi qu'une courbe moyenne en gras. Cela permet de visualiser la variabilité inter-année et d'identifier si certains rapports génèrent un signal plus fort que d'autres.
+
+### Stocks sélectionnés
+
+| Ticker | Industrie |
+|--------|-----------|
+| BCPC | Specialty Chemicals |
+| GEVO | Specialty Chemicals |
+| AZO | Auto Parts |
+| ORLY | Auto Parts |
+| SLB | Oil & Gas Equipment & Services |
+| CPB | Packaged Foods |
+| AGNC | REIT Mortgage |
+| HWKN | Specialty Chemicals |
+| CLMT | Specialty Chemicals |
+| LOOP | Specialty Chemicals |
+
+Script : `KPI_analysis/event_single_stock.py`. Plots dans `output/plots/sentiment_summary/{TICKER}/` (±10 jours) et `output/plots/sentiment_summary_augmented_lag/{TICKER}/` (±90 jours).
+
+---
+
+## 12. Extension de la fenêtre d'étude : ±90 jours
+
+On étend la fenêtre d'observation de ±10 à ±90 jours de trading autour de la date de publication. Pour limiter le nombre de points sans perdre d'information loin de J0, on échantillonne :
+
+- Tous les 10 jours de J-90 à J-20 : $\{-90, -80, -70, -60, -50, -40, -30, -20\}$
+- Quotidien de J-10 à J+10 : $\{-10, -9, \ldots, +9, +10\}$
+- Tous les 10 jours de J+20 à J+90 : $\{+20, +30, +40, +50, +60, +70, +80, +90\}$
+
+Soit 37 points au total, espacés uniformément sur l'axe x des graphes.
+
+### Correction de la formule des rendements cumulés
+
+Une erreur a été corrigée dans le calcul des `return_t{d}`. La formule correcte, ancrée à J0 :
+
+$$
+\text{return\_t}\{d\} = \frac{P_{t_0 + d} - P_{t_0}}{P_{t_0}}
+$$
+
+pour tout $d$ (négatif ou positif). Concrètement :
+
+- Si $d > 0$ : on regarde combien le prix a monté/baissé **après** J0 → $(P_{t_0+d} - P_{t_0}) / P_{t_0}$
+- Si $d < 0$ : on regarde où était le prix **avant** J0 par rapport à J0 → $(P_{t_0+d} - P_{t_0}) / P_{t_0}$
+
+Ainsi `return_t{0} = 0` par construction, et la courbe donne le rendement cumulé vu depuis le jour de publication dans les deux directions.
+
+---
+
+## 13. Distributions split par le signe du return à J-90
+
+On cherche à caractériser les publications selon l'historique récent du titre. Pour chaque (ticker, year), on calcule `return_t{-90}` (rendement cumulé des 90 jours **avant** la publication) et on sépare en deux groupes :
+
+- **Vert** : le titre a monté dans les 90 jours précédant la publication (`return_t{-90} > 0`)
+- **Rouge** : le titre a baissé dans les 90 jours précédant la publication (`return_t{-90} < 0`)
+
+On superpose les histogrammes des deux groupes pour chaque métrique : returns à différents horizons (J+1, J+5, J+10, J+90), volatilité et volume au jour de publication. Le 0 est forcé comme bord de bin pour les métriques de return afin que la séparation visuelle soit nette.
+
+Script : `KPI_analysis/distributions_by_return_m90.py`. Plots dans `output/plots/distributions_by_return_m90/`.
+
+---
+
+## 14. Distribution des différences J+1 vs J-1 (effet immédiat de la publication)
+
+On cherche à mesurer l'**effet immédiat** de la publication du rapport annuel en regardant, pour chaque (ticker, year), la différence entre la valeur de l'indicateur le lendemain vs la veille de la publication :
+
+- $\Delta \text{vol} = \text{Volatility}(t_0+1) - \text{Volatility}(t_0-1)$
+- $\Delta \text{volume} = \text{Volume\_ATS}(t_0+1) - \text{Volume\_ATS}(t_0-1)$
+- $\Delta \text{return} = \text{return\_t}\{+1\} - \text{return\_t}\{-1\}$
+
+On étudie ensuite la distribution de ces trois différences sur l'ensemble des rapports pour voir si la publication génère un shift systématique (volume en hausse, volatilité en hausse, etc.) ou si l'effet est noyé dans le bruit.
+
+---
+
+## 15. Earnings date vs 10-K filing : où est la vraie réaction de marché ?
+
+### Distinction fondamentale
+
+Pour une entreprise US cotée, la publication des résultats annuels se fait en **deux temps** :
+
+1. **Earnings call** (= earnings date, J0) : l'entreprise publie un **press release** avec les chiffres clés (revenue, EPS, marges) + tient une conférence téléphonique avec les analystes + donne la **guidance** (prévisions pour les prochains trimestres). C'est la **première fois** que l'information est rendue publique → le marché réagit immédiatement (gros volume, gros move de prix).
+
+2. **10-K filing** (J+20 à J+40) : dépôt sur EDGAR du document réglementaire complet (~200 pages : notes comptables, risques, litiges, rapport d'audit). Les headline numbers sont identiques à ceux du press release → comme il n'y a pas de surprise, le marché ne réagit quasiment pas.
+
+### EPS et Surprise
+
+L'**EPS** (Earnings Per Share) mesure le bénéfice par action :
+
+$$
+\text{EPS} = \frac{\text{Net Income} - \text{Preferred Dividends}}{\text{Weighted Average Shares Outstanding}}
+$$
+
+Où :
+
+- **Net Income** (résultat net) : bénéfice final après déduction de tous les coûts, taxes, intérêts, dépréciations. C'est le dernier chiffre du compte de résultat ("bottom line").
+- **Preferred Dividends** (dividendes préférentiels) : dividendes fixes versés en priorité aux actionnaires préférentiels (pas de droit de vote, mais dividende garanti). On les soustrait car l'EPS mesure ce qui revient aux actionnaires **ordinaires**. En pratique, beaucoup de sociétés n'ont pas d'actions préférentielles, donc ce terme est souvent 0.
+- **Weighted Average Shares Outstanding** (nombre moyen pondéré d'actions) : moyenne du nombre d'actions en circulation, pondérée par le temps. Le nombre d'actions change en cours d'année (rachats, émissions, splits), donc on pondère. Ex : 100M d'actions de jan–juin, 90M de juil–déc → WASO = $100 \times \frac{6}{12} + 90 \times \frac{6}{12} = 95$M.
+
+Il existe deux variantes :
+- **Basic EPS** : nombre d'actions effectivement en circulation
+- **Diluted EPS** : inclut les actions potentielles (stock-options, obligations convertibles, warrants). C'est la version conservatrice, suivie par les analystes pour le consensus.
+
+L'**EPS Estimate** = le consensus des analystes **sell-side** (Goldman, JPM, Morgan Stanley, etc.) compilé par un agrégateur de données (**Refinitiv/LSEG** dans le cas de Yahoo Finance ; Bloomberg, FactSet pour d'autres plateformes). Ce ne sont ni l'entreprise ni des gens mandatés par elle — ce sont des analystes indépendants qui publient leurs propres modèles de valorisation. L'entreprise peut donner du "guidance" (ses propres prévisions), mais le consensus est la moyenne des estimations externes. Le nombre d'analystes varie : une large-cap peut avoir 20+ analystes, une small-cap 2-3.
+
+C'est généralement l'**EPS ajusté (non-GAAP)** qui est suivi — l'entreprise et les analystes s'accordent implicitement sur quelles charges exceptionnelles exclure. L'EPS GAAP du 10-K peut différer sensiblement.
+
+La **Surprise** mesure l'écart entre réalisé et attendu :
+
+$$
+\text{Surprise (\%)} = \frac{\text{Reported EPS} - \text{EPS Estimate}}{|\text{EPS Estimate}|} \times 100
+$$
+
+C'est la variable qui fait bouger le cours : pas le niveau absolu des résultats, mais l'**écart vs les attentes**. Exemple : EPS attendu 0.50\$, annoncé 0.56\$ → surprise = +12% → le cours monte.
+
+La **guidance** (prévisions du management) peut être aussi importante que les résultats eux-mêmes : une boîte peut battre le consensus EPS mais chuter si elle abaisse ses prévisions annuelles.
+
+### Réaction aux 4 trimestres
+
+Le marché réagit à **chaque** earnings call trimestriel (Q1, Q2, Q3, Q4), pas uniquement au Q4. Dans notre étude on se concentre sur le Q4 car c'est celui qui correspond au rapport annuel / 10-K / CEO letter analysé par OCR. Mais les Q1–Q3 génèrent aussi des réactions (parfois plus fortes car ils signalent la tendance en cours d'année).
+
+### Implication pour notre event study
+
+Si l'event study ancrée sur la date de **10-K filing** ne montre pas de signal clair (vol/volume/return), c'est normal : l'information a déjà été absorbée 3-6 semaines plus tôt lors de l'earnings call. Pour tester la vraie réaction de marché aux résultats annuels, il faut ancrer l'étude sur l'**earnings date**.
+
+Script : `KPI_analysis/event_study_earnings.py`. La date d'earnings est récupérée via `yfinance.get_earnings_dates()` et mappée au fiscal year en cherchant l'earnings call dans la fenêtre [filing - 60j, filing - 5j] avant le 10-K.
+
+---
+
+## 16. Bug "Industry avg" volatilité REIT-Mortgage explosée (~0.25-0.40)
+
+La courbe "Industry avg" du plot `sentiment_vs_indicators.py` pour Real Estate / REIT-Mortgage affichait une volatilité de 0.25-0.40 alors que les stocks individuels étaient à ~0.015. **Cause : cache périmé** (`cache/industry_indicators/Real_Estate___REIT_-_Mortgage.csv`). Le cache avait été généré avec d'anciennes données yfinance contenant un ou plusieurs tickers avec des prix aberrants (penny stock / delisted). Après suppression et regénération du cache, la valeur retombe à ~0.018 (cohérent avec les stocks individuels). Toujours vérifier la date du cache si les valeurs industry semblent incohérentes.
+
+---
+
+## 17. Deux façons de calculer la "moyenne industrie" dans les event studies
+
+Les event studies utilisent deux courbes d'apparence similaire mais de construction très différente :
+
+### Méthode 1 — "Industry Avg Volatility" (moyenne transversale à date fixe)
+
+Pour chaque event $(i, \text{year})$ au jour relatif $d$ :
+1. On lit `industry_df["volatility"]` à la date calendaire $t_0 + d$ — c'est la volatilité moyenne **de tous les peers** de l'industrie ce jour-là (32 à 53 tickers selon l'industrie), calculée indépendamment de qui a ou n'a pas un filing ce mois-là.
+2. On moyenne ensuite sur tous les events de l'industrie.
+
+$$
+\text{IndustryAvg}(d) = \frac{1}{|\mathcal{E}|} \sum_{e \in \mathcal{E}} \bar{\sigma}_{\text{ind}}(t_0^{(e)} + d)
+$$
+
+où $\bar{\sigma}_{\text{ind}}(t)$ est la moyenne équipondérée de la volatilité rolling-20d de **tous** les tickers de l'industrie au jour $t$.
+
+**Caractéristiques** : inclut systématiquement tous les peers (y compris ceux sans filing, small caps illiquides, etc.). C'est un **benchmark passif** — "que fait l'industrie en général à ces dates ?"
+C'était la méthode utilisait pour calculer les avg industry dans sentiment_vs_indicators. Comme c'était lissé on voyait pas de réaction du marché au global.
+
+
+### Méthode 2 — "Stock Volatility" (moyenne des stocks ayant un event)
+
+Pour chaque event $(i, \text{year})$ au jour relatif $d$ :
+1. On lit `prices["Volatility"]` du stock **individuel** $i$ qui a déposé son 10-K ce jour-là (sa propre volatilité rolling-20d).
+2. On moyenne sur les events de la même industrie.
+
+$$
+\text{StockVol}(d) = \frac{1}{|\mathcal{E}|} \sum_{e \in \mathcal{E}} \sigma_{i(e)}(t_0^{(e)} + d)
+$$
+
+où $\sigma_{i(e)}(t)$ est la volatilité rolling-20d du ticker $i$ de l'event $e$.
+
+**Caractéristiques** : ne porte que sur le **sous-ensemble** de tickers qui ont effectivement un event (filing + CEO letter parseable). Ce sous-ensemble est biaisé vers les large caps bien couvertes → typiquement **moins volatiles** que la moyenne industrie (cf. §6).
+
+### Pourquoi les deux courbes diffèrent
+
+| | Industry Avg | Stock Volatility |
+|---|---|---|
+| **Population** | Tous les peers ($N$ = 32–53) | Seulement les tickers avec un event |
+| **Biais** | Inclut les small caps volatiles | Biaisé large-cap (moins volatile) |
+| **Niveau typique** | Plus élevé | Plus bas |
+| **Ce qu'on mesure** | Contexte de marché sectoriel | Comportement propre des stocks étudiés |
+
+L'écart entre les deux (Industry Avg > Stock Vol) confirme le biais de sélection décrit en §6 : les sociétés dont on analyse la CEO letter sont systématiquement moins volatiles que l'ensemble de l'industrie.
+
+---
+
+## 18. Différence de taille d'échantillon entre les scripts (n=1234 vs n=1091 vs n=1000)
+
+Les graphes produits par `distribution_all_stocks.py` et `event_study_earnings.py` n'ont pas le même nombre d'events malgré la même source (`companies.json`, 244 tickers × 6 ans). L'écart vient des filtres successifs :
+
+| Échantillon | Script | Critère |
+|---|---|---|
+| **n=1234** | `distribution_all_stocks.py` | Tout (ticker, year) ayant un filing date EDGAR + prix valides ±10j |
+| **n=1091** | `event_study_earnings.py` (courbe filing) | Sous-ensemble de n=1234 dont le ticker a des earnings dates sur yfinance (élimine ~143 events : LSE/AIM, small caps OTC sans earnings calendar) |
+| **n=1000** | `event_study_earnings.py` (courbe earnings) | Sous-ensemble de n=1091 où `find_q4_earnings_date()` a trouvé un earnings call Q4 dans la fenêtre [filing−60j, filing+1j] (élimine ~91 events sans match Q4) |
+
+**Pourquoi n=1091 < n=1234** : `event_study_earnings.py` commence par chercher les earnings dates via `yfinance.get_earnings_dates()`. Les tickers sans aucune donnée earnings (LSE, AIM, certaines small caps OTC) sont éliminés dès cette étape, avant même de traiter le filing date.
+
+**Pourquoi n=1000 < n=1091** : parmi les tickers avec un earnings calendar, certains n'ont pas de Q4 earnings call dans la fenêtre temporelle attendue (ex : fiscal year exotique, données manquantes sur yfinance pour les années anciennes).
+
+Les deux graphes (Stock Volatility by Industry vs Earnings/Filing overlay) sont néanmoins cohérents : la courbe noire "Weighted avg all" du premier (n=1234) est à ~0.030 à J0, ce qui coïncide avec la courbe filing bleue du second (n=1091, ~0.029 à J0). Les 143 events supplémentaires (LSE/AIM) ne changent pas significativement la moyenne.
+
+### Détail du matching earnings par industrie
+
+| Match | Industrie | US stocks | US rapports | Non-US stocks | Non-US rapports | Total rapports |
+|---|---|---|---|---|---|---|
+| Matched | Specialty Chemicals | 42 | 234 | 0 | 0 | 234 |
+| Matched | Auto Parts | 33 | 163 | 0 | 0 | 163 |
+| Matched | Packaged Foods | 32 | 158 | 0 | 0 | 158 |
+| Matched | Oil & Gas E&P | 37 | 158 | 0 | 0 | 158 |
+| Matched | Oil & Gas Equipment & Services | 28 | 137 | 0 | 0 | 137 |
+| Matched | REIT - Mortgage | 31 | 163 | 0 | 0 | 163 |
+| Unmatched | Specialty Chemicals | 13 | 54 | 1 | 6 | 60 |
+| Unmatched | Auto Parts | 13 | 59 | 1 | 6 | 65 |
+| Unmatched | Packaged Foods | 17 | 64 | 0 | 0 | 64 |
+| Unmatched | Oil & Gas E&P | 30 | 136 | 4 | 24 | 160 |
+| Unmatched | Oil & Gas Equipment & Services | 20 | 79 | 0 | 0 | 79 |
+| Unmatched | REIT - Mortgage | 8 | 29 | 0 | 0 | 29 |
+| **Total** | — | **238** | **1434** | **6** | **36** | **1470** |
+
+Observations :
+- Tous les matched sont US (yfinance earnings calendar disponible uniquement pour les tickers US).
+- Les 6 tickers non-US (LSE : ELM.L, ABDP.L, GKP.L, ENQ.L, GENL.L, PHAR.L) sont systématiquement unmatched.
+- Parmi les unmatched US (101 tickers, 421 rapports), la majorité sont des small caps dont yfinance n'a pas d'earnings calendar historique avant 2020.
+

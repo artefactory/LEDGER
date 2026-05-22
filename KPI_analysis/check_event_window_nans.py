@@ -32,7 +32,10 @@ SENTIMENTS_JSON = (
 
 BENCH_START = date(2016, 6, 1)
 BENCH_END = date(2023, 6, 30)
-EVENT_HALF_WINDOW = 10
+EVENT_HALF_WINDOW = 90
+
+# Days to sample: every 10 from -90 to -20, daily -10 to +10, every 10 from +20 to +90
+EVENT_DAYS = list(range(-90, -10, 10)) + list(range(-10, 11)) + list(range(20, 91, 10))
 
 
 def _pub_date_for_fy(ticker: str, fy: int) -> pd.Timestamp | None:
@@ -51,7 +54,7 @@ def _pub_date_for_fy(ticker: str, fy: int) -> pd.Timestamp | None:
     return pub_dt.normalize()
 
 
-def check_nans_in_window(series_raw: pd.Series, target_date: pd.Timestamp, half_window: int) -> dict:
+def check_nans_in_window(series_raw: pd.Series, target_date: pd.Timestamp, half_window: int, days: list[int] | None = None) -> dict:
     """Check for NaN in the event window WITHOUT dropping them first.
 
     Returns dict with:
@@ -71,7 +74,8 @@ def check_nans_in_window(series_raw: pd.Series, target_date: pd.Timestamp, half_
     missing_days = []
     total_days = 0
 
-    for d in range(-half_window, half_window + 1):
+    iter_days = days if days is not None else range(-half_window, half_window + 1)
+    for d in iter_days:
         pos = t0_pos + d
         if 0 <= pos < len(series_raw):
             total_days += 1
@@ -88,12 +92,13 @@ def check_nans_in_window(series_raw: pd.Series, target_date: pd.Timestamp, half_
     }
 
 
-def check_nans_relative_series(series: pd.Series, half_window: int) -> dict:
+def check_nans_relative_series(series: pd.Series, half_window: int, days: list[int] | None = None) -> dict:
     """Check NaN in a series indexed by relative day (int)."""
     nan_positions = []
     missing_days = []
     total_days = 0
-    for d in range(-half_window, half_window + 1):
+    iter_days = days if days is not None else range(-half_window, half_window + 1)
+    for d in iter_days:
         if d in series.index:
             total_days += 1
             if pd.isna(series[d]):
@@ -130,7 +135,6 @@ def main():
     affected = []
     total_checked = 0
 
-    indicators = ["returns", "Volatility", "Volume_ATS"]
 
     for i, row in enumerate(rows):
         ticker = row["ticker"]
@@ -146,8 +150,8 @@ def main():
             if prices is None or prices.empty:
                 processed_tickers[ticker] = (None, None)
                 continue
-            prices = GetIndicatorsForPrices(prices)
-            industry_df = GetIndustryDataFrame(ticker, BENCH_START, BENCH_END)
+            prices = GetIndicatorsForPrices(prices, max_lag=EVENT_HALF_WINDOW)
+            industry_df = GetIndustryDataFrame(ticker, BENCH_START, BENCH_END, max_lag=EVENT_HALF_WINDOW)
             processed_tickers[ticker] = (prices, industry_df)
         else:
             prices, industry_df = processed_tickers[ticker]
@@ -176,7 +180,7 @@ def main():
         if mask_t0.sum() > 0:
             t0_date = prices.index[mask_t0][0]
             cum_ret_vals = {}
-            for d in range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1):
+            for d in EVENT_DAYS:
                 col = f"return_t{d}"
                 if col in prices.columns:
                     cum_ret_vals[d] = prices.loc[t0_date, col]
@@ -188,7 +192,7 @@ def main():
 
             # Cumulative return industry VW
             cum_ret_vw_vals = {}
-            for d in range(-EVENT_HALF_WINDOW, EVENT_HALF_WINDOW + 1):
+            for d in EVENT_DAYS:
                 col = f"return_t{d}_vw"
                 if col in ind_aligned.columns and t0_date in ind_aligned.index:
                     cum_ret_vw_vals[d] = ind_aligned.loc[t0_date, col]
@@ -211,9 +215,9 @@ def main():
         relative_day_series = {"cum_return", "cum_return_unbiased_vw"}
         for name, series in series_to_check.items():
             if name in relative_day_series:
-                result = check_nans_relative_series(series, EVENT_HALF_WINDOW)
+                result = check_nans_relative_series(series, EVENT_HALF_WINDOW, days=EVENT_DAYS)
             else:
-                result = check_nans_in_window(series, pub_date, EVENT_HALF_WINDOW)
+                result = check_nans_in_window(series, pub_date, EVENT_HALF_WINDOW, days=EVENT_DAYS)
             if result["has_nan"] or result["missing_days"]:
                 pub_issues[name] = result
 
