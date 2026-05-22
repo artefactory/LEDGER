@@ -88,7 +88,8 @@ def call_extraction(
     min_p: float = 0.0,
     repetition_penalty: float = 1.0,
     presence_penalty: float = 1.5,
-    enable_thinking: bool = False,
+    enable_thinking: bool | None = False,
+    reasoning_effort: str | None = None,
     retries: int = 3,
     schema_name: str = "ReportExtraction",
 ) -> CallResult:
@@ -115,6 +116,8 @@ def call_extraction(
     # (Qwen3-style). Mistral tokenizers reject any chat_template_kwargs.
     if enable_thinking:
         extra_body["chat_template_kwargs"] = {"enable_thinking": True}
+    if reasoning_effort is not None:
+        extra_body["reasoning_effort"] = reasoning_effort
 
     history: list[str] = []
     last_error: str | None = None
