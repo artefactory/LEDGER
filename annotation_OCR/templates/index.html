@@ -7,7 +7,7 @@
     <title>OCR Annotation</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script>
-        window.OCR_ANNOTATION_DEFAULT_SESSION_ID = {{ default_session_id | tojson }};
+        window.OCR_ANNOTATION_SESSION_ID = {{ session_id | tojson }};
     </script>
     <script defer src="{{ url_for('static', filename='app.js') }}"></script>
 </head>
@@ -28,6 +28,7 @@
         </div>
 
         <nav class="nav-actions" aria-label="Page navigation">
+            <a href="/" class="secondary-link" title="Back to session list">Sessions</a>
             <button id="prevButton" type="button">Prev</button>
             <button id="nextButton" type="button">Next</button>
             <button id="skipReviewedButton" type="button">Next open</button>
@@ -49,7 +50,9 @@
                 </div>
             </div>
             <div class="image-stage" id="imageStage">
-                <img id="rawImage" alt="Raw OCR source page">
+                <div class="image-canvas" id="imageCanvas">
+                    <img id="rawImage" alt="Raw OCR source page" decoding="async" fetchpriority="high">
+                </div>
                 <div id="imageMissing" class="missing-state" hidden>Raw image unavailable</div>
             </div>
         </section>
@@ -60,7 +63,13 @@
                     <div class="pane-title">Extracted content</div>
                     <div class="pane-subtitle" id="markdownSubtitle"></div>
                 </div>
-                <button id="toggleRawButton" type="button">Raw Markdown</button>
+                <div class="preview-actions">
+                    <label class="toggle-control">
+                        <input id="inlineImagesToggle" type="checkbox" checked>
+                        Inline images
+                    </label>
+                    <button id="toggleRawButton" type="button">Raw Markdown</button>
+                </div>
             </div>
             <article id="markdownPreview" class="markdown-preview"></article>
             <pre id="rawMarkdown" class="raw-markdown" hidden></pre>
@@ -97,75 +106,19 @@
             <div class="panel-section decision-section">
                 <div class="section-label">Decision</div>
                 <div class="decision-buttons" role="group" aria-label="Overall status">
-                    <button type="button" class="status-button" data-status="ok">OK</button>
-                    <button type="button" class="status-button" data-status="not_ok">Not OK</button>
+                    <button type="button" class="status-button" data-status="ok">Yes</button>
+                    <button type="button" class="status-button" data-status="not_ok">No</button>
                     <button type="button" class="status-button" data-status="uncertain">Uncertain</button>
                 </div>
             </div>
 
-            <div class="panel-section subchecks-section">
-                <div class="section-label">Subchecks</div>
-                <label>Text content
-                    <select data-subcheck="text_content">
-                        <option value="unreviewed">Unreviewed</option>
-                        <option value="ok">OK</option>
-                        <option value="not_ok">Not OK</option>
-                        <option value="uncertain">Uncertain</option>
-                        <option value="not_applicable">N/A</option>
-                    </select>
-                </label>
-                <label>Table content
-                    <select data-subcheck="table_content">
-                        <option value="unreviewed">Unreviewed</option>
-                        <option value="ok">OK</option>
-                        <option value="not_ok">Not OK</option>
-                        <option value="uncertain">Uncertain</option>
-                        <option value="not_applicable">N/A</option>
-                    </select>
-                </label>
-                <label>Table structure
-                    <select data-subcheck="table_structure">
-                        <option value="unreviewed">Unreviewed</option>
-                        <option value="ok">OK</option>
-                        <option value="not_ok">Not OK</option>
-                        <option value="uncertain">Uncertain</option>
-                        <option value="not_applicable">N/A</option>
-                    </select>
-                </label>
-                <label>Page alignment
-                    <select data-subcheck="page_alignment">
-                        <option value="unreviewed">Unreviewed</option>
-                        <option value="ok">OK</option>
-                        <option value="not_ok">Not OK</option>
-                        <option value="uncertain">Uncertain</option>
-                        <option value="not_applicable">N/A</option>
-                    </select>
-                </label>
-            </div>
-
-            <div class="panel-section issues-section">
-                <div class="section-label">Issues</div>
-                <div class="issue-grid" id="issueGrid">
-                    <label><input type="checkbox" value="missing_text"> Missing text</label>
-                    <label><input type="checkbox" value="extra_text"> Extra text</label>
-                    <label><input type="checkbox" value="wrong_reading_order"> Reading order</label>
-                    <label><input type="checkbox" value="merged_columns"> Merged columns</label>
-                    <label><input type="checkbox" value="shifted_rows"> Shifted rows</label>
-                    <label><input type="checkbox" value="missing_columns"> Missing columns</label>
-                    <label><input type="checkbox" value="broken_table"> Broken table</label>
-                    <label><input type="checkbox" value="wrong_page"> Wrong page</label>
-                    <label><input type="checkbox" value="image_missing"> Image missing</label>
-                    <label><input type="checkbox" value="low_confidence"> Low confidence</label>
-                </div>
-            </div>
-
             <div class="panel-section notes-section">
-                <label for="notesInput" class="section-label">Notes</label>
+                <label for="notesInput" class="section-label">Note, if needed</label>
                 <textarea id="notesInput" rows="5" spellcheck="true"></textarea>
             </div>
 
             <div class="panel-actions">
-                <button id="saveButton" type="button" class="primary-button">Save</button>
+                <button id="saveButton" type="button" class="primary-button">Save note</button>
                 <a id="summaryCsvLink" class="secondary-link" href="#">CSV</a>
                 <a id="summaryMdLink" class="secondary-link" href="#">Markdown</a>
             </div>
@@ -181,19 +134,13 @@
             </div>
             <div class="shortcut-grid">
                 <span>A</span>
-                <p>OK, save, next</p>
+                <p>Yes, save, next</p>
                 <span>R</span>
-                <p>Not OK, save, next</p>
+                <p>No, save, next</p>
                 <span>U</span>
                 <p>Uncertain, save, next</p>
                 <span>J / K</span>
                 <p>Next / previous</p>
-                <span>T</span>
-                <p>Broken table</p>
-                <span>C</span>
-                <p>Merged columns</p>
-                <span>M</span>
-                <p>Missing text</p>
                 <span>+ / - / 0</span>
                 <p>Zoom</p>
             </div>

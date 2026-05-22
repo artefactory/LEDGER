@@ -1,5 +1,7 @@
 const state = {
-    sessionId: window.OCR_ANNOTATION_DEFAULT_SESSION_ID,
+    sessionId: window.OCR_ANNOTATION_SESSION_ID
+        || new URLSearchParams(window.location.search).get('session')
+        || window.OCR_ANNOTATION_DEFAULT_SESSION_ID,
     index: 0,
     itemCount: 0,
     item: null,
@@ -7,7 +9,9 @@ const state = {
     startedAt: null,
     zoom: 1,
     showingRaw: false,
+    showInlineImages: true,
     saving: false,
+    prefetchImage: null,
 };
 
 const els = {
@@ -19,12 +23,14 @@ const els = {
     nextButton: document.getElementById('nextButton'),
     skipReviewedButton: document.getElementById('skipReviewedButton'),
     helpButton: document.getElementById('helpButton'),
+    imageCanvas: document.getElementById('imageCanvas'),
     rawImage: document.getElementById('rawImage'),
     imageMissing: document.getElementById('imageMissing'),
     imageSubtitle: document.getElementById('imageSubtitle'),
     markdownSubtitle: document.getElementById('markdownSubtitle'),
     markdownPreview: document.getElementById('markdownPreview'),
     rawMarkdown: document.getElementById('rawMarkdown'),
+    inlineImagesToggle: document.getElementById('inlineImagesToggle'),
     toggleRawButton: document.getElementById('toggleRawButton'),
     zoomOutButton: document.getElementById('zoomOutButton'),
     zoomResetButton: document.getElementById('zoomResetButton'),
@@ -36,7 +42,6 @@ const els = {
     signalsValue: document.getElementById('signalsValue'),
     mappingValue: document.getElementById('mappingValue'),
     notesInput: document.getElementById('notesInput'),
-    issueGrid: document.getElementById('issueGrid'),
     saveButton: document.getElementById('saveButton'),
     saveStatus: document.getElementById('saveStatus'),
     summaryCsvLink: document.getElementById('summaryCsvLink'),
@@ -75,8 +80,7 @@ function updateProgress(progress) {
     const reviewed = progress.reviewed_count || 0;
     const total = progress.item_count || 0;
     els.progressText.textContent = `${reviewed} / ${total} reviewed`;
-    const pct = total ? Math.round((reviewed / total) * 100) : 0;
-    els.progressBar.style.width = `${pct}%`;
+    els.progressBar.style.width = `${total ? Math.round((reviewed / total) * 100) : 0}%`;
     els.summaryCsvLink.href = `/api/session/${state.sessionId}/summary.csv`;
     els.summaryMdLink.href = `/api/session/${state.sessionId}/summary.md`;
 }
@@ -88,43 +92,23 @@ function setOverall(status) {
     });
 }
 
-function setSubchecks(values = {}) {
-    document.querySelectorAll('[data-subcheck]').forEach((select) => {
-        select.value = values[select.dataset.subcheck] || 'unreviewed';
-    });
-}
-
-function setIssues(values = []) {
-    const selected = new Set(values);
-    els.issueGrid.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-        checkbox.checked = selected.has(checkbox.value);
-    });
-}
-
-function getSubchecks() {
-    const subchecks = {};
-    document.querySelectorAll('[data-subcheck]').forEach((select) => {
-        subchecks[select.dataset.subcheck] = select.value;
-    });
-    return subchecks;
-}
-
-function getIssues() {
-    return Array.from(els.issueGrid.querySelectorAll('input[type="checkbox"]:checked'))
-        .map((checkbox) => checkbox.value)
-        .sort();
-}
-
 function loadAnnotation(annotation) {
     setOverall(annotation?.overall_status || 'unreviewed');
-    setSubchecks(annotation?.subchecks || {});
-    setIssues(annotation?.issue_tags || []);
     els.notesInput.value = annotation?.notes || '';
 }
 
+function fittedImageWidth() {
+    const stage = els.imageCanvas.parentElement;
+    const availableWidth = Math.max(240, stage.clientWidth - 32);
+    const availableHeight = Math.max(240, stage.clientHeight - 32);
+    const naturalWidth = els.rawImage.naturalWidth || availableWidth;
+    const naturalHeight = els.rawImage.naturalHeight || naturalWidth * 1.414;
+    const fitScale = Math.min(availableWidth / naturalWidth, availableHeight / naturalHeight);
+    return Math.max(120, Math.floor(naturalWidth * fitScale));
+}
+
 function applyZoom() {
-    els.rawImage.style.transform = `scale(${state.zoom})`;
-    els.rawImage.style.marginBottom = `${Math.max(0, (state.zoom - 1) * 100)}%`;
+    els.imageCanvas.style.setProperty('--image-width', `${Math.round(fittedImageWidth() * state.zoom)}px`);
     els.zoomResetButton.textContent = `${Math.round(state.zoom * 100)}%`;
 }
 
@@ -139,9 +123,22 @@ async function loadProgress() {
     return progress;
 }
 
+function prefetchNextImage(url) {
+    if (!url) return;
+    state.prefetchImage = new Image();
+    state.prefetchImage.decoding = 'async';
+    state.prefetchImage.src = url;
+}
+
+function resetExtractedContentScroll() {
+    els.markdownPreview.scrollTop = 0;
+    els.rawMarkdown.scrollTop = 0;
+}
+
 async function loadItem(index) {
     const safeIndex = Math.max(0, Math.min(index, Math.max(0, state.itemCount - 1)));
-    const data = await apiJson(`/api/session/${state.sessionId}/item/${safeIndex}`);
+    const inlineFlag = state.showInlineImages ? '1' : '0';
+    const data = await apiJson(`/api/session/${state.sessionId}/item/${safeIndex}?inline_images=${inlineFlag}`);
     state.index = safeIndex;
     state.item = data.item;
     state.itemCount = data.item_count;
@@ -158,11 +155,13 @@ async function loadItem(index) {
 
     els.markdownPreview.innerHTML = data.markdown_html || '';
     els.rawMarkdown.textContent = data.page_text || '';
+    resetExtractedContentScroll();
 
     if (data.item.raw_png_path) {
         els.rawImage.hidden = false;
         els.imageMissing.hidden = true;
         els.rawImage.src = `${data.image_url}?v=${encodeURIComponent(data.item.page_text_sha256)}`;
+        prefetchNextImage(data.next_image_url);
     } else {
         els.rawImage.hidden = true;
         els.imageMissing.hidden = false;
@@ -180,8 +179,6 @@ function annotationPayload(source = 'manual') {
     return {
         item_id: state.item.item_id,
         overall_status: state.overallStatus,
-        subchecks: getSubchecks(),
-        issue_tags: getIssues(),
         notes: els.notesInput.value,
         annotation_source: source,
         review_duration_ms: state.startedAt ? new Date() - state.startedAt : null,
@@ -214,40 +211,9 @@ async function saveAnnotation(source = 'manual', advance = false) {
     }
 }
 
-function quickMark(status) {
+function quickMark(status, source = 'shortcut') {
     setOverall(status);
-    if (status === 'ok') {
-        setSubchecks({
-            text_content: 'ok',
-            table_content: 'ok',
-            table_structure: 'ok',
-            page_alignment: 'ok',
-        });
-        setIssues([]);
-    } else if (status === 'not_ok') {
-        const subchecks = getSubchecks();
-        if (Object.values(subchecks).every((value) => value === 'unreviewed')) {
-            setSubchecks({
-                text_content: 'uncertain',
-                table_content: 'uncertain',
-                table_structure: 'not_ok',
-                page_alignment: 'uncertain',
-            });
-        }
-    } else if (status === 'uncertain') {
-        setSubchecks({
-            text_content: 'uncertain',
-            table_content: 'uncertain',
-            table_structure: 'uncertain',
-            page_alignment: 'uncertain',
-        });
-    }
-    saveAnnotation(`shortcut:${status}`, true);
-}
-
-function toggleIssue(tag) {
-    const checkbox = els.issueGrid.querySelector(`input[value="${tag}"]`);
-    if (checkbox) checkbox.checked = !checkbox.checked;
+    saveAnnotation(`${source}:${status}`, true);
 }
 
 async function go(delta) {
@@ -283,13 +249,19 @@ function setupEvents() {
     els.nextButton.addEventListener('click', () => go(1));
     els.skipReviewedButton.addEventListener('click', goNextOpen);
     els.saveButton.addEventListener('click', () => saveAnnotation('manual', false));
+    els.inlineImagesToggle.addEventListener('change', () => {
+        state.showInlineImages = els.inlineImagesToggle.checked;
+        loadItem(state.index);
+    });
     els.toggleRawButton.addEventListener('click', toggleRawMarkdown);
     els.zoomOutButton.addEventListener('click', () => setZoom(state.zoom - 0.15));
     els.zoomInButton.addEventListener('click', () => setZoom(state.zoom + 0.15));
     els.zoomResetButton.addEventListener('click', () => setZoom(1));
     els.helpButton.addEventListener('click', () => els.helpDialog.showModal());
+    els.rawImage.addEventListener('load', () => setZoom(1));
+    window.addEventListener('resize', applyZoom);
     document.querySelectorAll('.status-button').forEach((button) => {
-        button.addEventListener('click', () => setOverall(button.dataset.status));
+        button.addEventListener('click', () => quickMark(button.dataset.status, 'button'));
     });
 
     document.addEventListener('keydown', (event) => {
@@ -312,15 +284,6 @@ function setupEvents() {
         } else if (event.key === 'ArrowLeft' || event.key.toLowerCase() === 'k') {
             event.preventDefault();
             go(-1);
-        } else if (event.key.toLowerCase() === 't') {
-            event.preventDefault();
-            toggleIssue('broken_table');
-        } else if (event.key.toLowerCase() === 'c') {
-            event.preventDefault();
-            toggleIssue('merged_columns');
-        } else if (event.key.toLowerCase() === 'm') {
-            event.preventDefault();
-            toggleIssue('missing_text');
         } else if (event.key === '+' || event.key === '=') {
             event.preventDefault();
             setZoom(state.zoom + 0.15);

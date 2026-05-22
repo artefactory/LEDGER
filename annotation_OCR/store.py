@@ -17,7 +17,6 @@ SESSIONS_DIR = HERE / "sessions"
 SCHEMA_VERSION = "1.0"
 
 VALID_OVERALL_STATUS = {"ok", "not_ok", "uncertain", "unreviewed"}
-VALID_SUBCHECK_STATUS = {"ok", "not_ok", "uncertain", "not_applicable", "unreviewed"}
 
 SUMMARY_FIELDS = [
     "session_id",
@@ -32,11 +31,6 @@ SUMMARY_FIELDS = [
     "page_index",
     "page_number",
     "overall_status",
-    "text_content",
-    "table_content",
-    "table_structure",
-    "page_alignment",
-    "issue_tags",
     "notes",
     "updated_at_utc",
     "annotation_source",
@@ -189,35 +183,10 @@ def sanitize_status(value: Any, valid: set[str], default: str) -> str:
 
 
 def normalize_annotation_payload(payload: dict[str, Any]) -> dict[str, Any]:
-    subchecks = (
-        payload.get("subchecks") if isinstance(payload.get("subchecks"), dict) else {}
-    )
-    normalized_subchecks = {
-        "text_content": sanitize_status(
-            subchecks.get("text_content"), VALID_SUBCHECK_STATUS, "unreviewed"
-        ),
-        "table_content": sanitize_status(
-            subchecks.get("table_content"), VALID_SUBCHECK_STATUS, "unreviewed"
-        ),
-        "table_structure": sanitize_status(
-            subchecks.get("table_structure"), VALID_SUBCHECK_STATUS, "unreviewed"
-        ),
-        "page_alignment": sanitize_status(
-            subchecks.get("page_alignment"), VALID_SUBCHECK_STATUS, "unreviewed"
-        ),
-    }
-
-    issue_tags = payload.get("issue_tags")
-    if not isinstance(issue_tags, list):
-        issue_tags = []
-    issue_tags = sorted({str(tag).strip() for tag in issue_tags if str(tag).strip()})
-
     return {
         "overall_status": sanitize_status(
             payload.get("overall_status"), VALID_OVERALL_STATUS, "unreviewed"
         ),
-        "subchecks": normalized_subchecks,
-        "issue_tags": issue_tags,
         "notes": str(payload.get("notes") or "").strip(),
         "annotation_source": str(payload.get("annotation_source") or "manual"),
         "review_duration_ms": payload.get("review_duration_ms"),
@@ -297,7 +266,6 @@ def summary_rows(session_id: str) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for item in load_manifest(session_id):
         annotation = current.get(item["item_id"], {})
-        subchecks = annotation.get("subchecks", {}) if annotation else {}
         rows.append(
             {
                 "session_id": session_id,
@@ -312,11 +280,6 @@ def summary_rows(session_id: str) -> list[dict[str, Any]]:
                 "page_index": item.get("page_index"),
                 "page_number": item.get("page_number"),
                 "overall_status": annotation.get("overall_status", "unreviewed"),
-                "text_content": subchecks.get("text_content", "unreviewed"),
-                "table_content": subchecks.get("table_content", "unreviewed"),
-                "table_structure": subchecks.get("table_structure", "unreviewed"),
-                "page_alignment": subchecks.get("page_alignment", "unreviewed"),
-                "issue_tags": ";".join(annotation.get("issue_tags", [])),
                 "notes": annotation.get("notes", ""),
                 "updated_at_utc": annotation.get("updated_at_utc", ""),
                 "annotation_source": annotation.get("annotation_source", ""),
@@ -347,11 +310,6 @@ def write_summary_csv(path: Path, rows: list[dict[str, Any]]) -> None:
 def write_summary_md(path: Path, rows: list[dict[str, Any]]) -> None:
     metadata = load_metadata(path.parent.name)
     status_counts = Counter(row["overall_status"] for row in rows)
-    issue_counts: Counter[str] = Counter()
-    for row in rows:
-        for tag in str(row.get("issue_tags") or "").split(";"):
-            if tag:
-                issue_counts[tag] += 1
 
     reviewed = len(rows) - status_counts.get("unreviewed", 0)
     lines = [
@@ -370,13 +328,6 @@ def write_summary_md(path: Path, rows: list[dict[str, Any]]) -> None:
     ]
     for status, count in sorted(status_counts.items()):
         lines.append(f"| {status} | {count} |")
-
-    lines.extend(["", "## Issue Counts", "", "| Issue | Count |", "| --- | ---: |"])
-    if issue_counts:
-        for issue, count in issue_counts.most_common():
-            lines.append(f"| {issue} | {count} |")
-    else:
-        lines.append("| none | 0 |")
 
     atomic_write_text(path, "\n".join(lines) + "\n")
 
