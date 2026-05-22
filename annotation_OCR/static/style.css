@@ -1,0 +1,448 @@
+:root {
+    --bg: #edf1f2;
+    --panel: #fbfcfa;
+    --panel-2: #f5f7f4;
+    --ink: #1d2528;
+    --muted: #5b686d;
+    --line: #cdd7d8;
+    --teal: #08746f;
+    --teal-dark: #075854;
+    --red: #aa3d2d;
+    --amber: #a06010;
+    --green: #2d7434;
+    --shadow: 0 18px 45px rgba(31, 45, 49, 0.14);
+    --mono: "JetBrains Mono", "IBM Plex Mono", "Cascadia Mono", monospace;
+    --sans: "Aptos", "Source Sans 3", "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        linear-gradient(135deg, rgba(8, 116, 111, 0.09), transparent 34%),
+        linear-gradient(315deg, rgba(170, 61, 45, 0.08), transparent 36%),
+        var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+}
+
+button,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+.secondary-link {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--ink);
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+button:hover,
+.secondary-link:hover {
+    border-color: var(--teal);
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) minmax(260px, 420px) auto;
+    gap: 18px;
+    align-items: center;
+    padding: 14px 18px;
+    background: rgba(251, 252, 250, 0.94);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(14px);
+}
+
+.eyebrow,
+.section-label {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.session-title {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.session-meta,
+.pane-subtitle,
+.save-status {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.progress-block {
+    display: grid;
+    gap: 7px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    overflow: hidden;
+    background: #dce3e4;
+    border-radius: 999px;
+}
+
+.progress-track div {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), #6a8d28);
+    transition: width 160ms ease;
+}
+
+.nav-actions,
+.zoom-actions,
+.panel-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.icon-button {
+    width: 36px;
+    padding: 0;
+    font-weight: 800;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: minmax(340px, 1.05fr) minmax(340px, 1fr) 340px;
+    gap: 14px;
+    padding: 14px;
+    height: calc(100vh - 82px);
+}
+
+.pane,
+.annotation-panel {
+    min-height: 0;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.pane {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    overflow: hidden;
+}
+
+.pane-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid var(--line);
+    background: var(--panel-2);
+}
+
+.pane-title {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.image-stage {
+    position: relative;
+    overflow: auto;
+    display: grid;
+    place-items: start center;
+    padding: 16px;
+    background:
+        linear-gradient(45deg, #dce3e4 25%, transparent 25%),
+        linear-gradient(-45deg, #dce3e4 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #dce3e4 75%),
+        linear-gradient(-45deg, transparent 75%, #dce3e4 75%);
+    background-size: 22px 22px;
+    background-position: 0 0, 0 11px, 11px -11px, -11px 0;
+}
+
+#rawImage {
+    display: block;
+    max-width: none;
+    width: min(100%, 900px);
+    transform-origin: top center;
+    border: 1px solid #b7c3c5;
+    background: white;
+    box-shadow: 0 12px 28px rgba(31, 45, 49, 0.18);
+}
+
+.missing-state {
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px dashed var(--red);
+    background: #fff7f3;
+    color: var(--red);
+    border-radius: 8px;
+}
+
+.markdown-preview,
+.raw-markdown {
+    overflow: auto;
+    margin: 0;
+    padding: 18px;
+}
+
+.markdown-preview {
+    line-height: 1.48;
+}
+
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3 {
+    margin: 1.2em 0 0.45em;
+    line-height: 1.15;
+}
+
+.markdown-preview table {
+    width: max-content;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+}
+
+.markdown-preview th,
+.markdown-preview td {
+    border: 1px solid #b9c4c6;
+    padding: 6px 8px;
+    vertical-align: top;
+}
+
+.markdown-preview th {
+    background: #e3eceb;
+}
+
+.markdown-preview img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+}
+
+.raw-markdown {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    background: #172225;
+    color: #e7eeed;
+}
+
+.annotation-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 12px;
+    gap: 12px;
+}
+
+.panel-section {
+    display: grid;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+.report-card h1 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+dl {
+    display: grid;
+    gap: 7px;
+    margin: 0;
+}
+
+dl div {
+    display: grid;
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 8px;
+}
+
+dt {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+dd {
+    margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 12px;
+}
+
+.decision-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.status-button[data-status="ok"].active {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+}
+
+.status-button[data-status="not_ok"].active {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+}
+
+.status-button[data-status="uncertain"].active {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: white;
+}
+
+.subchecks-section label {
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    gap: 8px;
+    align-items: center;
+    font-size: 13px;
+}
+
+select,
+textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: white;
+    color: var(--ink);
+}
+
+select {
+    min-height: 34px;
+}
+
+textarea {
+    resize: vertical;
+    padding: 8px;
+}
+
+.issue-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.issue-grid label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+}
+
+.primary-button {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: white;
+    font-weight: 800;
+    flex: 1;
+}
+
+.primary-button:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+}
+
+.save-status {
+    min-height: 20px;
+}
+
+.help-dialog {
+    width: min(520px, calc(100vw - 32px));
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.dialog-header h2 {
+    margin: 0 0 12px;
+}
+
+.shortcut-grid {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 8px 14px;
+}
+
+.shortcut-grid span {
+    font-family: var(--mono);
+    font-weight: 800;
+}
+
+.shortcut-grid p {
+    margin: 0;
+}
+
+@media (max-width: 1180px) {
+    .topbar {
+        grid-template-columns: 1fr;
+    }
+
+    .workspace {
+        height: auto;
+        min-height: calc(100vh - 82px);
+        grid-template-columns: 1fr;
+    }
+
+    .pane {
+        min-height: 72vh;
+    }
+
+    .annotation-panel {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 620px) {
+
+    .nav-actions,
+    .pane-toolbar,
+    .panel-actions {
+        flex-wrap: wrap;
+    }
+
+    .decision-buttons,
+    .issue-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .subchecks-section label,
+    dl div {
+        grid-template-columns: 1fr;
+    }
+}

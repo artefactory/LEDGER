@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OCR Annotation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        window.OCR_ANNOTATION_DEFAULT_SESSION_ID = {{ default_session_id | tojson }};
+    </script>
+    <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="session-block">
+            <div class="eyebrow">OCR annotation</div>
+            <div class="session-title" id="sessionTitle">Loading session</div>
+            <div class="session-meta" id="sessionMeta"></div>
+        </div>
+
+        <div class="progress-block">
+            <div class="progress-text" id="progressText">0 / 0 reviewed</div>
+            <div class="progress-track" aria-hidden="true">
+                <div id="progressBar"></div>
+            </div>
+        </div>
+
+        <nav class="nav-actions" aria-label="Page navigation">
+            <button id="prevButton" type="button">Prev</button>
+            <button id="nextButton" type="button">Next</button>
+            <button id="skipReviewedButton" type="button">Next open</button>
+            <button id="helpButton" type="button" class="icon-button" title="Keyboard shortcuts">?</button>
+        </nav>
+    </header>
+
+    <main class="workspace">
+        <section class="pane image-pane" aria-label="Raw page image">
+            <div class="pane-toolbar">
+                <div>
+                    <div class="pane-title">Raw page</div>
+                    <div class="pane-subtitle" id="imageSubtitle"></div>
+                </div>
+                <div class="zoom-actions">
+                    <button id="zoomOutButton" type="button" title="Zoom out">-</button>
+                    <button id="zoomResetButton" type="button" title="Reset zoom">100%</button>
+                    <button id="zoomInButton" type="button" title="Zoom in">+</button>
+                </div>
+            </div>
+            <div class="image-stage" id="imageStage">
+                <img id="rawImage" alt="Raw OCR source page">
+                <div id="imageMissing" class="missing-state" hidden>Raw image unavailable</div>
+            </div>
+        </section>
+
+        <section class="pane markdown-pane" aria-label="Extracted Markdown page">
+            <div class="pane-toolbar">
+                <div>
+                    <div class="pane-title">Extracted content</div>
+                    <div class="pane-subtitle" id="markdownSubtitle"></div>
+                </div>
+                <button id="toggleRawButton" type="button">Raw Markdown</button>
+            </div>
+            <article id="markdownPreview" class="markdown-preview"></article>
+            <pre id="rawMarkdown" class="raw-markdown" hidden></pre>
+        </section>
+
+        <aside class="annotation-panel" aria-label="Annotation controls">
+            <div class="panel-section report-card">
+                <div class="eyebrow">Current item</div>
+                <h1 id="reportName">Report</h1>
+                <dl>
+                    <div>
+                        <dt>Industry</dt>
+                        <dd id="industryValue"></dd>
+                    </div>
+                    <div>
+                        <dt>Ticker</dt>
+                        <dd id="tickerValue"></dd>
+                    </div>
+                    <div>
+                        <dt>Page</dt>
+                        <dd id="pageValue"></dd>
+                    </div>
+                    <div>
+                        <dt>Signals</dt>
+                        <dd id="signalsValue"></dd>
+                    </div>
+                    <div>
+                        <dt>Mapping</dt>
+                        <dd id="mappingValue"></dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="panel-section decision-section">
+                <div class="section-label">Decision</div>
+                <div class="decision-buttons" role="group" aria-label="Overall status">
+                    <button type="button" class="status-button" data-status="ok">OK</button>
+                    <button type="button" class="status-button" data-status="not_ok">Not OK</button>
+                    <button type="button" class="status-button" data-status="uncertain">Uncertain</button>
+                </div>
+            </div>
+
+            <div class="panel-section subchecks-section">
+                <div class="section-label">Subchecks</div>
+                <label>Text content
+                    <select data-subcheck="text_content">
+                        <option value="unreviewed">Unreviewed</option>
+                        <option value="ok">OK</option>
+                        <option value="not_ok">Not OK</option>
+                        <option value="uncertain">Uncertain</option>
+                        <option value="not_applicable">N/A</option>
+                    </select>
+                </label>
+                <label>Table content
+                    <select data-subcheck="table_content">
+                        <option value="unreviewed">Unreviewed</option>
+                        <option value="ok">OK</option>
+                        <option value="not_ok">Not OK</option>
+                        <option value="uncertain">Uncertain</option>
+                        <option value="not_applicable">N/A</option>
+                    </select>
+                </label>
+                <label>Table structure
+                    <select data-subcheck="table_structure">
+                        <option value="unreviewed">Unreviewed</option>
+                        <option value="ok">OK</option>
+                        <option value="not_ok">Not OK</option>
+                        <option value="uncertain">Uncertain</option>
+                        <option value="not_applicable">N/A</option>
+                    </select>
+                </label>
+                <label>Page alignment
+                    <select data-subcheck="page_alignment">
+                        <option value="unreviewed">Unreviewed</option>
+                        <option value="ok">OK</option>
+                        <option value="not_ok">Not OK</option>
+                        <option value="uncertain">Uncertain</option>
+                        <option value="not_applicable">N/A</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="panel-section issues-section">
+                <div class="section-label">Issues</div>
+                <div class="issue-grid" id="issueGrid">
+                    <label><input type="checkbox" value="missing_text"> Missing text</label>
+                    <label><input type="checkbox" value="extra_text"> Extra text</label>
+                    <label><input type="checkbox" value="wrong_reading_order"> Reading order</label>
+                    <label><input type="checkbox" value="merged_columns"> Merged columns</label>
+                    <label><input type="checkbox" value="shifted_rows"> Shifted rows</label>
+                    <label><input type="checkbox" value="missing_columns"> Missing columns</label>
+                    <label><input type="checkbox" value="broken_table"> Broken table</label>
+                    <label><input type="checkbox" value="wrong_page"> Wrong page</label>
+                    <label><input type="checkbox" value="image_missing"> Image missing</label>
+                    <label><input type="checkbox" value="low_confidence"> Low confidence</label>
+                </div>
+            </div>
+
+            <div class="panel-section notes-section">
+                <label for="notesInput" class="section-label">Notes</label>
+                <textarea id="notesInput" rows="5" spellcheck="true"></textarea>
+            </div>
+
+            <div class="panel-actions">
+                <button id="saveButton" type="button" class="primary-button">Save</button>
+                <a id="summaryCsvLink" class="secondary-link" href="#">CSV</a>
+                <a id="summaryMdLink" class="secondary-link" href="#">Markdown</a>
+            </div>
+            <div id="saveStatus" class="save-status" aria-live="polite"></div>
+        </aside>
+    </main>
+
+    <dialog id="helpDialog" class="help-dialog">
+        <form method="dialog">
+            <div class="dialog-header">
+                <h2>Keyboard</h2>
+                <button type="submit" class="icon-button">x</button>
+            </div>
+            <div class="shortcut-grid">
+                <span>A</span>
+                <p>OK, save, next</p>
+                <span>R</span>
+                <p>Not OK, save, next</p>
+                <span>U</span>
+                <p>Uncertain, save, next</p>
+                <span>J / K</span>
+                <p>Next / previous</p>
+                <span>T</span>
+                <p>Broken table</p>
+                <span>C</span>
+                <p>Merged columns</p>
+                <span>M</span>
+                <p>Missing text</p>
+                <span>+ / - / 0</span>
+                <p>Zoom</p>
+            </div>
+        </form>
+    </dialog>
+</body>
+
+</html>
