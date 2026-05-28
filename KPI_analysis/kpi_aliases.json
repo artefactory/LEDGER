@@ -1,0 +1,251 @@
+{
+  "revenue": [
+    "revenue",
+    "revenues",
+    "net sales",
+    "total net sales",
+    "sales revenue",
+    "net revenue",
+    "total revenues",
+    "total revenue",
+    "net revenues",
+    "revenue from contracts with customers",
+    "revenue from contract with customer"
+  ],
+  "cost_of_revenue": [
+    "cost of revenue",
+    "cost of revenues",
+    "cost of sales",
+    "cost of goods sold",
+    "cost of goods and services sold",
+    "cost of products sold",
+    "cost of products and services sold",
+    "cost of services"
+  ],
+  "gross_profit": [
+    "gross profit",
+    "gross margin",
+    "gross profit margin"
+  ],
+  "rd_expense": [
+    "research and development",
+    "research and development expense",
+    "research and development expenses",
+    "r&d expense",
+    "r&d expenses",
+    "research & development",
+    "research & development expense"
+  ],
+  "sga_expense": [
+    "selling, general and administrative",
+    "selling general and administrative",
+    "selling, general & administrative",
+    "sg&a",
+    "sga",
+    "selling, general and administrative expense",
+    "selling, general and administrative expenses",
+    "general and administrative expense"
+  ],
+  "operating_income": [
+    "operating income",
+    "operating profit",
+    "income from operations",
+    "operating income (loss)",
+    "operating earnings",
+    "earnings from operations"
+  ],
+  "interest_expense": [
+    "interest expense",
+    "interest expense, net",
+    "interest expense on debt",
+    "interest on long-term debt",
+    "interest on long term debt"
+  ],
+  "income_tax_expense": [
+    "income tax expense",
+    "income taxes",
+    "income tax expense (benefit)",
+    "income tax expense (provision)",
+    "provision for income taxes",
+    "income tax provision"
+  ],
+  "net_income": [
+    "net income",
+    "net earnings",
+    "net loss",
+    "net income (loss)",
+    "net income attributable",
+    "net income attributable to parent",
+    "net income attributable to common shareholders",
+    "net income attributable to common stockholders",
+    "net earnings (loss)",
+    "net income loss"
+  ],
+  "eps_basic": [
+    "earnings per share basic",
+    "basic earnings per share",
+    "basic eps",
+    "earnings per share, basic",
+    "net income per share, basic",
+    "net income per share basic"
+  ],
+  "eps_diluted": [
+    "earnings per share diluted",
+    "diluted earnings per share",
+    "diluted eps",
+    "earnings per share, diluted",
+    "net income per share, diluted",
+    "net income per share diluted"
+  ],
+  "total_assets": [
+    "total assets",
+    "total assets and liabilities"
+  ],
+  "total_liabilities": [
+    "total liabilities",
+    "liabilities"
+  ],
+  "stockholders_equity": [
+    "stockholders' equity",
+    "stockholders equity",
+    "shareholders' equity",
+    "shareholders equity",
+    "total stockholders' equity",
+    "total stockholders equity",
+    "total shareholders' equity",
+    "equity attributable to parent",
+    "equity attributable to shareholders"
+  ],
+  "stockholders_equity_incl_nci": [
+    "total equity",
+    "total equity including noncontrolling interest",
+    "total equity including non-controlling interest",
+    "total equity and stockholders equity",
+    "equity including noncontrolling interest",
+    "equity including non-controlling interest"
+  ],
+  "cash_and_equivalents": [
+    "cash and cash equivalents",
+    "cash and equivalents",
+    "cash equivalents",
+    "cash, cash equivalents",
+    "cash and cash equivalent"
+  ],
+  "cash_incl_restricted": [
+    "cash, cash equivalents and restricted cash",
+    "cash, cash equivalents, and restricted cash",
+    "cash equivalents and restricted cash",
+    "restricted cash and cash equivalents",
+    "cash, equivalents and restricted cash"
+  ],
+  "long_term_debt_total": [
+    "long-term debt",
+    "long term debt",
+    "long-term debt, including current portion",
+    "long-term debt including current portion",
+    "long-term debt, net of current portion",
+    "long-term borrowings"
+  ],
+  "long_term_debt_noncurrent": [
+    "long-term debt, noncurrent",
+    "long-term debt, non-current",
+    "long-term debt, net",
+    "long-term debt, net of current maturities",
+    "long-term debt, less current portion",
+    "long-term debt, excluding current portion"
+  ],
+  "long_term_debt_current": [
+    "current portion of long-term debt",
+    "current portion of long term debt",
+    "current maturities of long-term debt",
+    "current maturities of long term debt",
+    "current portion of debt"
+  ],
+  "short_term_borrowings": [
+    "short-term borrowings",
+    "short term borrowings",
+    "short-term debt",
+    "short term debt",
+    "notes payable",
+    "bank borrowings",
+    "commercial paper"
+  ],
+  "inventory": [
+    "inventory",
+    "inventories",
+    "inventory, net",
+    "inventories, net"
+  ],
+  "accounts_receivable": [
+    "accounts receivable",
+    "accounts receivable, net",
+    "trade accounts receivable",
+    "trade receivables",
+    "receivables, net"
+  ],
+  "accounts_payable": [
+    "accounts payable",
+    "accounts payable, trade",
+    "trade accounts payable"
+  ],
+  "shares_outstanding": [
+    "shares outstanding",
+    "common shares outstanding",
+    "common stock shares outstanding",
+    "shares of common stock outstanding",
+    "shares issued and outstanding",
+    "common shares issued and outstanding"
+  ],
+  "operating_cash_flow": [
+    "net cash provided by operating activities",
+    "cash provided by operating activities",
+    "cash flows from operating activities",
+    "net cash from operating activities",
+    "operating cash flow",
+    "cash flow from operations",
+    "net cash provided by (used in) operating activities"
+  ],
+  "investing_cash_flow": [
+    "net cash used in investing activities",
+    "cash used in investing activities",
+    "cash flows from investing activities",
+    "net cash from investing activities",
+    "investing cash flow",
+    "net cash provided by (used in) investing activities"
+  ],
+  "financing_cash_flow": [
+    "net cash used in financing activities",
+    "cash used in financing activities",
+    "cash flows from financing activities",
+    "net cash from financing activities",
+    "financing cash flow",
+    "net cash provided by (used in) financing activities"
+  ],
+  "capex": [
+    "capital expenditures",
+    "capital expenditure",
+    "additions to property, plant and equipment",
+    "additions to property, plant & equipment",
+    "purchase of property and equipment",
+    "purchases of property, plant and equipment",
+    "acquisitions of property, plant and equipment",
+    "capital spending"
+  ],
+  "depreciation_amortization": [
+    "depreciation and amortization",
+    "depreciation & amortization",
+    "depreciation, amortization",
+    "depreciation",
+    "amortization",
+    "depletion and amortization"
+  ],
+  "dividends_paid": [
+    "dividends paid",
+    "cash dividends paid",
+    "payments of dividends",
+    "dividends",
+    "dividends declared",
+    "cash dividends",
+    "dividends paid to common shareholders"
+  ]
+}
