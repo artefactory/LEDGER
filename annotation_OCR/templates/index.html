@@ -47,11 +47,13 @@
                     <button id="zoomOutButton" type="button" title="Zoom out">-</button>
                     <button id="zoomResetButton" type="button" title="Reset zoom">100%</button>
                     <button id="zoomInButton" type="button" title="Zoom in">+</button>
+                    <button id="refocusButton" type="button" title="Center the detected table">Refocus</button>
                 </div>
             </div>
             <div class="image-stage" id="imageStage">
                 <div class="image-canvas" id="imageCanvas">
                     <img id="rawImage" alt="Raw OCR source page" decoding="async" fetchpriority="high">
+                    <div id="imageOverlay" class="image-overlay" aria-hidden="true" hidden></div>
                 </div>
                 <div id="imageMissing" class="missing-state" hidden>Raw image unavailable</div>
             </div>
@@ -143,6 +145,8 @@
                 <p>Next / previous</p>
                 <span>+ / - / 0</span>
                 <p>Zoom</p>
+                <span>F</span>
+                <p>Refocus on the table</p>
             </div>
         </form>
     </dialog>

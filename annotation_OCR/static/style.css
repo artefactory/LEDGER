@@ -212,7 +212,6 @@ button:hover,
     position: relative;
     overflow: auto;
     display: block;
-    padding: 16px;
     background:
         linear-gradient(45deg, #dce3e4 25%, transparent 25%),
         linear-gradient(-45deg, #dce3e4 25%, transparent 25%),
@@ -224,16 +223,40 @@ button:hover,
 
 .image-canvas {
     --image-width: 320px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-width: max(100%, var(--image-width));
-    min-height: 100%;
+    --image-height: 453px;
+    --image-left: 16px;
+    --image-top: 16px;
+    --canvas-width: 100%;
+    --canvas-height: 100%;
+    position: relative;
+    width: var(--canvas-width);
+    min-width: var(--canvas-width);
+    height: var(--canvas-height);
+    min-height: var(--canvas-height);
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.focus-box {
+    position: absolute;
+    border: 1px solid rgba(204, 20, 20, 0.95);
+    border-radius: 4px;
+    background: rgba(204, 20, 20, 0.06);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.8) inset,
+        0 0 0 1px rgba(204, 20, 20, 0.35);
 }
 
 #rawImage {
-    display: block;
+    position: absolute;
+    left: var(--image-left);
+    top: var(--image-top);
     width: var(--image-width);
+    height: var(--image-height);
     max-width: none;
     border: 1px solid #b7c3c5;
     background: white;
