@@ -1,8 +1,9 @@
-"""Browser-based OCR page annotation server."""
+"""Browser-based OCR annotation server."""
 
 from __future__ import annotations
 
 import argparse
+import json
 import re
 from functools import lru_cache
 from pathlib import Path
@@ -26,6 +27,7 @@ from store import (
 
 
 HERE = Path(__file__).resolve().parent
+DEFAULT_TABLE_MANIFEST = HERE / "manifests" / "tables_5000.json"
 IMAGE_REF_RE = re.compile(r"(!\[[^\]]*\]\()((?:\./)?images/[^)\s]+)(\))")
 
 ALLOWED_TAGS = set(bleach.sanitizer.ALLOWED_TAGS).union(
@@ -72,13 +74,25 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--session-name", default="OCR annotation session")
     parser.add_argument("--annotator", default="anonymous")
     parser.add_argument(
-        "--queue-mode",
-        choices=["all", "table-candidates", "sample"],
-        default="table-candidates",
+        "--study-bundle",
+        type=Path,
+        default=None,
+        help="Optional per-session study bundle. When set, each new session gets the next precomputed session queue.",
     )
-    parser.add_argument("--sample-size", type=int, default=None)
+    parser.add_argument(
+        "--manifest-path",
+        type=Path,
+        default=DEFAULT_TABLE_MANIFEST if DEFAULT_TABLE_MANIFEST.is_file() else None,
+        help="Optional precomputed queue manifest to reuse instead of rescanning OCR files.",
+    )
+    parser.add_argument(
+        "--queue-mode",
+        choices=["all", "table-candidates", "sample", "tables"],
+        default="tables",
+    )
+    parser.add_argument("--sample-size", type=int, default=5000)
     parser.add_argument("--seed", type=int, default=17)
-    parser.add_argument("--limit", type=int, default=None, help="Maximum queued pages.")
+    parser.add_argument("--limit", type=int, default=None, help="Maximum queued items.")
     parser.add_argument(
         "--limit-reports",
         type=int,
@@ -96,7 +110,9 @@ def prepare_session(args: argparse.Namespace) -> str:
         metadata = load_metadata(args.session_id)
         return metadata["session_id"]
 
-    queue, index_summary = build_queue(
+    manifest_items, index_summary, study_config = resolve_session_source(
+        study_bundle_path=args.study_bundle,
+        manifest_path=args.manifest_path,
         ocr_root=args.ocr_root,
         raw_root=args.raw_root,
         queue_mode=args.queue_mode,
@@ -108,16 +124,21 @@ def prepare_session(args: argparse.Namespace) -> str:
     config = {
         "ocr_root": str(args.ocr_root),
         "raw_root": str(args.raw_root),
+        "study_bundle_path": str(args.study_bundle.resolve())
+        if args.study_bundle
+        else None,
+        "manifest_path": str(args.manifest_path) if args.manifest_path else None,
         "queue_mode": args.queue_mode,
         "sample_size": args.sample_size,
         "seed": args.seed,
         "limit": args.limit,
         "limit_reports": args.limit_reports,
+        **study_config,
     }
     metadata = create_session(
         session_name=args.session_name,
         annotator=args.annotator,
-        manifest_items=[item.to_manifest_record() for item in queue],
+        manifest_items=manifest_items,
         index_summary=index_summary,
         config=config,
     )
@@ -134,6 +155,123 @@ def cached_manifest(session_id: str) -> tuple[dict[str, Any], ...]:
     return tuple(load_manifest(session_id))
 
 
+def load_precomputed_manifest(
+    manifest_path: Path,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    payload = json.loads(manifest_path.read_text(encoding="utf-8"))
+    items = payload.get("items")
+    if not isinstance(items, list):
+        raise ValueError(f"invalid manifest items in {manifest_path}")
+    summary = payload.get("summary") or {}
+    if not isinstance(summary, dict):
+        raise ValueError(f"invalid manifest summary in {manifest_path}")
+    summary = {**summary, "manifest_path": str(manifest_path)}
+    return items, summary
+
+
+def load_study_bundle(bundle_path: Path) -> dict[str, Any]:
+    payload = json.loads(bundle_path.read_text(encoding="utf-8"))
+    sessions = payload.get("sessions")
+    if payload.get("bundle_type") != "ocr_table_study_bundle" or not isinstance(
+        sessions, list
+    ):
+        raise ValueError(f"invalid study bundle in {bundle_path}")
+    return payload
+
+
+def claimed_study_slots(bundle_path: Path) -> set[int]:
+    resolved = str(bundle_path.resolve())
+    claimed: set[int] = set()
+    for metadata in list_sessions():
+        config = metadata.get("config") or {}
+        if config.get("study_bundle_path") != resolved:
+            continue
+        slot = config.get("study_slot")
+        if isinstance(slot, int):
+            claimed.add(slot)
+        elif isinstance(slot, str) and slot.isdigit():
+            claimed.add(int(slot))
+    return claimed
+
+
+def allocate_study_session(
+    bundle_path: Path,
+) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
+    bundle = load_study_bundle(bundle_path)
+    claimed = claimed_study_slots(bundle_path)
+    sessions = bundle["sessions"]
+    next_session = None
+    for entry in sessions:
+        slot = entry.get("slot")
+        if isinstance(slot, int) and slot not in claimed:
+            next_session = entry
+            break
+    if next_session is None:
+        raise ValueError(f"all study sessions already assigned for {bundle_path}")
+
+    items = next_session.get("items")
+    if not isinstance(items, list):
+        raise ValueError(f"invalid study session items in {bundle_path}")
+    summary = bundle.get("summary") or {}
+    if not isinstance(summary, dict):
+        summary = {}
+    slot = int(next_session["slot"])
+    summary = {
+        **summary,
+        "study_bundle_path": str(bundle_path.resolve()),
+        "study_slot": slot,
+        "study_target_items": next_session.get("target_items"),
+        "study_agreement_items": next_session.get("agreement_items"),
+        "study_single_items": next_session.get("single_items"),
+    }
+    config = {
+        "study_slot": slot,
+        "study_target_items": next_session.get("target_items"),
+        "study_agreement_items": next_session.get("agreement_items"),
+        "study_single_items": next_session.get("single_items"),
+    }
+    return items, summary, config
+
+
+def resolve_session_source(
+    *,
+    study_bundle_path: Path | None,
+    manifest_path: Path | None,
+    ocr_root: Path,
+    raw_root: Path,
+    queue_mode: str,
+    sample_size: int | None,
+    seed: int,
+    limit: int | None,
+    limit_reports: int | None,
+) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
+    if study_bundle_path is not None:
+        items, summary, config = allocate_study_session(study_bundle_path)
+        if limit is not None:
+            items = items[:limit]
+            summary = {**summary, "limit": limit}
+            config = {**config, "limit": limit}
+        return items, summary, config
+
+    if manifest_path is not None:
+        items, summary = load_precomputed_manifest(manifest_path)
+        if limit is not None:
+            items = items[:limit]
+            summary = {**summary, "limit": limit}
+        return items, summary, {}
+
+    queue, index_summary = build_queue(
+        ocr_root=ocr_root,
+        raw_root=raw_root,
+        queue_mode=queue_mode,
+        sample_size=sample_size,
+        seed=seed,
+        limit=limit,
+        limit_reports=limit_reports,
+    )
+    return [item.to_manifest_record() for item in queue], index_summary, {}
+
+
 def get_item_or_404(session_id: str, index: int) -> dict[str, Any]:
     manifest = cached_manifest(session_id)
     if index < 0 or index >= len(manifest):
@@ -142,6 +280,8 @@ def get_item_or_404(session_id: str, index: int) -> dict[str, Any]:
 
 
 def item_page_text(item: dict[str, Any]) -> str:
+    if item.get("item_kind") == "table":
+        return str(item.get("table_html") or "")
     pages = cached_pages(item["mmd_path"])
     page_index = int(item.get("page_index", 0))
     if page_index < 0 or page_index >= len(pages):
@@ -254,7 +394,17 @@ def create_app(default_session_id: str | None, build_defaults: dict[str, Any]) -
         payload = request.get_json(force=True, silent=True) or {}
         defaults = app.config["BUILD_DEFAULTS"]
         queue_mode = payload.get("queue_mode") or defaults["queue_mode"]
-        queue, index_summary = build_queue(
+        study_bundle_value = payload.get("study_bundle_path") or defaults.get(
+            "study_bundle_path"
+        )
+        study_bundle_path = Path(study_bundle_value) if study_bundle_value else None
+        manifest_path_value = payload.get("manifest_path") or defaults.get(
+            "manifest_path"
+        )
+        manifest_path = Path(manifest_path_value) if manifest_path_value else None
+        manifest_items, index_summary, study_config = resolve_session_source(
+            study_bundle_path=study_bundle_path,
+            manifest_path=manifest_path,
             ocr_root=Path(payload.get("ocr_root") or defaults["ocr_root"]),
             raw_root=Path(payload.get("raw_root") or defaults["raw_root"]),
             queue_mode=queue_mode,
@@ -266,6 +416,10 @@ def create_app(default_session_id: str | None, build_defaults: dict[str, Any]) -
         config = {
             "ocr_root": payload.get("ocr_root") or defaults["ocr_root"],
             "raw_root": payload.get("raw_root") or defaults["raw_root"],
+            "study_bundle_path": str(study_bundle_path.resolve())
+            if study_bundle_path
+            else None,
+            "manifest_path": str(manifest_path) if manifest_path else None,
             "queue_mode": queue_mode,
             "sample_size": payload.get("sample_size", defaults.get("sample_size")),
             "seed": int(payload.get("seed", defaults["seed"])),
@@ -273,11 +427,12 @@ def create_app(default_session_id: str | None, build_defaults: dict[str, Any]) -
             "limit_reports": payload.get(
                 "limit_reports", defaults.get("limit_reports")
             ),
+            **study_config,
         }
         metadata = create_session(
             session_name=str(payload.get("session_name") or "OCR annotation session"),
             annotator=str(payload.get("annotator") or "anonymous"),
-            manifest_items=[item.to_manifest_record() for item in queue],
+            manifest_items=manifest_items,
             index_summary=index_summary,
             config=config,
         )
@@ -389,6 +544,10 @@ def main(argv: list[str] | None = None) -> int:
     build_defaults = {
         "ocr_root": str(args.ocr_root),
         "raw_root": str(args.raw_root),
+        "study_bundle_path": str(args.study_bundle.resolve())
+        if args.study_bundle
+        else None,
+        "manifest_path": str(args.manifest_path) if args.manifest_path else None,
         "queue_mode": args.queue_mode,
         "sample_size": args.sample_size,
         "seed": args.seed,

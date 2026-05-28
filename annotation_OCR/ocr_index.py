@@ -1,14 +1,16 @@
-"""Build page-level OCR annotation queues.
+"""Build OCR annotation queues.
 
-The annotation UI compares one raw page image with the corresponding Markdown
-page extracted by DeepSeekOCR. Page positions are preserved exactly: page index
-``i`` in an ``.mmd`` split maps to ``pages/page_XXXX.png`` with the same
-zero-based index when the raw image exists.
+The annotation UI can work either at page level from canonical ``.mmd`` files
+or at table level from ``*_det.mmd`` files that carry OCR coordinates.
+Page positions are preserved exactly: page index ``i`` in an ``.mmd`` split
+maps to ``pages/page_XXXX.png`` with the same zero-based index when the raw
+image exists.
 """
 
 from __future__ import annotations
 
 import argparse
+import html
 import hashlib
 import json
 import random
@@ -29,6 +31,12 @@ DEFAULT_RAW_ROOT = Path(
 PAGE_SPLIT_RE = re.compile(r"<---\s*Page Split\s*--->", re.IGNORECASE)
 REPORT_NAME_RE = re.compile(r"^([A-Z0-9-]+)_(.+)_(\d{4})(?:_[0-9a-fA-F]{8,})?$")
 HASH_SUFFIX_RE = re.compile(r"_[0-9a-fA-F]{8,}$")
+DET_HEADER_RE = re.compile(
+    r"(?m)^<\|ref\|>([^<]+)<\|/ref\|><\|det\|>(.*?)<\|/det\|>\s*$"
+)
+HTML_ROW_RE = re.compile(r"<tr\b[^>]*>(.*?)</tr>", re.IGNORECASE | re.DOTALL)
+HTML_CELL_RE = re.compile(r"<t[dh]\b[^>]*>(.*?)</t[dh]>", re.IGNORECASE | re.DOTALL)
+HTML_TAG_RE = re.compile(r"<[^>]+>")
 
 CORE_KPI_ALIASES = {
     "revenue": [
@@ -106,6 +114,25 @@ class ReportInfo:
     year: int
     report_dir: Path
     mmd_path: Path
+    det_mmd_path: Path | None
+
+
+@dataclass(frozen=True)
+class DetBlock:
+    ref_type: str
+    bbox_raw: str
+    bboxes: list[list[int]]
+    payload: str
+
+
+@dataclass(frozen=True)
+class TableSourceInfo:
+    report_dir: Path
+    mmd_path: Path
+    det_mmd_path: Path
+    page_pngs: list[Path]
+    mapping_status: str
+    source_warning: str | None = None
 
 
 @dataclass
@@ -133,6 +160,16 @@ class PageItem:
     page_text_chars: int
     page_text_preview: str
     page_text: str
+    item_kind: str = "page"
+    det_mmd_path: str | None = None
+    table_index: int | None = None
+    table_row_count: int | None = None
+    table_col_count: int | None = None
+    focus_bbox: list[int] | None = None
+    focus_bboxes: list[list[int]] | None = None
+    table_html: str | None = None
+    context_before: str = ""
+    context_after: str = ""
 
     def to_manifest_record(self, *, include_text: bool = False) -> dict[str, Any]:
         record = asdict(self)
@@ -179,6 +216,19 @@ def find_mmd(report_dir: Path) -> Path | None:
     return fallback[0] if fallback else None
 
 
+def find_det_mmd(report_dir: Path) -> Path | None:
+    preferred = report_dir / f"{report_dir.name}_det.mmd"
+    if preferred.is_file():
+        return preferred
+
+    base_preferred = report_dir / f"{report_base_name(report_dir.name)}_det.mmd"
+    if base_preferred.is_file():
+        return base_preferred
+
+    candidates = sorted(report_dir.glob("*_det.mmd"))
+    return candidates[0] if candidates else None
+
+
 def discover_reports(root: Path) -> list[ReportInfo]:
     reports: list[ReportInfo] = []
     seen_dirs = sorted({mmd.parent for mmd in root.rglob("*.mmd")})
@@ -187,7 +237,8 @@ def discover_reports(root: Path) -> list[ReportInfo]:
         if parsed is None:
             continue
         mmd_path = find_mmd(report_dir)
-        if mmd_path is None:
+        det_mmd_path = find_det_mmd(report_dir)
+        if mmd_path is None and det_mmd_path is None:
             continue
         exchange, ticker, year = parsed
         industry_slug = report_dir.parent.name
@@ -199,7 +250,8 @@ def discover_reports(root: Path) -> list[ReportInfo]:
                 ticker=ticker,
                 year=year,
                 report_dir=report_dir,
-                mmd_path=mmd_path,
+                mmd_path=mmd_path or det_mmd_path,
+                det_mmd_path=det_mmd_path,
             )
         )
     return reports
@@ -215,6 +267,92 @@ def split_pages(raw: str) -> list[str]:
 def load_pages(mmd_path: Path) -> list[str]:
     raw = mmd_path.read_text(encoding="utf-8", errors="replace")
     return split_pages(raw)
+
+
+def parse_bboxes(raw: str) -> list[list[int]]:
+    coords = [int(value) for value in re.findall(r"-?\d+", raw)]
+    boxes: list[list[int]] = []
+    for index in range(0, len(coords), 4):
+        chunk = coords[index : index + 4]
+        if len(chunk) == 4:
+            boxes.append(chunk)
+    return boxes
+
+
+def parse_det_blocks(page_text: str) -> list[DetBlock]:
+    matches = list(DET_HEADER_RE.finditer(page_text))
+    if not matches:
+        return []
+
+    blocks: list[DetBlock] = []
+    for index, match in enumerate(matches):
+        payload_start = match.end()
+        payload_end = (
+            matches[index + 1].start() if index + 1 < len(matches) else len(page_text)
+        )
+        payload = page_text[payload_start:payload_end].strip()
+        bbox_raw = match.group(2).strip()
+        blocks.append(
+            DetBlock(
+                ref_type=match.group(1).strip().lower(),
+                bbox_raw=bbox_raw,
+                bboxes=parse_bboxes(bbox_raw),
+                payload=payload,
+            )
+        )
+    return blocks
+
+
+def strip_html(value: str) -> str:
+    text = HTML_TAG_RE.sub(" ", value)
+    return " ".join(html.unescape(text).split())
+
+
+def table_dimensions(table_html: str) -> tuple[int, int]:
+    row_count = 0
+    col_count = 0
+    for row_html in HTML_ROW_RE.findall(table_html):
+        row_count += 1
+        col_count = max(col_count, len(HTML_CELL_RE.findall(row_html)))
+    return row_count, col_count
+
+
+def combined_bbox(bboxes: list[list[int]]) -> list[int] | None:
+    if not bboxes:
+        return None
+    return [
+        min(box[0] for box in bboxes),
+        min(box[1] for box in bboxes),
+        max(box[2] for box in bboxes),
+        max(box[3] for box in bboxes),
+    ]
+
+
+def nearby_context(blocks: list[DetBlock], block_index: int, *, direction: int) -> str:
+    collected: list[str] = []
+    index = block_index + direction
+    while 0 <= index < len(blocks) and len(collected) < 2:
+        block = blocks[index]
+        if block.ref_type in {"text", "title", "sub_title"} and block.payload:
+            collected.append(strip_html(block.payload))
+        index += direction
+    if direction < 0:
+        collected.reverse()
+    return "\n".join(value for value in collected if value)
+
+
+def detect_table_reasons(
+    table_html: str, context_before: str, context_after: str
+) -> list[str]:
+    reasons = ["det-table"]
+    seen = set(reasons)
+    for reason in detect_candidate_reasons(
+        "\n".join(part for part in [context_before, table_html, context_after] if part)
+    ):
+        if reason not in seen:
+            seen.add(reason)
+            reasons.append(reason)
+    return reasons
 
 
 def resolve_raw_dir(report: ReportInfo, raw_root: Path) -> tuple[Path | None, str]:
@@ -248,6 +386,44 @@ def list_page_pngs(raw_dir: Path | None) -> list[Path]:
     if not pages_dir.is_dir():
         return []
     return sorted(p for p in pages_dir.glob("page_*.png") if p.is_file())
+
+
+def resolve_table_source(report: ReportInfo, raw_root: Path) -> TableSourceInfo | None:
+    raw_dir, raw_status = resolve_raw_dir(report, raw_root)
+    if raw_dir is not None:
+        raw_det_mmd = find_det_mmd(raw_dir)
+        raw_mmd = find_mmd(raw_dir)
+        raw_page_pngs = list_page_pngs(raw_dir)
+        if raw_det_mmd is not None and raw_page_pngs:
+            return TableSourceInfo(
+                report_dir=raw_dir,
+                mmd_path=raw_mmd or raw_det_mmd,
+                det_mmd_path=raw_det_mmd,
+                page_pngs=raw_page_pngs,
+                mapping_status=raw_status,
+            )
+
+    local_det_mmd = report.det_mmd_path
+    if local_det_mmd is None:
+        return None
+
+    fallback_page_pngs = list_page_pngs(raw_dir)
+    source_warning = None
+    if raw_dir is not None:
+        source_warning = "table-source-fallback-pruned-det"
+        mapping_status = raw_status
+    else:
+        source_warning = "table-source-no-raw-match"
+        mapping_status = "raw-dir-missing"
+
+    return TableSourceInfo(
+        report_dir=report.report_dir,
+        mmd_path=report.mmd_path,
+        det_mmd_path=local_det_mmd,
+        page_pngs=fallback_page_pngs,
+        mapping_status=mapping_status,
+        source_warning=source_warning,
+    )
 
 
 def page_png_for(page_pngs: list[Path], page_index: int) -> Path | None:
@@ -308,7 +484,12 @@ def page_text_hash(text: str) -> str:
 
 
 def make_mapping_warnings(
-    *, raw_dir: Path | None, page_pngs: list[Path], page_index: int, mmd_page_count: int
+    *,
+    raw_dir: Path | None,
+    page_pngs: list[Path],
+    page_index: int,
+    mmd_page_count: int,
+    extra_warnings: list[str] | None = None,
 ) -> list[str]:
     warnings: list[str] = []
     if raw_dir is None:
@@ -319,6 +500,8 @@ def make_mapping_warnings(
         warnings.append("page-count-mismatch")
     if page_png_for(page_pngs, page_index) is None:
         warnings.append("raw-page-image-missing")
+    if extra_warnings:
+        warnings.extend(extra_warnings)
     return warnings
 
 
@@ -391,10 +574,116 @@ def iter_page_items(
             )
 
 
+def iter_table_items(
+    *,
+    ocr_root: Path,
+    raw_root: Path,
+    limit_reports: int | None = None,
+):
+    reports = discover_reports(ocr_root)
+    if limit_reports is not None:
+        reports = reports[:limit_reports]
+
+    for report in reports:
+        table_source = resolve_table_source(report, raw_root)
+        if table_source is None:
+            continue
+
+        pages = load_pages(table_source.det_mmd_path)
+        raw_dir = table_source.report_dir
+        raw_status = table_source.mapping_status
+        page_pngs = table_source.page_pngs
+        mmd_page_count = len(pages)
+        png_page_count = len(page_pngs)
+        extra_warnings = (
+            [table_source.source_warning] if table_source.source_warning else []
+        )
+
+        for page_index, page_text in enumerate(pages):
+            blocks = parse_det_blocks(page_text)
+            if not blocks:
+                continue
+
+            warnings = make_mapping_warnings(
+                raw_dir=raw_dir,
+                page_pngs=page_pngs,
+                page_index=page_index,
+                mmd_page_count=mmd_page_count,
+                extra_warnings=extra_warnings,
+            )
+            raw_png = page_png_for(page_pngs, page_index)
+            table_index = 0
+
+            for block_index, block in enumerate(blocks):
+                if block.ref_type != "table" or not block.payload:
+                    continue
+
+                context_before = nearby_context(blocks, block_index, direction=-1)
+                context_after = nearby_context(blocks, block_index, direction=1)
+                row_count, col_count = table_dimensions(block.payload)
+                focus_bboxes = [list(box) for box in block.bboxes]
+                focus_bbox = combined_bbox(focus_bboxes)
+                reasons = detect_table_reasons(
+                    block.payload,
+                    context_before=context_before,
+                    context_after=context_after,
+                )
+                item_id = (
+                    f"{report.industry_slug}/{report.name}/page_{page_index:04d}"
+                    f"/table_{table_index:03d}"
+                )
+                preview_parts = [
+                    context_before,
+                    strip_html(block.payload),
+                    context_after,
+                ]
+                yield PageItem(
+                    item_id=item_id,
+                    industry_slug=report.industry_slug,
+                    report_name=report.name,
+                    exchange=report.exchange,
+                    ticker=report.ticker,
+                    year=report.year,
+                    page_index=page_index,
+                    page_number=page_index + 1,
+                    ocr_root=str(ocr_root),
+                    raw_root=str(raw_root),
+                    report_dir=str(table_source.report_dir),
+                    raw_dir=str(raw_dir) if raw_dir else None,
+                    mmd_path=str(table_source.mmd_path),
+                    raw_png_path=str(raw_png) if raw_png else None,
+                    mmd_page_count=mmd_page_count,
+                    png_page_count=png_page_count,
+                    mapping_status=raw_status,
+                    mapping_warnings=warnings,
+                    candidate_reasons=reasons,
+                    page_text_sha256=page_text_hash(block.payload),
+                    page_text_chars=len(block.payload),
+                    page_text_preview=text_preview(
+                        "\n".join(part for part in preview_parts if part)
+                    ),
+                    page_text="",
+                    item_kind="table",
+                    det_mmd_path=str(table_source.det_mmd_path),
+                    table_index=table_index,
+                    table_row_count=row_count,
+                    table_col_count=col_count,
+                    focus_bbox=focus_bbox,
+                    focus_bboxes=focus_bboxes,
+                    table_html=block.payload,
+                    context_before=context_before,
+                    context_after=context_after,
+                )
+                table_index += 1
+
+
 def new_summary_state() -> dict[str, Any]:
     return {
         "report_names": set(),
-        "pages_total": 0,
+        "page_keys": set(),
+        "items_total": 0,
+        "page_items_total": 0,
+        "table_items_total": 0,
         "mapping_status_counts": {},
         "mapping_warning_counts": {},
         "candidate_reason_counts": {},
@@ -403,7 +692,12 @@ def new_summary_state() -> dict[str, Any]:
 
 def update_summary_state(state: dict[str, Any], item: PageItem) -> None:
     state["report_names"].add(item.report_name)
-    state["pages_total"] += 1
+    state["page_keys"].add((item.report_name, item.page_index))
+    state["items_total"] += 1
+    if item.item_kind == "table":
+        state["table_items_total"] += 1
+    else:
+        state["page_items_total"] += 1
     statuses = state["mapping_status_counts"]
     statuses[item.mapping_status] = statuses.get(item.mapping_status, 0) + 1
     warnings = state["mapping_warning_counts"]
@@ -419,9 +713,14 @@ def finish_summary_state(
 ) -> dict[str, Any]:
     return {
         "reports_total": len(state["report_names"]),
-        "pages_total": state["pages_total"],
+        "pages_total": len(state["page_keys"]),
+        "items_total": state["items_total"],
+        "page_items_total": state["page_items_total"],
+        "table_items_total": state["table_items_total"],
         "queue_reports": len({item.report_name for item in queue}),
-        "queue_pages": len(queue),
+        "queue_pages": len({(item.report_name, item.page_index) for item in queue}),
+        "queue_items": len(queue),
+        "queue_table_items": sum(1 for item in queue if item.item_kind == "table"),
         "mapping_status_counts": state["mapping_status_counts"],
         "mapping_warning_counts": state["mapping_warning_counts"],
         "candidate_reason_counts": state["candidate_reason_counts"],
@@ -440,6 +739,19 @@ def select_queue(
         selected = list(items)
     elif queue_mode == "table-candidates":
         selected = [item for item in items if item.candidate_reasons]
+    elif queue_mode == "tables":
+        selected = list(items)
+        if sample_size is not None:
+            rng = random.Random(seed)
+            selected = rng.sample(selected, min(sample_size, len(selected)))
+            selected.sort(
+                key=lambda item: (
+                    item.industry_slug,
+                    item.report_name,
+                    item.page_index,
+                    item.table_index or -1,
+                )
+            )
     elif queue_mode == "sample":
         size = sample_size if sample_size is not None else 100
         rng = random.Random(seed)
@@ -459,13 +771,13 @@ def build_queue(
     *,
     ocr_root: Path,
     raw_root: Path,
-    queue_mode: str = "table-candidates",
+    queue_mode: str = "tables",
     sample_size: int | None = None,
     seed: int = 17,
     limit: int | None = None,
     limit_reports: int | None = None,
 ) -> tuple[list[PageItem], dict[str, Any]]:
-    if queue_mode not in {"all", "table-candidates", "sample"}:
+    if queue_mode not in {"all", "table-candidates", "sample", "tables"}:
         raise ValueError(f"unknown queue mode: {queue_mode}")
 
     queue: list[PageItem] = []
@@ -474,14 +786,17 @@ def build_queue(
     sample_seen = 0
     sample_target = sample_size if sample_size is not None else 100
     scan_stopped_by_limit = False
+    item_iterator = iter_table_items if queue_mode == "tables" else iter_page_items
 
-    for item in iter_page_items(
+    for item in item_iterator(
         ocr_root=ocr_root,
         raw_root=raw_root,
         limit_reports=limit_reports,
     ):
         update_summary_state(summary_state, item)
-        if queue_mode == "sample":
+        if queue_mode == "sample" or (
+            queue_mode == "tables" and sample_size is not None
+        ):
             sample_seen += 1
             if len(queue) < sample_target:
                 queue.append(item)
@@ -491,7 +806,7 @@ def build_queue(
                     queue[replace_at] = item
             continue
 
-        include_item = queue_mode == "all" or bool(item.candidate_reasons)
+        include_item = queue_mode in {"all", "tables"} or bool(item.candidate_reasons)
         if not include_item:
             continue
         queue.append(item)
@@ -499,9 +814,14 @@ def build_queue(
             scan_stopped_by_limit = True
             break
 
-    if queue_mode == "sample":
+    if queue_mode == "sample" or (queue_mode == "tables" and sample_size is not None):
         queue.sort(
-            key=lambda item: (item.industry_slug, item.report_name, item.page_index)
+            key=lambda item: (
+                item.industry_slug,
+                item.report_name,
+                item.page_index,
+                item.table_index or -1,
+            )
         )
         if limit is not None:
             queue = queue[:limit]
@@ -525,6 +845,7 @@ def build_queue(
 def summarize_items(all_items: list[PageItem], queue: list[PageItem]) -> dict[str, Any]:
     report_names = {item.report_name for item in all_items}
     queue_reports = {item.report_name for item in queue}
+    page_keys = {(item.report_name, item.page_index) for item in all_items}
     warnings: dict[str, int] = {}
     statuses: dict[str, int] = {}
     reason_counts: dict[str, int] = {}
@@ -536,9 +857,12 @@ def summarize_items(all_items: list[PageItem], queue: list[PageItem]) -> dict[st
             reason_counts[reason] = reason_counts.get(reason, 0) + 1
     return {
         "reports_total": len(report_names),
-        "pages_total": len(all_items),
+        "pages_total": len(page_keys),
+        "items_total": len(all_items),
+        "table_items_total": sum(1 for item in all_items if item.item_kind == "table"),
         "queue_reports": len(queue_reports),
-        "queue_pages": len(queue),
+        "queue_pages": len({(item.report_name, item.page_index) for item in queue}),
+        "queue_items": len(queue),
         "mapping_status_counts": statuses,
         "mapping_warning_counts": warnings,
         "candidate_reason_counts": reason_counts,
@@ -558,8 +882,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--raw-root", type=Path, default=DEFAULT_RAW_ROOT)
     parser.add_argument(
         "--queue-mode",
-        choices=["all", "table-candidates", "sample"],
-        default="table-candidates",
+        choices=["all", "table-candidates", "sample", "tables"],
+        default="tables",
     )
     parser.add_argument("--sample-size", type=int, default=None)
     parser.add_argument("--seed", type=int, default=17)
