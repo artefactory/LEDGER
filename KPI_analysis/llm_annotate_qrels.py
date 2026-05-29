@@ -484,9 +484,7 @@ def write_audit_row(
     writer.writerow(row)
 
 
-def write_qrels_llm(
-    annotations: list[tuple[str, str, int]], path: Path
-) -> int:
+def write_qrels_llm(annotations: list[tuple[str, str, int]], path: Path) -> int:
     """Write TREC-format qrels with graded relevance (0/1/2). Returns line count."""
     path.parent.mkdir(parents=True, exist_ok=True)
     seen: set[tuple[str, str]] = set()
@@ -502,9 +500,7 @@ def write_qrels_llm(
     return len(lines)
 
 
-def write_review_flagged(
-    flagged: list[dict[str, Any]], path: Path
-) -> int:
+def write_review_flagged(flagged: list[dict[str, Any]], path: Path) -> int:
     """Write the manual-review queue. Returns row count."""
     path.parent.mkdir(parents=True, exist_ok=True)
     fields = QRELS_FIELDS + ["flag_reason"]
@@ -530,8 +526,12 @@ def write_summary(
     lines.append("# LLM annotation summary\n")
     lines.append(f"- Total candidates annotated: {total}")
     lines.append(f"- Grade 2 (primary source): {n_relevant}")
-    lines.append(f"- Grade 1 (contextual mention): {sum(d.get('grade_1', 0) for d in by_match_type.values())}")
-    lines.append(f"- Grade 0 (not relevant): {sum(d.get('grade_0', 0) for d in by_match_type.values())}")
+    lines.append(
+        f"- Grade 1 (contextual mention): {sum(d.get('grade_1', 0) for d in by_match_type.values())}"
+    )
+    lines.append(
+        f"- Grade 0 (not relevant): {sum(d.get('grade_0', 0) for d in by_match_type.values())}"
+    )
     lines.append(f"- Flagged for manual review: {n_flagged}")
     lines.append("")
 
@@ -583,7 +583,7 @@ def main() -> None:
         type=int,
         default=32,
         help=(
-            "Parallel in-flight LLM requests. Default 16 — each relevance "
+            "Parallel in-flight LLM requests. Default 32 — each relevance "
             "call is ~4k tokens (prompt+page+output), far below vLLM's "
             "max_model_len, so high parallelism is safe and fast."
         ),
@@ -619,13 +619,13 @@ def main() -> None:
                 did = row.get("doc_id", "")
                 if qid and did:
                     already_done.add((qid, did))
-        sys.stderr.write(
-            f"[resume] {len(already_done)} candidates already annotated\n"
-        )
+        sys.stderr.write(f"[resume] {len(already_done)} candidates already annotated\n")
 
     # --- Filter ---
     if already_done:
-        candidates = [c for c in candidates if (c.query_id, c.doc_id) not in already_done]
+        candidates = [
+            c for c in candidates if (c.query_id, c.doc_id) not in already_done
+        ]
         sys.stderr.write(f"[filter] {len(candidates)} candidates remaining\n")
 
     if args.limit:
@@ -645,9 +645,7 @@ def main() -> None:
     by_report: dict[str, list[CandidateRow]] = defaultdict(list)
     for c in candidates:
         by_report[c.report_name].append(c)
-    sys.stderr.write(
-        f"[group] {len(by_report)} unique reports to load\n"
-    )
+    sys.stderr.write(f"[group] {len(by_report)} unique reports to load\n")
 
     # --- LLM setup ---
     client = OpenAI(base_url=args.base_url, api_key=args.api_key)
@@ -728,14 +726,16 @@ def main() -> None:
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_msg},
             ]
-            tasks.append(AnnotTask(
-                candidate=cand, kpi=kpi,
-                target_value=target_value, messages=messages,
-            ))
+            tasks.append(
+                AnnotTask(
+                    candidate=cand,
+                    kpi=kpi,
+                    target_value=target_value,
+                    messages=messages,
+                )
+            )
 
-    sys.stderr.write(
-        f"[run] {len(tasks)} tasks, concurrency={args.concurrency}\n"
-    )
+    sys.stderr.write(f"[run] {len(tasks)} tasks, concurrency={args.concurrency}\n")
 
     # --- Parallel LLM calls ---
     from concurrent.futures import ThreadPoolExecutor, as_completed

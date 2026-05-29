@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Qrels Annotation — Start</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .landing {
+            max-width: 640px;
+            margin: 60px auto;
+            padding: 0 24px;
+        }
+
+        .landing h1 {
+            font-size: 1.6rem;
+            margin: 0 0 8px;
+        }
+
+        .landing .subtitle {
+            color: var(--muted);
+            margin: 0 0 32px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            margin: 0 0 16px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .form-field label {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .form-field input {
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font: inherit;
+            background: var(--panel-2);
+        }
+
+        .form-field input:focus {
+            outline: 2px solid var(--teal);
+            outline-offset: -1px;
+        }
+
+        .create-button {
+            background: var(--teal);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 20px;
+            min-height: 38px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .create-button:hover {
+            background: var(--teal-dark);
+        }
+
+        .create-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .session-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .session-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .session-list li:last-child {
+            border-bottom: none;
+        }
+
+        .session-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .session-info .name {
+            font-weight: 500;
+        }
+
+        .session-info .meta {
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .resume-link {
+            background: var(--panel-2);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 6px 14px;
+            text-decoration: none;
+            color: var(--teal);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .resume-link:hover {
+            background: var(--teal);
+            color: #fff;
+        }
+
+        .empty-state {
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .error-msg {
+            color: var(--red);
+            margin-top: 8px;
+            font-size: 0.88rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="landing">
+        <h1>Qrels Annotation</h1>
+        <p class="subtitle">Review KPI-retrieval candidates: is the flagged page actually relevant to the target KPI?</p>
+
+        <div class="card">
+            <h2>New session</h2>
+            <form id="createForm" class="form-row">
+                <div class="form-field">
+                    <label for="annotatorInput">Your name</label>
+                    <input id="annotatorInput" type="text" placeholder="e.g. Alice" required autocomplete="name">
+                </div>
+                <div class="form-field">
+                    <label for="sessionNameInput">Session name <span
+                            style="font-weight:normal">(optional)</span></label>
+                    <input id="sessionNameInput" type="text" placeholder="Auto-generated if blank">
+                </div>
+                <button type="submit" class="create-button" id="createButton">Create</button>
+            </form>
+            <div id="createError" class="error-msg" hidden></div>
+        </div>
+
+        <div class="card">
+            <h2>Resume existing session</h2>
+            <ul class="session-list" id="sessionList">
+                <li class="empty-state">Loading...</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const sessionList = document.getElementById('sessionList');
+        const createForm = document.getElementById('createForm');
+        const createButton = document.getElementById('createButton');
+        const createError = document.getElementById('createError');
+        const annotatorInput = document.getElementById('annotatorInput');
+        const sessionNameInput = document.getElementById('sessionNameInput');
+
+        function formatDate(iso) {
+            if (!iso) return '';
+            const d = new Date(iso);
+            return d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+
+        async function loadSessions() {
+            try {
+                const resp = await fetch('/api/sessions');
+                const data = await resp.json();
+                const sessions = data.sessions || [];
+                if (sessions.length === 0) {
+                    sessionList.innerHTML = '<li class="empty-state">No sessions yet — create one above.</li>';
+                    return;
+                }
+                sessionList.innerHTML = sessions.map(s => {
+                    const reviewed = s.completed_count || 0;
+                    const total = s.item_count || 0;
+                    const pct = total ? Math.round((reviewed / total) * 100) : 0;
+                    return `<li>
+                        <div class="session-info">
+                            <span class="name">${esc(s.session_name)}</span>
+                            <span class="meta">${esc(s.annotator)} · ${reviewed}/${total} (${pct}%) · ${formatDate(s.updated_at_utc || s.created_at_utc)}</span>
+                        </div>
+                        <a class="resume-link" href="/?session=${encodeURIComponent(s.session_id)}">Resume</a>
+                    </li>`;
+                }).join('');
+            } catch (e) {
+                sessionList.innerHTML = '<li class="empty-state">Failed to load sessions.</li>';
+            }
+        }
+
+        function esc(str) {
+            const div = document.createElement('div');
+            div.textContent = str || '';
+            return div.innerHTML;
+        }
+
+        createForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const annotator = annotatorInput.value.trim();
+            if (!annotator) return;
+            createButton.disabled = true;
+            createError.hidden = true;
+            const sessionName = sessionNameInput.value.trim() || `${annotator}'s session`;
+            try {
+                const resp = await fetch('/api/sessions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ annotator, session_name: sessionName }),
+                });
+                if (!resp.ok) {
+                    const text = await resp.text();
+                    throw new Error(text || `${resp.status}`);
+                }
+                const data = await resp.json();
+                const sid = data.metadata.session_id;
+                window.location.href = `/?session=${encodeURIComponent(sid)}`;
+            } catch (err) {
+                createError.textContent = `Error: ${err.message}`;
+                createError.hidden = false;
+                createButton.disabled = false;
+            }
+        });
+
+        loadSessions();
+    </script>
+</body>
+
+</html>
