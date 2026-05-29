@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Qrels Annotation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        window.QRELS_ANNOTATION_SESSION_ID = {{ session_id | tojson }};
+    </script>
+    <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="session-block">
+            <div class="eyebrow">Qrels annotation</div>
+            <div class="session-title" id="sessionTitle">Loading session</div>
+            <div class="session-meta" id="sessionMeta"></div>
+        </div>
+
+        <div class="progress-block">
+            <div class="progress-text" id="progressText">0 / 0 reviewed</div>
+            <div class="progress-track" aria-hidden="true">
+                <div id="progressBar"></div>
+            </div>
+        </div>
+
+        <nav class="nav-actions" aria-label="Page navigation">
+            <a href="/" class="secondary-link" title="Back to session list">Sessions</a>
+            <button id="prevButton" type="button">Prev</button>
+            <button id="nextButton" type="button">Next</button>
+            <button id="skipReviewedButton" type="button">Next open</button>
+            <button id="helpButton" type="button" class="icon-button" title="Keyboard shortcuts">?</button>
+        </nav>
+    </header>
+
+    <main class="workspace">
+        <div class="main-area">
+            <section class="pane image-pane" aria-label="Raw page image">
+                <div class="pane-toolbar">
+                    <div>
+                        <div class="pane-title">Raw page</div>
+                        <div class="pane-subtitle" id="imageSubtitle"></div>
+                    </div>
+                    <div class="zoom-actions">
+                        <button id="zoomOutButton" type="button" title="Zoom out">-</button>
+                        <button id="zoomResetButton" type="button" title="Reset zoom">100%</button>
+                        <button id="zoomInButton" type="button" title="Zoom in">+</button>
+                    </div>
+                </div>
+                <div class="image-stage" id="imageStage">
+                    <div class="image-canvas" id="imageCanvas">
+                        <img id="rawImage" alt="Raw OCR source page" decoding="async" fetchpriority="high">
+                    </div>
+                    <div id="imageMissing" class="missing-state" hidden>Raw page image unavailable</div>
+                </div>
+            </section>
+
+            <section class="pane markdown-pane" aria-label="OCR page text">
+                <div class="pane-toolbar">
+                    <div>
+                        <div class="pane-title">OCR text</div>
+                        <div class="pane-subtitle" id="markdownSubtitle"></div>
+                    </div>
+                    <div class="preview-actions">
+                        <label class="toggle-control">
+                            <input id="inlineImagesToggle" type="checkbox" checked>
+                            Inline images
+                        </label>
+                        <button id="toggleRawButton" type="button">Raw Markdown</button>
+                    </div>
+                </div>
+                <article id="markdownPreview" class="markdown-preview"></article>
+                <pre id="rawMarkdown" class="raw-markdown" hidden></pre>
+            </section>
+        </div>
+
+        <aside class="annotation-panel" aria-label="Annotation controls">
+            <div class="panel-section kpi-section">
+                <div class="eyebrow">Target KPI</div>
+                <div class="kpi-card">
+                    <div class="kpi-value" id="kpiTargetValue">-</div>
+                    <div class="kpi-label" id="kpiLabel">-</div>
+                    <div class="kpi-detail">
+                        <div>Match: <strong id="kpiMatchType">-</strong></div>
+                        <div>Alias: <span id="kpiAliasMatched">-</span></div>
+                        <div>OCR value: <span class="raw-match" id="kpiRawValue">-</span></div>
+                        <div>Rel. error: <span id="kpiRelError">-</span></div>
+                        <div>Unit source: <span id="kpiUnitSource">-</span></div>
+                    </div>
+                    <div class="kpi-snippet" id="kpiSnippet"></div>
+                </div>
+            </div>
+
+            <div class="panel-section report-card">
+                <div class="eyebrow">Report</div>
+                <h1 id="reportName">-</h1>
+                <dl>
+                    <div>
+                        <dt>Query</dt>
+                        <dd id="queryId">-</dd>
+                    </div>
+                    <div>
+                        <dt>Industry</dt>
+                        <dd id="industryValue">-</dd>
+                    </div>
+                    <div>
+                        <dt>Ticker</dt>
+                        <dd id="tickerValue">-</dd>
+                    </div>
+                    <div>
+                        <dt>Page</dt>
+                        <dd id="pageValue">-</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="panel-section decision-section">
+                <div class="section-label">Decision</div>
+                <div class="decision-buttons" role="group" aria-label="Overall status">
+                    <button type="button" class="status-button" data-status="ok">Yes</button>
+                    <button type="button" class="status-button" data-status="not_ok">No</button>
+                    <button type="button" class="status-button" data-status="uncertain">Uncertain</button>
+                </div>
+            </div>
+
+            <div class="panel-section notes-section">
+                <label for="notesInput" class="section-label">Note, if needed</label>
+                <textarea id="notesInput" rows="4" spellcheck="true"></textarea>
+            </div>
+
+            <div class="panel-actions">
+                <button id="saveButton" type="button" class="primary-button">Save note</button>
+                <a id="summaryCsvLink" class="secondary-link" href="#">CSV</a>
+                <a id="summaryMdLink" class="secondary-link" href="#">MD</a>
+            </div>
+            <div id="saveStatus" class="save-status" aria-live="polite"></div>
+        </aside>
+    </main>
+
+    <dialog id="helpDialog" class="help-dialog">
+        <form method="dialog">
+            <div class="dialog-header">
+                <h2>Keyboard</h2>
+                <button type="submit" class="icon-button">x</button>
+            </div>
+            <div class="shortcut-grid">
+                <span>A</span>
+                <p>Yes (relevant), save, next</p>
+                <span>R</span>
+                <p>No (not relevant), save, next</p>
+                <span>U</span>
+                <p>Uncertain, save, next</p>
+                <span>J / K</span>
+                <p>Next / previous</p>
+                <span>+ / - / 0</span>
+                <p>Zoom in / out / reset</p>
+                <span>F</span>
+                <p>Reset zoom to fit</p>
+            </div>
+        </form>
+    </dialog>
+</body>
+
+</html>

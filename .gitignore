@@ -33,6 +33,7 @@ KPI_analysis/output/
 
 # OCR annotation artifacts
 annotation_OCR/sessions/
+annotation_qrels/sessions/
 
 # VSCode settings
 .vscode/settings.json
