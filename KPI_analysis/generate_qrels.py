@@ -1,9 +1,10 @@
 """Generate TREC-format qrels for KPI retrieval tasks.
 
 For each (company, year, KPI) triple with ground-truth in ``kpis_long.csv``,
-this script searches the OCR'd annual report (and the next 2 years' reports)
-for pages that contain the KPI value, using both alias-first and value-first
-matching with unit normalization.
+this script searches the OCR'd annual report for pages that contain the KPI
+value, using both alias-first and value-first matching with unit normalisation.
+Optionally (``--search-future``), the next 1--2 years' reports are also
+searched for comparative tables that restate the value.
 
 Output:
 - ``qrels.txt`` — TREC-format relevance judgments
@@ -181,6 +182,21 @@ class Query:
 
 
 @dataclass
+class ParsedLine:
+    text: str
+    numbers: list[NumberToken]
+    unit_hints: list[float]  # hints from the 3-line window around this line
+    alias_kpis: set[str] = field(default_factory=set)  # KPIs with alias hits on this line
+
+
+@dataclass
+class ParsedPage:
+    raw_text: str
+    lines: list[ParsedLine]
+    page_hints: list[float]
+
+
+@dataclass
 class ReportData:
     name: str
     exchange: str
@@ -190,6 +206,7 @@ class ReportData:
     pages: list[str] = field(default_factory=list)
     lines_by_page: list[list[str]] = field(default_factory=list)
     doc_hints: list[float] = field(default_factory=list)
+    parsed_pages: list[ParsedPage] = field(default_factory=list)
     industry_slug: str = ""
 
 
@@ -338,6 +355,58 @@ def compile_alias_patterns(
     return out
 
 
+def build_alias_index(
+    alias_patterns: dict[str, list[tuple[str, re.Pattern[str]]]],
+) -> dict:
+    """Build substring pre-filter set for fast alias scanning.
+
+    Returns a dict with keys:
+    - ``"substrings"``: set of canonical alias substrings for fast pre-filter
+    - ``"min_alias_len"``: length of the shortest alias
+    """
+    substrings: set[str] = set()
+    min_len = 999
+    for kpi, pats in alias_patterns.items():
+        for alias_text, _pat in pats:
+            canonical = alias_text.lower().replace("-", " ")
+            canonical = re.sub(r"\s+", " ", canonical).strip()
+            substrings.add(canonical)
+            if len(canonical) < min_len:
+                min_len = len(canonical)
+    return {
+        "substrings": substrings,
+        "min_alias_len": min_len,
+    }
+
+
+def find_alias_kpis(
+    line: str,
+    alias_index: dict,
+    alias_patterns: dict[str, list[tuple[str, re.Pattern[str]]]],
+) -> set[str]:
+    """Return set of KPI keys that have at least one alias match on the line.
+
+    Uses a substring pre-filter to skip lines that definitely don't contain
+    any alias, then does per-KPI pattern matching on the remaining lines.
+    """
+    if len(line) < 3:
+        return set()
+    # Fast pre-filter: canonicalize line then check substring presence
+    line_canonical = line.lower().replace("-", " ")
+    line_canonical = re.sub(r"\s+", " ", line_canonical)
+    subs: set[str] = alias_index["substrings"]
+    if not any(s in line_canonical for s in subs):
+        return set()
+    # Per-KPI pattern matching (only on pre-filtered lines)
+    kpis: set[str] = set()
+    for kpi, pats in alias_patterns.items():
+        for _alias_text, pat in pats:
+            if pat.search(line):
+                kpis.add(kpi)
+                break
+    return kpis
+
+
 # ---------------------------------------------------------------------------
 # Data loading
 # ---------------------------------------------------------------------------
@@ -442,8 +511,10 @@ def load_companies(json_path: Path) -> dict[str, str]:
 
 def prepare_report(
     report: ReportData,
+    alias_index: dict,
+    alias_patterns: dict[str, list[tuple[str, re.Pattern[str]]]],
 ) -> None:
-    """Load and parse the .mmd file in-place."""
+    """Load and parse the .mmd file in-place, pre-caching numbers, unit hints, and alias hits."""
     raw = report.mmd_path.read_text(encoding="utf-8", errors="replace")
     raw = normalize_text(raw)
     pages = [p.strip() for p in PAGE_SPLIT_RE.split(raw) if p.strip()]
@@ -455,6 +526,24 @@ def prepare_report(
     report.doc_hints = detect_unit_hints(doc_text)
     if not report.doc_hints:
         report.doc_hints = detect_unit_hints(raw)
+
+    parsed_pages: list[ParsedPage] = []
+    for page_idx, page_text in enumerate(pages):
+        lines = report.lines_by_page[page_idx]
+        page_hints = detect_unit_hints(page_text)
+        parsed_lines: list[ParsedLine] = []
+        for line_idx, line in enumerate(lines):
+            if not line:
+                parsed_lines.append(ParsedLine(text=line, numbers=[], unit_hints=[]))
+                continue
+            nums = parse_numbers_from_line(line) if any(c.isdigit() for c in line) else []
+            window_lo = max(0, line_idx - 1)
+            window_hi = min(len(lines), line_idx + 2)
+            line_hints = detect_unit_hints(" ".join(lines[window_lo:window_hi])) if nums else []
+            alias_kpis = find_alias_kpis(line, alias_index, alias_patterns)
+            parsed_lines.append(ParsedLine(text=line, numbers=nums, unit_hints=line_hints, alias_kpis=alias_kpis))
+        parsed_pages.append(ParsedPage(raw_text=page_text, lines=parsed_lines, page_hints=page_hints))
+    report.parsed_pages = parsed_pages
 
 
 def build_report_index(
@@ -537,44 +626,36 @@ def search_report_for_kpi(
 ) -> list[PageCandidate]:
     """Search a single report for pages containing the KPI value.
 
-    For the target year report, a value-only match is sufficient.
-    For N+1/N+2 reports, both alias AND value must match on the same page.
+    Uses pre-parsed numbers, unit hints, and alias hits from ``report.parsed_pages``.
     """
     candidates: list[PageCandidate] = []
     patterns = alias_patterns.get(kpi, [])
 
-    for page_idx, page_lines in enumerate(report.lines_by_page):
-        page_text = report.pages[page_idx]
-        page_hints = detect_unit_hints(page_text)
+    for page_idx, parsed_page in enumerate(report.parsed_pages):
+        page_hints = parsed_page.page_hints
+        parsed_lines = parsed_page.lines
 
-        # --- Alias scan ---
-        alias_hits: list[tuple[int, str]] = []  # (line_idx, alias_text)
-        for line_idx, line in enumerate(page_lines):
-            if not line:
+        # --- Alias scan (use pre-computed alias_kpis) ---
+        alias_hits: list[tuple[int, str]] = []
+        for line_idx, pl in enumerate(parsed_lines):
+            if kpi not in pl.alias_kpis:
                 continue
+            # Confirm with the actual patterns to get the matched alias text
             for alias_text, pat in patterns:
-                if pat.search(line):
+                if pat.search(pl.text):
                     alias_hits.append((line_idx, alias_text))
-                    break  # first alias match per line is enough
+                    break
 
         has_alias = len(alias_hits) > 0
 
-        # --- Value scan (numeric tolerance) ---
+        # --- Value scan (numeric tolerance) using pre-parsed numbers ---
         value_hits: list[tuple[int, NumberToken, float, str]] = []
-        for line_idx, line in enumerate(page_lines):
-            if not line:
+        for line_idx, pl in enumerate(parsed_lines):
+            if not pl.numbers:
                 continue
-            nums = parse_numbers_from_line(line)
-            if not nums:
-                continue
-
-            window_lo = max(0, line_idx - 1)
-            window_hi = min(len(page_lines), line_idx + 2)
-            line_hints = detect_unit_hints(" ".join(page_lines[window_lo:window_hi]))
-
-            for num in nums:
+            for num in pl.numbers:
                 chosen_mult, unit_source, _ = resolve_multiplier(
-                    num.inline_multiplier, line_hints, page_hints, report.doc_hints
+                    num.inline_multiplier, pl.unit_hints, page_hints, report.doc_hints
                 )
                 normalized = num.value * chosen_mult
                 if abs(target_value) > 0:
@@ -587,22 +668,20 @@ def search_report_for_kpi(
         has_value_numeric = len(value_hits) > 0
 
         # --- Value scan (literal string) ---
-        literal_match = search_literal_in_page(page_text, target_value)
+        literal_match = search_literal_in_page(parsed_page.raw_text, target_value)
         has_literal = literal_match is not None
 
         has_value = has_value_numeric or has_literal
 
         # --- Determine match type and whether to emit candidate ---
         if is_target_year:
-            # Target year: value-only OR alias+value
             if has_alias and has_value:
                 match_type = "alias+value"
             elif has_value:
                 match_type = "value-only"
             else:
-                continue  # alias-only without value is not useful
+                continue
         else:
-            # N+1/N+2: require BOTH alias and value
             if has_alias and has_value:
                 match_type = "alias+value"
             else:
@@ -611,26 +690,30 @@ def search_report_for_kpi(
         # Build the best candidate for this page
         best_alias = alias_hits[0][1] if alias_hits else ""
         best_rel_error = min((h[2] for h in value_hits), default=0.0)
-        best_raw = value_hits[0][1].raw if value_hits else (literal_match or "")
-        best_normalized = (
-            value_hits[0][1].value
-            * resolve_multiplier(
-                value_hits[0][1].inline_multiplier,
-                [],
+
+        if value_hits:
+            best_raw = value_hits[0][1].raw
+            best_num = value_hits[0][1]
+            best_line_idx = value_hits[0][0]
+            best_mult, _, _ = resolve_multiplier(
+                best_num.inline_multiplier,
+                parsed_lines[best_line_idx].unit_hints,
                 page_hints,
                 report.doc_hints,
-            )[0]
-            if value_hits
-            else target_value
-        )
-        best_unit = value_hits[0][3] if value_hits else "literal"
+            )
+            best_normalized = best_num.value * best_mult
+            best_unit = value_hits[0][3]
+        else:
+            best_raw = literal_match or ""
+            best_normalized = target_value
+            best_unit = "literal"
 
         # Use the alias line for the snippet, or the first value line
         snippet_line = ""
         if alias_hits:
-            snippet_line = page_lines[alias_hits[0][0]]
+            snippet_line = parsed_lines[alias_hits[0][0]].text
         elif value_hits:
-            snippet_line = page_lines[value_hits[0][0]]
+            snippet_line = parsed_lines[value_hits[0][0]].text
 
         candidates.append(
             PageCandidate(
@@ -901,10 +984,16 @@ def main() -> None:
         help="Relative error tolerance for value matching. Default 0.01 (1%%).",
     )
     tuning.add_argument(
+        "--search-future",
+        action="store_true",
+        default=False,
+        help="Also search N+1 and N+2 reports for comparative-table restatements.",
+    )
+    tuning.add_argument(
         "--max-future-years",
         type=int,
         default=2,
-        help="Search N years after the target year. Default 2.",
+        help="Years after the target year to search (only with --search-future). Default 2.",
     )
     tuning.add_argument(
         "--seed",
@@ -913,6 +1002,9 @@ def main() -> None:
         help="Random seed for template selection. Default 42.",
     )
     args = p.parse_args()
+
+    if not args.search_future:
+        args.max_future_years = 0
 
     # --- Load data ---
     sys.stderr.write("[load] Loading ground truth...\n")
@@ -999,6 +1091,7 @@ def main() -> None:
 
     # --- Compile alias patterns ---
     alias_patterns = compile_alias_patterns(kpi_aliases, selected_kpis)
+    alias_index = build_alias_index(alias_patterns)
 
     # --- Group queries by (ticker, year) for efficient report loading ---
     queries_by_pair: dict[tuple[str, int], list[Query]] = defaultdict(list)
@@ -1031,7 +1124,7 @@ def main() -> None:
 
             # Load report lazily
             if (ticker, search_year) not in reports_loaded:
-                prepare_report(report)
+                prepare_report(report, alias_index, alias_patterns)
                 reports_loaded[(ticker, search_year)] = report
                 reports_processed += 1
                 if reports_processed % 50 == 0:
