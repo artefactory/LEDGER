@@ -306,7 +306,8 @@ def main():
         # Return t+1 (from the return_t1 column at pub_ts)
         return_t1 = prices.loc[pub_ts, "return_t1"] if "return_t1" in prices.columns else None
         return_t5 = prices.loc[pub_ts, "return_t5"] if "return_t5" in prices.columns else None
-
+        # return_t-90: cumulative return from t-90 to t (= Close[t-90]/Close[t] - 1)
+        return_t_90 = (prices.iloc[t0_pos - 90]["Close"] / prices.iloc[t0_pos]["Close"] - 1) if t0_pos >= 90 else None
         # Industry-adjusted return
         ind_ret_t1 = ind_aligned.loc[pub_ts, "return_t1"] if (pub_ts in ind_aligned.index and "return_t1" in ind_aligned.columns) else None
         unbiased_ret_t1 = (return_t1 - ind_ret_t1) if return_t1 is not None and ind_ret_t1 is not None and not pd.isna(ind_ret_t1) else None
@@ -327,6 +328,7 @@ def main():
             "return_t1": return_t1,
             "return_t5": return_t5,
             "unbiased_return_t1": unbiased_ret_t1,
+            "return_t-90": return_t_90
         }
         records.append(rec)
 
@@ -359,7 +361,7 @@ def main():
         return
 
     df = pd.DataFrame(records)
-    for c in ["volume_t1", "return_t1", "return_t5", "unbiased_return_t1", "surprise_pct"]:
+    for c in ["volume_t1", "return_t1", "return_t5", "unbiased_return_t1", "surprise_pct", "return_t-90"]:
         df[c] = pd.to_numeric(df[c], errors="coerce")
 
     for d in [DIR_EVENT, DIR_SAMEDAY, DIR_DISTRIB, DIR_COMPARE, DIR_FILING_SURPRISE, OUTPUT_BASE]:
@@ -985,6 +987,55 @@ def main():
         plt.close(fig)
         print(f"Saved: {out_path}")
         print(f"Surprise-Return correlation: r_inlier={corr_inlier:.4f}, r_all={corr_all:.4f} ({n_outliers} outliers clipped)")
+    
+    # --- Plot: surprise vs return ---
+    df_surprise = df.dropna(subset=["surprise_pct", "return_t-90"])
+    if len(df_surprise) > 10:
+        # Winsorize: clip extreme surprises for visualization (keep all for stats)
+        q_lo, q_hi = df_surprise["surprise_pct"].quantile(0.02), df_surprise["surprise_pct"].quantile(0.98)
+        xlim_lo, xlim_hi = q_lo, q_hi
+        df_inlier = df_surprise[(df_surprise["surprise_pct"] >= xlim_lo) & (df_surprise["surprise_pct"] <= xlim_hi)]
+        n_outliers = len(df_surprise) - len(df_inlier)
+
+        fig, ax = plt.subplots(figsize=(10, 6))
+
+        # Color by surprise sign
+        pos_mask = df_inlier["surprise_pct"] >= 0
+        ax.scatter(df_inlier.loc[pos_mask, "surprise_pct"], df_inlier.loc[pos_mask, "return_t-90"],
+                   alpha=0.6, s=30, color="#2ecc71", edgecolors="white", linewidth=0.3, label=f"Surprise ≥ 0 (n={pos_mask.sum()})")
+        ax.scatter(df_inlier.loc[~pos_mask, "surprise_pct"], df_inlier.loc[~pos_mask, "return_t-90"],
+                   alpha=0.6, s=30, color="#e74c3c", edgecolors="white", linewidth=0.3, label=f"Surprise < 0 (n={(~pos_mask).sum()})")
+
+        # Regression on inliers only
+        x = df_inlier["surprise_pct"].values
+        y = df_inlier["return_t-90"].values
+        m, b = np.polyfit(x, y, 1)
+        x_range = np.linspace(x.min(), x.max(), 100)
+        ax.plot(x_range, m * x_range + b, color="black", linewidth=2,
+                label=f"OLS: y = {m:.5f}x + {b:.4f}")
+
+        # Correlation (full dataset + inliers)
+        corr_all = df_surprise[["surprise_pct", "return_t-90"]].corr().iloc[0, 1]
+        corr_inlier = df_inlier[["surprise_pct", "return_t-90"]].corr().iloc[0, 1]
+
+        ax.axhline(0, color="black", linewidth=0.8, alpha=0.4)
+        ax.axvline(0, color="black", linewidth=0.8, alpha=0.4)
+        ax.set_xlim(xlim_lo, xlim_hi)
+        ax.set_xlabel("EPS Surprise (%)", fontsize=11)
+        ax.set_ylabel("Return t-90 (next-day)", fontsize=11)
+        ax.set_title(f"EPS Surprise vs Next-Day Return at Earnings Call\n"
+                     f"(n={len(df_inlier)}, {n_outliers} outliers clipped outside [{xlim_lo:.0f}%, {xlim_hi:.0f}%])",
+                     fontsize=12)
+        ax.legend(title=f"r = {corr_inlier:.3f} (inliers)  |  r = {corr_all:.3f} (all {len(df_surprise)})",
+                  fontsize=9, title_fontsize=9)
+        ax.grid(True, alpha=0.3)
+        plt.tight_layout()
+        out_path = DIR_DISTRIB / "surprise_vs_returnt-90.png"
+        fig.savefig(out_path, dpi=150)
+        plt.close(fig)
+        print(f"Saved: {out_path}")
+        print(f"Surprise-Return correlation: r_inlier={corr_inlier:.4f}, r_all={corr_all:.4f} ({n_outliers} outliers clipped)")
+
 
     # --- Comparison: Sentiment separation vs Surprise separation (both at earnings date) ---
     # SAME SAMPLE: restrict to events that have BOTH a sentiment label AND a surprise value
