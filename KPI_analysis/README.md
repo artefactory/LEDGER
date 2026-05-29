@@ -40,6 +40,8 @@ KPI_analysis/
 ├── fetch_filing_returns.py       # 10-K filing date + market reaction (next-day / next-week / SPY-alpha)
 ├── build_dataset.py              # consolidates output/raw/*.json into long + wide CSVs
 ├── validate_ocr_kpis.py          # pilot: validate EDGAR KPI values against OCR text
+├── generate_qrels.py             # TREC qrels generator for KPI retrieval tasks
+├── kpi_aliases.json              # alias dict for all 30 KPIs (consumed by generate_qrels.py)
 ├── cache/                        # ticker->CIK map, cached SEC + AV responses, AV budget (gitignored)
 │   ├── ticker_cik.json
 │   ├── companyfacts/CIK*.json
@@ -52,7 +54,8 @@ KPI_analysis/
     ├── kpis_long.csv             # (ticker, year, kpi, value) long form
     ├── kpis_wide.csv             # (ticker, year) rows × KPI columns
     ├── coverage.md               # coverage % per KPI per year
-    └── filing_returns.csv        # one row per (ticker, year) with 10-K filing date + market reaction
+    ├── filing_returns.csv        # one row per (ticker, year) with 10-K filing date + market reaction
+    └── qrels/                    # output of generate_qrels.py (see below)
 ```
 
 ## Setup
@@ -289,6 +292,258 @@ amendment's. Original-10-K reactions are the cleaner publication-day signal;
 amendments often fix errors months later and the reaction is much smaller
 (and noisier). The `has_amendment` flag lets you exclude or treat
 separately the 8% of fiscal years that were later restated.
+
+## Qrels generator for KPI retrieval (`generate_qrels.py`)
+
+Builds TREC-format relevance judgments (`qrels`) for evaluating retrieval
+systems on the KPI question-answering task. For each `(company, year, KPI)`
+triple with ground-truth in `kpis_long.csv`, the script searches OCR'd annual
+reports for pages that contain the KPI value.
+
+### Search strategy
+
+The default search targets only the **target-year report**. Two match types are
+used:
+
+| Match type | Condition | When emitted |
+|---|---|---|
+| `alias+value` | KPI alias regex **and** numeric value (within tolerance) found on the same page | Always |
+| `value-only` | Numeric value found, no alias | Target-year report only |
+
+The value match uses the same unit-normalisation hierarchy as
+`validate_ocr_kpis.py` (inline suffix → line → page → document → default 1×),
+with a configurable relative error tolerance (default ±1%). A **literal search**
+also scans for pre-formatted variants of the target value ($9.7 billion,
+9,709,003, etc.) to catch OCR formatting edge cases.
+
+Optionally, with `--search-future`, the script also searches **N+1 and N+2
+reports** for comparative tables that restate the prior year's value. For
+future-year reports, both alias AND value must match on the same page (to avoid
+false positives from unrelated numbers).
+
+### Key CLI flags
+
+| Flag | Default | Purpose |
+|---|---|---|
+| `--industry STR` | — | Restrict to one industry (exact match on `companies.json` key). |
+| `--tickers T1 T2` | — | Restrict to specific tickers. |
+| `--kpis k1 k2` | — | Restrict to specific KPI keys (e.g. `revenue net_income`). |
+| `--years RANGE` | `2017-2022` | Year range (e.g. `2018-2021`) or single year (`2020`). |
+| `--limit N` | — | Process at most N queries (smoke test). |
+| `--tolerance F` | `0.01` | Relative error tolerance for value matching (0.01 = 1%). |
+| `--search-future` | `False` | Also search N+1 and N+2 reports for comparative-table restatements. |
+| `--max-future-years N` | `2` | Years after target year to search (only with `--search-future`). |
+| `--seed N` | `42` | Random seed for query template selection. |
+| `--ocr-root PATH` | `DeepSeekOCR_Ardian_pruned_1k` | Root of OCR'd reports (.mmd files). |
+
+### Usage
+
+```bash
+# All reports in one industry (target-year only, default)
+uv run python KPI_analysis/generate_qrels.py \
+    --industry "Consumer Cyclical / Auto Parts"
+
+# Specific tickers, subset of KPIs
+uv run python KPI_analysis/generate_qrels.py \
+    --tickers AAP AZO --kpis revenue net_income
+
+# Enable N+1/N+2 future-year search
+uv run python KPI_analysis/generate_qrels.py \
+    --industry "Consumer Cyclical / Auto Parts" --search-future
+
+# Fast smoke test (10 queries)
+uv run python KPI_analysis/generate_qrels.py \
+    --industry "Consumer Cyclical / Auto Parts" --limit 10
+```
+
+### Output
+
+Written to `KPI_analysis/output/qrels/`:
+
+| File | Format | Description |
+|---|---|---|
+| `qrels.txt` | TREC | One line per `(query_id, doc_id)` with relevance `1`. Deduplicated. |
+| `review_candidates.csv` | CSV | Detailed candidate info: report name, page index, match type, alias matched, raw value, normalised value, relative error, unit source, snippet. |
+| `summary.md` | Markdown | Per-query and per-report statistics. |
+
+The TREC qrels format is tab-separated: `query_id  0  doc_id  1`. Document IDs
+are formatted as `{REPORT_NAME}/page_{NNNN}` (0-indexed page numbers).
+
+### Query instantiation
+
+For each `(ticker, year, KPI)` triple with ground-truth, a natural-language
+query is generated by randomly selecting a template from
+`KPI_analysis/queries/*.json` and substituting the company name (from
+`companies_alt_names.json`) and year. The query set covers all 30 KPIs.
+
+### Data-quality findings from early runs
+
+- For Auto Parts (17 tickers), GTEC has no OCR report in the corpus — 4/5
+  queries hit at least one candidate page.
+- Most hits come from the target-year report's financial statements. The
+  `--search-future` flag adds marginal recall (comparative tables) but also
+  increases false-positive risk, hence the stricter alias+value requirement.
+- Literal value matches handle cases where OCR formatting diverges from the
+  numeric tolerance search (e.g. "$9.7 billion" vs. the raw number 9709003000).
+
+## LLM annotation of qrels (`llm_annotate_qrels.py`)
+
+Re-validates the regex-matched candidates from `review_candidates.csv` using an
+LLM. The regex pipeline is designed for high recall — it finds pages where a
+number close to the target exists near a KPI alias. Many of those matches are
+coincidental (the right number, wrong context). The LLM annotation filters and
+grades those candidates.
+
+### Pipeline
+
+```
+generate_qrels.py          llm_annotate_qrels.py       human review
+(candidates)  ──────────>  (LLM grades 0/1/2)  ────>  (flagged edge cases)
+392K candidates             ~2 pages/sec, ~55h           ~few hundred rows
+```
+
+### Grading rubric (0/1/2)
+
+| Grade | Label | Definition |
+|---|---|---|
+| **2** | Primary source | The page directly reports the target KPI value for the target fiscal year in a financial statement (income statement, balance sheet, cash-flow statement), a data table, or an explicit narrative sentence. The value matches after unit scaling. |
+| **1** | Contextual mention | The KPI concept appears and a value is nearby, but: (a) the value is for a different fiscal year (comparative restatement), (b) the value is for a subsidiary/segment not the consolidated entity, (c) the value is approximate/rounded, (d) the KPI is mentioned in prose without a specific figure, or (e) the match is in a footnote or discussion rather than a primary financial statement. |
+| **0** | Not relevant | The page does not mention the target KPI, or the numeric match is purely coincidental (the same number appears in an unrelated context). |
+
+### System prompt guidance
+
+The LLM prompt includes explicit rules for the most common edge cases:
+
+- **Unit scaling**: "in thousands" header × 1,000, "in millions" × 1,000,000.
+- **Multi-year tables**: most annual reports show 2–3 years side by side. Only
+  the column for the **target fiscal year** is grade 2; prior-year columns are
+  grade 1 (comparative restatements for a different year).
+- **52/53-week fiscal years**: US retailers (AAP, COST, AZO) end their fiscal
+  year in early January. "Year Ended January 1, 2022" = fiscal year 2021. The
+  `report_year` in the prompt uses the filer's own label, not the calendar year.
+- **Scope distinctions**: `net_income` is parent-only (excluding NCI);
+  `stockholders_equity` is parent-only; `cash_and_equivalents` is unrestricted.
+  If the page shows a broader scope, the LLM gives grade 1, not 2.
+- **Different phrasing**: "net sales" for revenue, "capital expenditure" for
+  capex — all known aliases are listed in the prompt.
+
+### Examples from actual annotations
+
+**Grade 2 — primary source (balance sheet line item):**
+
+> Query: `AAP_accounts_payable_2017`
+> Page 42: Consolidated Balance Sheet showing "Accounts payable" = $2,894,582
+> (in thousands) for December 30, 2017.
+> LLM: *"The page contains the Consolidated Balance Sheet for Advance Auto
+> Parts. The column 'December 30, 2017' corresponds to fiscal year 2017. The
+> accounts payable line item reports $2,894,582 in thousands = $2,894,582,000,
+> matching the target."*
+
+**Grade 1 — contextual mention (wrong year in comparative table):**
+
+> Query: `AAP_cost_of_revenue_2017`
+> Page 72: "Cost of sales" = 5,314,246 (in thousands) but on a "Condensed
+> Consolidating Statement of Operations For the Year Ended January 2, 2016"
+> (fiscal year 2015).
+> LLM: *"The page contains the exact target value for 'Cost of sales', but it
+> is located in the statement for fiscal year 2016, not the target year 2017."*
+
+**Grade 1 — contextual mention (scope mismatch: unrestricted vs restricted):**
+
+> Query: `AAP_cash_incl_restricted_2017`
+> Page 42: Balance sheet shows "Cash and cash equivalents" = $546,937 (in
+> thousands). The value matches, but the KPI is `cash_incl_restricted` (which
+> includes restricted cash).
+> LLM: *"The page reports 'Cash and cash equivalents' for the target year,
+> which matches the target value. However, the KPI is 'cash incl restricted'
+> and the page only shows unrestricted cash. This is a scope mismatch."*
+
+**Grade 1 — contextual mention (EPS variant):**
+
+> Query: `AAP_eps_basic_2017`
+> Page 2: Financial Highlights table shows "Diluted EPS" = $6.42 and "Adjusted
+> Diluted EPS" = $5.37, but no basic EPS.
+> LLM: *"The page reports Diluted EPS and Adjusted Diluted EPS for the target
+> year, but the KPI is basic EPS. The page does not state basic EPS."*
+
+**Grade 0 — not relevant (coincidental number, different line item):**
+
+> Query: `AAP_accounts_receivable_2017`
+> Page 26: "$600.8 million" appears, but the text says "We generated operating
+> cash flow of $600.8 million during 2017."
+> LLM: *"The page mentions $600.8 million, but it explicitly attributes this
+> figure to operating cash flow, not accounts receivable."*
+
+**Grade 0 — not relevant (alias matched in wrong context):**
+
+> Query: `AAP_depreciation_amortization_2017`
+> Page 30: "amortization" appears near "$250 million", but the text says
+> "In 2018, we anticipate our capital expenditures... will be up to $250
+> million."
+> LLM: *"The page mentions 'amortization' and the value '$250 million', but
+> the $250 million refers to anticipated capital expenditures, not depreciation
+> and amortization."*
+
+### Flagging logic
+
+When the LLM gives grade < 2 on a **high-confidence** regex match, the
+candidate is flagged for human review. A match is high-confidence when all
+three conditions hold:
+
+| Condition | Threshold | Rationale |
+|---|---|---|
+| `match_type` | `alias+value` | Both the KPI alias and a numeric match were found on the same page. |
+| `rel_error` | `< 0.005` (0.5%) | The numeric value is very close to the target. |
+| `unit_source` | `page`, `line`, or `inline` | The unit scaling is from a reliable source (not `default` or `literal`). |
+
+This is deliberately narrow. A `value-only` match with `rel_error=0.007` and
+`unit_source=literal` won't be flagged even if the LLM says grade 0 — that's
+expected noise from the regex pipeline. Only disagreements where the regex
+evidence is strong get flagged.
+
+Flagged candidates are written to `review_flagged.csv` with the LLM's
+reasoning, the regex evidence, and a `flag_reason` column.
+
+### Usage
+
+```bash
+# Run on all candidates (full pipeline, ~55h at 2 pages/sec)
+uv run python KPI_analysis/llm_annotate_qrels.py --model Qwen/Qwen3.6-27B-FP8
+
+# Smoke test on a small subset
+uv run python KPI_analysis/llm_annotate_qrels.py --model Qwen/Qwen3.6-27B-FP8 --limit 100
+
+# Resume after interruption (reads existing audit CSV, skips already-done)
+uv run python KPI_analysis/llm_annotate_qrels.py --model Qwen/Qwen3.6-27B-FP8 --resume
+
+# Custom endpoint
+uv run python KPI_analysis/llm_annotate_qrels.py \
+    --model Qwen/Qwen3.6-27B-FP8 \
+    --base-url http://gpu-server:8000/v1
+```
+
+### Output
+
+Written to `KPI_analysis/output/qrels/`:
+
+| File | Format | Description |
+|---|---|---|
+| `qrels_llm.txt` | TREC | Graded relevance (0/1/2) for every candidate. All grades are written so downstream evaluation can use any threshold. |
+| `annotations_audit.csv` | CSV | Per-candidate detail: regex match info, LLM grade, reasoning, latency, token counts. |
+| `review_flagged.csv` | CSV | High-confidence regex matches where LLM grade < 2. For human review. |
+| `annotations_summary.md` | Markdown | Grade distribution by match type and by KPI. |
+
+### Using graded qrels for evaluation
+
+The `qrels_llm.txt` file writes all three grades. For binary evaluation
+metrics (recall@k, MAP), threshold as needed:
+
+- **High-precision set**: grade 2 only — these are pages where the LLM is
+  confident the KPI value appears in a primary financial statement.
+- **High-recall set**: grades 1+2 — includes contextual mentions, useful for
+  evaluating whether a retriever finds the page at all.
+- **Full set**: all grades — use graded metrics (NDCG, ERR) for the most
+  informative evaluation.
 
 ## OCR validation pilot
 
