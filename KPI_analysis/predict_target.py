@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import silhouette_score
+from sklearn.metrics import roc_auc_score, silhouette_score
 from sklearn.model_selection import cross_val_score, cross_val_predict, StratifiedKFold
 from sklearn.naive_bayes import MultinomialNB
 
@@ -48,14 +48,17 @@ SELECTED_COMPANIES_JSON = (
     REPO_ROOT / "tickers_lists" / "grouped" / "selected" / "companies.json"
 )
 OUTPUT_DIR = HERE / "output" / "plots" / "predict_target"
+INLIERS_DIR = OUTPUT_DIR / "surprise_inliers"
 
 HORIZONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 MAX_LAG = max(HORIZONS)
 
 # Threshold for neutral class: returns in [-NEUTRAL_THR, +NEUTRAL_THR] are "neutral"
-NEUTRAL_THR = 0.01  # 1%
+NEUTRAL_THR = 0.10  # 10%
 # For surprise: surprise_pct in [-SURPRISE_NEUTRAL_THR, +SURPRISE_NEUTRAL_THR] → neutral
-SURPRISE_NEUTRAL_THR = 2.0  # 2% EPS surprise
+SURPRISE_NEUTRAL_THR = 30.0  # 30% EPS surprise
+SURPRISE_INLIER_Q_LOW = 0.02
+SURPRISE_INLIER_Q_HIGH = 0.98
 
 BENCH_START = date(2016, 6, 1)
 BENCH_END = date(2024, 6, 30)
@@ -103,6 +106,7 @@ def load_letter_texts() -> dict[tuple[str, int], str]:
 
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    INLIERS_DIR.mkdir(parents=True, exist_ok=True)
 
     # --- Load companies ---
     with open(SELECTED_COMPANIES_JSON) as f:
@@ -239,6 +243,11 @@ def main():
             # Silhouette score (needs >=2 predicted classes)
             sil_s = (silhouette_score(X_surp_all.toarray(), y_pred_surp)
                      if n_unique_pred_s >= 2 else float("nan"))
+            try:
+                scores_auc_s = cross_val_score(MultinomialNB(), X_surp_all, y_surp_3, cv=cv, scoring="roc_auc_ovr")
+                roc_auc_s = scores_auc_s.mean()
+            except ValueError:
+                roc_auc_s = float("nan")
             surprise_result = {
                 "accuracy": scores_surp.mean(),
                 "accuracy_std": scores_surp.std(),
@@ -246,11 +255,12 @@ def main():
                 "n": len(surp_idx),
                 "n_classes_predicted": int(n_unique_pred_s),
                 "silhouette": sil_s,
+                "roc_auc": roc_auc_s,
                 "class_dist": f"neg={class_counts_s[0]} neu={class_counts_s[1]} pos={class_counts_s[2]}",
             }
             print(f"\nTarget 3 — surprise (3-class): acc={surprise_result['accuracy']:.3f} "
                   f"(baseline={baseline_s:.3f}, n={len(surp_idx)}, "
-                  f"classes_predicted={n_unique_pred_s}, silhouette={sil_s:.3f})")
+                  f"silhouette={sil_s:.3f}, roc_auc={roc_auc_s:.3f})")
             print(f"  Class distribution: {surprise_result['class_dist']}")
         else:
             print(f"\nTarget 3 — surprise (3-class): class too small "
@@ -261,6 +271,7 @@ def main():
     # --- For each horizon, build targets and evaluate ---
     results_raw = []      # accuracy for raw return sign
     results_residual = []  # accuracy for residual sign
+    results_residual_inliers = []  # residual sign with surprise outliers removed
 
     for h in HORIZONS:
         # Collect returns at this horizon
@@ -277,6 +288,7 @@ def main():
             print(f"  h={h}: only {len(valid_idx)} samples, skipping")
             results_raw.append({"horizon": h, "accuracy": np.nan, "n": len(valid_idx)})
             results_residual.append({"horizon": h, "accuracy": np.nan, "n": len(valid_idx)})
+            results_residual_inliers.append({"horizon": h, "accuracy": np.nan, "n": len(valid_idx)})
             continue
 
         X_h = X[valid_idx]
@@ -294,6 +306,7 @@ def main():
             print(f"  h={h}: class too small (neg={class_counts[0]} neu={class_counts[1]} pos={class_counts[2]}), skipping")
             results_raw.append({"horizon": h, "accuracy": np.nan, "n": len(valid_idx), "baseline": baseline})
             results_residual.append({"horizon": h, "accuracy": np.nan, "n": len(valid_idx), "baseline": baseline})
+            results_residual_inliers.append({"horizon": h, "accuracy": np.nan, "n": len(valid_idx), "baseline": baseline})
             continue
 
         scores_raw = cross_val_score(MultinomialNB(), X_h, y_3class, cv=cv, scoring="accuracy")
@@ -301,6 +314,11 @@ def main():
         n_unique_pred = len(np.unique(y_pred_raw))
         sil_raw = (silhouette_score(X_h.toarray(), y_pred_raw)
                    if n_unique_pred >= 2 else float("nan"))
+        try:
+            scores_auc_raw = cross_val_score(MultinomialNB(), X_h, y_3class, cv=cv, scoring="roc_auc_ovr")
+            roc_auc_raw = scores_auc_raw.mean()
+        except ValueError:
+            roc_auc_raw = float("nan")
         acc_raw = scores_raw.mean()
         results_raw.append({
             "horizon": h,
@@ -310,6 +328,7 @@ def main():
             "n": len(valid_idx),
             "n_classes_predicted": int(n_unique_pred),
             "silhouette": sil_raw,
+            "roc_auc": roc_auc_raw,
             "class_dist": f"neg={class_counts[0]} neu={class_counts[1]} pos={class_counts[2]}",
         })
 
@@ -343,6 +362,11 @@ def main():
                 n_unique_pred_r = len(np.unique(y_pred_resid))
                 sil_resid = (silhouette_score(X_surp.toarray(), y_pred_resid)
                              if n_unique_pred_r >= 2 else float("nan"))
+                try:
+                    scores_auc_resid = cross_val_score(MultinomialNB(), X_surp, y_resid_3, cv=cv, scoring="roc_auc_ovr")
+                    roc_auc_resid = scores_auc_resid.mean()
+                except ValueError:
+                    roc_auc_resid = float("nan")
                 acc_resid = scores_resid.mean()
                 results_residual.append({
                     "horizon": h,
@@ -352,14 +376,90 @@ def main():
                     "n": len(idx_surp),
                     "n_classes_predicted": int(n_unique_pred_r),
                     "silhouette": sil_resid,
+                    "roc_auc": roc_auc_resid,
                     "class_dist": f"neg={class_counts_r[0]} neu={class_counts_r[1]} pos={class_counts_r[2]}",
                     "lr_coef": float(lr.coef_[0]),
                     "lr_intercept": float(lr.intercept_),
                 })
             else:
                 results_residual.append({"horizon": h, "accuracy": np.nan, "n": len(idx_surp), "baseline": baseline_r})
+
+            # --- Residual target without surprise outliers (fit on inliers only) ---
+            q_lo = np.quantile(surp_surp, SURPRISE_INLIER_Q_LOW)
+            q_hi = np.quantile(surp_surp, SURPRISE_INLIER_Q_HIGH)
+            inlier_mask = (surp_surp >= q_lo) & (surp_surp <= q_hi)
+            n_inliers = int(inlier_mask.sum())
+            n_outliers = int(len(surp_surp) - n_inliers)
+
+            if n_inliers >= 20:
+                X_surp_in = X_surp[inlier_mask]
+                y_ret_surp_in = y_ret_surp[inlier_mask]
+                surp_surp_in = surp_surp[inlier_mask]
+
+                lr_in = LinearRegression()
+                lr_in.fit(surp_surp_in.reshape(-1, 1), y_ret_surp_in)
+                y_pred_in = lr_in.predict(surp_surp_in.reshape(-1, 1))
+                residuals_in = y_ret_surp_in - y_pred_in
+
+                y_resid_in_3 = np.where(residuals_in > NEUTRAL_THR, 2,
+                                        np.where(residuals_in < -NEUTRAL_THR, 0, 1))
+                class_counts_in = np.bincount(y_resid_in_3, minlength=3)
+                baseline_in = class_counts_in.max() / len(y_resid_in_3)
+
+                if all(c >= 5 for c in class_counts_in):
+                    scores_resid_in = cross_val_score(
+                        MultinomialNB(), X_surp_in, y_resid_in_3, cv=cv, scoring="accuracy"
+                    )
+                    y_pred_resid_in = cross_val_predict(MultinomialNB(), X_surp_in, y_resid_in_3, cv=cv)
+                    n_unique_pred_in = len(np.unique(y_pred_resid_in))
+                    sil_resid_in = (silhouette_score(X_surp_in.toarray(), y_pred_resid_in)
+                                    if n_unique_pred_in >= 2 else float("nan"))
+                    try:
+                        scores_auc_resid_in = cross_val_score(
+                            MultinomialNB(), X_surp_in, y_resid_in_3, cv=cv, scoring="roc_auc_ovr"
+                        )
+                        roc_auc_resid_in = scores_auc_resid_in.mean()
+                    except ValueError:
+                        roc_auc_resid_in = float("nan")
+
+                    results_residual_inliers.append({
+                        "horizon": h,
+                        "accuracy": scores_resid_in.mean(),
+                        "accuracy_std": scores_resid_in.std(),
+                        "baseline": baseline_in,
+                        "n": n_inliers,
+                        "n_outliers_removed": n_outliers,
+                        "surprise_q_low": float(q_lo),
+                        "surprise_q_high": float(q_hi),
+                        "n_classes_predicted": int(n_unique_pred_in),
+                        "silhouette": sil_resid_in,
+                        "roc_auc": roc_auc_resid_in,
+                        "class_dist": f"neg={class_counts_in[0]} neu={class_counts_in[1]} pos={class_counts_in[2]}",
+                        "lr_coef": float(lr_in.coef_[0]),
+                        "lr_intercept": float(lr_in.intercept_),
+                    })
+                else:
+                    results_residual_inliers.append({
+                        "horizon": h,
+                        "accuracy": np.nan,
+                        "n": n_inliers,
+                        "baseline": baseline_in,
+                        "n_outliers_removed": n_outliers,
+                        "surprise_q_low": float(q_lo),
+                        "surprise_q_high": float(q_hi),
+                    })
+            else:
+                results_residual_inliers.append({
+                    "horizon": h,
+                    "accuracy": np.nan,
+                    "n": n_inliers,
+                    "n_outliers_removed": n_outliers,
+                    "surprise_q_low": float(q_lo),
+                    "surprise_q_high": float(q_hi),
+                })
         else:
             results_residual.append({"horizon": h, "accuracy": np.nan, "n": int(has_surprise.sum())})
+            results_residual_inliers.append({"horizon": h, "accuracy": np.nan, "n": int(has_surprise.sum())})
 
         sil_str = f", sil={results_raw[-1].get('silhouette', float('nan')):.3f}" if not np.isnan(results_raw[-1].get('silhouette', float('nan'))) else ""
         print(f"  h={h:3d}: raw acc={acc_raw:.3f} (baseline={baseline:.3f}, n={len(valid_idx)}{sil_str})"
@@ -368,55 +468,92 @@ def main():
     # --- Save results ---
     df_raw = pd.DataFrame(results_raw)
     df_resid = pd.DataFrame(results_residual)
+    df_resid_inliers = pd.DataFrame(results_residual_inliers)
     df_raw.to_csv(OUTPUT_DIR / "nb_raw_return.csv", index=False)
     df_resid.to_csv(OUTPUT_DIR / "nb_residual_return.csv", index=False)
+    df_resid_inliers.to_csv(INLIERS_DIR / "nb_residual_return_inliers.csv", index=False)
 
-    # --- Plot: accuracy vs horizon ---
-    fig, axes = plt.subplots(1, 3, figsize=(18, 5))
-
-    # Plot 1: raw return (3-class)
-    ax = axes[0]
+    # --- Plot 1: raw return accuracy vs horizon ---
+    fig, ax = plt.subplots(figsize=(8, 5))
     mask = df_raw["accuracy"].notna()
-    ax.plot(df_raw.loc[mask, "horizon"], df_raw.loc[mask, "accuracy"],
+    xpos = np.arange(len(df_raw))
+    ax.plot(xpos[mask], df_raw.loc[mask, "accuracy"].values,
             "o-", color="#2ecc71", linewidth=2, label="MultinomialNB accuracy")
-    ax.plot(df_raw.loc[mask, "horizon"], df_raw.loc[mask, "baseline"],
+    ax.plot(xpos[mask], df_raw.loc[mask, "baseline"].values,
             "--", color="gray", linewidth=1.5, label="Majority baseline")
     if "silhouette" in df_raw.columns:
         mask_sil = df_raw["silhouette"].notna() & mask
         if mask_sil.any():
-            ax.plot(df_raw.loc[mask_sil, "horizon"], df_raw.loc[mask_sil, "silhouette"],
+            ax.plot(xpos[mask_sil], df_raw.loc[mask_sil, "silhouette"].values,
                     "x--", color="#f39c12", linewidth=1.5, label="Silhouette score")
     ax.axhline(0.5, color="black", linestyle=":", alpha=0.5)
+    ax.set_xticks(xpos)
+    ax.set_xticklabels([str(h) for h in HORIZONS], fontsize=7, rotation=45)
     ax.set_xlabel("Horizon (trading days)")
     ax.set_ylabel("Score")
-    ax.set_title(f"Return class (neg/neu/pos, thr=\u00b1{NEUTRAL_THR:.0%})")
+    ax.set_title(f"Return class (neg/neu/pos, thr=\u00b1{NEUTRAL_THR:.0%})\nBoW + MultinomialNB")
     ax.legend(fontsize=8)
     ax.grid(True, alpha=0.3)
     ax.set_ylim(-0.2, 0.9)
+    plt.tight_layout()
+    fig.savefig(OUTPUT_DIR / "accuracy_raw_return.png", dpi=150)
+    plt.close(fig)
 
-    # Plot 2: residual (3-class)
-    ax = axes[1]
+    # --- Plot 2: residual accuracy vs horizon ---
+    fig, ax = plt.subplots(figsize=(8, 5))
     mask = df_resid["accuracy"].notna()
+    xpos_r = np.arange(len(df_resid))
     if mask.any():
-        ax.plot(df_resid.loc[mask, "horizon"], df_resid.loc[mask, "accuracy"],
+        ax.plot(xpos_r[mask], df_resid.loc[mask, "accuracy"].values,
                 "s-", color="#e74c3c", linewidth=2, label="MultinomialNB accuracy")
-        ax.plot(df_resid.loc[mask, "horizon"], df_resid.loc[mask, "baseline"],
+        ax.plot(xpos_r[mask], df_resid.loc[mask, "baseline"].values,
                 "--", color="gray", linewidth=1.5, label="Majority baseline")
         if "silhouette" in df_resid.columns:
             mask_sil = df_resid["silhouette"].notna() & mask
             if mask_sil.any():
-                ax.plot(df_resid.loc[mask_sil, "horizon"], df_resid.loc[mask_sil, "silhouette"],
+                ax.plot(xpos_r[mask_sil], df_resid.loc[mask_sil, "silhouette"].values,
                         "x--", color="#f39c12", linewidth=1.5, label="Silhouette score")
     ax.axhline(0.5, color="black", linestyle=":", alpha=0.5)
+    ax.set_xticks(xpos_r)
+    ax.set_xticklabels([str(h) for h in HORIZONS], fontsize=7, rotation=45)
     ax.set_xlabel("Horizon (trading days)")
     ax.set_ylabel("Score")
-    ax.set_title(f"Residual class (neg/neu/pos, thr=\u00b1{NEUTRAL_THR:.0%})")
+    ax.set_title(f"Residual class (neg/neu/pos, thr=\u00b1{NEUTRAL_THR:.0%})\nBoW + MultinomialNB")
     ax.legend(fontsize=8)
     ax.grid(True, alpha=0.3)
     ax.set_ylim(-0.2, 0.9)
+    plt.tight_layout()
+    fig.savefig(OUTPUT_DIR / "accuracy_residual_return.png", dpi=150)
+    plt.close(fig)
 
-    # Plot 3: surprise (3-class bar)
-    ax = axes[2]
+    # --- Plot 2b: residual (inliers-only fit) accuracy vs horizon ---
+    fig, ax = plt.subplots(figsize=(8, 5))
+    mask_in = df_resid_inliers["accuracy"].notna()
+    xpos_in = np.arange(len(df_resid_inliers))
+    if mask_in.any():
+        ax.plot(xpos_in[mask_in], df_resid_inliers.loc[mask_in, "accuracy"].values,
+                "s-", color="#8e44ad", linewidth=2, label="MNB accuracy (inliers fit)")
+        if "baseline" in df_resid_inliers.columns:
+            ax.plot(xpos_in[mask_in], df_resid_inliers.loc[mask_in, "baseline"].values,
+                    "--", color="gray", linewidth=1.5, label="Majority baseline")
+    ax.axhline(0.5, color="black", linestyle=":", alpha=0.5)
+    ax.set_xticks(xpos_in)
+    ax.set_xticklabels([str(h) for h in HORIZONS], fontsize=7, rotation=45)
+    ax.set_xlabel("Horizon (trading days)")
+    ax.set_ylabel("Score")
+    ax.set_title(
+        "Residual class (inliers-only surprise fit)\n"
+        f"BoW + MultinomialNB, surprise q[{SURPRISE_INLIER_Q_LOW:.0%}, {SURPRISE_INLIER_Q_HIGH:.0%}]"
+    )
+    ax.legend(fontsize=8)
+    ax.grid(True, alpha=0.3)
+    ax.set_ylim(-0.2, 0.9)
+    plt.tight_layout()
+    fig.savefig(INLIERS_DIR / "accuracy_residual_return_inliers.png", dpi=150)
+    plt.close(fig)
+
+    # --- Plot 3: surprise (3-class bar) ---
+    fig, ax = plt.subplots(figsize=(6, 5))
     if surprise_result:
         acc_s = surprise_result["accuracy"]
         bl_s = surprise_result["baseline"]
@@ -435,10 +572,71 @@ def main():
         ax.text(0.5, 0.5, "Not enough data", ha="center", va="center", transform=ax.transAxes)
         ax.set_title("Predicting surprise class (neg/neu/pos)")
     ax.grid(True, alpha=0.3)
-
-    fig.suptitle("Multinomial Naive Bayes: CEO Letter → Prediction", fontsize=13, fontweight="bold")
     plt.tight_layout()
-    fig.savefig(OUTPUT_DIR / "nb_accuracy_vs_horizon.png", dpi=150)
+    fig.savefig(OUTPUT_DIR / "accuracy_surprise.png", dpi=150)
+    plt.close(fig)
+
+    # --- Plot 4: ROC AUC raw return vs horizon ---
+    fig, ax = plt.subplots(figsize=(8, 5))
+    xpos2 = np.arange(len(df_raw))
+    if "roc_auc" in df_raw.columns:
+        mask_auc = df_raw["roc_auc"].notna() & df_raw["accuracy"].notna()
+        if mask_auc.any():
+            ax.plot(xpos2[mask_auc], df_raw.loc[mask_auc, "roc_auc"].values,
+                    "o-", color="#2ecc71", linewidth=2, label="ROC AUC (macro OVR)")
+    ax.axhline(0.5, color="gray", linestyle="--", linewidth=1.5, label="Random (0.5)")
+    ax.set_xticks(xpos2)
+    ax.set_xticklabels([str(h) for h in HORIZONS], fontsize=7, rotation=45)
+    ax.set_xlabel("Horizon (trading days)")
+    ax.set_ylabel("ROC AUC")
+    ax.set_title(f"ROC AUC — Return class (neg/neu/pos, thr=\u00b1{NEUTRAL_THR:.0%})\nBoW + MultinomialNB")
+    ax.legend(fontsize=8)
+    ax.grid(True, alpha=0.3)
+    ax.set_ylim(0.3, 1.0)
+    plt.tight_layout()
+    fig.savefig(OUTPUT_DIR / "roc_auc_raw_return.png", dpi=150)
+    plt.close(fig)
+
+    # --- Plot 5: ROC AUC residual vs horizon ---
+    fig, ax = plt.subplots(figsize=(8, 5))
+    xpos2_r = np.arange(len(df_resid))
+    if "roc_auc" in df_resid.columns:
+        mask_auc = df_resid["roc_auc"].notna() & df_resid["accuracy"].notna()
+        if mask_auc.any():
+            ax.plot(xpos2_r[mask_auc], df_resid.loc[mask_auc, "roc_auc"].values,
+                    "s-", color="#e74c3c", linewidth=2, label="ROC AUC (macro OVR)")
+    ax.axhline(0.5, color="gray", linestyle="--", linewidth=1.5, label="Random (0.5)")
+    ax.set_xticks(xpos2_r)
+    ax.set_xticklabels([str(h) for h in HORIZONS], fontsize=7, rotation=45)
+    ax.set_xlabel("Horizon (trading days)")
+    ax.set_ylabel("ROC AUC")
+    ax.set_title(f"ROC AUC — Residual class (neg/neu/pos, thr=\u00b1{NEUTRAL_THR:.0%})\nBoW + MultinomialNB")
+    ax.legend(fontsize=8)
+    ax.grid(True, alpha=0.3)
+    ax.set_ylim(0.3, 1.0)
+    plt.tight_layout()
+    fig.savefig(OUTPUT_DIR / "roc_auc_residual_return.png", dpi=150)
+    plt.close(fig)
+
+    # --- Plot 6: ROC AUC surprise bar ---
+    fig, ax = plt.subplots(figsize=(6, 5))
+    if surprise_result and not np.isnan(surprise_result.get("roc_auc", float("nan"))):
+        auc_val = surprise_result["roc_auc"]
+        bars = ax.bar(["ROC AUC", "Random"],
+                      [auc_val, 0.5],
+                      color=["#9b59b6", "gray"], width=0.5)
+        ax.set_ylim(0.3, 1.0)
+        ax.set_title(f"ROC AUC — Surprise class\n(n={surprise_result['n']}, {surprise_result['class_dist']})")
+        ax.set_ylabel("ROC AUC")
+        for bar, val in zip(bars, [auc_val, 0.5]):
+            ax.text(bar.get_x() + bar.get_width() / 2, val + 0.01, f"{val:.3f}",
+                    ha="center", fontsize=10)
+    else:
+        ax.text(0.5, 0.5, "Not enough data", ha="center", va="center", transform=ax.transAxes)
+        ax.set_title("ROC AUC — Surprise class")
+    ax.grid(True, alpha=0.3)
+    plt.tight_layout()
+    fig.savefig(OUTPUT_DIR / "roc_auc_surprise.png", dpi=150)
     plt.close(fig)
 
     # Save surprise result
@@ -448,28 +646,30 @@ def main():
     print(f"\nSaved results to {OUTPUT_DIR}/")
     print(f"  nb_raw_return.csv")
     print(f"  nb_residual_return.csv")
+    print(f"  surprise_inliers/nb_residual_return_inliers.csv")
     print(f"  nb_surprise.csv")
     print(f"  nb_accuracy_vs_horizon.png")
+    print(f"  nb_roc_auc_vs_horizon.png")
 
     # Print summary table
     print("\n" + "=" * 100)
-    print(f"{'Horizon':>8} {'Raw Acc':>8} {'Baseline':>9} {'Sil(raw)':>9} {'Resid Acc':>10} {'Baseline':>9} {'Sil(res)':>9} {'N':>5}")
+    print(f"{'Horizon':>8} {'Raw Acc':>8} {'AUC(raw)':>9} {'Baseline':>9} {'Resid Acc':>10} {'AUC(res)':>9} {'Baseline':>9} {'N':>5}")
     print("-" * 100)
     for i, h in enumerate(HORIZONS):
         raw_acc = results_raw[i].get("accuracy", np.nan)
+        raw_auc = results_raw[i].get("roc_auc", np.nan)
         raw_bl = results_raw[i].get("baseline", np.nan)
-        raw_sil = results_raw[i].get("silhouette", np.nan)
         res_acc = results_residual[i].get("accuracy", np.nan)
+        res_auc = results_residual[i].get("roc_auc", np.nan)
         res_bl = results_residual[i].get("baseline", np.nan)
-        res_sil = results_residual[i].get("silhouette", np.nan)
         n = results_raw[i].get("n", 0)
-        raw_sil_s = f"{raw_sil:>9.3f}" if not np.isnan(raw_sil) else f"{'—':>9}"
-        res_sil_s = f"{res_sil:>9.3f}" if not np.isnan(res_sil) else f"{'—':>9}"
-        print(f"{h:>8d} {raw_acc:>8.3f} {raw_bl:>9.3f} {raw_sil_s} {res_acc:>10.3f} {res_bl:>9.3f} {res_sil_s} {n:>5d}")
+        raw_auc_s = f"{raw_auc:>9.3f}" if not np.isnan(raw_auc) else f"{'—':>9}"
+        res_auc_s = f"{res_auc:>9.3f}" if not np.isnan(res_auc) else f"{'—':>9}"
+        print(f"{h:>8d} {raw_acc:>8.3f} {raw_auc_s} {raw_bl:>9.3f} {res_acc:>10.3f} {res_auc_s} {res_bl:>9.3f} {n:>5d}")
     print("-" * 100)
     if surprise_result:
-        sil_s_str = f"{surprise_result['silhouette']:.3f}" if not np.isnan(surprise_result.get('silhouette', float('nan'))) else "—"
-        print(f"{'surprise':>8} {surprise_result['accuracy']:>8.3f} {surprise_result['baseline']:>9.3f} {sil_s_str:>9} {'—':>10} {'—':>9} {'—':>9} {surprise_result['n']:>5d}")
+        auc_s_str = f"{surprise_result['roc_auc']:.3f}" if not np.isnan(surprise_result.get('roc_auc', float('nan'))) else "—"
+        print(f"{'surprise':>8} {surprise_result['accuracy']:>8.3f} {auc_s_str:>9} {surprise_result['baseline']:>9.3f} {'—':>10} {'—':>9} {'—':>9} {surprise_result['n']:>5d}")
     print("=" * 100)
 
 

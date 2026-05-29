@@ -47,6 +47,36 @@ KPI_analysis/
 │   ├── generate_qrels.py         # TREC qrels generator for KPI retrieval tasks
 │   ├── llm_annotate_qrels.py     # LLM re-annotation of review candidates
 │   └── queries/                  # 31 JSON query-template files (one per KPI)
+├── cron_av_fetch.sh              # daily cron script for Alpha Vantage gap-filling
+├── filing_returns_validation.md  # validation notes: real-world event studies confirming filing_returns.csv
+├── FinancialIndicators.py        # per-ticker + industry-average trading indicators (returns, volatility, volume, cumulative returns)
+├── plot_indicators.py            # plots per-ticker indicators around publication dates; provides annual_publication_dates() helper
+├── evaluation.py                 # CEO letter sentiment classification (positive/negative/neutral) via LLM (vLLM server)
+├── sentiment_vs_indicators.py    # event study: sentiment vs market indicators (see below)
+├── event_study_earnings.py       # event study anchored on Q4 earnings call dates (not 10-K filing)
+├── event_single_stock.py         # event study for a single stock: one line per fiscal year per metric
+├── predict_target.py             # MultinomialNB: CEO letter BoW → predict return/residual/surprise class
+├── predict_target_embed_encoder.py  # like predict_target.py but on sentence embeddings (--encoder, any ST model)
+├── threshold_grid_search.py      # 3-class grid search: threshold × horizon × encoder × classifier (raw/unbiased return, residual, surprise)
+├── threshold_grid_search_binary.py  # binary grid search: pos-vs-neutral / neg-vs-neutral by return quantile
+├── plot_grid_search_heatmaps.py  # heatmaps (horizon × threshold) from threshold_grid_search.py results
+├── plot_grid_search_binary_heatmaps.py  # combined percentile heatmaps from the binary grid search
+├── distribution_all_stocks.py    # distribution of return/volatility/volume at filing date across all stocks
+├── distributions_by_return_m90.py  # distributions split by sign of cumulative return at t-90
+├── distributions_delta_t1_vs_tm1.py  # Δ(t+1 vs t-1) histograms: volatility, volume, return at publication
+├── scatter_vol_volume.py         # scatter ΔVolatility vs ΔVolume at publication dates
+├── _check_outliers.py            # IQR-based outlier detection across all summary metrics (both sentiments)
+├── check_event_window_nans.py    # diagnostic: checks for NaN gaps in event-window indicator data
+├── check_vw_distributions.py     # diagnostic: checks volume-weighted indicator distributions for anomalies
+├── verify_selection_bias.py      # checks whether selected industries have selection bias in filing timing
+├── llm_benchmark/                # LLM-based KPI extraction benchmark
+│   ├── run_benchmark.py          # orchestrator: loads OCR reports, calls LLM, writes per-report JSONs
+│   ├── score_benchmark.py        # evaluates extractions vs ground-truth kpis_long.csv
+│   ├── client.py                 # vLLM/OpenAI-compatible chat client with schema-guided JSON decoding
+│   ├── document.py               # OCR document loader (parses report dirs, selects .mmd, renders pages)
+│   ├── kpi_catalogue.py          # generates canonical KPI definitions for the system prompt
+│   ├── prompts.py                # builds system prompt & messages with KPI catalogue + extraction rules
+│   └── schema.py                 # Pydantic model with 31 canonical KPI keys (xgrammar-enforced)
 ├── cache/                        # ticker->CIK map, cached SEC + AV responses, AV budget (gitignored)
 │   ├── ticker_cik.json
 │   ├── companyfacts/CIK*.json
@@ -57,12 +87,201 @@ KPI_analysis/
 │   └── alphavantage_budget.json
 └── output/
     ├── raw/                      # one JSON per ticker
-    ├── kpis_long.csv             # (ticker, year, kpi, value) long form
-    ├── kpis_wide.csv             # (ticker, year) rows × KPI columns
-    ├── coverage.md               # coverage % per KPI per year
-    ├── filing_returns.csv        # one row per (ticker, year) with 10-K filing date + market reaction
-    └── qrels/                    # output of generate_qrels.py (see below)
+    ├── kpis_long.csv
+    ├── kpis_wide.csv
+    ├── coverage.md
+    ├── filing_returns.csv
+    ├── ocr_validation/           # outputs of validate_ocr_kpis.py
+    └── plots/
+        ├── sentiment_summary/    # output of sentiment_vs_indicators.py (see below)
+        └── threshold_grid_search/  # grid_search_{mode}.json + grid_search_binary_{mode}.json, embeddings/ cache, heatmaps/, binary/
 ```
+
+### `sentiment_vs_indicators.py` — output structure
+
+Produces three types of analysis comparing market indicators around 10-K
+publication dates, grouped by CEO letter sentiment (positive vs negative):
+
+1. **Bar charts** (`01_bar_charts/`) — For each metric, mean ± SEM over a
+   fixed window of `WINDOW=5` trading days after publication. Gives a quick
+   aggregate comparison of positive vs negative sentiment.
+
+2. **Event studies** (`02_event_studies/`) — Day-by-day plots over
+   `±EVENT_HALF_WINDOW=10` trading days centered on publication day (J0).
+   Shows the temporal dynamics of each indicator with 95% CI bands. Available
+   at three granularities: all industries pooled (aggregate), all industries
+   overlaid on one plot, and per-industry individually. Normalized variants
+   (% change from J0) are in separate subdirectories. An outlier-cleaned
+   version (IQR-based) is also produced.
+
+3. **Distributions** (`03_distributions/`) — Histograms of per-document metric
+   values (one histogram per sentiment × metric), with mean/median markers.
+   Includes outlier-cleaned and pre-event window (day -10 to -7) variants.
+
+The detailed definition of each indicator studied (unbiased volatility,
+cumulative returns, VW variants, etc.) is documented in `NoteAmaury.md`.
+
+```
+output/plots/sentiment_summary/
+├── 01_bar_charts/                        # bar chart per metric: mean ± SEM by sentiment
+├── 02_event_studies/
+│   ├── aggregate/
+│   │   ├── raw/                          # all industries pooled, raw metrics
+│   │   └── normalized/                   # all industries pooled, % change from J0
+│   ├── aggregate_no_outliers/            # same as aggregate, IQR outlier docs removed
+│   ├── all_industries_overlay/
+│   │   ├── raw/                          # one plot per metric, all industries × sentiments overlaid
+│   │   └── normalized/
+│   └── per_industry/
+│       └── {Industry_Slug}/
+│           ├── raw/                      # one industry, positive vs negative
+│           └── normalized/
+└── 03_distributions/
+    ├── by_metric/                        # per-metric histograms (positive + negative)
+    ├── no_outliers/                      # unbiased volatility histograms without outliers
+    └── pre_event/                        # pre-event window (day -10 to -7) distributions
+```
+
+### `_check_outliers.py`
+
+Standalone diagnostic script that computes all 12 summary metrics from `records`
+(same as `sentiment_vs_indicators.py`) for every document, then identifies IQR
+outliers (1.5×IQR) per metric across both sentiments. Prints per-metric outlier
+tables and a final summary of unique outlier documents.
+
+### `FinancialIndicators.py`
+
+Provides:
+- `GetIndicatorsForPrices(df)` — adds `returns`, `Volatility`, `Volume_ATS`,
+  and `return_t{-10..10}` (cumulative return from each day) columns to a
+  ticker's OHLCV DataFrame.
+- `GetIndustryDataFrame(ticker, start, end)` — equal-weighted and
+  volume-weighted industry averages (`returns`, `volatility`, `volumes`,
+  `volumes_vw`, `return_t{lag}`, `return_t{lag}_vw`). Cached on disk under
+  `cache/industry_indicators/`.
+
+### `plot_indicators.py`
+
+Plots per-ticker indicator time series around publication dates. Also exposes
+`annual_publication_dates(ticker, originals_only=True)` which resolves 10-K
+filing dates from EDGAR (used by `sentiment_vs_indicators.py`).
+
+### `evaluation.py`
+
+Classifies CEO letter extractions as positive/negative/neutral using a local
+vLLM server (port 8001). Reads cleaned extractions from
+`doc_text_processing/CEO_word_extraction/cleaning_extractions/cleaned/` and
+writes sentiment labels to `sentiments.json`.
+
+### `verify_selection_bias.py`
+
+Checks whether our hand-picked industries exhibit selection bias in filing
+timing (e.g. whether positive-sentiment companies systematically file earlier
+or later than negative ones).
+
+### `check_event_window_nans.py`
+
+Diagnostic that scans event-window data for unexpected NaN gaps that could
+indicate missing price data or industry indicator coverage issues.
+
+### `check_vw_distributions.py`
+
+Diagnostic that validates volume-weighted industry indicator distributions
+for anomalies (extreme values, sign flips, coverage gaps).
+
+### `event_study_earnings.py`
+
+Event study anchored on **Q4 earnings call dates** (not 10-K filing dates).
+For each (ticker, fiscal year), finds the earnings announcement via
+`yfinance.get_earnings_dates()` and computes event-window metrics around that
+date. Produces plots with 95% CI by surprise sign (positive vs negative EPS
+surprise) and by CEO letter sentiment. Also flags same-day filers (earnings =
+filing). Output: `output/plots/event_study_earnings/` and
+`output/earnings_events.csv`.
+
+### `event_single_stock.py`
+
+Event study for a single ticker across all its publication dates. Creates one
+plot per metric with one line per fiscal year. Useful for per-company deep
+dives.
+
+### `predict_target.py`
+
+Multinomial Naive Bayes classifier: predicts return class (negative / neutral /
+positive) from CEO letter bag-of-words at various horizons post-earnings. Three
+targets: raw return sign, residual after regressing on surprise, and surprise
+class itself. Reports 5-fold CV accuracy, majority baseline, and silhouette
+score. Output: `output/plots/predict_target/`.
+
+### `predict_target_embed_encoder.py`
+
+Same three targets as `predict_target.py` (return / residual / surprise class)
+but on **dense sentence embeddings** of the CEO letters instead of bag-of-words.
+The encoder is configurable via `--encoder` (preset names `minilm`, `roberta`,
+`eurobert`, or any `sentence-transformers` model path). Runs four classifiers
+on the embeddings (MultinomialNB on `[0,1]`-scaled features, GaussianNB,
+residual-quantization + MNB, and PCA + LogisticRegression). Output is written
+to a per-encoder folder under `output/plots/predict_target_embed/`.
+
+### `threshold_grid_search.py`
+
+Grid search for the **3-class** formulation (negative / neutral / positive).
+Sweeps every `(threshold τ, horizon h, encoder, classifier)` combination via
+5-fold stratified CV and records accuracy, ROC AUC, and PR AUC (OVR). Encoders
+are selected with `--mode` (presets `minilm`, `roberta`, `baai`, `eurobert`,
+`gemma`, `bow`, `all`, or a raw model path); EmbeddingGemma is encoded through
+its "Classification" task prompt. Targets: `raw_return`, `unbiased_return`
+(stock return minus industry benchmark, weighting set by `INDUSTRY_WEIGHTING`),
+`residual` (return − f(surprise)), `residual_inliers`, and `surprise`. Raw
+embeddings are cached on disk under `output/plots/threshold_grid_search/embeddings/`.
+Results: `output/plots/threshold_grid_search/grid_search_{mode}.json`.
+
+### `threshold_grid_search_binary.py`
+
+Binary, **quantile-based** variant of the grid search. Per horizon it runs two
+independent tasks — *positive vs neutral* (top `q%` of returns = class 1) and
+*negative vs neutral* (bottom `q%` = class 1) — over quantiles 5%…50%, reusing
+the same encoders/classifiers and CV as the 3-class script. Same targets
+(`raw_return`, `unbiased_return`, `residual`, `residual_inliers`, `surprise`).
+Because the class prevalence equals `q`, PR AUC is read as **PR lift = PR AUC −
+prevalence** (see `NoteAmaury.md` §23). Results:
+`output/plots/threshold_grid_search/grid_search_binary_{mode}.json`.
+
+### `plot_grid_search_heatmaps.py`
+
+Renders interactive Plotly heatmaps (horizon × threshold) from the 3-class
+`grid_search_{mode}.json` files — best ROC AUC, accuracy lift, and PR AUC per
+cell, optionally as lift over the BoW reference. One figure per target
+(raw_return, unbiased_return, residual, residual_inliers) plus surprise bar
+charts. Output: `output/plots/threshold_grid_search/heatmaps/`.
+
+### `plot_grid_search_binary_heatmaps.py`
+
+Heatmaps for the binary grid search: a single combined figure per target with a
+percentile axis (5–50% = negative extremes on the left, 55–95% = positive on
+the right), plus a cross-mode comparison of best AUC per horizon. Output:
+`output/plots/threshold_grid_search/binary/`.
+
+### `distribution_all_stocks.py`
+
+Distribution plots for all selected stocks at 10-K filing date: return at t+1,
+mean volatility t+1→t+5, mean volume ATS t+1→t+5. Output:
+`output/plots/distribution_all_stocks/`.
+
+### `distributions_by_return_m90.py`
+
+Distribution of event-study metrics split by sign of the cumulative return at
+t-90 days. Two overlaid histograms per metric (pre-trend up vs down).
+
+### `distributions_delta_t1_vs_tm1.py`
+
+Histograms of the immediate publication effect: Δvolatility, Δvolume, and
+Δreturn computed as value(t+1) − value(t−1).
+
+### `scatter_vol_volume.py`
+
+Scatter plot of ΔVolatility(t+1 − t−1) vs ΔVolume(t+1 − t−1) at publication
+dates. Each point is one (ticker, fiscal year) observation.
 
 ## Setup
 
