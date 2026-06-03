@@ -14,7 +14,7 @@ corresponding OCR'd annual report.
 |--------|-------------|
 | `KPI_analysis/output/kpis_long.csv` | Ground-truth KPI values; defines the set of `(ticker, kpi, year)` triples |
 | `tickers_lists/companies_alt_names.json` | Maps each ticker to a list of alternative company name strings (aliases) |
-| `KPI_analysis/queries/*.json` | 31 template files, one per KPI, each containing 8–10 natural-language query variants |
+| `KPI_analysis/retrieval_bench/queries/*.json` | 31 template files, one per KPI, each containing 8–10 natural-language query variants |
 | `DeepSeekOCR_Ardian_pruned_1k/` | OCR report tree; used to filter tickers to the 165 with available reports |
 
 ## Template structure

@@ -39,14 +39,15 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-REPO_ROOT = HERE.parent
+KPI_ANALYSIS = HERE.parent
+REPO_ROOT = KPI_ANALYSIS.parent
 
 DEFAULT_OCR_ROOT = REPO_ROOT / "DeepSeekOCR_Ardian_pruned_1k"
-DEFAULT_KPIS_LONG = HERE / "output" / "kpis_long.csv"
-DEFAULT_ALIASES = HERE / "kpi_fetch_and_build" / "kpi_aliases.json"
+DEFAULT_KPIS_LONG = KPI_ANALYSIS / "output" / "kpis_long.csv"
+DEFAULT_ALIASES = KPI_ANALYSIS / "kpi_fetch_and_build" / "kpi_aliases.json"
 DEFAULT_QUERIES_DIR = HERE / "queries"
 DEFAULT_ALT_NAMES = REPO_ROOT / "tickers_lists" / "companies_alt_names.json"
-DEFAULT_OUTPUT_DIR = HERE / "output" / "qrels"
+DEFAULT_OUTPUT_DIR = KPI_ANALYSIS / "output" / "qrels"
 DEFAULT_COMPANIES_JSON = (
     REPO_ROOT / "tickers_lists" / "grouped" / "selected" / "companies.json"
 )
