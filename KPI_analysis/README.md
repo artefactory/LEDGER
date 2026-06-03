@@ -30,18 +30,20 @@ some non-US tickers AV happens to cover.
 
 ```
 KPI_analysis/
-├── tags.py                       # logical KPI -> candidate XBRL tags (ordered by preference)
-├── edgar.py                      # SEC EDGAR companyfacts client (CIK lookup, XBRL parsing)
-├── edgar_filings.py              # SEC EDGAR submissions client (10-K filing dates + acceptanceDateTime)
-├── yf_fallback.py                # yfinance fallback for non-US tickers
-├── alpha_vantage.py              # Alpha Vantage gap-fill: keys + budget + 3-statement client
-├── alpha_venture_API_keys.txt    # one AV API key per line (gitignored, *.txt)
-├── fetch_kpis.py                 # orchestrator CLI; writes output/raw/{TICKER}.json
-├── fetch_filing_returns.py       # 10-K filing date + market reaction (next-day / next-week / SPY-alpha)
-├── build_dataset.py              # consolidates output/raw/*.json into long + wide CSVs
+├── kpi_fetch_and_build/          # KPI fetching, ordering & dataset building
+│   ├── tags.py                       # logical KPI -> candidate XBRL tags (ordered by preference)
+│   ├── _fiscal.py                    # fiscal year derivation from period-end dates
+│   ├── edgar.py                      # SEC EDGAR companyfacts client (CIK lookup, XBRL parsing)
+│   ├── edgar_filings.py              # SEC EDGAR submissions client (10-K filing dates + acceptanceDateTime)
+│   ├── yf_fallback.py                # yfinance fallback for non-US tickers
+│   ├── alpha_vantage.py              # Alpha Vantage gap-fill: keys + budget + 3-statement client
+│   ├── alpha_venture_API_keys.txt    # one AV API key per line (gitignored, *.txt)
+│   ├── fetch_kpis.py                 # orchestrator CLI; writes output/raw/{TICKER}.json
+│   ├── fetch_filing_returns.py       # 10-K filing date + market reaction (next-day / next-week / SPY-alpha)
+│   ├── build_dataset.py              # consolidates output/raw/*.json into long + wide CSVs
+│   └── kpi_aliases.json              # alias dict for all 30 KPIs (consumed by generate_qrels.py)
 ├── validate_ocr_kpis.py          # pilot: validate EDGAR KPI values against OCR text
 ├── generate_qrels.py             # TREC qrels generator for KPI retrieval tasks
-├── kpi_aliases.json              # alias dict for all 30 KPIs (consumed by generate_qrels.py)
 ├── cache/                        # ticker->CIK map, cached SEC + AV responses, AV budget (gitignored)
 │   ├── ticker_cik.json
 │   ├── companyfacts/CIK*.json
@@ -79,22 +81,22 @@ SEC throttles at 10 req/s; we self-limit to ~2 req/s. Responses are cached in
 
 ```bash
 # All companies in the selected industries (tickers_lists/grouped/selected/):
-uv run python KPI_analysis/fetch_kpis.py --selected --years 2017-2022
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --selected --years 2017-2022
 
 # A single industry:
-uv run python KPI_analysis/fetch_kpis.py --industry "Consumer Cyclical / Auto Parts"
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --industry "Consumer Cyclical / Auto Parts"
 
 # An explicit list:
-uv run python KPI_analysis/fetch_kpis.py --tickers ORLY AZO GPC --years 2017-2022
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --tickers ORLY AZO GPC --years 2017-2022
 
 # A whole cleaned CSV:
-uv run python KPI_analysis/fetch_kpis.py --csv tickers_lists/cleaned/NYSE_mapped_clean_verified.csv
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --csv tickers_lists/cleaned/NYSE_mapped_clean_verified.csv
 
 # Add the Alpha Vantage gap-fill on top of any of the above:
-uv run python KPI_analysis/fetch_kpis.py --selected --alphavantage
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --selected --alphavantage
 
 # Consolidate into CSVs:
-uv run python KPI_analysis/build_dataset.py
+uv run python -m KPI_analysis.kpi_fetch_and_build.build_dataset
 ```
 
 ## Alpha Vantage gap-fill (`--alphavantage`)
@@ -106,7 +108,7 @@ so 3 calls cover ~25 KPIs across all years in one go.
 
 ### Keys & budget
 
-API keys live in `KPI_analysis/alpha_venture_API_keys.txt` — one key per line,
+API keys live in `KPI_analysis/kpi_fetch_and_build/alpha_venture_API_keys.txt` — one key per line,
 blank lines and `#` comments are skipped, duplicates are dropped. Adding or
 removing keys requires no code change; the file is re-read each run. Budget
 scales linearly: `daily_budget = N_keys × 25 calls/day`.
@@ -174,7 +176,7 @@ For every ticker AV touched:
 - The reported currency is preserved in `alphavantage.reported_currency` but
   values are stored as-reported (no FX conversion).
 
-## Filing-date market reaction (`fetch_filing_returns.py`)
+## Filing-date market reaction (`kpi_fetch_and_build/fetch_filing_returns.py`)
 
 Links each annual report to the market's reaction at publication. For every
 US-listed `(ticker, fiscal_year)` we resolve the *original* 10-K filing on
@@ -185,17 +187,17 @@ SPY-relative.
 
 ```bash
 # All US-listed selected companies, FY2017-2022:
-uv run python KPI_analysis/fetch_filing_returns.py --selected --years 2017-2022
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_filing_returns --selected --years 2017-2022
 
 # Single industry (filters to its US listings):
-uv run python KPI_analysis/fetch_filing_returns.py \
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_filing_returns \
   --industry "Consumer Cyclical / Auto Parts" --years 2017-2022
 
 # Explicit tickers (US assumed unless suffix like .L):
-uv run python KPI_analysis/fetch_filing_returns.py --tickers AZO ORLY AAP
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_filing_returns --tickers AZO ORLY AAP
 
 # Skip benchmark (alpha columns will be empty):
-uv run python KPI_analysis/fetch_filing_returns.py --selected --no-benchmark
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_filing_returns --selected --no-benchmark
 ```
 
 LSE/AIM and other non-US listings are filtered out by default — they have no

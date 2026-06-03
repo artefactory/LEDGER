@@ -59,7 +59,7 @@ from document import find_mmd, parse_report_name, split_pages  # noqa: E402
 DEFAULT_OCR_ROOT = REPO_ROOT / "DeepSeekOCR_Ardian_pruned_1k"
 DEFAULT_REVIEW_CANDIDATES = HERE / "output" / "qrels" / "review_candidates.csv"
 DEFAULT_OUTPUT_DIR = HERE / "output" / "qrels"
-DEFAULT_ALIASES = HERE / "kpi_aliases.json"
+DEFAULT_ALIASES = HERE / "kpi_fetch_and_build" / "kpi_aliases.json"
 
 # ---------------------------------------------------------------------------
 # Schema

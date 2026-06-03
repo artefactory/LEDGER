@@ -10,11 +10,11 @@ overwrites — the heavy EDGAR / Alpha Vantage responses are cached separately
 under cache/.
 
 Usage:
-  uv run python KPI_analysis/fetch_kpis.py --selected --years 2017-2022
-  uv run python KPI_analysis/fetch_kpis.py --tickers ORLY AZO GPC --years 2017-2022
-  uv run python KPI_analysis/fetch_kpis.py --industry "Consumer Cyclical / Auto Parts"
-  uv run python KPI_analysis/fetch_kpis.py --csv tickers_lists/cleaned/NYSE_mapped_clean_verified.csv
-  uv run python KPI_analysis/fetch_kpis.py --selected --alphavantage   # add AV fallback
+  uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --selected --years 2017-2022
+  uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --tickers ORLY AZO GPC --years 2017-2022
+  uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --industry "Consumer Cyclical / Auto Parts"
+  uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --csv tickers_lists/cleaned/NYSE_mapped_clean_verified.csv
+  uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --selected --alphavantage   # add AV fallback
 
 SEC requires a descriptive User-Agent with contact info; override the default
 via the SEC_USER_AGENT environment variable.
@@ -30,13 +30,19 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
-import alpha_vantage as av
-import edgar
-import yf_fallback
+try:
+    from . import alpha_vantage as av
+    from . import edgar
+    from . import yf_fallback
+except ImportError:
+    import alpha_vantage as av
+    import edgar
+    import yf_fallback
 
 HERE = Path(__file__).resolve().parent
-REPO_ROOT = HERE.parent
-OUTPUT_DIR = HERE / "output" / "raw"
+KPI_ROOT = HERE.parent
+REPO_ROOT = KPI_ROOT.parent
+OUTPUT_DIR = KPI_ROOT / "output" / "raw"
 SELECTED_JSON = REPO_ROOT / "tickers_lists" / "grouped" / "selected" / "companies.json"
 CLEANED_DIR = REPO_ROOT / "tickers_lists" / "cleaned"
 

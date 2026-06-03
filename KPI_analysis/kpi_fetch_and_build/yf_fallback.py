@@ -16,7 +16,10 @@ from typing import Any, Iterable
 import pandas as pd
 import yfinance as yf
 
-from _fiscal import filer_fy_from_period_end
+try:
+    from ._fiscal import filer_fy_from_period_end
+except ImportError:
+    from _fiscal import filer_fy_from_period_end
 
 
 # Map yfinance label -> our KPI key. yfinance has slightly different labels for

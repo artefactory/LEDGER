@@ -32,7 +32,7 @@ REPO_ROOT = KPI_DIR.parent
 # Reuse the parent package's report discovery / mmd selection so this benchmark
 # loads documents identically to the multi-KPI one.
 sys.path.insert(0, str(BENCHMARK_DIR))
-sys.path.insert(0, str(KPI_DIR))
+sys.path.insert(0, str(KPI_DIR / "kpi_fetch_and_build"))
 
 from document import ReportInfo, discover_reports  # noqa: E402
 from tags import KPI_DEFS  # noqa: E402

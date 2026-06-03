@@ -25,10 +25,14 @@ from typing import Any, Iterable
 
 import requests
 
-from _fiscal import filer_fy_from_string as _filer_fy_from_string
-from tags import KPI_DEFS, KpiDef
+try:
+    from ._fiscal import filer_fy_from_string as _filer_fy_from_string
+    from .tags import KPI_DEFS, KpiDef
+except ImportError:
+    from _fiscal import filer_fy_from_string as _filer_fy_from_string
+    from tags import KPI_DEFS, KpiDef
 
-CACHE_DIR = Path(__file__).resolve().parent / "cache"
+CACHE_DIR = Path(__file__).resolve().parent.parent / "cache"
 TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers.json"
 COMPANYFACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
 DEFAULT_USER_AGENT = (

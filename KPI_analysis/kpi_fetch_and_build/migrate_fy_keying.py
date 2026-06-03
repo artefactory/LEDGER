@@ -18,7 +18,7 @@ Asian filers in the auto-parts subset).
 
 Usage::
 
-    uv run python KPI_analysis/migrate_fy_keying.py --years 2017-2022
+    uv run python -m KPI_analysis.kpi_fetch_and_build.migrate_fy_keying --years 2017-2022
 
 The script overwrites ``output/raw/{TICKER}.json`` files in place after
 performing migration. Pass ``--dry-run`` to preview without writing.
@@ -33,14 +33,18 @@ from pathlib import Path
 from typing import Any
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE))
+KPI_ROOT = HERE.parent
 
-import alpha_vantage as av  # noqa: E402
-import edgar  # noqa: E402
+try:
+    from . import alpha_vantage as av  # noqa: E402
+    from . import edgar  # noqa: E402
+except ImportError:
+    import alpha_vantage as av  # noqa: E402
+    import edgar  # noqa: E402
 
-DEFAULT_RAW_DIR = HERE / "output" / "raw"
-COMPANYFACTS_CACHE = HERE / "cache" / "companyfacts"
-AV_CACHE = HERE / "cache" / "alphavantage"
+DEFAULT_RAW_DIR = KPI_ROOT / "output" / "raw"
+COMPANYFACTS_CACHE = KPI_ROOT / "cache" / "companyfacts"
+AV_CACHE = KPI_ROOT / "cache" / "alphavantage"
 
 
 def parse_year_range(s: str) -> list[int]:
