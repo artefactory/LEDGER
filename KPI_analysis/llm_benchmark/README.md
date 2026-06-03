@@ -4,6 +4,14 @@ LLM KPI extraction benchmark. Feeds OCR'd 10-Ks to a chat-completion endpoint
 under an xgrammar-enforced JSON schema, then scores predictions against
 `KPI_analysis/output/kpis_long.csv` on `(ticker, year, kpi)`.
 
+**Scoring scope** — scoring is restricted to the same reports as the
+needle-in-a-haystack benchmark, listed in
+`needle_haystack/test_set_reports.txt` (494 reports → 13,265 ground-truth
+KPIs). Only ground-truth cells and predictions for those `(ticker, year)`
+pairs count; the denominator is the fixed 13,265 test-set KPIs rather than all
+of `kpis_long.csv`. The previous whole-`kpis_long.csv` scorer is preserved as
+`old_scoring_benchmark.py`.
+
 ## Files
 
 ```
@@ -14,7 +22,8 @@ llm_benchmark/
 ├── schema.py            # ReportExtraction Pydantic model = xgrammar schema
 ├── client.py            # OpenAI-compatible chat call + retry + JSON repair
 ├── run_benchmark.py     # orchestrator CLI; writes output/<model-slug>/raw/*.json
-├── score_benchmark.py   # joins predictions vs ground truth, emits metrics
+├── score_benchmark.py   # joins predictions vs ground truth (test-set scope), emits metrics
+├── old_scoring_benchmark.py  # previous scorer (whole kpis_long.csv, no test-set restriction)
 └── output/<model-slug>/ # raw/, predictions_long.csv, per_*_metrics.csv, summary.md, run_meta.json
 ```
 
@@ -170,3 +179,15 @@ for t, n in shifted.most_common():
 If a ticker shows up with a high shift count, the wrong is almost certainly
 not the LLM's fault — it's a ground-truth keying issue (currently: bug 1
 above; in future runs, possibly a new filer convention we haven't seen).
+
+Note with needle-in-a-haystack
+
+### The two benchmarks test different things
+
+| | Needle-in-a-haystack | Multi-KPI extraction |
+|---|---|---|
+| Task | "Find this one value" | "Extract everything you can" |
+| Core skill tested | Retrieval + precision in a long context | Completeness + knowing when to abstain |
+| Natural prompt | "What is revenue for FY2019?" | "Extract all 31 KPIs from this report" |
+
+In the multi-KPI setting, the model **doesn't know in advance** which KPIs are in the document — that's part of the task. Restricting to the 10,000 grade-2 subset removes the "abstain when absent" dimension entirely, which is arguably the harder real-world skill (hallucinating a plausible number is the common failure mode).

@@ -87,6 +87,22 @@ def load_us_10k_dirnames(path: Path) -> set[str]:
     return {line.strip() for line in path.read_text().splitlines() if line.strip()}
 
 
+def load_report_names(path: Path) -> set[str]:
+    """Read a newline-delimited list of report directory names to keep.
+
+    One ``{EXCHANGE}_{TICKER}_{YEAR}`` name per line (e.g. ``NASDAQ_CAAS_2017``,
+    matching ``ReportInfo.name``). Blank lines and ``#`` comments are skipped.
+    """
+    if not path.is_file():
+        raise FileNotFoundError(f"--reports-file not found: {path}")
+    names: set[str] = set()
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#"):
+            names.add(line)
+    return names
+
+
 def write_record(out_path: Path, record: dict) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     tmp = out_path.with_suffix(out_path.suffix + ".tmp")
@@ -268,6 +284,15 @@ def main() -> None:
     )
     p.add_argument("--is-10k-list", type=Path, default=DEFAULT_IS_10K)
     p.add_argument(
+        "--reports-file",
+        type=Path,
+        default=None,
+        help="Restrict to the report directory names listed in this file "
+        "(one {EXCHANGE}_{TICKER}_{YEAR} per line, e.g. "
+        "needle_haystack/test_set_reports.txt). Blank lines and '#' comments "
+        "are skipped. Applied before the ground-truth overlap filter.",
+    )
+    p.add_argument(
         "--resume",
         action="store_true",
         help="Skip reports whose output JSON already exists with status=ok.",
@@ -288,6 +313,22 @@ def main() -> None:
     sys.stderr.write(
         f"[setup] {len(reports)} OCR'd reports discovered under {args.root}\n"
     )
+
+    if args.reports_file is not None:
+        wanted = load_report_names(args.reports_file)
+        discovered_names = {r.name for r in reports}
+        reports = [r for r in reports if r.name in wanted]
+        missing = sorted(wanted - discovered_names)
+        sys.stderr.write(
+            f"[setup] {len(reports)}/{len(wanted)} reports from "
+            f"{args.reports_file.name} found under {args.root}\n"
+        )
+        if missing:
+            sys.stderr.write(
+                f"[setup] WARNING: {len(missing)} listed report(s) not found "
+                f"in the OCR tree: {', '.join(missing[:10])}"
+                f"{' …' if len(missing) > 10 else ''}\n"
+            )
 
     reports = [r for r in reports if (r.ticker, r.year) in gt_pairs]
     sys.stderr.write(f"[setup] {len(reports)} reports overlap with ground truth\n")
@@ -392,6 +433,7 @@ def main() -> None:
         "base_url": args.base_url,
         "few_shot": args.few_shot,
         "us_only": args.us_only,
+        "reports_file": str(args.reports_file) if args.reports_file else None,
         "max_chars": max_chars,
         "max_tokens": args.max_tokens,
         "temperature": args.temperature,
