@@ -59,6 +59,7 @@ ALLOWED_TAGS = set(bleach.sanitizer.ALLOWED_TAGS).union(
         "img",
         "blockquote",
         "del",
+        "mark",
     }
 )
 ALLOWED_ATTRIBUTES = {
@@ -67,6 +68,7 @@ ALLOWED_ATTRIBUTES = {
     "img": ["src", "alt", "title"],
     "th": ["align", "colspan", "rowspan"],
     "td": ["align", "colspan", "rowspan"],
+    "mark": ["class"],
 }
 
 
@@ -218,24 +220,99 @@ def rewrite_markdown_image_refs(markdown_text: str, session_id: str, index: int)
     return IMAGE_REF_RE.sub(replace_md, markdown_text)
 
 
+def _escape_regex(text: str) -> str:
+    return re.escape(text)
+
+
+def _normalize_value_for_matching(raw: str) -> str:
+    """Strip $, commas, spaces and collapse whitespace for fuzzy numeric matching."""
+    cleaned = re.sub(r"[$,\s]", "", raw)
+    return cleaned
+
+
+def highlight_kpi_zones(
+    html: str,
+    *,
+    alias_matched: str | None,
+    raw_value: str | None,
+    kpi: str | None = None,
+) -> str:
+    """Wrap occurrences of the matched alias and raw value in <mark> tags."""
+    segments: list[tuple[str, str]] = []
+
+    if alias_matched and alias_matched.strip():
+        pattern = _escape_regex(alias_matched.strip())
+        segments.append((pattern, "mark-alias"))
+
+    if raw_value and raw_value.strip():
+        normalized = _normalize_value_for_matching(raw_value.strip())
+        if normalized:
+            pattern = _escape_regex(normalized)
+            segments.append((pattern, "mark-value"))
+
+    if not segments:
+        return html
+
+    for pattern, css_class in segments:
+        html = re.sub(
+            pattern,
+            lambda m, cls=css_class: f'<mark class="{cls}">{m.group(0)}</mark>',
+            html,
+            flags=re.IGNORECASE,
+        )
+    return html
+
+
+def highlight_raw_text(
+    text: str,
+    *,
+    alias_matched: str | None,
+    raw_value: str | None,
+) -> str:
+    """Highlight alias and value matches in plain text (for raw markdown view).
+
+    Returns HTML-safe string with <mark> wraps and HTML-escaped content.
+    """
+    import html as html_mod
+
+    escaped = html_mod.escape(text)
+    return highlight_kpi_zones(
+        escaped,
+        alias_matched=alias_matched,
+        raw_value=raw_value,
+    )
+
+
 def render_markdown_page(
     markdown_text: str,
     *,
     session_id: str,
     index: int,
     show_inline_images: bool,
+    alias_matched: str | None = None,
+    raw_value: str | None = None,
+    kpi: str | None = None,
 ) -> str:
     if show_inline_images:
         rewritten = rewrite_markdown_image_refs(markdown_text, session_id, index)
     else:
         rewritten = omit_markdown_image_refs(markdown_text)
-    html = markdown_lib.markdown(
+
+    raw_html = markdown_lib.markdown(
         rewritten,
         extensions=["tables", "fenced_code", "sane_lists", "nl2br"],
         output_format="html5",
     )
+
+    highlighted = highlight_kpi_zones(
+        raw_html,
+        alias_matched=alias_matched,
+        raw_value=raw_value,
+        kpi=kpi,
+    )
+
     return bleach.clean(
-        html,
+        highlighted,
         tags=ALLOWED_TAGS,
         attributes=ALLOWED_ATTRIBUTES,
         protocols=["http", "https", "mailto", "data"],
@@ -355,11 +432,19 @@ def create_app(default_session_id: str | None, build_defaults: dict[str, Any]) -
                 "item": item,
                 "annotation": annotations.get(item["item_id"]),
                 "page_text": text,
+                "page_text_highlighted": highlight_raw_text(
+                    text,
+                    alias_matched=item.get("alias_matched"),
+                    raw_value=item.get("raw_value"),
+                ),
                 "markdown_html": render_markdown_page(
                     text,
                     session_id=session_id,
                     index=index,
                     show_inline_images=show_inline_images,
+                    alias_matched=item.get("alias_matched"),
+                    raw_value=item.get("raw_value"),
+                    kpi=item.get("kpi"),
                 ),
                 "inline_images": show_inline_images,
                 "image_url": f"/api/session/{session_id}/item/{index}/raw-image",

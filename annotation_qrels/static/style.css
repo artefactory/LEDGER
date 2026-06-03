@@ -317,6 +317,34 @@ button:hover,
     color: #e7eeed;
 }
 
+/* KPI zone highlighting — alias matches */
+.markdown-preview mark.mark-alias,
+.raw-markdown mark.mark-alias {
+    background: #fef3cd;
+    color: #1d2528;
+    border-radius: 2px;
+    padding: 0 2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+/* KPI zone highlighting — value matches */
+.markdown-preview mark.mark-value,
+.raw-markdown mark.mark-value {
+    background: #ffcccc;
+    color: #1d2528;
+    border-radius: 2px;
+    padding: 0 2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+/* Both alias + value overlap */
+.markdown-preview mark.mark-alias.mark-value,
+.raw-markdown mark.mark-alias.mark-value {
+    background: #b6effb;
+}
+
 .annotation-panel {
     display: flex;
     flex-direction: column;
@@ -368,22 +396,44 @@ dd {
     gap: 8px;
 }
 
-.status-button[data-status="ok"].active {
+/* Grade 2 — Primary source (green) */
+.status-button.grade-2.active {
     background: var(--green);
     border-color: var(--green);
     color: white;
 }
 
-.status-button[data-status="not_ok"].active {
+/* Grade 1 — Contextual mention (amber) */
+.status-button.grade-1.active {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: white;
+}
+
+/* Grade 0 — Not relevant (red) */
+.status-button.grade-0.active {
     background: var(--red);
     border-color: var(--red);
     color: white;
 }
 
-.status-button[data-status="uncertain"].active {
-    background: var(--amber);
-    border-color: var(--amber);
-    color: white;
+/* Grade button layout: number + label stacked */
+.status-button {
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 4px;
+    line-height: 1.2;
+}
+
+.status-button .grade-num {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.status-button .grade-label {
+    font-size: 10px;
+    font-weight: 600;
+    opacity: 0.85;
 }
 
 select,
@@ -421,23 +471,54 @@ textarea {
     min-height: 20px;
 }
 
-/* KPI context card */
+/* KPI context card — prominent styling */
 .kpi-card {
-    background: var(--panel-2);
-    border-radius: 6px;
-    padding: 10px 12px;
+    background: linear-gradient(135deg, #e0f2f1, #e8f5e9);
+    border: 1px solid #b2dfdb;
+    border-radius: 8px;
+    padding: 14px 16px;
+}
+
+.kpi-card .kpi-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+    text-transform: capitalize;
 }
 
 .kpi-card .kpi-value {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 800;
     color: var(--teal);
-    margin: 0 0 4px;
+    margin: 0;
+    letter-spacing: -0.5px;
 }
 
-.kpi-card .kpi-label {
-    font-size: 12px;
+.kpi-card .kpi-exact {
+    font-family: var(--mono);
+    font-size: 13px;
     color: var(--muted);
+    margin: 2px 0 6px;
+}
+
+.kpi-card .kpi-exact:empty {
+    display: none;
+}
+
+.kpi-card .kpi-quick-ref {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.kpi-card .kpi-quick-ref:empty {
+    display: none;
 }
 
 .kpi-card .kpi-detail {

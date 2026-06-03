@@ -38,8 +38,10 @@ const els = {
     zoomOutButton: document.getElementById('zoomOutButton'),
     zoomResetButton: document.getElementById('zoomResetButton'),
     zoomInButton: document.getElementById('zoomInButton'),
+    kpiName: document.getElementById('kpiName'),
     kpiTargetValue: document.getElementById('kpiTargetValue'),
-    kpiLabel: document.getElementById('kpiLabel'),
+    kpiExactValue: document.getElementById('kpiExactValue'),
+    kpiQuickRef: document.getElementById('kpiQuickRef'),
     kpiMatchType: document.getElementById('kpiMatchType'),
     kpiAliasMatched: document.getElementById('kpiAliasMatched'),
     kpiRawValue: document.getElementById('kpiRawValue'),
@@ -234,9 +236,30 @@ function escapeHtml(str) {
     return div.innerHTML;
 }
 
+function formatExactValue(value) {
+    if (value === null || value === undefined) return '';
+    const absVal = Math.abs(value);
+    const sign = value < 0 ? '-' : '';
+    if (absVal >= 1e9) {
+        return `${sign}$${(absVal / 1e9).toFixed(3).replace(/\.?0+$/, '')}B (${absVal.toLocaleString('en-US')})`;
+    }
+    if (absVal >= 1e6) {
+        return `${sign}$${(absVal / 1e6).toFixed(3).replace(/\.?0+$/, '')}M (${absVal.toLocaleString('en-US')})`;
+    }
+    if (absVal >= 1e3) {
+        return `${sign}$${(absVal / 1e3).toFixed(3).replace(/\.?0+$/, '')}K (${absVal.toLocaleString('en-US')})`;
+    }
+    return `${sign}$${absVal.toLocaleString('en-US')}`;
+}
+
 function renderKpiContext(item) {
+    const kpiName = (item.kpi || '').replace(/_/g, ' ');
+    els.kpiName.textContent = kpiName || '-';
     els.kpiTargetValue.textContent = item.target_value_display || '-';
-    els.kpiLabel.textContent = `${(item.kpi || '').replace(/_/g, ' ')} \u00b7 ${item.ticker || ''} ${item.year || ''}`;
+    els.kpiExactValue.textContent = formatExactValue(item.target_value);
+    els.kpiQuickRef.textContent = item.target_value_display
+        ? `Find ${item.target_value_display} in ${item.exchange || ''}:${item.ticker || ''} ${item.year || ''}`
+        : '';
     els.kpiMatchType.textContent = item.match_type || '-';
     els.kpiAliasMatched.textContent = item.alias_matched || '-';
     els.kpiRawValue.textContent = item.raw_value || '-';
@@ -273,7 +296,7 @@ async function loadItem(index) {
     renderKpiContext(data.item);
 
     els.markdownPreview.innerHTML = data.markdown_html || '';
-    els.rawMarkdown.textContent = data.page_text || '';
+    els.rawMarkdown.innerHTML = data.page_text_highlighted || escapeHtml(data.page_text || '');
     resetExtractedContentScroll();
 
     if (data.item.raw_png_path) {
@@ -394,13 +417,13 @@ function setupEvents() {
             els.helpDialog.showModal();
         } else if (event.key.toLowerCase() === 'a') {
             event.preventDefault();
-            quickMark('ok');
-        } else if (event.key.toLowerCase() === 'r') {
-            event.preventDefault();
-            quickMark('not_ok');
+            quickMark('2');
         } else if (event.key.toLowerCase() === 'u') {
             event.preventDefault();
-            quickMark('uncertain');
+            quickMark('1');
+        } else if (event.key.toLowerCase() === 'r') {
+            event.preventDefault();
+            quickMark('0');
         } else if (event.key === 'ArrowRight' || event.key.toLowerCase() === 'j') {
             event.preventDefault();
             go(1);
