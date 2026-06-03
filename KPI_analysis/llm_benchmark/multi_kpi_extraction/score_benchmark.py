@@ -2,7 +2,18 @@
 
 Walks ``--output-dir/raw/*.json``, flattens each ``ExtractedKPI`` into a
 prediction row, joins against ``kpis_long.csv`` on ``(ticker, year, kpi)``,
-and emits four CSVs plus a markdown summary:
+and emits four CSVs plus a markdown summary.
+
+**Scope** — scoring is restricted to the same reports used by the
+needle-in-a-haystack benchmark, listed one ``EXCHANGE_TICKER_YEAR`` per line in
+``--test-set-reports`` (default ``needle_haystack/test_set_reports.txt``). Each
+report name is parsed into a ``(ticker, year)`` pair; only ground-truth cells
+and predictions for those pairs are scored. This makes the denominator the
+fixed set of ~13.3k KPIs that exist on the test-set reports, rather than every
+cell in ``kpis_long.csv``. (For the previous whole-``kpis_long.csv`` behaviour
+see ``old_scoring_benchmark.py``.)
+
+Emits:
 
 - ``predictions_long.csv``  — full joined view, one row per (ticker, year, kpi).
 - ``per_kpi_metrics.csv``    — counts + recall/precision per KPI.
@@ -32,9 +43,11 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-KPI_ANALYSIS_DIR = HERE.parent
+BENCHMARK_DIR = HERE.parent
+KPI_ANALYSIS_DIR = BENCHMARK_DIR.parent
 
 sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(BENCHMARK_DIR))
 sys.path.insert(0, str(KPI_ANALYSIS_DIR))
 
 from schema import ReportExtraction  # noqa: E402  (validates raw extraction objs)
@@ -42,6 +55,32 @@ from schema import ReportExtraction  # noqa: E402  (validates raw extraction obj
 
 DEFAULT_GROUND_TRUTH = KPI_ANALYSIS_DIR / "output" / "kpis_long.csv"
 DEFAULT_OUTPUT_DIR = HERE / "output"
+DEFAULT_TEST_SET_REPORTS = BENCHMARK_DIR / "needle_haystack" / "test_set_reports.txt"
+
+
+def load_test_set_pairs(path: Path) -> tuple[set[tuple[str, int]], list[str]]:
+    """Parse ``EXCHANGE_TICKER_YEAR`` report names into ``(ticker, year)`` pairs.
+
+    The file lists one report directory name per line (the same names used by
+    the needle-in-a-haystack benchmark). The trailing ``_YEAR`` is split off
+    first, then the leading ``EXCHANGE_`` prefix, leaving the ticker (which may
+    itself contain dots, e.g. ``ABDP.L``). Returns the set of pairs and the
+    ordered list of report names.
+    """
+    pairs: set[tuple[str, int]] = set()
+    names: list[str] = []
+    for line in path.read_text().splitlines():
+        name = line.strip()
+        if not name:
+            continue
+        names.append(name)
+        head, _, year = name.rpartition("_")
+        _exchange, _, ticker = head.partition("_")
+        try:
+            pairs.add((ticker, int(year)))
+        except ValueError:
+            sys.stderr.write(f"[score] could not parse report name {name!r}\n")
+    return pairs, names
 
 
 def load_ground_truth(csv_path: Path) -> dict[tuple[str, int, str], dict]:
@@ -257,11 +296,17 @@ def render_summary(
     per_source: list[dict],
     runs: list[dict],
     args: argparse.Namespace,
+    n_test_reports: int,
+    n_gt_cells: int,
 ) -> str:
     lines: list[str] = []
     lines.append("# LLM KPI extraction benchmark — summary\n")
     lines.append(f"- Tolerance: ±{args.tolerance:.1%}")
     lines.append(f"- Ground truth: `{args.ground_truth}`")
+    lines.append(
+        f"- Test-set scope: `{args.test_set_reports}` "
+        f"({n_test_reports} reports, {n_gt_cells} ground-truth KPIs)"
+    )
     lines.append(f"- Predictions root: `{args.output_dir / 'raw'}`")
     lines.append(
         f"- Reports loaded: {len(runs)} "
@@ -331,6 +376,15 @@ def main() -> None:
         "--output-dir; --output-dir wins if both are passed.",
     )
     p.add_argument("--output-dir", type=Path, default=None)
+    p.add_argument(
+        "--test-set-reports",
+        type=Path,
+        default=DEFAULT_TEST_SET_REPORTS,
+        help="Text file of EXCHANGE_TICKER_YEAR report names (one per line) "
+        "defining the scoring scope — the same reports used by the "
+        "needle-in-a-haystack benchmark. Only ground-truth cells and "
+        "predictions for these (ticker, year) pairs are scored.",
+    )
     p.add_argument("--tolerance", type=float, default=0.01,
                    help="Match if |pred-gt| / |gt| <= tolerance. Default 1%%.")
     p.add_argument("--zero-eps", type=float, default=0.5,
@@ -353,32 +407,43 @@ def main() -> None:
         sys.stderr.write(f"[score] {raw_dir} does not exist — run run_benchmark.py first\n")
         sys.exit(1)
 
-    gt = load_ground_truth(args.ground_truth)
-    preds, runs = load_predictions(raw_dir)
-    sys.stderr.write(
-        f"[score] loaded {len(preds)} prediction rows from {len(runs)} reports, "
-        f"{len(gt)} ground-truth (ticker, year, kpi) cells\n"
-    )
+    if not args.test_set_reports.is_file():
+        sys.stderr.write(
+            f"[score] --test-set-reports {args.test_set_reports} not found\n"
+        )
+        sys.exit(1)
+    allowed_pairs, test_reports = load_test_set_pairs(args.test_set_reports)
 
-    # Build the joined view. Iterate over the union of (ticker, year, kpi)
-    # keys appearing in either pred set or in the gt set restricted to the
-    # tickers/years we actually ran.
-    ran_pairs: set[tuple[str, int]] = {
-        (r["ticker"], r["year"]) for r in runs if r["status"] == "ok"
-        and r["ticker"] is not None and r["year"] is not None
+    gt = load_ground_truth(args.ground_truth)
+    # Restrict ground truth to the test-set reports — this fixes the scoring
+    # denominator to the KPIs that exist on those reports.
+    gt = {
+        (ticker, year, kpi): row
+        for (ticker, year, kpi), row in gt.items()
+        if (ticker, year) in allowed_pairs
     }
 
+    preds, runs = load_predictions(raw_dir)
+    sys.stderr.write(
+        f"[score] test set: {len(test_reports)} reports "
+        f"({len(allowed_pairs)} distinct (ticker, year) pairs)\n"
+        f"[score] loaded {len(preds)} prediction rows from {len(runs)} reports, "
+        f"{len(gt)} ground-truth (ticker, year, kpi) cells in scope\n"
+    )
+
+    # Build the joined view over the union of (ticker, year, kpi) keys from the
+    # test-set-restricted ground truth and from predictions on test-set reports.
+    # Predictions for pairs outside the test set are dropped entirely.
     pred_index: dict[tuple[str, int, str], dict] = {}
     for pr in preds:
+        if (pr["ticker"], pr["year"]) not in allowed_pairs:
+            continue
         key = (pr["ticker"], pr["year"], pr["kpi"])
         # If the LLM emitted the same KPI twice for the same year (rare
         # under xgrammar but defensively handled), keep the first.
         pred_index.setdefault(key, pr)
 
-    keys: set[tuple[str, int, str]] = set(pred_index.keys())
-    for (ticker, year, kpi), gt_row in gt.items():
-        if (ticker, year) in ran_pairs:
-            keys.add((ticker, year, kpi))
+    keys: set[tuple[str, int, str]] = set(pred_index.keys()) | set(gt.keys())
 
     rows: list[dict] = []
     for ticker, year, kpi in sorted(keys):
@@ -447,6 +512,8 @@ def main() -> None:
         per_source=per_source,
         runs=runs,
         args=args,
+        n_test_reports=len(test_reports),
+        n_gt_cells=len(gt),
     )
     (args.output_dir / "summary.md").write_text(summary_text)
 
