@@ -16,7 +16,7 @@ HERE = Path(__file__).resolve().parent
 SESSIONS_DIR = HERE / "sessions"
 SCHEMA_VERSION = "1.0"
 
-VALID_OVERALL_STATUS = {"ok", "not_ok", "uncertain", "unreviewed"}
+VALID_OVERALL_STATUS = {"0", "1", "2", "unreviewed"}
 
 SUMMARY_FIELDS = [
     "session_id",

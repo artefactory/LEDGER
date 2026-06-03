@@ -81,8 +81,10 @@
             <div class="panel-section kpi-section">
                 <div class="eyebrow">Target KPI</div>
                 <div class="kpi-card">
+                    <div class="kpi-name" id="kpiName">-</div>
                     <div class="kpi-value" id="kpiTargetValue">-</div>
-                    <div class="kpi-label" id="kpiLabel">-</div>
+                    <div class="kpi-exact" id="kpiExactValue"></div>
+                    <div class="kpi-quick-ref" id="kpiQuickRef"></div>
                     <div class="kpi-detail">
                         <div>Match: <strong id="kpiMatchType">-</strong></div>
                         <div>Alias: <span id="kpiAliasMatched">-</span></div>
@@ -118,11 +120,20 @@
             </div>
 
             <div class="panel-section decision-section">
-                <div class="section-label">Decision</div>
-                <div class="decision-buttons" role="group" aria-label="Overall status">
-                    <button type="button" class="status-button" data-status="ok">Yes</button>
-                    <button type="button" class="status-button" data-status="not_ok">No</button>
-                    <button type="button" class="status-button" data-status="uncertain">Uncertain</button>
+                <div class="section-label">Relevance grade</div>
+                <div class="decision-buttons" role="group" aria-label="Relevance grade">
+                    <button type="button" class="status-button grade-2" data-status="2">
+                        <span class="grade-num">2</span>
+                        <span class="grade-label">Primary source</span>
+                    </button>
+                    <button type="button" class="status-button grade-1" data-status="1">
+                        <span class="grade-num">1</span>
+                        <span class="grade-label">Contextual</span>
+                    </button>
+                    <button type="button" class="status-button grade-0" data-status="0">
+                        <span class="grade-num">0</span>
+                        <span class="grade-label">Not relevant</span>
+                    </button>
                 </div>
             </div>
 
@@ -148,11 +159,11 @@
             </div>
             <div class="shortcut-grid">
                 <span>A</span>
-                <p>Yes (relevant), save, next</p>
-                <span>R</span>
-                <p>No (not relevant), save, next</p>
+                <p>Grade 2 (primary source), save, next</p>
                 <span>U</span>
-                <p>Uncertain, save, next</p>
+                <p>Grade 1 (contextual), save, next</p>
+                <span>R</span>
+                <p>Grade 0 (not relevant), save, next</p>
                 <span>J / K</span>
                 <p>Next / previous</p>
                 <span>+ / - / 0</span>
