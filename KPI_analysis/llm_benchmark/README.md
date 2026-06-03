@@ -1,8 +1,11 @@
 # llm_benchmark
 
-LLM KPI extraction benchmark. Feeds OCR'd 10-Ks to a chat-completion endpoint
-under an xgrammar-enforced JSON schema, then scores predictions against
-`KPI_analysis/output/kpis_long.csv` on `(ticker, year, kpi)`.
+LLM KPI extraction benchmarks. Contains two sub-benchmarks:
+
+- **multi-KPI extraction** (`multi_kpi_extraction/`) — extract all KPIs from a report in one pass
+- **needle-in-a-haystack** (`needle_haystack/`) — find a single KPI value in a long document
+
+Both share the document loader and KPI catalogue at this level.
 
 **Scoring scope** — scoring is restricted to the same reports as the
 needle-in-a-haystack benchmark, listed in
@@ -16,30 +19,32 @@ of `kpis_long.csv`. The previous whole-`kpis_long.csv` scorer is preserved as
 
 ```
 llm_benchmark/
-├── document.py          # OCR discovery + page-marker rendering + tail-truncation
-├── kpi_catalogue.py     # canonical KPI list embedded in the system prompt
-├── prompts.py           # SYSTEM_PROMPT (rules + catalogue) + optional few-shot
-├── schema.py            # ReportExtraction Pydantic model = xgrammar schema
-├── client.py            # OpenAI-compatible chat call + retry + JSON repair
-├── run_benchmark.py     # orchestrator CLI; writes output/<model-slug>/raw/*.json
-├── score_benchmark.py   # joins predictions vs ground truth (test-set scope), emits metrics
-├── old_scoring_benchmark.py  # previous scorer (whole kpis_long.csv, no test-set restriction)
-└── output/<model-slug>/ # raw/, predictions_long.csv, per_*_metrics.csv, summary.md, run_meta.json
+├── document.py          # SHARED — OCR discovery + page-marker rendering + tail-truncation
+├── kpi_catalogue.py     # SHARED — canonical KPI list embedded in the system prompt
+├── multi_kpi_extraction/
+│   ├── schema.py            # ReportExtraction Pydantic model = xgrammar schema
+│   ├── client.py            # OpenAI-compatible chat call + retry + JSON repair
+│   ├── prompts.py           # SYSTEM_PROMPT (rules + catalogue) + optional few-shot
+│   ├── run_benchmark.py     # orchestrator CLI; writes output/<model-slug>/raw/*.json
+│   ├── score_benchmark.py   # joins predictions vs ground truth (test-set scope), emits metrics
+│   ├── old_scoring_benchmark.py  # previous scorer (whole kpis_long.csv, no test-set restriction)
+│   └── output/<model-slug>/ # raw/, predictions_long.csv, per_*_metrics.csv, summary.md, run_meta.json
+├── needle_haystack/     # needle-in-a-haystack benchmark (see its own README)
 ```
 
 ## Commands
 
 ```bash
 # Smoke test (8 reports)
-uv run python KPI_analysis/llm_benchmark/run_benchmark.py \
+uv run python KPI_analysis/llm_benchmark/multi_kpi_extraction/run_benchmark.py \
     --model Qwen/Qwen3.6-27B-FP8 --limit 8
 
 # Full run on the auto-parts subset
-uv run python KPI_analysis/llm_benchmark/run_benchmark.py \
+uv run python KPI_analysis/llm_benchmark/multi_kpi_extraction/run_benchmark.py \
     --model Qwen/Qwen3.6-27B-FP8
 
 # Score
-uv run python KPI_analysis/llm_benchmark/score_benchmark.py \
+uv run python KPI_analysis/llm_benchmark/multi_kpi_extraction/score_benchmark.py \
     --model Qwen/Qwen3.6-27B-FP8
 ```
 
@@ -160,7 +165,7 @@ with open("KPI_analysis/output/kpis_long.csv") as f:
             continue
 
 shifted = Counter()
-with open("KPI_analysis/llm_benchmark/output/<model>/predictions_long.csv") as f:
+with open("KPI_analysis/llm_benchmark/multi_kpi_extraction/output/<model>/predictions_long.csv") as f:
     for r in csv.DictReader(f):
         if r["status"] != "wrong":
             continue

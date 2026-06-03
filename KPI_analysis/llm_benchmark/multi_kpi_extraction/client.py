@@ -112,10 +112,18 @@ def call_extraction(
         "min_p": min_p,
         "repetition_penalty": repetition_penalty,
     }
-    # Only pass chat_template_kwargs when thinking mode is explicitly enabled
-    # (Qwen3-style). Mistral tokenizers reject any chat_template_kwargs.
-    if enable_thinking:
+    # Qwen3-style thinking toggle via chat_template_kwargs. The Qwen3.5/3.6
+    # chat template only suppresses the <think> block when enable_thinking is
+    # *defined and false* — if the kwarg is absent, thinking stays ON (the
+    # model then emits ~10k reasoning tokens per call, which the qwen3
+    # reasoning-parser strips from content but still generates). So we must
+    # send the kwarg for BOTH True and False. We send nothing only when the
+    # caller passes None (model default) — Mistral tokenizers reject any
+    # chat_template_kwargs, so None keeps those runs working.
+    if enable_thinking is True:
         extra_body["chat_template_kwargs"] = {"enable_thinking": True}
+    elif enable_thinking is False:
+        extra_body["chat_template_kwargs"] = {"enable_thinking": False}
     if reasoning_effort is not None:
         extra_body["reasoning_effort"] = reasoning_effort
 

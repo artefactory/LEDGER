@@ -13,7 +13,7 @@ Default OCR root is ``DeepSeekOCR_Ardian_pruned_1k/`` (~994 reports, ~980
 overlap with ``kpis_long.csv``). Override with ``--root``.
 
 Smoke-test pattern:
-    uv run python KPI_analysis/llm_benchmark/run_benchmark.py \\
+    uv run python KPI_analysis/llm_benchmark/multi_kpi_extraction/run_benchmark.py \\
         --model Qwen/Qwen2.5-72B-Instruct --limit 8
 
 Scoring is a separate step — see ``score_benchmark.py``.
@@ -33,10 +33,12 @@ from pathlib import Path
 from tqdm import tqdm
 
 HERE = Path(__file__).resolve().parent
-KPI_ANALYSIS_DIR = HERE.parent
+BENCHMARK_DIR = HERE.parent
+KPI_ANALYSIS_DIR = BENCHMARK_DIR.parent
 REPO_ROOT = KPI_ANALYSIS_DIR.parent
 
 sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(BENCHMARK_DIR))
 sys.path.insert(0, str(KPI_ANALYSIS_DIR))
 
 from client import call_extraction, make_client  # noqa: E402
@@ -209,7 +211,7 @@ def main() -> None:
         type=Path,
         default=None,
         help="Output directory. Default: "
-        "KPI_analysis/llm_benchmark/output/<model-slug>/ — keeps per-model "
+        "KPI_analysis/llm_benchmark/multi_kpi_extraction/output/<model-slug>/ — keeps per-model "
         "results separate so --resume across models is safe.",
     )
     p.add_argument(
