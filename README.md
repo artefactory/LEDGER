@@ -116,9 +116,9 @@ Data sources by exchange:
 
 ### Scripts
 
-- **`fetch_kpis.py`** — orchestrator; routes each ticker to the right source,
+- **`kpi_fetch_and_build/fetch_kpis.py`** — orchestrator; routes each ticker to the right source,
   resolves XBRL tag ambiguity, writes `output/raw/{TICKER}.json`.
-- **`build_dataset.py`** — consolidates raw JSONs into `output/kpis_long.csv`
+- **`kpi_fetch_and_build/build_dataset.py`** — consolidates raw JSONs into `output/kpis_long.csv`
   (ticker × year × kpi × value) and `output/kpis_wide.csv` (one row per
   ticker × year).
 - **`validate_ocr_kpis.py`** — checks whether KPI target values from
@@ -126,21 +126,21 @@ Data sources by exchange:
   (alias → numeric candidate → unit normalisation) and a reverse pipeline
   (scaled target literal → alias confirmation). Outputs audit CSVs and
   summary markdown under `output/ocr_validation/`.
-- **`tags.py`** — XBRL tag definitions; defines the ordered candidate tag list
+- **`kpi_fetch_and_build/tags.py`** — XBRL tag definitions; defines the ordered candidate tag list
   per logical KPI. Tag order is load-bearing (scope conventions). Read the
   comments before modifying.
-- **`edgar.py`** / **`yf_fallback.py`** / **`alpha_vantage.py`** — source
+- **`kpi_fetch_and_build/edgar.py`** / **`yf_fallback.py`** / **`alpha_vantage.py`** — source
   clients used by `fetch_kpis.py`.
 
 ```bash
 # Fetch KPIs for all selected companies, FY 2017-2022:
-uv run python KPI_analysis/fetch_kpis.py --selected --years 2017-2022
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --selected --years 2017-2022
 
 # Add Alpha Vantage gap-fill on top:
-uv run python KPI_analysis/fetch_kpis.py --selected --alphavantage
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis --selected --alphavantage
 
 # Consolidate into CSV:
-uv run python KPI_analysis/build_dataset.py
+uv run python -m KPI_analysis.kpi_fetch_and_build.build_dataset
 
 # Validate KPIs against OCR text:
 uv run python KPI_analysis/validate_ocr_kpis.py
@@ -148,7 +148,7 @@ uv run python KPI_analysis/validate_ocr_kpis.py
 
 ---
 
-## Stage 4 — Filing-date market reactions (`KPI_analysis/fetch_filing_returns.py`)
+## Stage 4 — Filing-date market reactions (`KPI_analysis/kpi_fetch_and_build/fetch_filing_returns.py`)
 
 For every US-listed `(ticker, fiscal year)`, finds the original 10-K filing on
 EDGAR, reads its acceptance timestamp (UTC), classifies it as pre-market /
@@ -159,7 +159,7 @@ Output `output/filing_returns.csv` is joinable to `kpis_long.csv` on
 `(ticker, year)`.
 
 ```bash
-uv run python KPI_analysis/fetch_filing_returns.py --selected --years 2017-2022
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_filing_returns --selected --years 2017-2022
 ```
 
 See `KPI_analysis/README.md` for the full event-window definition, output

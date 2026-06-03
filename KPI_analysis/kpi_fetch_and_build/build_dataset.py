@@ -6,7 +6,7 @@ Reads KPI_analysis/output/raw/*.json (produced by fetch_kpis.py) and writes:
   - output/coverage.md     : per-KPI coverage % per year, plus ticker-level summary
 
 Usage:
-  uv run python KPI_analysis/build_dataset.py
+  uv run python -m KPI_analysis.kpi_fetch_and_build.build_dataset
 """
 
 from __future__ import annotations
@@ -16,11 +16,15 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-from tags import KPI_DEFS
+try:
+    from .tags import KPI_DEFS
+except ImportError:
+    from tags import KPI_DEFS
 
 HERE = Path(__file__).resolve().parent
-RAW_DIR = HERE / "output" / "raw"
-OUT_DIR = HERE / "output"
+KPI_ROOT = HERE.parent
+RAW_DIR = KPI_ROOT / "output" / "raw"
+OUT_DIR = KPI_ROOT / "output"
 LONG_CSV = OUT_DIR / "kpis_long.csv"
 WIDE_CSV = OUT_DIR / "kpis_wide.csv"
 COVERAGE_MD = OUT_DIR / "coverage.md"

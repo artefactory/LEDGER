@@ -34,7 +34,7 @@ if ! flock -n 9; then
 fi
 
 rc=0
-uv run python KPI_analysis/fetch_kpis.py \
+uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_kpis \
     --selected \
     --years 2017-2022 \
     --alphavantage \

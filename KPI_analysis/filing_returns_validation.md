@@ -3,7 +3,7 @@
 How we know the numbers in `output/filing_returns.csv` are real, and what
 the populated `error` column actually means.
 
-The pipeline is described in [`README.md`](README.md#filing-date-market-reaction-fetch_filing_returnspy);
+The pipeline is described in [`README.md`](README.md#filing-date-market-reaction-kpi_fetch_and_buildfetch_filing_returnspy);
 this doc focuses on the post-hoc checks we ran on the full `--selected
 --years 2017-2022` output (238 US-listed tickers, 1428 rows).
 

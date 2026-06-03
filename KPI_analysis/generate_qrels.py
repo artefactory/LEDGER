@@ -43,7 +43,7 @@ REPO_ROOT = HERE.parent
 
 DEFAULT_OCR_ROOT = REPO_ROOT / "DeepSeekOCR_Ardian_pruned_1k"
 DEFAULT_KPIS_LONG = HERE / "output" / "kpis_long.csv"
-DEFAULT_ALIASES = HERE / "kpi_aliases.json"
+DEFAULT_ALIASES = HERE / "kpi_fetch_and_build" / "kpi_aliases.json"
 DEFAULT_QUERIES_DIR = HERE / "queries"
 DEFAULT_ALT_NAMES = REPO_ROOT / "tickers_lists" / "companies_alt_names.json"
 DEFAULT_OUTPUT_DIR = HERE / "output" / "qrels"

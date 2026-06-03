@@ -69,7 +69,7 @@ with `pred_value[year] == gt_value[year-1]` to within rounding. Affected ~296
 of 671 wrong rows on the first Qwen3.6-27B-FP8 run (~44% of the wrong
 bucket); recall was understated by ~7 points.
 
-**Root cause:** `KPI_analysis/_fiscal.filer_fy_from_period_end` used to fire
+**Root cause:** `KPI_analysis/kpi_fetch_and_build/_fiscal.filer_fy_from_period_end` used to fire
 year-1 for any period-end in months 1–3. That's right for early-Jan 52/53-week
 US retailers like AAP/COST/AZO (whose "fiscal 2021" period ends Jan 1, 2022),
 but wrong for US filers ending in late March, who state explicitly in their

@@ -6,7 +6,7 @@ It is also passed verbatim to vLLM via ``response_format={"type":
 LLM's output to exactly this shape.
 
 The ``KpiKey`` Literal is the closed set of 31 canonical KPI keys defined in
-``KPI_analysis/tags.py:KPI_DEFS``. xgrammar enforces it at decode time, so
+``KPI_analysis/kpi_fetch_and_build/tags.py:KPI_DEFS``. xgrammar enforces it at decode time, so
 the LLM cannot invent a KPI name that fails the downstream join with
 ``kpis_long.csv``. The runtime assertion at the bottom of this module fails
 fast if ``KPI_DEFS`` and ``KpiKey`` ever drift apart.
@@ -21,7 +21,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "kpi_fetch_and_build"))
 from tags import KPI_DEFS  # noqa: E402
 
 

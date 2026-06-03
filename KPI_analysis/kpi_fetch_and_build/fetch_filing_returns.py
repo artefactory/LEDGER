@@ -26,9 +26,9 @@ record, so they're skipped by default. Pass --include-non-us to attempt them
 anyway (they will all surface "no CIK"; useful as a no-op smoke test).
 
 Usage:
-  uv run python KPI_analysis/fetch_filing_returns.py --selected --years 2017-2022
-  uv run python KPI_analysis/fetch_filing_returns.py --tickers AZO ORLY AAP
-  uv run python KPI_analysis/fetch_filing_returns.py --industry "Consumer Cyclical / Auto Parts"
+  uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_filing_returns --selected --years 2017-2022
+  uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_filing_returns --tickers AZO ORLY AAP
+  uv run python -m KPI_analysis.kpi_fetch_and_build.fetch_filing_returns --industry "Consumer Cyclical / Auto Parts"
 """
 
 from __future__ import annotations
@@ -44,21 +44,33 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 import yfinance as yf
 
-import edgar
-import edgar_filings as ef
-from fetch_kpis import (
-    US_EXCHANGES,
-    parse_year_range,
-    tickers_from_args,
-    tickers_from_csv,
-    tickers_from_selected,
-)
+try:
+    from . import edgar
+    from . import edgar_filings as ef
+    from .fetch_kpis import (
+        US_EXCHANGES,
+        parse_year_range,
+        tickers_from_args,
+        tickers_from_csv,
+        tickers_from_selected,
+    )
+except ImportError:
+    import edgar
+    import edgar_filings as ef
+    from fetch_kpis import (
+        US_EXCHANGES,
+        parse_year_range,
+        tickers_from_args,
+        tickers_from_csv,
+        tickers_from_selected,
+    )
 
 ET = ZoneInfo("America/New_York")
 
 HERE = Path(__file__).resolve().parent
-OUTPUT_DIR = HERE / "output"
-CACHE_DIR = HERE / "cache"
+KPI_ROOT = HERE.parent
+OUTPUT_DIR = KPI_ROOT / "output"
+CACHE_DIR = KPI_ROOT / "cache"
 PRICES_CACHE = CACHE_DIR / "prices"
 DEFAULT_BENCHMARK = "SPY"
 DEFAULT_OUT_CSV = OUTPUT_DIR / "filing_returns.csv"

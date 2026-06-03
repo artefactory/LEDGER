@@ -19,7 +19,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 KPI_DIR = HERE.parent
 REPO_ROOT = KPI_DIR.parent
-sys.path.insert(0, str(KPI_DIR))
+sys.path.insert(0, str(KPI_DIR / "kpi_fetch_and_build"))
 
 from tags import KPI_DEFS
 

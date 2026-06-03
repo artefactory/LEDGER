@@ -30,10 +30,14 @@ from typing import Any, Iterable
 
 import requests
 
-from _fiscal import filer_fy_from_string as _filer_fy_from_string
+try:
+    from ._fiscal import filer_fy_from_string as _filer_fy_from_string
+except ImportError:
+    from _fiscal import filer_fy_from_string as _filer_fy_from_string
 
 HERE = Path(__file__).resolve().parent
-CACHE_ROOT = HERE / "cache"
+KPI_ROOT = HERE.parent
+CACHE_ROOT = KPI_ROOT / "cache"
 CACHE_DIR = CACHE_ROOT / "alphavantage"
 BUDGET_PATH = CACHE_ROOT / "alphavantage_budget.json"
 DEFAULT_KEYS_PATH = HERE / "alpha_venture_API_keys.txt"

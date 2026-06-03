@@ -36,8 +36,12 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-from _fiscal import filer_fy_from_string as _filer_fy_from_string
-from edgar import CACHE_DIR, _headers, _limiter
+try:
+    from ._fiscal import filer_fy_from_string as _filer_fy_from_string
+    from .edgar import CACHE_DIR, _headers, _limiter
+except ImportError:
+    from _fiscal import filer_fy_from_string as _filer_fy_from_string
+    from edgar import CACHE_DIR, _headers, _limiter
 
 ET = ZoneInfo("America/New_York")
 SUBMISSIONS_URL = "https://data.sec.gov/submissions/CIK{cik}.json"
