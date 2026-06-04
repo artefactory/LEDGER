@@ -25,7 +25,7 @@ REPO_ROOT = KPI_DIR.parent
 
 DEFAULT_KPIS_LONG = KPI_DIR / "output" / "kpis_long.csv"
 DEFAULT_ALT_NAMES = REPO_ROOT / "tickers_lists" / "companies_alt_names.json"
-DEFAULT_QUERIES_DIR = KPI_DIR / "queries"
+DEFAULT_QUERIES_DIR = KPI_DIR / "retrieval_bench" / "queries"
 DEFAULT_OCR_ROOT = REPO_ROOT / "DeepSeekOCR_Ardian_pruned_1k"
 DEFAULT_OUTPUT_DIR = NEEDLE_DIR
 
