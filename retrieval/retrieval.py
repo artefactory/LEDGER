@@ -184,8 +184,13 @@ class Page(PageMeta):
         if not text:
             return None
         return cls(
-            ref.report, ref.exchange, ref.ticker, ref.year,
-            page, f"{ref.report}#p{page}", text,
+            ref.report,
+            ref.exchange,
+            ref.ticker,
+            ref.year,
+            page,
+            f"{ref.report}#p{page}",
+            text,
         )
 
 
@@ -198,8 +203,15 @@ class DocRecord(PageMeta):
 
     @classmethod
     def from_page(cls, p: Page, snippet_chars: NonNeg) -> DocRecord:
-        return cls(p.report, p.exchange, p.ticker, p.year, p.page, p.docid,
-                   p.text[:snippet_chars])
+        return cls(
+            p.report,
+            p.exchange,
+            p.ticker,
+            p.year,
+            p.page,
+            p.docid,
+            p.text[:snippet_chars],
+        )
 
     @classmethod
     def from_json(cls, line: bytes) -> DocRecord:
@@ -250,8 +262,13 @@ class ScoredHit:
     doc: DocRecord
 
     @classmethod
-    def at(cls, rank: Positive, docid: DocId, score: float,
-           docstore: dict[DocId, DocRecord]) -> ScoredHit:
+    def at(
+        cls,
+        rank: Positive,
+        docid: DocId,
+        score: float,
+        docstore: dict[DocId, DocRecord],
+    ) -> ScoredHit:
         rec = docstore.get(docid)
         if rec is None:
             raise KeyError(
@@ -286,8 +303,13 @@ class Layout:
     @classmethod
     def under(cls, output_dir: Path, method: Method) -> Layout:
         base = output_dir / method
-        return cls(base / "index", base / "ids.json", base / "docstore.jsonl",
-                   base / "run.trec", base / "results.jsonl")
+        return cls(
+            base / "index",
+            base / "ids.json",
+            base / "docstore.jsonl",
+            base / "run.trec",
+            base / "results.jsonl",
+        )
 
 
 # --- discovery + page iteration --------------------------------------------- #
@@ -303,14 +325,17 @@ def discover_mmd(root: Path) -> dict[str, tuple[ReportRef, Path]]:
             if ref is None:
                 continue
             cur = chosen.get(ref.report)
-            if cur is None or (cur[1].stem.endswith("_det")
-                               and not Path(fn).stem.endswith("_det")):
+            if cur is None or (
+                cur[1].stem.endswith("_det") and not Path(fn).stem.endswith("_det")
+            ):
                 chosen[ref.report] = (ref, Path(dirpath) / fn)
     return chosen
 
 
 @beartype
-def iter_pages(root: Path, marker_re: re.Pattern, limit: Positive | None) -> Iterator[Page]:
+def iter_pages(
+    root: Path, marker_re: re.Pattern, limit: Positive | None
+) -> Iterator[Page]:
     """Yield one ``Page`` per non-empty page of every discovered report."""
     chosen = discover_mmd(root)
     names = sorted(chosen)[:limit] if limit is not None else sorted(chosen)
@@ -318,8 +343,11 @@ def iter_pages(root: Path, marker_re: re.Pattern, limit: Positive | None) -> Ite
     for report in names:
         ref, path = chosen[report]
         raw = path.read_text(encoding="utf-8", errors="replace")
-        pages = [p for i, seg in enumerate(marker_re.split(raw))
-                 if (p := Page.from_segment(ref, i, seg)) is not None]
+        pages = [
+            p
+            for i, seg in enumerate(marker_re.split(raw))
+            if (p := Page.from_segment(ref, i, seg)) is not None
+        ]
         total += len(pages)
         logging.info("[index] %s: %d pages", report, len(pages))
         yield from pages
@@ -339,8 +367,11 @@ def write_docstore(pages: list[Page], path: Path, snippet_chars: NonNeg) -> None
 def read_docstore(path: Path) -> dict[DocId, DocRecord]:
     if not path.is_file():
         raise FileNotFoundError(f"docstore not found: {path} — run `index` first.")
-    out = {(r := DocRecord.from_json(line)).docid: r
-           for line in path.read_bytes().splitlines() if line.strip()}
+    out = {
+        (r := DocRecord.from_json(line)).docid: r
+        for line in path.read_bytes().splitlines()
+        if line.strip()
+    }
     if not out:
         raise ValueError(f"docstore is empty: {path}")
     return out
@@ -361,8 +392,9 @@ def read_ids(path: Path) -> list[DocId]:
 
 
 @beartype
-def write_trec(queries: list[Query], results: dict[str, list[ScoredHit]],
-               path: Path, tag: NonBlank) -> None:
+def write_trec(
+    queries: list[Query], results: dict[str, list[ScoredHit]], path: Path, tag: NonBlank
+) -> None:
     """TREC run: ``qid Q0 docid rank score tag`` (one line per hit)."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
@@ -372,8 +404,12 @@ def write_trec(queries: list[Query], results: dict[str, list[ScoredHit]],
 
 
 @beartype
-def write_results_jsonl(queries: list[Query], results: dict[str, list[ScoredHit]],
-                        path: Path, report: str | None) -> None:
+def write_results_jsonl(
+    queries: list[Query],
+    results: dict[str, list[ScoredHit]],
+    path: Path,
+    report: str | None,
+) -> None:
     """Human-readable companion to run.trec, one ``QueryResult`` per line."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("wb") as f:
@@ -424,8 +460,10 @@ class Bm25Engine:
 
         retriever = bm25s.BM25.load(str(index_dir))
         pos, scores = retriever.retrieve(bm25s.tokenize(texts, stopwords="en"), k=k)
-        return [[(int(p), float(s)) for p, s in zip(pos[q], scores[q])]
-                for q in range(len(texts))]
+        return [
+            [(int(p), float(s)) for p, s in zip(pos[q], scores[q])]
+            for q in range(len(texts))
+        ]
 
 
 @beartype
@@ -454,8 +492,10 @@ class SpladeEngine:
         from splade_index import SPLADE
 
         res = SPLADE.load(str(index_dir), model=self._encoder()).retrieve(texts, k=k)
-        return [[(int(p), float(s)) for p, s in zip(res.doc_ids[q], res.scores[q])]
-                for q in range(len(texts))]
+        return [
+            [(int(p), float(s)) for p, s in zip(res.doc_ids[q], res.scores[q])]
+            for q in range(len(texts))
+        ]
 
 
 @beartype
@@ -498,30 +538,46 @@ class ColbertEngine:
     def _index(self, index_dir: Path, override: bool):
         from pylate import indexes
 
-        return indexes.PLAID(index_folder=str(index_dir), index_name=self.index_name,
-                             override=override, nbits=self.nbits,
-                             kmeans_niters=self.kmeans_niters)
+        return indexes.PLAID(
+            index_folder=str(index_dir),
+            index_name=self.index_name,
+            override=override,
+            nbits=self.nbits,
+            kmeans_niters=self.kmeans_niters,
+        )
 
     def index(self, texts: list[str], index_dir: Path) -> None:
         index_dir.mkdir(parents=True, exist_ok=True)
         embeddings = self._encoder().encode(
-            texts, batch_size=self.batch_size, is_query=False,
-            show_progress_bar=self.show_progress)
+            texts,
+            batch_size=self.batch_size,
+            is_query=False,
+            show_progress_bar=self.show_progress,
+            max_length=self.doc_length,
+        )
         # Corpus position is the PLAID docid; the caller maps it back via ids.json.
         self._index(index_dir, override=True).add_documents(
             documents_ids=[str(i) for i in range(len(texts))],
-            documents_embeddings=embeddings)
+            documents_embeddings=embeddings,
+        )
 
     def search(self, index_dir: Path, texts: list[str], k: Positive) -> Ranked:
         from pylate import retrieve
 
         embeddings = self._encoder().encode(
-            texts, batch_size=self.batch_size, is_query=True,
-            show_progress_bar=self.show_progress)
+            texts,
+            batch_size=self.batch_size,
+            is_query=True,
+            show_progress_bar=self.show_progress,
+        )
         index = self._index(index_dir, override=False)
-        ranked = retrieve.ColBERT(index=index).retrieve(queries_embeddings=embeddings, k=k)
-        return [[(int(h["id"]), float(h["score"])) for h in ranked[q]]
-                for q in range(len(texts))]
+        ranked = retrieve.ColBERT(index=index).retrieve(
+            queries_embeddings=embeddings, k=k
+        )
+        return [
+            [(int(h["id"]), float(h["score"])) for h in ranked[q]]
+            for q in range(len(texts))
+        ]
 
 
 Engine = Union[Bm25Engine, SpladeEngine, ColbertEngine]
@@ -544,16 +600,31 @@ class Searcher:
     @classmethod
     def load(cls, layout: Layout, engine: Engine) -> Searcher:
         if not layout.index_dir.is_dir():
-            sys.exit(f"[query] no index at {layout.index_dir} — run "
-                     f"`index --method {engine.name}` first.")
-        return cls(engine, read_ids(layout.ids), read_docstore(layout.docstore),
-                   layout.index_dir)
+            sys.exit(
+                f"[query] no index at {layout.index_dir} — run "
+                f"`index --method {engine.name}` first."
+            )
+        return cls(
+            engine,
+            read_ids(layout.ids),
+            read_docstore(layout.docstore),
+            layout.index_dir,
+        )
 
-    def retrieve(self, queries: list[Query], *, top_k: Positive, pool: Positive,
-                 report: str | None) -> dict[str, list[ScoredHit]]:
+    def retrieve(
+        self,
+        queries: list[Query],
+        *,
+        top_k: Positive,
+        pool: Positive,
+        report: str | None,
+    ) -> dict[str, list[ScoredHit]]:
         if report is not None and REPORT_RE.match(report) is None:
-            logging.warning("[query] --report %r isn't EXCHANGE_TICKER_YEAR; "
-                            "filtering on the docid prefix anyway.", report)
+            logging.warning(
+                "[query] --report %r isn't EXCHANGE_TICKER_YEAR; "
+                "filtering on the docid prefix anyway.",
+                report,
+            )
         # With --report we over-retrieve a deep pool, then keep that report's pages.
         depth = min(max(pool, top_k) if report else top_k, len(self.ids))
         ranked = self.engine.search(self.index_dir, [q.text for q in queries], depth)
@@ -561,12 +632,20 @@ class Searcher:
         for q, hits in zip(queries, ranked):
             docid_hits = [(self.ids[p], s) for p, s in hits]
             if report:
-                docid_hits = [(d, s) for d, s in docid_hits if d.startswith(f"{report}#p")]
+                docid_hits = [
+                    (d, s) for d, s in docid_hits if d.startswith(f"{report}#p")
+                ]
                 if not docid_hits:
-                    logging.warning("[query] qid=%s: no %s pages in top %d — raise --pool",
-                                    q.qid, report, depth)
-            out[q.qid] = [ScoredHit.at(r, d, s, self.docstore)
-                          for r, (d, s) in enumerate(docid_hits[:top_k], 1)]
+                    logging.warning(
+                        "[query] qid=%s: no %s pages in top %d — raise --pool",
+                        q.qid,
+                        report,
+                        depth,
+                    )
+            out[q.qid] = [
+                ScoredHit.at(r, d, s, self.docstore)
+                for r, (d, s) in enumerate(docid_hits[:top_k], 1)
+            ]
         return out
 
 
@@ -590,7 +669,9 @@ class IndexConfig:
             iter_pages(self.root, re.compile(self.page_split_marker, re.I), self.limit)
         )
         if not pages:
-            sys.exit(f"[index] no pages under {self.root} — check --root and .mmd naming")
+            sys.exit(
+                f"[index] no pages under {self.root} — check --root and .mmd naming"
+            )
         write_docstore(pages, lay.docstore, self.snippet_chars)
         self.method.index([p.text for p in pages], lay.index_dir)
         write_ids([p.docid for p in pages], lay.ids)
@@ -624,13 +705,19 @@ class QueryConfig:
         lay = Layout.under(self.output_dir, self.method.name)
         queries = self._load_queries()
         searcher = Searcher.load(lay, self.method)
-        results = searcher.retrieve(queries, top_k=self.top_k, pool=self.pool,
-                                    report=self.report)
+        results = searcher.retrieve(
+            queries, top_k=self.top_k, pool=self.pool, report=self.report
+        )
         write_trec(queries, results, lay.run, self.run_tag or self.method.name)
         write_results_jsonl(queries, results, lay.results, self.report)
-        logging.info("[query] %d queries, report=%s, top_k=%d -> %s , %s",
-                     len(queries), self.report or "WHOLE DATASET", self.top_k,
-                     lay.run, lay.results)
+        logging.info(
+            "[query] %d queries, report=%s, top_k=%d -> %s , %s",
+            len(queries),
+            self.report or "WHOLE DATASET",
+            self.top_k,
+            lay.run,
+            lay.results,
+        )
 
 
 # --- CLI: simple_parsing subcommands, wired into abseil's app.run ----------- #
@@ -639,7 +726,8 @@ class Program:
     """Page-level retrieval over DeepSeek-OCR .mmd reports (BM25 + SPLADE + ColBERT)."""
 
     command: Union[IndexConfig, QueryConfig] = subparsers(
-        {"index": IndexConfig, "query": QueryConfig})
+        {"index": IndexConfig, "query": QueryConfig}
+    )
 
 
 @beartype
