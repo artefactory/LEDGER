@@ -80,9 +80,11 @@ from __future__ import annotations
 import argparse
 import csv
 import math
+import os
 import re
 import sys
 import tempfile
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -195,7 +197,8 @@ class SpladeBackend:
         from sentence_transformers import SparseEncoder
 
         # Load the model ONCE and reuse it across every report.
-        self._encoder = SparseEncoder(self.model, device=R.resolve_device(self.device))
+        device = self.device if ":" in self.device else R.resolve_device(self.device)
+        self._encoder = SparseEncoder(self.model, device=device)
 
     def rank(self, doc_texts: list[str], query_texts: list[str], k: int) -> list[list[int]]:
         from splade_index import SPLADE
@@ -222,11 +225,12 @@ class ColbertBackend:
     def __post_init__(self) -> None:
         from pylate import models
 
+        device = self.device if ":" in self.device else R.resolve_device(self.device)
         self._encoder = models.ColBERT(
             model_name_or_path=self.model,
             document_length=self.doc_length,
             query_length=self.query_length,
-            device=R.resolve_device(self.device),
+            device=device,
         )
 
     def rank(self, doc_texts: list[str], query_texts: list[str], k: int) -> list[list[int]]:
@@ -252,16 +256,17 @@ class ColbertBackend:
         return [[int(h["id"]) for h in ranked[q]] for q in range(len(query_texts))]
 
 
-def make_backend(args: argparse.Namespace):
+def make_backend(args: argparse.Namespace, device: str | None = None):
+    dev = device or args.device
     if args.method == "bm25":
         return Bm25Backend(k1=args.k1, b=args.b)
     elif args.method == "colbert":
         return ColbertBackend(
-            model=args.colbert_model, device=args.device,
+            model=args.colbert_model, device=dev,
             doc_length=args.doc_length, query_length=args.query_length,
             batch_size=args.batch_size, nbits=args.nbits,
             kmeans_niters=args.kmeans_niters)
-    return SpladeBackend(model=args.model, device=args.device)
+    return SpladeBackend(model=args.model, device=dev)
 
 
 # --- metrics ---------------------------------------------------------------- #
@@ -414,42 +419,87 @@ def run(args: argparse.Namespace) -> None:
     R.logging.info("[eval] evaluating %d queries across %d reports (method=%s)",
                    sum(len(todo[r]) for r in reports), len(reports), args.method)
 
-    backend = make_backend(args)
+    import queue
+
+    # Determine number of workers and create a pool of backends (one per worker).
+    if args.method == "bm25":
+        n_workers = args.workers or os.cpu_count()
+        backend_queue: queue.Queue = queue.Queue()
+        for _ in range(n_workers):
+            backend_queue.put(make_backend(args))
+    else:
+        import torch
+        n_gpus = torch.cuda.device_count()
+        n_workers = args.workers or n_gpus
+        if n_workers > n_gpus:
+            R.logging.warning("[eval] requested %d workers but only %d GPUs; capping", n_workers, n_gpus)
+            n_workers = n_gpus
+        R.logging.info("[eval] loading %d model instance(s) across %d GPU(s)...", n_workers, n_gpus)
+        backend_queue = queue.Queue()
+        for i in range(n_workers):
+            backend_queue.put(make_backend(args, device=f"cuda:{i}"))
+
     results: list[QueryMetrics] = []
-    # ir_measures cross-check: build the same qrels/run as the hand-rolled metrics.
     ir_qrels: dict[str, dict[str, int]] = {}
     ir_run: dict[str, dict[str, float]] = {}
     misaligned = 0
-    for ri, report in enumerate(reports, 1):
-        ref, path = discovered[report]
-        pages = report_pages(ref, path, marker_re)
-        if not pages:
-            R.logging.warning("[eval] %s: no pages, skipping", report)
-            continue
-        page_ids = [p.page for p in pages]                 # 0-based indices, index order
-        pos_to_page = {i: pg for i, pg in enumerate(page_ids)}
-        qids = todo[report]
-        if args.limit_queries:
-            qids = qids[:args.limit_queries]
-        ranked = backend.rank([p.text for p in pages], [queries[q] for q in qids], k=len(pages))
 
-        valid_pages = set(page_ids)
-        for qid, hit_positions in zip(qids, ranked):
-            ranked_pages = [pos_to_page[p] for p in hit_positions]
-            page_rel = qrels[qid].page_rel
-            misaligned += sum(1 for p, r in page_rel.items()
-                              if r >= args.rel_threshold and p not in valid_pages)
-            results.append(score_query(qid, report, ranked_pages, page_rel,
-                                        args.rel_threshold, k_values, ndcg_cuts))
-            # ir_measures feed: graded qrels (target report only) + a run with
-            # strictly descending scores derived from the rank (higher = better).
-            if not args.no_ir_measures:
-                ir_qrels[qid] = {docid(report, p): r for p, r in page_rel.items()}
-                n_ranked = len(ranked_pages)
-                ir_run[qid] = {docid(report, p): float(n_ranked - i)
-                               for i, p in enumerate(ranked_pages)}
-        if ri % 20 == 0 or ri == len(reports):
-            R.logging.info("[eval] %d/%d reports done", ri, len(reports))
+    def _eval_report(report: str):
+        backend = backend_queue.get()
+        device_id = getattr(backend, 'device', '?')
+        try:
+            ref, path = discovered[report]
+            pages = report_pages(ref, path, marker_re)
+            if not pages:
+                R.logging.warning("[eval] %s: no pages, skipping", report)
+                return None
+            R.logging.info("[eval] %s -> %s | %d pages, %d queries",
+                           report, device_id, len(pages), len(todo[report]))
+            page_ids = [p.page for p in pages]
+            pos_to_page = {i: pg for i, pg in enumerate(page_ids)}
+            qids = todo[report]
+            if args.limit_queries:
+                qids = qids[:args.limit_queries]
+            ranked = backend.rank([p.text for p in pages], [queries[q] for q in qids], k=len(pages))
+
+            valid_pages = set(page_ids)
+            local_results = []
+            local_ir_qrels: dict[str, dict[str, int]] = {}
+            local_ir_run: dict[str, dict[str, float]] = {}
+            local_misaligned = 0
+            for qid, hit_positions in zip(qids, ranked):
+                ranked_pages = [pos_to_page[p] for p in hit_positions]
+                page_rel = qrels[qid].page_rel
+                local_misaligned += sum(1 for p, r in page_rel.items()
+                                        if r >= args.rel_threshold and p not in valid_pages)
+                local_results.append(score_query(qid, report, ranked_pages, page_rel,
+                                                 args.rel_threshold, k_values, ndcg_cuts))
+                if not args.no_ir_measures:
+                    local_ir_qrels[qid] = {docid(report, p): r for p, r in page_rel.items()}
+                    n_ranked = len(ranked_pages)
+                    local_ir_run[qid] = {docid(report, p): float(n_ranked - i)
+                                         for i, p in enumerate(ranked_pages)}
+            return local_results, local_ir_qrels, local_ir_run, local_misaligned
+        finally:
+            backend_queue.put(backend)
+
+    R.logging.info("[eval] processing %d reports with %d worker(s)", len(reports), n_workers)
+
+    done_count = 0
+    with ThreadPoolExecutor(max_workers=n_workers) as executor:
+        futures = {executor.submit(_eval_report, report): report for report in reports}
+        for future in as_completed(futures):
+            done_count += 1
+            result = future.result()
+            if result is None:
+                continue
+            local_results, local_ir_qrels, local_ir_run, local_misaligned = result
+            results.extend(local_results)
+            ir_qrels.update(local_ir_qrels)
+            ir_run.update(local_ir_run)
+            misaligned += local_misaligned
+            if done_count % 20 == 0 or done_count == len(reports):
+                R.logging.info("[eval] %d/%d reports done", done_count, len(reports))
 
     if misaligned:
         R.logging.warning("[eval] %d relevant qrels pages fall outside their report's "
@@ -507,7 +557,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--method", choices=["bm25", "splade", "colbert"], default="bm25")
     p.add_argument("--root", type=Path,
                    default=here.parent / "DeepSeekOCR_Ardian_pruned_1k")
-    p.add_argument("--queries", type=Path, default=here / "queries.csv")
+    # p.add_argument("--queries", type=Path, default=here / "queries.csv")
+    p.add_argument("--queries", type=Path, default=here / "test_set.csv")
+
     p.add_argument("--qrels", type=Path, default=here / "qrels_llm.txt")
     p.add_argument("--output-dir", type=Path, default=here / "output" / "eval")
     p.add_argument("--rel-threshold", type=int, default=1,
@@ -517,6 +569,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--page-split-marker", default=R.DEFAULT_PAGE_SPLIT)
     p.add_argument("--limit-docs", type=int, default=None, help="evaluate only first N reports")
     p.add_argument("--limit-queries", type=int, default=None, help="cap queries per report")
+    p.add_argument("--workers", type=int, default=None,
+                   help="parallel workers for report processing (default: cpu_count for bm25, 1 for GPU)")
     # ir_measures cross-check
     p.add_argument("--ir-measures", default=None,
                    help="space/comma-separated ir_measures spec (e.g. 'AP nDCG@10 R@5 "
