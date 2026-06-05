@@ -18,6 +18,7 @@ CLAUDE.md
 
 sample_data/
 DeepSeekOCR_Ardian_pruned_1k/
+DeepSeekOCR_Ardian_full_6k/
 doc_text_processing/CEO_word_extraction/extractions/
 doc_text_processing/CEO_word_extraction/extractions_full/
 doc_text_processing/CEO_word_extraction/cleaning_extractions/cleaned/
