@@ -84,23 +84,35 @@ def evaluate_binary(quantile: float, horizon: int, y_ret: np.ndarray,
 
     result["skipped"] = False
 
+    import warnings as _warnings
+
     for clf_name, (estimator, feat_key) in classifiers.items():
         X = features[feat_key]
-        try:
-            acc = cross_val_score(estimator, X, y_bin, cv=cv, scoring="accuracy", n_jobs=-1).mean()
-        except ValueError:
-            acc = float("nan")
-        try:
-            auc = cross_val_score(estimator, X, y_bin, cv=cv, scoring="roc_auc", n_jobs=-1).mean()
-        except ValueError:
-            auc = float("nan")
-        try:
-            pr_auc = cross_val_score(estimator, X, y_bin, cv=cv, scoring="average_precision", n_jobs=-1).mean()
-        except ValueError:
-            pr_auc = float("nan")
-        result[f"{clf_name}_accuracy"] = float(acc)
-        result[f"{clf_name}_roc_auc"] = float(auc)
-        result[f"{clf_name}_pr_auc"] = float(pr_auc)
+        is_saga = "l1" in clf_name
+        njobs = 1 if is_saga else -1
+        with _warnings.catch_warnings(record=True) as caught:
+            _warnings.simplefilter("always")
+            try:
+                acc_scores = cross_val_score(estimator, X, y_bin, cv=cv, scoring="accuracy", n_jobs=njobs)
+            except ValueError:
+                acc_scores = np.array([float("nan")])
+            try:
+                auc_scores = cross_val_score(estimator, X, y_bin, cv=cv, scoring="roc_auc", n_jobs=njobs)
+            except ValueError:
+                auc_scores = np.array([float("nan")])
+            try:
+                pr_auc_scores = cross_val_score(estimator, X, y_bin, cv=cv, scoring="average_precision", n_jobs=njobs)
+            except ValueError:
+                pr_auc_scores = np.array([float("nan")])
+        convergence_warns = [w for w in caught if "ConvergenceWarning" in str(w.category.__name__ if hasattr(w.category, '__name__') else w.category)]
+        if convergence_warns:
+            print(f"    ⚠ CONVERGENCE WARNING: clf={clf_name}, h={horizon}, q={quantile}, dir={direction} ({len(convergence_warns)} warns)")
+        result[f"{clf_name}_accuracy"] = float(acc_scores.mean())
+        result[f"{clf_name}_accuracy_std"] = float(acc_scores.std())
+        result[f"{clf_name}_roc_auc"] = float(auc_scores.mean())
+        result[f"{clf_name}_roc_auc_std"] = float(auc_scores.std())
+        result[f"{clf_name}_pr_auc"] = float(pr_auc_scores.mean())
+        result[f"{clf_name}_pr_auc_std"] = float(pr_auc_scores.std())
 
     return result
 

@@ -30,7 +30,7 @@ import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis, QuadraticDiscriminantAnalysis
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.metrics import average_precision_score, make_scorer
@@ -100,7 +100,8 @@ ENCODER_PRESETS = {
     "mpnet": "sentence-transformers/all-mpnet-base-v2",
     "eurobert": EUROBERT_MODEL,
     "baai": "BAAI/bge-large-en-v1.5",
-    "pplx": "perplexity-ai/pplx-embed-v1-0.6b",
+    # "pplx": "perplexity-ai/pplx-embed-v1-0.6b",
+    "baai-m3": "BAAI/bge-m3",
     "mpnet_nli": "sentence-transformers/nli-mpnet-base-v2",
     "modernbert": "nomic-ai/modernbert-embed-base",
     "gemma": "google/embeddinggemma-300m",
@@ -218,20 +219,30 @@ def evaluate_threshold(thr: float, horizon: int, y_ret: np.ndarray,
 
     result["skipped"] = False
 
+    import warnings as _warnings
+
     for clf_name, (estimator, feat_key) in classifiers.items():
         X = features[feat_key]
-        try:
-            acc = cross_val_score(estimator, X, y_3class, cv=cv, scoring="accuracy", n_jobs=-1).mean()
-        except ValueError:
-            acc = float("nan")
-        try:
-            auc = cross_val_score(estimator, X, y_3class, cv=cv, scoring="roc_auc_ovr", n_jobs=-1).mean()
-        except ValueError:
-            auc = float("nan")
-        try:
-            pr_auc = cross_val_score(estimator, X, y_3class, cv=cv, scoring=_pr_auc_ovr_scorer, n_jobs=-1).mean()
-        except ValueError:
-            pr_auc = float("nan")
+        # Use n_jobs=1 for SAGA solvers so convergence warnings are captured
+        is_saga = "l1" in clf_name
+        njobs = 1 if is_saga else -1
+        with _warnings.catch_warnings(record=True) as caught:
+            _warnings.simplefilter("always")
+            try:
+                acc = cross_val_score(estimator, X, y_3class, cv=cv, scoring="accuracy", n_jobs=njobs).mean()
+            except ValueError:
+                acc = float("nan")
+            try:
+                auc = cross_val_score(estimator, X, y_3class, cv=cv, scoring="roc_auc_ovr", n_jobs=njobs).mean()
+            except ValueError:
+                auc = float("nan")
+            try:
+                pr_auc = cross_val_score(estimator, X, y_3class, cv=cv, scoring=_pr_auc_ovr_scorer, n_jobs=njobs).mean()
+            except ValueError:
+                pr_auc = float("nan")
+        convergence_warns = [w for w in caught if "ConvergenceWarning" in str(w.category.__name__ if hasattr(w.category, '__name__') else w.category)]
+        if convergence_warns:
+            print(f"    ⚠ CONVERGENCE WARNING: clf={clf_name}, h={horizon}, thr={thr} ({len(convergence_warns)} warns)")
         result[f"{clf_name}_accuracy"] = float(acc)
         result[f"{clf_name}_roc_auc"] = float(auc)
         result[f"{clf_name}_pr_auc"] = float(pr_auc)
@@ -404,30 +415,57 @@ def encode_embeddings(corpus: list[str], model_name: str) -> tuple[dict, dict, d
     explained_var = pca.explained_variance_ratio_.sum()
     print(f"  PCA: {embed_dim}d -> {PCA_DIM}d (explained variance = {explained_var:.1%})")
 
-    rq_codebooks = residual_quantize_fit(X_raw, RQ_N_LEVELS, RQ_CODEBOOK_SIZE)
-    X_rq = residual_quantize_transform(X_raw, rq_codebooks)
-    print(f"  RQ feature shape: {X_rq.shape}")
 
     logreg = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000, random_state=42))
+
+    # logreg_l2_001 = make_pipeline(StandardScaler(), LogisticRegression(
+    #     C=0.001, l1_ratio=0, max_iter=1000, random_state=42))
+    # logreg_l2_01 = make_pipeline(StandardScaler(), LogisticRegression(
+    #     C=0.01, l1_ratio=0, max_iter=1000, random_state=42))
+    # logreg_l2_1 = make_pipeline(StandardScaler(), LogisticRegression(
+    #     C=0.1, l1_ratio=0, max_iter=1000, random_state=42))
+    
+    
+    # logreg_l1_01 = make_pipeline(StandardScaler(), LogisticRegression(
+    #     C=0.01, l1_ratio=1, solver="saga", max_iter=2000, random_state=42))
+    # logreg_l1_1 = make_pipeline(StandardScaler(), LogisticRegression(
+    #     C=0.1, l1_ratio=1, solver="saga", max_iter=2000, random_state=42))
+    # logreg_l1_10 = make_pipeline(StandardScaler(), LogisticRegression(
+    #     C=1.0, l1_ratio=1, solver="saga", max_iter=10000, random_state=42))
+    
     logreg_l2 = make_pipeline(StandardScaler(), LogisticRegression(
-        C=0.01, l1_ratio=0, max_iter=1000, random_state=42))
+        C=0.01, l1_ratio=0, max_iter=2000, random_state=42))
+
     logreg_l1 = make_pipeline(StandardScaler(), LogisticRegression(
         C=0.1, l1_ratio=1, solver="saga", max_iter=2000, random_state=42))
+    
+    features = {"mnb": X_mnb, "raw": X_raw,  "pca": X_pca}
+    # classifiers = {
+    #     "mnb": (MultinomialNB(), "mnb"),
+    #     "gnb": (GaussianNB(var_smoothing=1e-6), "raw"),
+    #     "lr_pca": (logreg, "pca"),
 
-    features = {"mnb": X_mnb, "raw": X_raw, "rq": X_rq, "pca": X_pca}
+    #     "lr_l2_001": (logreg_l2_001, "raw"),
+    #     "lr_l2_01": (logreg_l2_01, "raw"),
+    #     "lr_l2_1": (logreg_l2_1, "raw"),
+
+    #     "lr_l1_01": (logreg_l1_01, "raw"),
+    #     "lr_l1_1": (logreg_l1_1, "raw"),
+    #     "lr_l1_10": (logreg_l1_10, "raw"),
+
+    #     "lda": (LinearDiscriminantAnalysis(solver="lsqr", shrinkage="auto"), "raw"),
+    # }
     classifiers = {
-        "mnb": (MultinomialNB(), "mnb"),
-        "gnb": (GaussianNB(var_smoothing=1e-6), "raw"),
-        "rq_mnb": (MultinomialNB(), "rq"),
-        "lr_pca": (logreg, "pca"),
+        # "mnb": (MultinomialNB(), "mnb"),
+        # "gnb": (GaussianNB(var_smoothing=1e-6), "raw"),
+        # "lr_pca": (logreg, "pca"),
         "lr_l2": (logreg_l2, "raw"),
         # "lr_l1": (logreg_l1, "raw"),
-        "lda": (LinearDiscriminantAnalysis(solver="lsqr", shrinkage="auto"), "raw"),
+        # "lda": (LinearDiscriminantAnalysis(solver="lsqr", shrinkage="auto"), "raw"),
     }
     metadata = {
         "embed_model": model_name, "embed_dim": embed_dim,
         "pca_dim": PCA_DIM, "pca_explained_var": float(explained_var),
-        "rq_n_levels": RQ_N_LEVELS, "rq_codebook_size": RQ_CODEBOOK_SIZE,
     }
     return features, classifiers, metadata
 
@@ -483,7 +521,7 @@ def _encode_eurobert_raw(corpus: list[str], model_name: str) -> tuple[np.ndarray
     n_batches = (len(corpus) + batch_size - 1) // batch_size
     for i in range(0, len(corpus), batch_size):
         batch = corpus[i:i + batch_size]
-        inputs = tokenizer(batch, return_tensors="pt", padding=True, truncation=True, max_length=512).to(device)
+        inputs = tokenizer(batch, return_tensors="pt", padding=True, truncation=True, max_length=2048).to(device)
         with torch.no_grad():
             outputs = lm_model(**inputs)
         mask = inputs["attention_mask"].unsqueeze(-1).float()
