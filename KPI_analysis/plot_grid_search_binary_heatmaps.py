@@ -245,8 +245,8 @@ def plot_combined_heatmaps(neg_results, pos_results, clf_names, horizons, quanti
         hoverinfo='text',
         colorscale='RdYlGn',
         zmid=0,
-        zmin=-0.15,
-        zmax=0.15,
+        zmin=-0.4,
+        zmax=0.4,
         colorbar=dict(title=auc_cbar),
     ))
     fig_auc.add_vline(x=sep_pos, line_dash="dot", line_color="gray", line_width=2)
@@ -282,8 +282,8 @@ def plot_combined_heatmaps(neg_results, pos_results, clf_names, horizons, quanti
         hoverinfo='text',
         colorscale='RdYlGn',
         zmid=0,
-        zmin=-0.15,
-        zmax=0.15,
+        zmin=-0.4,
+        zmax=0.4,
         colorbar=dict(title=pr_cbar),
     ))
     fig_pr.add_vline(x=sep_pos, line_dash="dot", line_color="gray", line_width=2)
@@ -316,8 +316,8 @@ def plot_combined_heatmaps(neg_results, pos_results, clf_names, horizons, quanti
         hoverinfo='text',
         colorscale='RdBu',
         zmid=0,
-        zmin=-0.15,
-        zmax=0.15,
+        zmin=-0.4,
+        zmax=0.4,
         colorbar=dict(title=acc_cbar),
     ))
     fig_acc.add_vline(x=sep_pos, line_dash="dot", line_color="gray", line_width=2)
