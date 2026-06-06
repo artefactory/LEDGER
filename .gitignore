@@ -18,10 +18,14 @@ CLAUDE.md
 
 sample_data/
 DeepSeekOCR_Ardian_pruned_1k/
-DeepSeekOCR_Ardian_full_6k/
+DeepSeekOCR_Ardian_full_9k/
+DeepSeekOCR_Ardian_evaluation_set_reports/
+DeepSeekOCR_Ardian_with_kpis_no_eval/
 doc_text_processing/CEO_word_extraction/extractions/
 doc_text_processing/CEO_word_extraction/extractions_full/
 doc_text_processing/CEO_word_extraction/cleaning_extractions/cleaned/
+
+hf_output/
 
 # raw data files, we keep summaries as md files
 *.json
@@ -47,3 +51,7 @@ TODO.md
 # LaTeX files
 
 paper_latex/
+KPI_analysis/llm_benchmark/needle_haystack/output/mistralai__Ministral-3-14B-Instruct-2512/responses.jsonl
+KPI_analysis/llm_benchmark/needle_haystack/output/nvidia__NVIDIA-Nemotron-3-Nano-30B-A3B-FP8/responses.jsonl
+KPI_analysis/llm_benchmark/needle_haystack/output/openai__gpt-oss-20b/responses.jsonl
+KPI_analysis/llm_benchmark/needle_haystack/output/Qwen__Qwen3.6-27B-FP8/responses.jsonl
