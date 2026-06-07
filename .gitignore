@@ -26,6 +26,8 @@ doc_text_processing/CEO_word_extraction/extractions/
 doc_text_processing/CEO_word_extraction/extractions_full/
 doc_text_processing/CEO_word_extraction/cleaning_extractions/cleaned/
 
+MarketSentimentPredictionData/
+
 hf_output/
 
 # raw data files, we keep summaries as md files
