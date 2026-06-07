@@ -289,9 +289,8 @@ The only new dependency is `requests`, which is already pulled in transitively
 by `yfinance`. No extra `uv add` needed.
 
 SEC requires every request to carry a descriptive `User-Agent` header with
-contact info (see https://www.sec.gov/os/accessing-edgar-data). We default to
-`"ardian-dataset-bench research (charles.moslonka@artefact.com)"`. Override by
-exporting:
+contact info (see https://www.sec.gov/os/accessing-edgar-data). Set yours up
+by exporting:
 
 ```bash
 export SEC_USER_AGENT="Your Name your@email"
