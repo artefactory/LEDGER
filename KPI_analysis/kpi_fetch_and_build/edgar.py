@@ -36,7 +36,7 @@ CACHE_DIR = Path(__file__).resolve().parent.parent / "cache"
 TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers.json"
 COMPANYFACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
 DEFAULT_USER_AGENT = (
-    "Artefact Research Center (dataset constitution) (charles.moslonka@artefact.com)"
+    "LEDGER data fetch"
 )
 MIN_REQUEST_INTERVAL = 0.4  # seconds; SEC allows 10 req/s but let's be nice
 
