@@ -11,6 +11,8 @@ Heuristic B (money-context):
 Selection strategies:
 - money: use only money-context markers (higher recall; default).
 - overlap: use intersection of pair-based and money-context markers (higher precision).
+- td_prefix: replace all "<td>\(" and "<td>\)" at the start of table cells
+  (excludes cells containing LaTeX commands or comparison operators after the marker).
 
 Always-on exact rule:
 - Replace exact table cell markers "<td>\(</td>" and "<td>\)</td>".
@@ -32,6 +34,10 @@ MONEY_PHRASE_RE = re.compile(
 )
 MATHISH_RE = re.compile(r"^\s*[_\^]?\s*\{")
 EXACT_TD_RE = re.compile(r"<td>(\\\(|\\\))</td>")
+TD_PREFIX_RE = re.compile(r"<td>(\\\(|\\\))")
+TD_PREFIX_EXCLUDE_RE = re.compile(
+    r"^\s*(?:\\[a-zA-Z]|[<>]\s*\d|&[lg]t;\s*\d)",  # LaTeX commands (\leq), comparisons (> 3), HTML entities (&gt; 3)
+)
 
 
 def iter_mmd_files(root: Path) -> Iterable[Path]:
@@ -83,6 +89,22 @@ def select_exact_td_markers(text: str) -> set[int]:
     return {m.start(1) for m in EXACT_TD_RE.finditer(text)}
 
 
+def select_td_prefix_markers(text: str) -> set[int]:
+    r"""Select markers at the start of table cells: <td>\( or <td>\).
+
+    Excludes cells where the content after the marker looks like LaTeX math
+    (e.g. \leq, \geq) or a comparison operator (> 3 years).
+    """
+    selected: set[int] = set()
+    for m in TD_PREFIX_RE.finditer(text):
+        pos = m.start(1)
+        after = text[pos + 2 : pos + 30]
+        if TD_PREFIX_EXCLUDE_RE.match(after):
+            continue
+        selected.add(pos)
+    return selected
+
+
 def apply_replacements(
     text: str, markers: list[tuple[int, str]], positions: set[int]
 ) -> tuple[str, int]:
@@ -112,11 +134,14 @@ def process_file(path: Path, dry_run: bool, strategy: str) -> dict[str, int]:
     money_positions = select_money_context_markers(text, markers)
     overlap = user_positions & money_positions
     td_exact_positions = select_exact_td_markers(text)
+    td_prefix_positions = select_td_prefix_markers(text)
 
     if strategy == "money":
         selected_positions = money_positions | td_exact_positions
     elif strategy == "overlap":
         selected_positions = overlap | td_exact_positions
+    elif strategy == "td_prefix":
+        selected_positions = td_prefix_positions
     else:
         raise ValueError(f"Unknown strategy: {strategy}")
 
@@ -132,6 +157,7 @@ def process_file(path: Path, dry_run: bool, strategy: str) -> dict[str, int]:
         "money": len(money_positions),
         "overlap": len(overlap),
         "td_exact": len(td_exact_positions),
+        "td_prefix": len(td_prefix_positions),
         "replaced": replaced,
         "changed": changed,
     }
@@ -159,11 +185,12 @@ def main() -> int:
     )
     parser.add_argument(
         "--strategy",
-        choices=("money", "overlap"),
+        choices=("money", "overlap", "td_prefix"),
         default="money",
         help=(
-            "Replacement selection strategy: 'money' (higher recall, default) "
-            "or 'overlap' (higher precision)."
+            "Replacement selection strategy: 'money' (higher recall, default), "
+            "'overlap' (higher precision), or 'td_prefix' (replace <td>\\( and "
+            "<td>\\) at start of table cells)."
         ),
     )
     args = parser.parse_args()
@@ -179,6 +206,7 @@ def main() -> int:
         "money": 0,
         "overlap": 0,
         "td_exact": 0,
+        "td_prefix": 0,
         "replaced": 0,
         "changed": 0,
     }
@@ -191,6 +219,7 @@ def main() -> int:
         totals["money"] += stats["money"]
         totals["overlap"] += stats["overlap"]
         totals["td_exact"] += stats["td_exact"]
+        totals["td_prefix"] += stats["td_prefix"]
         totals["replaced"] += stats["replaced"]
         totals["changed"] += stats["changed"]
 
@@ -206,6 +235,7 @@ def main() -> int:
     print(f"MONEY_HEURISTIC_TOTAL={totals['money']}")
     print(f"OVERLAP_TOTAL={totals['overlap']}")
     print(f"EXACT_TD_TOTAL={totals['td_exact']}")
+    print(f"TD_PREFIX_TOTAL={totals['td_prefix']}")
     print(f"REPLACEMENTS={totals['replaced']}")
     print(f"FILES_CHANGED={totals['changed']}")
 
