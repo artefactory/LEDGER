@@ -2,15 +2,15 @@
 
 **Long-context Evaluation of Documents for Grounded Extraction and Retrieval**
 
-A benchmark of 6,100 OCR'd corporate annual reports with ~30 consolidated financial KPIs per company-year, natural-language questions with page-level relevance judgments, and market-reaction linkage. Built to evaluate retrieval and extraction systems on genuinely long, visually dense financial documents (median 115 pages, ~104k tokens per report).
+A benchmark of 4,999 OCR'd corporate annual reports with 31 consolidated financial KPIs per company-year, natural-language questions with page-level relevance judgments, and market-reaction linkage. Built to evaluate retrieval and extraction systems on genuinely long, visually dense financial documents (median 124 pages, ~126k tokens per report).
 
 The resource induces three evaluation tasks of increasing difficulty over the same documents and ground truth:
 
 | Task | Description | Scale |
 |---|---|---|
-| **Page-level KPI retrieval** | Given a natural-language KPI question, find the relevant page(s) in the corresponding report. TREC-style graded qrels (0/1/2). | ~64,000 questions, 392,484 candidate (query, page) pairs |
+| **Page-level KPI retrieval** | Given a natural-language KPI question, find the relevant page(s) in the corresponding report. TREC-style graded qrels (0/1/2). | 118,048 questions, 2,054,279 candidate (query, page) pairs |
 | **Needle-in-a-haystack** | Feed an entire OCR'd report (~100k tokens) and extract a single specified KPI as structured JSON. | 10,000 questions over 494 reports |
-| **Multi-KPI extraction** | Extract all ~30 KPIs from a report in a single pass under a constrained-decoding JSON schema. | 494 reports, 13,455 ground-truth cells |
+| **Multi-KPI extraction** | Extract all 31 KPIs from a report in a single pass under a constrained-decoding JSON schema. | 494 reports, 13,519 ground-truth cells |
 
 A fourth **case study** links CEO/Chairman letter rhetoric to earnings surprise and post-publication returns, demonstrating cross-modal research utility beyond model benchmarking.
 
@@ -62,7 +62,7 @@ ardian-dataset-bench/
 
 For every (company, year, KPI) triple, a natural-language question is generated (company names sourced from DBPedia for semantic variability, question templates via Gemma). Given a query, the task is to retrieve the relevant page(s) from the corresponding OCR'd report. Relevance is graded on a 0/1/2 scale (not relevant / contextual mention / primary source) using unit-normalized value matching, with an LLM judge for grading.
 
-Baselines compare lexical BM25, learned-sparse SPLADE, and the dense late-interaction retriever ColBERT. ColBERT consistently outperforms but MRR tops out at 0.449 — dense numerical pages remain exceptionally hard for off-the-shelf retrievers.
+Baselines compare lexical BM25, learned-sparse SPLADE, and the dense late-interaction retriever ColBERT. ColBERT consistently outperforms but MRR tops out at 0.475 — dense numerical pages remain exceptionally hard for off-the-shelf retrievers.
 
 ```bash
 # Index OCR'd pages with BM25
@@ -93,7 +93,7 @@ uv run python KPI_analysis/generate_qrels.py --industry "Auto Parts" --search-fu
 
 A model receives an entire OCR'd report (~100k tokens) and must locate and transcribe a single specified KPI as a structured JSON object (`found`, `value`, `unit_scale`, `page`). Matched within ±1% of ground truth (±0.05% for strict match). Prefix caching cuts prefill by ~21x, making full-corpus evaluation tractable on a single GPU server.
 
-The strongest baseline (Qwen3.6-27B) reaches 93.6% recall at 95.8% precision. A model with systematic unit-scaling errors (Nemotron) collapses to 15.8%.
+The strongest baseline (Qwen3.6-27B) reaches 91.4% recall at 93.5% precision. A model with systematic unit-scaling errors (Nemotron) collapses to 15.0%.
 
 #### Serving the model
 
@@ -142,7 +142,7 @@ Writes `output/<model-slug>/summary.md` with headline metrics (accuracy, precisi
 
 ### 3. Multi-KPI extraction
 
-The hardest task: extract all ~30 KPIs from a report in a single pass under constrained decoding, scored against 13,455 ground-truth labels. Single-value skill does not transfer — Ministral (second-best at needle, 90.7%) collapses to 42.6% recall under structured extraction, while Nemotron recovers to 67.6% once schema constraints suppress its scaling error. No model exceeds 80% recall, establishing the task as an open challenge.
+The hardest task: extract all 31 KPIs from a report in a single pass under constrained decoding, scored against 13,519 ground-truth labels. Single-value skill does not transfer — Ministral (second-best at needle, 87.9%) collapses to 41.4% recall under structured extraction, while Nemotron recovers to 65.5% once schema constraints suppress its scaling error. No model exceeds 80% recall, establishing the task as an open challenge.
 
 Uses the same vLLM server as the needle benchmark (see above for serving instructions).
 
@@ -171,7 +171,7 @@ Writes `output/<model-slug>/summary.md` with recall/precision, plus per-KPI, per
 
 ### Case study: CEO-letter rhetoric → market reaction
 
-Extracts 542 CEO/Chairman letters from non-10-K reports, trains L2-regularized linear probes on frozen encoder embeddings to predict EPS surprise and 90-day post-filing returns. Several encoder/target combinations land well above the random baseline (PR-AUC up to 0.47 vs 0.10 random), indicating a genuine textual signal in corporate rhetoric.
+Extracts 314 CEO/Chairman letters from non-10-K reports, trains L2-regularized linear probes on frozen encoder embeddings to predict EPS surprise and 90-day post-filing returns. Several encoder/target combinations land well above the random baseline (PR-AUC up to 0.47 vs 0.10 random), indicating a genuine textual signal in corporate rhetoric.
 
 ---
 
@@ -208,7 +208,7 @@ uv run python doc_text_processing/CEO_word_extraction/extract_letters.py
 
 ### Stage 3 — KPI extraction & dataset build (`KPI_analysis/`)
 
-31 consolidated KPIs across the three financial statements (income, balance sheet, cash flow) are fetched via a three-tier source waterfall: SEC EDGAR XBRL for U.S. listings, yfinance for non-U.S., and Alpha Vantage as opt-in gap-fill. Fiscal-year keying handles 52/53-week retailers. The result is 37,282 audited facts with per-KPI yearly coverage above 85%.
+31 consolidated KPIs across the three financial statements (income, balance sheet, cash flow) are fetched via a three-tier source waterfall: SEC EDGAR XBRL for U.S. listings, yfinance for non-U.S., and Alpha Vantage as opt-in gap-fill. Fiscal-year keying handles 52/53-week retailers. The result is 118,048 audited facts with per-KPI yearly coverage above 85%.
 
 ```bash
 # Fetch KPIs for all selected companies
