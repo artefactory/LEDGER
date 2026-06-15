@@ -1,5 +1,5 @@
 def main():
-    print("Hello from ardian-dataset-bench!")
+    print("Hello from LEDGER!")
 
 
 if __name__ == "__main__":
