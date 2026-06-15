@@ -35,6 +35,7 @@ hf_output/
 *.txt
 *.csv
 
+
 # KPI_analysis artifacts
 KPI_analysis/cache/
 KPI_analysis/output/
@@ -66,3 +67,4 @@ KPI_analysis/llm_benchmark/needle_haystack/output/Qwen__Qwen3.6-27B-FP8/response
 
 !KPI_analysis/find_more_queries/full_6k/all_companies_alt_names.json
 !KPI_analysis/kpi_fetch_and_build/kpi_aliases.json
+!doc_text_processing/CEO_word_extraction/expressions.txt
