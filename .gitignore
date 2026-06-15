@@ -54,7 +54,15 @@ TODO.md
 # LaTeX files
 
 paper_latex/
+
+# JSONL responses files from LLM benchmark, we keep the summaries as md files
 KPI_analysis/llm_benchmark/needle_haystack/output/mistralai__Ministral-3-14B-Instruct-2512/responses.jsonl
 KPI_analysis/llm_benchmark/needle_haystack/output/nvidia__NVIDIA-Nemotron-3-Nano-30B-A3B-FP8/responses.jsonl
 KPI_analysis/llm_benchmark/needle_haystack/output/openai__gpt-oss-20b/responses.jsonl
 KPI_analysis/llm_benchmark/needle_haystack/output/Qwen__Qwen3.6-27B-FP8/responses.jsonl
+
+
+# Exceptions : important files for reproducibility
+
+!KPI_analysis/find_more_queries/full_6k/all_companies_alt_names.json
+!KPI_analysis/kpi_fetch_and_build/kpi_aliases.json
