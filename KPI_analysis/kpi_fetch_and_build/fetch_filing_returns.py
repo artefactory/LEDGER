@@ -145,7 +145,9 @@ class EventWindow:
     t0: pd.Timestamp  # last trading-day close BEFORE news public
     t1: pd.Timestamp  # first trading-day close AFTER news public
     t5: pd.Timestamp | None  # t1 + 4 trading days (None if not enough history)
-    filing_window_class: str  # 'pre_market' / 'intraday' / 'after_hours' / 'non_trading_day'
+    filing_window_class: (
+        str  # 'pre_market' / 'intraday' / 'after_hours' / 'non_trading_day'
+    )
 
 
 def classify_filing_window(
@@ -249,46 +251,80 @@ def compute_filing_return(
     filing, has_amendment = ef.find_original_10k(filings, year)
     if filing is None:
         return FilingReturnRow(
-            ticker=ticker, year=year, accession=None, form=None,
-            filing_date=None, report_date=None,
-            acceptance_dt_utc=None, acceptance_dt_et=None,
-            filing_window_class=None, has_amendment=has_amendment,
-            t0=None, t1=None, t5=None,
-            r_1d=None, r_5d=None,
-            spy_r_1d=None, spy_r_5d=None,
-            a_1d=None, a_5d=None,
-            industry_r_1d=None, industry_r_5d=None,
-            industry_volume_t1=None, industry_volume_t5=None,
-            industry_volatility_t1=None, industry_volatility_t5=None,
-            unbiased_a_1d=None, unbiased_a_5d=None,
-            unbiased_volume_t1=None, unbiased_volume_t5=None,
-            unbiased_volatility_t1=None, unbiased_volatility_t5=None,
-
+            ticker=ticker,
+            year=year,
+            accession=None,
+            form=None,
+            filing_date=None,
+            report_date=None,
+            acceptance_dt_utc=None,
+            acceptance_dt_et=None,
+            filing_window_class=None,
+            has_amendment=has_amendment,
+            t0=None,
+            t1=None,
+            t5=None,
+            r_1d=None,
+            r_5d=None,
+            spy_r_1d=None,
+            spy_r_5d=None,
+            a_1d=None,
+            a_5d=None,
+            industry_r_1d=None,
+            industry_r_5d=None,
+            industry_volume_t1=None,
+            industry_volume_t5=None,
+            industry_volatility_t1=None,
+            industry_volatility_t5=None,
+            unbiased_a_1d=None,
+            unbiased_a_5d=None,
+            unbiased_volume_t1=None,
+            unbiased_volume_t5=None,
+            unbiased_volatility_t1=None,
+            unbiased_volatility_t5=None,
             error=f"no original 10-K for FY{year}",
         )
 
     window = classify_filing_window(filing.acceptance_dt_utc, prices.index)
     if window is None:
         return FilingReturnRow(
-            ticker=ticker, year=year, accession=filing.accession, form=filing.form,
-            filing_date=filing.filing_date, report_date=filing.report_date,
+            ticker=ticker,
+            year=year,
+            accession=filing.accession,
+            form=filing.form,
+            filing_date=filing.filing_date,
+            report_date=filing.report_date,
             acceptance_dt_utc=filing.acceptance_dt_utc.isoformat(),
             acceptance_dt_et=ef.acceptance_in_et(filing).isoformat(),
-            filing_window_class=None, has_amendment=has_amendment,
-            t0=None, t1=None, t5=None,
-            r_1d=None, r_5d=None,
-            spy_r_1d=None, spy_r_5d=None,
-            a_1d=None, a_5d=None, 
-            industry_r_1d=None, industry_r_5d=None,
-            industry_volume_t1=None, industry_volume_t5=None,
-            industry_volatility_t1=None, industry_volatility_t5=None,
-            unbiased_a_1d=None, unbiased_a_5d=None,
-            unbiased_volume_t1=None, unbiased_volume_t5=None,
-            unbiased_volatility_t1=None, unbiased_volatility_t5=None,
+            filing_window_class=None,
+            has_amendment=has_amendment,
+            t0=None,
+            t1=None,
+            t5=None,
+            r_1d=None,
+            r_5d=None,
+            spy_r_1d=None,
+            spy_r_5d=None,
+            a_1d=None,
+            a_5d=None,
+            industry_r_1d=None,
+            industry_r_5d=None,
+            industry_volume_t1=None,
+            industry_volume_t5=None,
+            industry_volatility_t1=None,
+            industry_volatility_t5=None,
+            unbiased_a_1d=None,
+            unbiased_a_5d=None,
+            unbiased_volume_t1=None,
+            unbiased_volume_t5=None,
+            unbiased_volatility_t1=None,
+            unbiased_volatility_t5=None,
             error="insufficient price history around filing",
         )
-    
-    def _value_at(idx: pd.DatetimeIndex, frame: pd.DataFrame, ts: pd.Timestamp, col: str) -> float | None:
+
+    def _value_at(
+        idx: pd.DatetimeIndex, frame: pd.DataFrame, ts: pd.Timestamp, col: str
+    ) -> float | None:
         if ts not in idx:
             return None
         try:
@@ -296,52 +332,107 @@ def compute_filing_return(
         except (KeyError, ValueError, TypeError):
             return None
 
-    
-
     returns_t1 = _value_at(prices.index, prices, window.t0, "return_t1")
-    returns_t5 = _value_at(prices.index, prices, window.t0, "return_t5") if window.t5 is not None else None
+    returns_t5 = (
+        _value_at(prices.index, prices, window.t0, "return_t5")
+        if window.t5 is not None
+        else None
+    )
 
     volume_t1 = _value_at(prices.index, prices, window.t1, "Volume_ATS")
-    volume_t5 = _value_at(prices.index, prices, window.t5, "Volume_ATS") if window.t5 is not None else None
+    volume_t5 = (
+        _value_at(prices.index, prices, window.t5, "Volume_ATS")
+        if window.t5 is not None
+        else None
+    )
 
     volatility_t1 = _value_at(prices.index, prices, window.t1, "Volatility")
-    volatility_t5 = _value_at(prices.index, prices, window.t5, "Volatility") if window.t5 is not None else None
-    
+    volatility_t5 = (
+        _value_at(prices.index, prices, window.t5, "Volatility")
+        if window.t5 is not None
+        else None
+    )
 
     spy_r_1d = spy_r_5d = a_1d = a_5d = None
     if spy_prices is not None:
         spy_r_1d = _value_at(spy_prices.index, spy_prices, window.t1, "returns")
-        a_1d = (returns_t1 - spy_r_1d) if returns_t1 is not None and spy_r_1d is not None else None
-        
+        a_1d = (
+            (returns_t1 - spy_r_1d)
+            if returns_t1 is not None and spy_r_1d is not None
+            else None
+        )
+
         if window.t5 is not None:
             spy_r_5d = _value_at(spy_prices.index, spy_prices, window.t5, "returns")
-            a_5d = (returns_t5 - spy_r_5d) if returns_t5 is not None and spy_r_5d is not None else None
-            
+            a_5d = (
+                (returns_t5 - spy_r_5d)
+                if returns_t5 is not None and spy_r_5d is not None
+                else None
+            )
+
     industry_r_1d = industry_r_5d = None
     industry_volume_t1 = industry_volume_t5 = None
     industry_volatility_t1 = industry_volatility_t5 = None
     if industry_indicators is not None:
-        industry_r_1d = _value_at(industry_indicators.index, industry_indicators, window.t0, "return_t1")
-        industry_volume_t1 = _value_at(industry_indicators.index, industry_indicators, window.t1, "volumes")
-        industry_volatility_t1 = _value_at(industry_indicators.index, industry_indicators, window.t1, "volatility")
+        industry_r_1d = _value_at(
+            industry_indicators.index, industry_indicators, window.t0, "return_t1"
+        )
+        industry_volume_t1 = _value_at(
+            industry_indicators.index, industry_indicators, window.t1, "volumes"
+        )
+        industry_volatility_t1 = _value_at(
+            industry_indicators.index, industry_indicators, window.t1, "volatility"
+        )
 
-        unbiased_a_1d = (returns_t1 - industry_r_1d) if returns_t1 is not None and industry_r_1d is not None else None
-        unbiased_volume_t1 = (volume_t1 - industry_volume_t1) if volume_t1 is not None and industry_volume_t1 is not None else None
-        unbiased_volatility_t1 = (volatility_t1 - industry_volatility_t1) if volatility_t1 is not None and industry_volatility_t1 is not None else None
+        unbiased_a_1d = (
+            (returns_t1 - industry_r_1d)
+            if returns_t1 is not None and industry_r_1d is not None
+            else None
+        )
+        unbiased_volume_t1 = (
+            (volume_t1 - industry_volume_t1)
+            if volume_t1 is not None and industry_volume_t1 is not None
+            else None
+        )
+        unbiased_volatility_t1 = (
+            (volatility_t1 - industry_volatility_t1)
+            if volatility_t1 is not None and industry_volatility_t1 is not None
+            else None
+        )
         if window.t5 is not None:
-            industry_r_5d = _value_at(industry_indicators.index, industry_indicators, window.t0, "return_t5")
-            industry_volume_t5 = _value_at(industry_indicators.index, industry_indicators, window.t5, "volumes")
-            industry_volatility_t5 = _value_at(industry_indicators.index, industry_indicators, window.t5, "volatility")
+            industry_r_5d = _value_at(
+                industry_indicators.index, industry_indicators, window.t0, "return_t5"
+            )
+            industry_volume_t5 = _value_at(
+                industry_indicators.index, industry_indicators, window.t5, "volumes"
+            )
+            industry_volatility_t5 = _value_at(
+                industry_indicators.index, industry_indicators, window.t5, "volatility"
+            )
 
-            unbiased_a_5d = (returns_t5 - industry_r_5d) if returns_t5 is not None and industry_r_5d is not None else None
-            unbiased_volume_t5 = (volume_t5 - industry_volume_t5) if volume_t5 is not None and industry_volume_t5 is not None else None
-            unbiased_volatility_t5 = (volatility_t5 - industry_volatility_t5) if volatility_t5 is not None and industry_volatility_t5 is not None else None
-
+            unbiased_a_5d = (
+                (returns_t5 - industry_r_5d)
+                if returns_t5 is not None and industry_r_5d is not None
+                else None
+            )
+            unbiased_volume_t5 = (
+                (volume_t5 - industry_volume_t5)
+                if volume_t5 is not None and industry_volume_t5 is not None
+                else None
+            )
+            unbiased_volatility_t5 = (
+                (volatility_t5 - industry_volatility_t5)
+                if volatility_t5 is not None and industry_volatility_t5 is not None
+                else None
+            )
 
     return FilingReturnRow(
-        ticker=ticker, year=year,
-        accession=filing.accession, form=filing.form,
-        filing_date=filing.filing_date, report_date=filing.report_date,
+        ticker=ticker,
+        year=year,
+        accession=filing.accession,
+        form=filing.form,
+        filing_date=filing.filing_date,
+        report_date=filing.report_date,
         acceptance_dt_utc=filing.acceptance_dt_utc.isoformat(),
         acceptance_dt_et=ef.acceptance_in_et(filing).isoformat(),
         filing_window_class=window.filing_window_class,
@@ -349,15 +440,24 @@ def compute_filing_return(
         t0=window.t0.date().isoformat(),
         t1=window.t1.date().isoformat(),
         t5=window.t5.date().isoformat() if window.t5 is not None else None,
-        r_1d=returns_t1, r_5d=returns_t5,
-        spy_r_1d=spy_r_1d, spy_r_5d=spy_r_5d,
-        a_1d=a_1d, a_5d=a_5d,
-        industry_r_1d=industry_r_1d, industry_r_5d=industry_r_5d,
-        industry_volume_t1=industry_volume_t1, industry_volume_t5=industry_volume_t5,
-        industry_volatility_t1=industry_volatility_t1, industry_volatility_t5=industry_volatility_t5,
-        unbiased_a_1d=unbiased_a_1d, unbiased_a_5d=unbiased_a_5d,
-        unbiased_volume_t1=unbiased_volume_t1, unbiased_volume_t5=unbiased_volume_t5,
-        unbiased_volatility_t1=unbiased_volatility_t1, unbiased_volatility_t5=unbiased_volatility_t5,
+        r_1d=returns_t1,
+        r_5d=returns_t5,
+        spy_r_1d=spy_r_1d,
+        spy_r_5d=spy_r_5d,
+        a_1d=a_1d,
+        a_5d=a_5d,
+        industry_r_1d=industry_r_1d,
+        industry_r_5d=industry_r_5d,
+        industry_volume_t1=industry_volume_t1,
+        industry_volume_t5=industry_volume_t5,
+        industry_volatility_t1=industry_volatility_t1,
+        industry_volatility_t5=industry_volatility_t5,
+        unbiased_a_1d=unbiased_a_1d,
+        unbiased_a_5d=unbiased_a_5d,
+        unbiased_volume_t1=unbiased_volume_t1,
+        unbiased_volume_t5=unbiased_volume_t5,
+        unbiased_volatility_t1=unbiased_volatility_t1,
+        unbiased_volatility_t5=unbiased_volatility_t5,
         error=None,
     )
 
@@ -366,14 +466,70 @@ def compute_filing_return(
 
 
 FIELDNAMES = [
-    "ticker", "year", "accession", "form",
-    "filing_date", "report_date", "acceptance_dt_utc", "acceptance_dt_et",
-    "filing_window_class", "has_amendment",
-    "t0", "t1", "t5",
-    "close_t0", "close_t1", "close_t5",
-    "r_1d", "r_5d", "spy_r_1d", "spy_r_5d", "a_1d", "a_5d",
+    "ticker",
+    "year",
+    "accession",
+    "form",
+    "filing_date",
+    "report_date",
+    "acceptance_dt_utc",
+    "acceptance_dt_et",
+    "filing_window_class",
+    "has_amendment",
+    "t0",
+    "t1",
+    "t5",
+    "close_t0",
+    "close_t1",
+    "close_t5",
+    "r_1d",
+    "r_5d",
+    "spy_r_1d",
+    "spy_r_5d",
+    "a_1d",
+    "a_5d",
     "error",
 ]
+
+
+def _entries_from_ocr_dir(
+    ocr_dir: Path,
+) -> tuple[list[dict[str, str]], dict[str, list[int]]]:
+    """Parse {EXCHANGE}_{TICKER}_{YEAR} subdirectory names.
+
+    Returns:
+      entries: list of {"ticker": ..., "exchange": ..., "name": "", "industry": ""}
+      per_ticker_years: dict mapping ticker -> sorted list of years present
+    """
+    import re
+
+    per_ticker_years: dict[str, list[int]] = {}
+    ticker_exchange: dict[str, str] = {}
+    for child in sorted(ocr_dir.iterdir()):
+        if not child.is_dir():
+            continue
+        parts = child.name.rsplit("_", 1)
+        if len(parts) != 2 or not re.fullmatch(r"\d{4}", parts[1]):
+            continue
+        year = int(parts[1])
+        prefix = parts[0]
+        # Split exchange from ticker: first underscore separates exchange
+        exch_ticker = prefix.split("_", 1)
+        if len(exch_ticker) != 2:
+            continue
+        exchange, ticker = exch_ticker
+        per_ticker_years.setdefault(ticker, []).append(year)
+        ticker_exchange[ticker] = exchange
+
+    # Sort years per ticker
+    for t in per_ticker_years:
+        per_ticker_years[t] = sorted(set(per_ticker_years[t]))
+
+    entries = [
+        {"ticker": t, "name": "", "exchange": ticker_exchange[t], "industry": ""}
+        for t in sorted(ticker_exchange)
+    ]
+    return entries, per_ticker_years
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -384,23 +540,46 @@ def main(argv: list[str] | None = None) -> int:
     src.add_argument("--tickers", nargs="+", help="Explicit ticker list.")
     src.add_argument("--industry", help="Industry key from selected/companies.json.")
     src.add_argument(
-        "--selected", action="store_true",
+        "--selected",
+        action="store_true",
         help="All companies in selected/companies.json.",
     )
     src.add_argument("--csv", type=Path, help="Path to a *_mapped_clean*.csv file.")
+    src.add_argument(
+        "--ocr-dir",
+        type=Path,
+        help="Directory of OCR subdirs named {EXCHANGE}_{TICKER}_{YEAR}. "
+        "Extracts tickers and per-ticker year lists from directory names.",
+    )
     p.add_argument("--years", default="2017-2022")
-    p.add_argument("--benchmark", default=DEFAULT_BENCHMARK,
-                   help=f"Benchmark ticker for alpha (default: {DEFAULT_BENCHMARK}).")
-    p.add_argument("--no-benchmark", action="store_true",
-                   help="Skip benchmark fetch; alpha columns will be empty.")
+    p.add_argument(
+        "--benchmark",
+        default=DEFAULT_BENCHMARK,
+        help=f"Benchmark ticker for alpha (default: {DEFAULT_BENCHMARK}).",
+    )
+    p.add_argument(
+        "--no-benchmark",
+        action="store_true",
+        help="Skip benchmark fetch; alpha columns will be empty.",
+    )
     p.add_argument("--out", type=Path, default=DEFAULT_OUT_CSV)
-    p.add_argument("--refresh-cache", action="store_true",
-                   help="Re-download submissions JSON, prices, and ticker->CIK map.")
-    p.add_argument("--include-non-us", action="store_true",
-                   help="Don't pre-filter to US listings (non-US will surface 'no CIK').")
+    p.add_argument(
+        "--refresh-cache",
+        action="store_true",
+        help="Re-download submissions JSON, prices, and ticker->CIK map.",
+    )
+    p.add_argument(
+        "--include-non-us",
+        action="store_true",
+        help="Don't pre-filter to US listings (non-US will surface 'no CIK').",
+    )
     args = p.parse_args(argv)
 
     years = parse_year_range(args.years)
+
+    # Per-ticker year override: populated only by --ocr-dir so that each
+    # ticker is queried only for years actually present in the directory.
+    per_ticker_years: dict[str, list[int]] | None = None
 
     if args.tickers:
         entries = tickers_from_args(args.tickers)
@@ -413,8 +592,21 @@ def main(argv: list[str] | None = None) -> int:
         entries = tickers_from_selected()
     elif args.csv:
         entries = tickers_from_csv(args.csv)
+    elif args.ocr_dir:
+        entries, per_ticker_years = _entries_from_ocr_dir(args.ocr_dir)
+        if not entries:
+            print(f"No valid subdirs found in {args.ocr_dir}", file=sys.stderr)
+            return 2
+        # Override years to the full union found in the directory.
+        all_years = sorted({y for yrs in per_ticker_years.values() for y in yrs})
+        years = all_years
+        print(
+            f"Parsed {len(entries)} tickers from {args.ocr_dir} "
+            f"(years {min(years)}-{max(years)})",
+            file=sys.stderr,
+        )
     else:
-        p.error("Must pass --tickers / --industry / --selected / --csv")
+        p.error("Must pass --tickers / --industry / --selected / --csv / --ocr-dir")
         return 2
 
     if not args.include_non_us:
@@ -430,7 +622,7 @@ def main(argv: list[str] | None = None) -> int:
     # company-level so duplicates would just emit identical rows.
     seen: set[str] = set()
     deduped: list[dict[str, str]] = []
-    print('entries', entries)
+    print("entries", entries)
     for e in entries:
         if e["ticker"] in seen:
             continue
@@ -460,7 +652,6 @@ def main(argv: list[str] | None = None) -> int:
                 file=sys.stderr,
             )
 
-
     rows: list[FilingReturnRow] = []
     for i, entry in enumerate(entries, 1):
         ticker = entry["ticker"]
@@ -472,27 +663,31 @@ def main(argv: list[str] | None = None) -> int:
         cik = edgar.ticker_to_cik(ticker, mapping=cik_map)
         if cik is None:
             print(f"[{i:>4}/{len(entries)}] {ticker:<8} - no CIK; skipping all years")
-            for year in years:
+            for year in ticker_years:
                 rows.append(_skip_row(ticker, year, "no CIK in EDGAR ticker map"))
             continue
 
         filings = ef.all_annual_filings(cik, refresh=args.refresh_cache)
         if not filings:
             print(f"[{i:>4}/{len(entries)}] {ticker:<8} - no annual filings on EDGAR")
-            for year in years:
+            for year in ticker_years:
                 rows.append(_skip_row(ticker, year, "no 10-K/20-F on EDGAR"))
             continue
 
-        prices = fetch_prices(ticker, bench_start, bench_end, refresh=args.refresh_cache)
+        prices = fetch_prices(
+            ticker, bench_start, bench_end, refresh=args.refresh_cache
+        )
         if prices is None or prices.empty:
             print(f"[{i:>4}/{len(entries)}] {ticker:<8} - no prices on yfinance")
-            for year in years:
+            for year in ticker_years:
                 rows.append(_skip_row(ticker, year, "no yfinance prices"))
             continue
 
         per_year_summary: list[str] = []
         for year in years:
-            row = compute_filing_return(ticker, year, filings, prices, spy_prices, industry_indicators)
+            row = compute_filing_return(
+                ticker, year, filings, prices, spy_prices, industry_indicators
+            )
             rows.append(row)
             print(row)
             if row.error:
@@ -501,9 +696,7 @@ def main(argv: list[str] | None = None) -> int:
                 per_year_summary.append(f"{year}=na")
             else:
                 per_year_summary.append(f"{year}={row.r_1d:+.2%}")
-        print(
-            f"[{i:>4}/{len(entries)}] {ticker:<8} {' '.join(per_year_summary)}"
-        )
+        print(f"[{i:>4}/{len(entries)}] {ticker:<8} {' '.join(per_year_summary)}")
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open("w", newline="") as f:
@@ -525,20 +718,37 @@ def main(argv: list[str] | None = None) -> int:
 
 def _skip_row(ticker: str, year: int, error: str) -> FilingReturnRow:
     return FilingReturnRow(
-        ticker=ticker, year=year, accession=None, form=None,
-        filing_date=None, report_date=None,
-        acceptance_dt_utc=None, acceptance_dt_et=None,
-        filing_window_class=None, has_amendment=False,
-        t0=None, t1=None, t5=None,
-        r_1d=None, r_5d=None,
-        spy_r_1d=None, spy_r_5d=None,
-        a_1d=None, a_5d=None,
-        industry_r_1d=None, industry_r_5d=None,
-        industry_volume_t1=None, industry_volume_t5=None,
-        industry_volatility_t1=None, industry_volatility_t5=None,
-        unbiased_a_1d=None, unbiased_a_5d=None,
-        unbiased_volume_t1=None, unbiased_volume_t5=None,
-        unbiased_volatility_t1=None, unbiased_volatility_t5=None,
+        ticker=ticker,
+        year=year,
+        accession=None,
+        form=None,
+        filing_date=None,
+        report_date=None,
+        acceptance_dt_utc=None,
+        acceptance_dt_et=None,
+        filing_window_class=None,
+        has_amendment=False,
+        t0=None,
+        t1=None,
+        t5=None,
+        r_1d=None,
+        r_5d=None,
+        spy_r_1d=None,
+        spy_r_5d=None,
+        a_1d=None,
+        a_5d=None,
+        industry_r_1d=None,
+        industry_r_5d=None,
+        industry_volume_t1=None,
+        industry_volume_t5=None,
+        industry_volatility_t1=None,
+        industry_volatility_t5=None,
+        unbiased_a_1d=None,
+        unbiased_a_5d=None,
+        unbiased_volume_t1=None,
+        unbiased_volume_t5=None,
+        unbiased_volatility_t1=None,
+        unbiased_volatility_t5=None,
         error=error,
     )
 
