@@ -5,7 +5,7 @@ Output layout (under hf_output/needle/):
     hf_output/needle/
     ├── README.md                  # dataset card (generated)
     ├── eval/                      # "eval" config
-    │   ├── data.parquet           # one row per query: query_id, query_text, value, kpi, ticker, year, exchange, company_name, industry, mmd_text
+    │   ├── data.parquet           # one row per query: query_id, report_full_text, query_text, answer_value, ...
     │   └── mmd/                   # raw .mmd files (one per report)
     │       └── {EX}_{TICK}_{YEAR}.mmd
     └── no_eval/                   # "no_eval" config (placeholder for future)
@@ -13,7 +13,15 @@ Output layout (under hf_output/needle/):
         └── mmd/
 
 Each parquet row = one query targeting one KPI value in one annual report.
-The mmd_text column contains the full OCR text of the corresponding report.
+The report_full_text column contains the full OCR text of the corresponding report.
+
+Column order (most interesting first):
+    query_id, report_full_text, query_text, answer_value, company_name,
+    kpi, ticker, year, exchange, industry, source, tag, qrels
+
+History note (2026-08-23): ``mmd_text`` was renamed to ``report_full_text``
+and ``value`` to ``answer_value``; column order was also updated for the
+Hugging Face viewer.
 """
 
 import argparse
@@ -31,7 +39,7 @@ NEEDLE_DIR = REPO_ROOT / "KPI_analysis" / "llm_benchmark" / "needle_haystack"
 
 DEFAULTS = {
     "eval": {
-        "test_set": NEEDLE_DIR / "test_set.csv",
+        "test_set": NEEDLE_DIR / "test_set_filtered_name.csv",
         "kpi_csv": REPO_ROOT
         / "KPI_analysis/find_more_queries/full_6k/kpi_long_eval.csv",
         "reports": REPO_ROOT / "DeepSeekOCR_Ardian_evaluation_set_reports",
@@ -128,6 +136,27 @@ def find_mmd_path(
     return None
 
 
+# Desired viewer column order (most interesting first).
+# 1) query_id, 2) report_full_text (renamed mmd_text), 3) query_text,
+# 4) answer_value (renamed value), 5) company_name, 6) kpi, ticker, year, exchange,
+# then remaining.
+DESIRED_COLUMN_ORDER = [
+    "query_id",
+    "report_full_text",
+    "query_text",
+    "answer_value",
+    "company_name",
+    "kpi",
+    "ticker",
+    "year",
+    "exchange",
+    "industry",
+    "source",
+    "tag",
+    "qrels",
+]
+
+
 def build_needle_dataframe(
     queries: list[dict[str, str]],
     gt_index: dict[str, dict],
@@ -136,7 +165,8 @@ def build_needle_dataframe(
 ) -> pd.DataFrame:
     """Join queries with ground truth, mmd text, and qrels.
 
-    Returns a DataFrame with one row per query.
+    Returns a DataFrame with one row per query, already ordered and
+    renamed for the HF viewer (report_full_text / answer_value).
     """
     rows = []
     mmd_cache: dict[str, str | None] = {}  # report_id -> mmd text (cached)
@@ -173,18 +203,18 @@ def build_needle_dataframe(
         rows.append(
             {
                 "query_id": qid,
+                "report_full_text": mmd_text,
                 "query_text": q["query_text"],
-                "ticker": gt["ticker"],
-                "exchange": gt["exchange"],
+                "answer_value": gt["value"],
                 "company_name": gt["company_name"],
-                "industry": gt["industry"],
-                "year": gt["year"],
                 "kpi": gt["kpi"],
-                "value": gt["value"],
+                "ticker": gt["ticker"],
+                "year": gt["year"],
+                "exchange": gt["exchange"],
+                "industry": gt["industry"],
                 "source": gt["source"],
                 "tag": gt["tag"],
                 "qrels": qrels,
-                "mmd_text": mmd_text,
             }
         )
 
@@ -196,7 +226,11 @@ def build_needle_dataframe(
     if missing_mmd:
         print(f"  WARNING: {missing_mmd} queries had no .mmd file", file=sys.stderr)
 
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    # Enforce viewer column order (no-op if empty)
+    if not df.empty:
+        df = df[DESIRED_COLUMN_ORDER]
+    return df
 
 
 def copy_mmd_files(df: pd.DataFrame, reports_dir: Path, dest_dir: Path):
@@ -262,6 +296,11 @@ The model must locate that figure in a ~100k-token OCR'd Markdown document and
 return it as a numeric value in raw single units. Predictions are scored against
 ground-truth values from SEC EDGAR / yfinance / Alpha Vantage.
 
+> **Note (2026-08-23) — column rename & reorder:** `mmd_text` was renamed to `report_full_text`
+> and `value` to `answer_value` for clarity and better viewer ordering. Columns are now ordered
+> `query_id, report_full_text, query_text, answer_value, company_name, kpi, ticker, year, exchange, industry, source, tag, qrels`.
+> If you used `row["mmd_text"]` or `row["value"]` before, update to `row["report_full_text"]` and `row["answer_value"]`.
+
 ### Configs
 
 | Config | Queries | Reports | Purpose |
@@ -271,27 +310,28 @@ ground-truth values from SEC EDGAR / yfinance / Alpha Vantage.
 
 ### Schema
 
-Each row in the parquet files contains:
+Each row in the parquet files contains (viewer order):
 
 | Column | Type | Description |
 |--------|------|-------------|
 | `query_id` | string | Unique query identifier (`{{ticker}}_{{kpi}}_{{year}}`) |
+| `report_full_text` | string | Full OCR text of the annual report (Markdown with page splits) — formerly `mmd_text` |
 | `query_text` | string | Natural-language question |
-| `ticker` | string | Stock ticker symbol |
-| `exchange` | string | Stock exchange (NYSE, NASDAQ, LSE, AMEX, ASX, OTC) |
+| `answer_value` | float64 | Ground-truth KPI value (raw single units) — formerly `value` |
 | `company_name` | string | Company long name |
-| `industry` | string | Industry classification |
-| `year` | int | Fiscal year |
 | `kpi` | string | KPI key (e.g. `revenue`, `net_income`, `total_assets`) |
-| `value` | float64 | Ground-truth KPI value (raw single units) |
+| `ticker` | string | Stock ticker symbol |
+| `year` | int | Fiscal year |
+| `exchange` | string | Stock exchange (NYSE, NASDAQ, LSE, AMEX, ASX, OTC) |
+| `industry` | string | Industry classification |
 | `source` | string | Data source (`edgar`, `yfinance`, `alphavantage`) |
 | `tag` | string | XBRL tag or derivation method used |
 | `qrels` | list[{{doc_id: str, relevance: int}}] | Page-level relevance judgments (TREC grades 0/1/2) |
-| `mmd_text` | string | Full OCR text of the annual report (Markdown with page splits) |
+
 
 ### Additional Files
 
-- `eval/mmd/` and `no_eval/mmd/`: Raw `.mmd` files (same text as the `mmd_text` column).
+- `eval/mmd/` and `no_eval/mmd/`: Raw `.mmd` files (same text as the `report_full_text` column).
 
 ### OCR Format
 
@@ -317,8 +357,8 @@ ds = load_dataset("ardian/ardian-needle-haystack", "eval")
 # Each row is one query
 row = ds["test"][0]
 print(row["query_text"])   # natural-language question
-print(row["value"])        # ground-truth answer
-print(len(row["mmd_text"]))  # ~500k chars of OCR text
+print(row["answer_value"])        # ground-truth answer (formerly `value`)
+print(len(row["report_full_text"]))  # ~500k chars of OCR text (formerly `mmd_text`)
 
 # Page-level relevance judgments (for retrieval evaluation)
 relevant_pages = [q for q in row["qrels"] if q["relevance"] == 2]
@@ -380,10 +420,18 @@ def prepare_config(
     else:
         print("  No qrels available (column will be empty lists)")
 
-    # Build dataframe
+    # Build dataframe (already ordered/renamed inside build_needle_dataframe)
     print("\n[3/4] Joining queries with ground truth, mmd text, and qrels...")
     df = build_needle_dataframe(queries, gt_index, reports_dir, qrels_index)
     print(f"  Final rows: {len(df):,}")
+    # Defensive: enforce order even if build_needle_dataframe was bypassed
+    if not df.empty and list(df.columns) != DESIRED_COLUMN_ORDER:
+        df = df.rename(
+            columns={"mmd_text": "report_full_text", "value": "answer_value"}
+        )
+        # Keep only desired columns that exist (support legacy callers)
+        cols = [c for c in DESIRED_COLUMN_ORDER if c in df.columns]
+        df = df[cols]
     n_reports = df[["exchange", "ticker", "year"]].drop_duplicates().shape[0]
     print(f"  Unique reports: {n_reports:,}")
     if qrels_index:
